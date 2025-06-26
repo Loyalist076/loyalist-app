@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "npm install"
+    "build": "npm install",
+    "pm2:start": "pm2 start server.js --name loyallist-backend",
+    "pm2:stop": "pm2 stop loyallist-backend",
+    "pm2:restart": "pm2 restart loyallist-backend",
+    "pm2:delete": "pm2 delete loyallist-backend",
+    "pm2:list": "pm2 list"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +26,7 @@
     "mongoose": "^8.15.1",
     "multer": "^2.0.1",
     "nodemon": "^3.1.10",
+    "pm2": "^6.0.8",
     "socket.io": "^4.8.1"
   }
 }
