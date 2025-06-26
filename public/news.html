@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus News</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 50px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #D4B248;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #D4B248;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .news-card {
+      background: #fff;
+      padding: 20px;
+      border-left: 5px solid #D4B248;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .action-buttons {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .action-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #D4B248;
+      color: white;
+      padding: 8px 14px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .action-buttons a:hover {
+      background-color: #bfa032;
+    }
+
+    .site-footer {
+      background-color: #000;
+      color: #ddd;
+      padding: 40px 20px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 30px;
+    }
+
+    .footer-container h4 {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-container a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-column,
+    .quick-links,
+    .social-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ddd;
+    }
+
+    .social-icons a:hover {
+      color: #FFD700;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .quick-links ul {
+        display: inline-block;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="image/loyalist logo-03.png" alt="Logo" />
+      </a>
+    </div>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="statements.html">Statements</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <header class="hero">
+    <h1>News</h1>
+    <p>Stay updated with the latest happenings at our campus</p>
+  </header>
+
+  <section class="news-grid" id="newsContainer">
+    <!-- News cards will be inserted here dynamically -->
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p><strong>Email:</strong> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+16472961270">+1 647‑296‑1270</a></p>
+        <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#investors">Investors</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div><br />
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    async function fetchNewsPDFs() {
+      try {
+        const res = await fetch('/api/pdf');
+        const data = await res.json();
+
+        const container = document.getElementById('newsContainer');
+        container.innerHTML = '';
+
+        if (!data.length) {
+          container.innerHTML = '<p>No newsletters found.</p>';
+          return;
+        }
+
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          card.innerHTML = `
+            <strong>📄 ${item.title}</strong>
+            <div class="action-buttons">
+              <a href="${item.url}" target="_blank" rel="noopener noreferrer">🔍 View</a>
+              <a href="${item.url}" download>📥 PDF</a>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error('❌ Failed to load PDFs:', error);
+        document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load newsletters.</p>';
+      }
+    }
+
+    window.onload = fetchNewsPDFs;
+  </script>
+</body>
+
+</html>
