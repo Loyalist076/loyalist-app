@@ -21,14 +21,34 @@ function closeModal() {
 }
 // pop up welcome message
 
+ document.addEventListener("DOMContentLoaded", () => {
+  // Close popup
   function closePopup() {
-    document.getElementById('welcomePopup').style.display = 'none';
+    const popup = document.getElementById('welcomePopup');
+    if (popup) popup.style.display = 'none';
   }
 
+  // Subscribe function
   async function subscribe() {
-    const email = document.getElementById('subscriberEmail').value.trim();
+    const emailInput = document.getElementById('subscriberEmail');
+    const popupContent = document.querySelector('.popup-content');
+
+    // Create or reuse a status message element inside the popup
+    let statusBox = document.getElementById('subscribeStatus');
+    if (!statusBox) {
+      statusBox = document.createElement('div');
+      statusBox.id = 'subscribeStatus';
+      statusBox.style.marginTop = '10px';
+      statusBox.style.fontWeight = 'bold';
+      popupContent.appendChild(statusBox);
+    }
+
+    const email = emailInput.value.trim();
+    statusBox.style.display = 'block';
+
     if (email === '') {
-      alert("Please enter your email address.");
+      statusBox.innerText = "⚠️ Please enter your email address.";
+      statusBox.style.color = "red";
       return;
     }
 
@@ -40,19 +60,31 @@ function closeModal() {
       });
 
       const data = await res.json();
+
       if (!res.ok) {
-        alert(data.message || 'Something went wrong.');
+        statusBox.innerText = data.message || '❌ Subscription failed.';
+        statusBox.style.color = 'red';
         return;
       }
 
-      alert("Thank you for subscribing!");
-      closePopup();
+      statusBox.innerText = "✅ Thank you for subscribing!";
+      statusBox.style.color = "green";
+      emailInput.value = '';
+      setTimeout(closePopup, 2000); // Close popup after 2s
+
     } catch (error) {
-      alert("Error subscribing.");
       console.error(error);
+      statusBox.innerText = "❌ Network or server error.";
+      statusBox.style.color = "red";
     }
   }
 
+  // Expose functions to HTML buttons
+  window.closePopup = closePopup;
+  window.subscribe = subscribe;
+});
+
+  
 
 
 // for login register and logout functionality 
@@ -105,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Submit form without reloading page
+
+  // Handle "Get In Touch" popup contact form submission
   document.getElementById('popupContactForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -122,24 +155,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const res = await fetch('/api/contact/index', {
+      const res = await fetch('/api/messages/contact/index', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
+      // Check if the response is HTML (in case of server misrouting)
+      const contentType = res.headers.get('content-type');
+      if (contentType && !contentType.includes('application/json')) {
+        throw new Error('Server returned unexpected content (HTML instead of JSON)');
+      }
+
       const data = await res.json();
 
       if (res.ok) {
-        alert(data.message || 'Message sent!');
+        alert(data.message || 'Message sent successfully!');
         form.reset();
-        modal.style.display = 'none';
+        if (typeof modal !== 'undefined') modal.style.display = 'none'; // Close modal if exists
       } else {
-        alert(data.message || 'Submission failed.');
+        alert(data.message || 'Submission failed. Please try again.');
       }
     } catch (err) {
-      console.error(err);
-      alert('Something went wrong. Try again later.');
+      console.error('Form submission error:', err);
+      alert('Something went wrong. Please try again later.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
@@ -149,90 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // for news 
 
-let slideIndex = 0;
-    const visibleCards = 3;
-    let olderNews = [];
-
-    function getImageUrl(url) {
-      if (!url || typeof url !== 'string' || url.trim() === '' || !url.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
-        return 'https://via.placeholder.com/550x220?text=No+Image';
-      }
-      return url;
-    }
-
-    function openModal(title, image, content) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalImage').src = image;
-      document.getElementById('modalContent').innerText = content || 'No additional content available.';
-      document.getElementById('newsModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('newsModal').style.display = 'none';
-    }
-
-    document.getElementById('newsModal').addEventListener('click', function (e) {
-      if (e.target === this) closeModal();
-    });
-
     async function loadNews() {
       try {
-        const res = await fetch('/api/news');
-        const newsList = await res.json();
+        const response = await fetch('/api/news');
+        const newsList = await response.json();
 
-        const latestNews = newsList.slice(0, 2);
-        olderNews = newsList.slice(2);
+        const latestNewsContainer = document.getElementById('latestNewsContainer');
+        latestNewsContainer.innerHTML = '';
 
-        const latestContainer = document.getElementById('latestNewsContainer');
-        latestContainer.innerHTML = latestNews.map((news) => `
-          <div class="latest-card">
-            <img src="${getImageUrl(news.imageUrl)}" alt="News Image" />
-            <div class="latest-content">
-              <div class="news-title">${news.title || 'Untitled News'}</div>
-              <div class="news-description">${(news.description || news.content || 'No content available.').substring(0, 100)}...</div>
-              <span class="read-more" onclick='openModal("${news.title.replace(/"/g, '&quot;')}", "${getImageUrl(news.imageUrl)}", ${JSON.stringify(news.content || '')})'>Read More ▶</span>
-            </div>
-          </div>
-        `).join('');
-
-        renderOlderNews();
+        newsList.forEach(news => {
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          card.innerHTML = `
+            <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
+            <p>${new Date(news.date).toLocaleDateString()}</p>
+          `;
+          latestNewsContainer.appendChild(card);
+        });
       } catch (err) {
-        console.error('Failed to load news:', err);
+        console.error('Error fetching news:', err);
       }
     }
 
-    function renderOlderNews() {
-      const container = document.getElementById('olderNewsContainer');
-      const start = slideIndex * visibleCards;
-      const visibleItems = olderNews.slice(start, start + visibleCards);
-
-      container.innerHTML = visibleItems.map((news) => `
-        <div class="news-card">
-          <img src="${getImageUrl(news.imageUrl)}" alt="News Image" />
-          <div class="news-content">
-            <div class="news-title">${news.title || 'Untitled News'}</div>
-            <div class="news-description">${(news.description || news.content || 'No content available.').substring(0, 100)}...</div>
-            <span class="read-more" onclick='openModal("${news.title.replace(/"/g, '&quot;')}", "${getImageUrl(news.imageUrl)}", ${JSON.stringify(news.content || '')})'>Read More ▶</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      if (slideIndex > 0) {
-        slideIndex--;
-        renderOlderNews();
-      }
-    });
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      if ((slideIndex + 1) * visibleCards < olderNews.length) {
-        slideIndex++;
-        renderOlderNews();
-      }
-    });
-
-    loadNews();
+    window.addEventListener('DOMContentLoaded', loadNews);
+  
 
      
   document.getElementById('contactForm')?.addEventListener('submit', async (e) => {

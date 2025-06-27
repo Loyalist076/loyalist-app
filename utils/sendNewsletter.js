@@ -26,7 +26,7 @@ const sendNewsletterToAll = async (subject, textContent, pdfUrl) => {
       html: `
         <h2>${subject}</h2>
         <p>${textContent}</p>
-        <p><a href="${pdfUrl}" target="_blank">Click here to view the latest news PDF</a></p>
+        <p>📄<strong><a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Download the PDF</a></strong><br></p>
       `,
     };
 

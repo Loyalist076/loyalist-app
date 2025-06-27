@@ -101,7 +101,8 @@
       align-items: center;
       gap: 5px;
       background-color: #D4B248;
-      color: white;
+      color: black;
+      font-weight: 700;
       padding: 8px 14px;
       text-decoration: none;
       border-radius: 4px;
@@ -232,11 +233,11 @@
       <div class="quick-links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#investors">Investors</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="investor.html">Investors</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="Contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="social-column">
@@ -270,13 +271,19 @@
         data.forEach(item => {
           const card = document.createElement('div');
           card.className = 'news-card';
-          card.innerHTML = `
-            <strong>📄 ${item.title}</strong>
-            <div class="action-buttons">
-              <a href="${item.url}" target="_blank" rel="noopener noreferrer">🔍 View</a>
-              <a href="${item.url}" download>📥 PDF</a>
-            </div>
-          `;
+   card.innerHTML = `
+  <strong>📄 ${item.title}</strong>
+  <div class="action-buttons">
+    <a href="${item.url}" target="_blank" rel="noopener noreferrer">
+      <img src="image/view1.png" alt="View" style="width:20px; vertical-align:middle;" /> View
+    </a>
+    <a href="${item.url}" download>
+      <img src="image/pdf1.png" alt="Download" style="width:20px; vertical-align:middle;" /> PDF
+    </a>
+  </div>
+`;
+
+
           container.appendChild(card);
         });
       } catch (error) {

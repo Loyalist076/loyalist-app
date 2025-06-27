@@ -39,15 +39,20 @@ const newsRoutes = require('./routes/newsRoutes');
 const pdfRoutes = require('./routes/pdfRoutes'); // adjust path as needed
 const adminRoutes = require('./routes/adminRoutes');
 const subscriberRoutes = require('./routes/subscriberRoutes');
+const subscriptionRoutes = require('./routes/subscriptionRoutes');
+
 
 app.use('/api', authRoutes);
-app.use('/api/messages', messageRoutes);
+app.use('/api/messages', messageRoutes); // ✅ this is essential
 app.use('/api', userRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/pdf', pdfRoutes); // ✅ must match this
 app.use('/api/admin', adminRoutes);
 app.use('/api/subscribe', subscriberRoutes); // ✅ only once
 app.use('/api/test', require('./routes/testRoutes'));
+app.use('/api/subscribe', subscriptionRoutes);
+
+
 
 
 // MongoDB Connection
