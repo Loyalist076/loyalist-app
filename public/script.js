@@ -53,6 +53,7 @@ function closeModal() {
     }
   }
 
+  
 
 
 // for login register and logout functionality 
@@ -149,93 +150,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // for news 
 
- let slideIndex = 0;
-    const visibleCards = 3;
-    let olderNews = [];
-
-    function getImageUrl(url) {
-      if (!url || typeof url !== 'string' || url.trim() === '' || !url.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
-        return 'https://via.placeholder.com/550x220?text=No+Image';
-      }
-      return url;
-    }
-
-    function openModal(title, image, content) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalImage').src = image;
-      document.getElementById('modalContent').innerHTML = content || '<p>No additional content available.</p>';
-      document.getElementById('newsModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('newsModal').style.display = 'none';
-    }
-
-    document.getElementById('newsModal').addEventListener('click', function (e) {
-      if (e.target === this) closeModal();
-    });
-
-    function renderOlderNews() {
-      const container = document.getElementById('olderNewsContainer');
-      const start = slideIndex * visibleCards;
-      const visibleItems = olderNews.slice(start, start + visibleCards);
-
-      container.innerHTML = visibleItems.map((news) => `
-        <div class="news-card">
-          <img src="${getImageUrl(news.imageUrl)}" alt="News Image" />
-          <div class="news-content">
-            <div class="news-title">${news.title || 'Untitled News'}</div>
-            <div class="news-description">${(news.description || news.content || 'No content available.').replace(/<[^>]+>/g, '').substring(0, 100)}...</div>
-            <span class="read-more" onclick='openModal(${JSON.stringify(news.title)}, "${getImageUrl(news.imageUrl)}", ${JSON.stringify(news.content || '')})'>Read More ▶</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
     async function loadNews() {
       try {
-        const res = await fetch('/api/news');
-        const newsList = await res.json();
+        const response = await fetch('/api/news');
+        const newsList = await response.json();
 
-        const latestNews = newsList.slice(0, 2);
-        olderNews = newsList.slice(2);
+        const latestNewsContainer = document.getElementById('latestNewsContainer');
+        latestNewsContainer.innerHTML = '';
 
-        const latestContainer = document.getElementById('latestNewsContainer');
-        latestContainer.innerHTML = latestNews.map((news) => `
-          <div class="latest-card">
-            <img src="${getImageUrl(news.imageUrl)}" alt="News Image" />
-            <div class="latest-content">
-              <div class="news-title">${news.title || 'Untitled News'}</div>
-              <div class="news-description">${(news.description || news.content || 'No content available.').replace(/<[^>]+>/g, '').substring(0, 100)}...</div>
-              <span class="read-more" onclick='openModal(${JSON.stringify(news.title)}, "${getImageUrl(news.imageUrl)}", ${JSON.stringify(news.content || '')})'>Read More ▶</span>
-            </div>
-          </div>
-        `).join('');
-
-        renderOlderNews();
+        newsList.forEach(news => {
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          card.innerHTML = `
+            <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
+            <p>${new Date(news.date).toLocaleDateString()}</p>
+          `;
+          latestNewsContainer.appendChild(card);
+        });
       } catch (err) {
-        console.error('Failed to load news:', err);
+        console.error('Error fetching news:', err);
       }
     }
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      if (slideIndex > 0) {
-        slideIndex--;
-        renderOlderNews();
-      }
-    });
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      if ((slideIndex + 1) * visibleCards < olderNews.length) {
-        slideIndex++;
-        renderOlderNews();
-      }
-    });
-
-    // ✅ Ensure DOM is ready before manipulating elements
-    window.onload = () => {
-      loadNews();
-    };
+    window.addEventListener('DOMContentLoaded', loadNews);
+  
 
      
   document.getElementById('contactForm')?.addEventListener('submit', async (e) => {

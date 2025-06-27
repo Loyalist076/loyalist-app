@@ -7,7 +7,6 @@ router.post('/', async (req, res) => {
   try {
     const { title, content, imageUrl } = req.body;
 
-    // Validate required fields
     if (!title || !content) {
       return res.status(400).json({ message: 'Title and content are required.' });
     }
@@ -21,11 +20,41 @@ router.post('/', async (req, res) => {
   }
 });
 
-// READ all news (latest first)
+// READ all news (latest first) — ✅ returns id instead of _id
 router.get('/', async (req, res) => {
   try {
     const news = await News.find().sort({ createdAt: -1 });
-    res.json(news);
+
+    const formatted = news.map(item => ({
+      id: item._id.toString(),
+      title: item.title,
+      content: item.content,
+      imageUrl: item.imageUrl,
+      date: item.createdAt
+    }));
+
+    res.json(formatted);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching news', error: err.message });
+  }
+});
+
+// READ single news by ID — ✅ required for news-detail.html
+router.get('/:id', async (req, res) => {
+  try {
+    const news = await News.findById(req.params.id);
+
+    if (!news) {
+      return res.status(404).json({ message: 'News not found' });
+    }
+
+    res.json({
+      id: news._id.toString(),
+      title: news.title,
+      content: news.content,
+      imageUrl: news.imageUrl,
+      date: news.createdAt
+    });
   } catch (err) {
     res.status(500).json({ message: 'Error fetching news', error: err.message });
   }
