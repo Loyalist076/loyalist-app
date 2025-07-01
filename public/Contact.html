@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -986,4 +987,994 @@
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - LoyalistExp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    /* ... (your existing CSS stays the same) ... */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
+
+    }
+
+
+    .logo img {
+      height: 50px;
+      /* Adjust logo size */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding-right: 1%;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      position: relative;
+      /* Needed for dropdown positioning */
+    }
+
+    .navbar a {
+      display: block;
+      color: black;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #c4a12e;
+      /* Lighter blue */
+    }
+
+    .dropdown {
+      display: none;
+      /* Hidden by default */
+      position: absolute;
+      /* Position the dropdown */
+      background-color: black;
+      /* White background */
+      min-width: 160px;
+      /* Set a minimum width */
+      z-index: 1;
+      /* Sit on top */
+    }
+
+    .dropdown li {
+      float: none;
+      /* Stack dropdown items vertically */
+    }
+
+    .dropdown a {
+      color: #D4B248;
+      /* Navy blue text */
+      padding: 12px 16px;
+      /* Padding for dropdown items */
+      text-decoration: none;
+      display: block;
+      /* Make dropdown items block elements */
+    }
+
+    .dropdown a:hover {
+      background-color: black;
+      /* Light gray on hover */
+    }
+
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+    /* Tablet & Mobile - Already Exists */
+    @media (max-width: 1024px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #D4B248;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+        color: white;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover effect */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+        padding-right: 1rem;
+      }
+
+      .dropdown a {
+        color: #D4B248;
+      }
+    }
+
+    /* Desktop hover dropdown */
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar li {
+        display: block;
+        /* Stack items vertically on small screens */
+        text-align: left;
+        /* Align text to the left */
+      }
+
+      .navbar {
+        text-align: left;
+        /* Align navbar items to the left */
+
+      }
+
+
+    }
+
+    /* Mobile Navbar Toggle Button */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: black;
+      cursor: pointer;
+      padding-right: 1%;
+      /* toggle */
+    }
+
+
+
+
+
+    /* Hide menu on small screens by default */
+    @media (max-width: 768px) {
+
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .navbar {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        background-color: #D4B248;
+      }
+
+      .navbar ul {
+        width: 100%;
+      }
+
+      .navbar li {
+        display: block;
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 10px 20px;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .dropdown {
+        position: static;
+      }
+
+      .navbar li:hover .dropdown {
+        display: none;
+        /* Disable hover dropdown on mobile */
+      }
+
+      .navbar li.active .dropdown {
+        display: block;
+      }
+    }
+
+
+
+
+    .header-buttons button {
+      background-color: #D4B248;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .header-buttons button:hover {
+      background-color: #D4B248;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: #D4B248;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-content button[type="submit"] {
+      background-color: #D4B248;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      color: #D4B248;
+      cursor: pointer;
+    }
+
+    .form {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-buttons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .header-buttons button {
+        margin-left: 5px;
+      }
+
+      .dropdown {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown a {
+        padding-left: 30px;
+      }
+    }
+
+    /* Desktop dropdown hover */
+    .navbar li:hover>.dropdown {
+      display: block;
+    }
+
+    .icon {
+      font-size: 28px;
+      color: #ffc107;
+      /* Gold/Yellow */
+      margin-bottom: 10px;
+    }
+
+    /* Default: hide dropdowns */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown li {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #D4B248;
+      padding: 10px 15px;
+    }
+
+    /* Mobile-friendly override */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+        box-shadow: none;
+      }
+
+      .navbar .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Prevent hover on touch devices */
+      }
+    }
+
+    /* Tablet & Kindle View */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+        padding: 10px;
+      }
+
+      .navbar {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        background-color: #D4B248;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover on tablet */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+      }
+    }
+
+
+
+
+    /* black */
+    .section-title {
+      background: #000;
+      color: #c4a12e;
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-image {
+      flex: 1;
+      min-height: 300px;
+      background: url('./image/director.png') center/cover no-repeat;
+    }
+
+    .contact-form {
+      flex: 1;
+      padding: 40px 30px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #D4B248;
+      font-size: 26px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #D4B248;
+      border-radius: 6px;
+      font-size: 16px;
+      resize: none;
+      outline: #D4B248;
+    }
+
+    .contact-form button {
+      background-color: #D4B248;
+      color: black;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: black;
+      color: #D4B248;
+    }
+
+    /* Toast Alert */
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #FFD700;
+      color: black;
+      padding: 12px 24px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 999;
+    }
+
+    #toast.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #000;
+      color: #ddd;
+      padding: 40px 20px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 30px;
+    }
+
+    .footer-container h4 {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-container a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-column,
+    .quick-links,
+    .social-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ddd;
+    }
+
+    .social-icons a:hover {
+      color: #FFD700;
+    }
+    .subscribe-form input[type="email"] {
+  padding: 10px;
+  flex: 1;
+  background-color: #111;
+  color:#FFD700;
+  border: none;
+   border: 3px solid #FFD700;
+  border-radius: 4px;
+}
+.subscribe-form button {
+  padding: 10px 16px;
+  background-color: #FFD700;
+  /* color: #000; */
+  border: 3px solid #FFD700;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background-color: #e6c400;
+}
+.subscribe-message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #222;
+  color:  #e6c400;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .quick-links ul {
+        display: inline-block;
+      }
+    }
+
+
+
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
+
+      .contact-image {
+        width: 100%;
+        height: 220px;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 22px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        padding: 10px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <!-- <header>
+    <h1>LoyalistExp</h1>
+    <p>Your trusted travel and transport partner</p>
+  </header> -->
+  <header class="header">
+    <div class="align-logo">
+      <div class="logo">
+        <a href="index.html">
+          <img src="image/logo10.png" alt="Logo" /></a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="#"></a></li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="directors.html">Directors</a></li>
+            <li><a href="corporate.html">Corporate Structure</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="project.html">Projects</a>
+
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="advisiors.html">Advisiors</a></li>
+            <li><a href="fina.html">Financial Statements& MD&A</a></li>
+
+            <!-- <li><a href="#">Presentations</a></li> -->
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">News & Media</a>
+          <ul class="dropdown">
+            <li><a href="news.html">News</a></li>
+            <li><a href="disclaimers.html">Disclaimer</a></li>
+          </ul>
+        </li>
+
+        <li><a href="Contact.html"></a></li>
+      </ul>
+      <div class="header-buttons">
+        <button onclick="openModal('login')"><strong>Login</strong></button>
+        <button onclick="openModal('contact')"><strong>Get in Touch</strong></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <div id="login-form" class="form">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Submit</button>
+      </div>
+
+      <div id="contact-form" class="form">
+        <h2>Get in Touch</h2>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Black title bar -->
+  <div class="section-title">Contact Us</div>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-image"></div>
+    <div class="contact-form">
+      <h2>Lets Get Connected</h2>
+      <form id="businessForm">
+        <input name="name" type="text" placeholder="Your Name" required />
+        <input name="email" type="email" placeholder="Your Email" required />
+        <input name="subject" type="text" placeholder="Subject" required />
+        <textarea name="message" placeholder="Type your message here..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+
+    </div>
+  </section>
+
+  <!-- Toast Alert -->
+  <div id="toast"><strong>Message sent successfully!</strong></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p><strong>Email:</strong><br /><a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
+        <p><strong>Phone:</strong><br /><a href="tel:+16472961270">+1 647‑296‑1270</a></p>
+        <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="investor.html">Investors</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
+          <br/>
+
+        </div>
+      </div>
+    </div><br />
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS for toast -->
+  <script>
+    // Toggle entire navbar menu on small screens
+    function toggleMenu() {
+      document.getElementById('navbar').classList.toggle('active');
+    }
+
+    // Toggle dropdowns on click for mobile/tablet (<= 1024px)
+    function toggleDropdown(e) {
+      if (window.innerWidth <= 1024) {
+        e.stopPropagation(); // Prevent click from bubbling
+        const current = e.currentTarget;
+
+        // Toggle only the clicked dropdown
+        current.classList.toggle('active');
+
+        // Close other open dropdowns
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+          if (item !== current) {
+            item.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    // Modal handling (login / contact)
+    function openModal(type) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+      document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Welcome popup close
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
+    }
+
+    // for contact form sending data to backend 
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('businessForm');
+
+      if (!form) {
+        console.warn('businessForm not found!');
+        return;
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = form.querySelector('input[name="name"]').value;
+        const email = form.querySelector('input[name="email"]').value;
+        const subject = form.querySelector('input[name="subject"]').value;
+        const message = form.querySelector('textarea[name="message"]').value;
+
+        try {
+          const res = await fetch('/api/messages/contact/business', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message })
+          });
+
+          const result = await res.json();
+
+          if (res.ok) {
+            alert('Message sent successfully!');
+            form.reset();
+          } else {
+            alert('Error: ' + result.message);
+          }
+        } catch (err) {
+          console.error('Error submitting form:', err);
+          alert('Submission failed.');
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+>>>>>>> 9e0808d5ab29d3f3927d381c9b10252dd6cf5e30
 </html>

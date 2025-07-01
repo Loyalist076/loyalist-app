@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -360,4 +361,368 @@
   <script src="script.js"></script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loyalist Exploration Limited</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="align-logo">
+      <div class="logo">
+        <a href="index.html">
+          <img src="image/logo10.png" alt="Logo" /></a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <!-- <li><a href="#"></a></li> -->
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="directors.html">Directors</a></li>
+            <li><a href="corporate.html">Corporate Structure</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="project.html">Projects</a>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="advisiors.html">Advisiors</a></li>
+            <li><a href="fina.html">Financial Statements & MD&A</a></li>
+
+            <!-- <li><a href="#">Presentations</a></li> -->
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">News & Media</a>
+          <ul class="dropdown">
+            <li><a href="news.html">News</a></li>
+            <li><a href="disclaimers.html">Disclaimer</a></li>
+
+          </ul>
+        </li>
+
+        <!-- <li><a href="Contact.html"></a></li> -->
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+        <button id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+        <button id="registerBtn" onclick="window.location.href='register.html'">Register</button>
+        <button id="logoutBtn" style="display: none;">Logout</button>
+      </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+<form id="popupContactForm">
+  <img src="image/logo10.png" alt="Loyalist Logo" class="popup-logo2" />
+
+  <input type="text" name="name" placeholder="Your Name" required /><br><br>
+  <input type="email" name="email" placeholder="Your Email" required /><br><br>
+  <input type="text" name="subject" placeholder="Subject" required /><br><br>
+  <textarea name="message" placeholder="Message" required></textarea><br><br>
+  <button type="submit">Send Message</button>
+</form>
+
+    
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>"BUY TIMMINS” STRATEGY</h1>
+        <p>
+         Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Creek Mine.
+        </p>
+        <a href="#projects" class="hero-btn">Start Your Exploration</a>
+      </div>
+    </div>
+  </section>
+  <!-- about us  -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Who We Are</h2>
+        <p>
+          At <strong>Loyalist Exploration</strong>, we specialize in
+          discovering and developing high-potential mineral assets across
+          Canada. With a focus on gold, silver, nickel, and copper, our team
+          brings decades of geological and operational expertise to the field.
+        </p>
+        <p>
+          We are committed to responsible exploration, innovation, and
+          delivering value to our investors, communities, and partners.
+        </p>
+        <ul class="about-points">
+          <li>✔ Gold & Silver-focused Properties</li>
+          <li>✔ Nickel-Copper Exploration in Timmins</li>
+          <li>✔ Environmentally Responsible Practices</li>
+          <li>✔ Transparent, Investor-Driven Approach</li>
+        </ul>
+        <a href="#projects" class="about-btn"><strong>Explore Our Projects</strong></a>
+      </div>
+      <div class="about-image">
+        <img src="image/about.png" alt="Mining Exploration" />
+      </div>
+    </div>
+  </section>
+
+<!-- Welcome Popup-->
+<div class="welcome-popup" id="welcomePopup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <img src="image/11.png" alt="Loyalist Logo" class="popup-logo1" />
+    <h2>NEWSLETTER SUBSCRIPTION</h2>
+    <p>Stay updated with our latest gold.</p>
+    <input type="email" id="subscriberEmail" placeholder="Enter your email" />
+    <button id="subscribeBtn" onclick="subscribe()">Subscribe</button>
+  </div>
+</div>
+
+
+  <!-- projects -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Our Key Projects</h2>
+      <p class="section-subtitle">
+        Explore our ongoing and completed mineral exploration ventures across
+        the Timmins District.
+      </p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="image/1.png" alt="Gold Rush Project" />
+          <div class="card-content">
+            <h3>Gold Rush Property</h3>
+            <p>
+              Rich in high-grade gold & silver, this site is currently in the
+              drilling phase with promising initial results.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="image/2.png" alt="Loveland Property" />
+          <div class="card-content">
+            <h3>Loveland Property</h3>
+            <p>
+              Focused on Nickel-Copper-Gold deposits. Exploration confirmed
+              significant base metal mineralization.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="image/3.png" alt="Future Sites" />
+          <div class="card-content">
+            <h3>Upcoming Discoveries</h3>
+            <p>
+              We are actively assessing new acquisition targets in Ontario to
+              expand our portfolio and drive growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="projects-button-wrapper">
+      <a href="project.html" class="project-btn"><strong>View All Projects</strong></a>
+    </div>
+
+    <!-- investor section -->
+  </section>
+  <section class="investor-section" id="investors">
+    <div class="investor-container">
+      <div class="investor-text">
+        <h2>Investor Relations</h2>
+        <p>
+          At <strong>Loyalist Exploration</strong>, we are committed to
+          transparency, long-term growth, and delivering value to our
+          shareholders. We keep our investors informed with the latest
+          corporate updates, project milestones, and financial reports.
+        </p>
+        <!-- <ul class="investor-points">
+            <li>
+              <i class="fas fa-file-invoice-dollar icon"></i><h4> Public Filings &
+              Financials</h4>
+            </li>
+            <li>
+              <i class="fas fa-bullhorn icon"></i> News Releases & Announcements
+            </li>
+            <li>
+              <i class="fas fa-chart-line icon"></i> Corporate Presentations
+            </li>
+            <li><i class="fas fa-bell icon"></i> Timely Exploration Updates</li>
+          </ul> -->
+        <ul class="investor-points">
+          <li>
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Public Filings & Financials</span>
+          </li>
+          <li>
+            <i class="fas fa-bullhorn"></i>
+            <span>News Releases & Announcements</span>
+          </li>
+          <li>
+            <i class="fas fa-chart-line"></i>
+            <span>Corporate Presentations</span>
+          </li>
+          <li>
+            <i class="fas fa-bell"></i>
+            <span>Timely Exploration Updates</span>
+          </li>
+        </ul>
+
+
+        <a href="investor.html" class="investor-btn" target="_blank"><strong>Visit Investor Portal</strong></a>
+      </div>
+      <div class="investor-image">
+        <img src="image/investor relation.jpeg" alt="Investor Relations" />
+      </div>
+    </div>
+  </section>
+  <!-- latest news  -->
+  <section class="news-section">
+    <div class="news-header">
+      <h2>Latest News & Announcements</h2>
+      <button class="learn-more">Learn More</button>
+    </div>
+
+
+ <div class="news-container">
+    <div class="latest-news" id="latestNewsContainer"></div>
+  </div>
+
+  </section>
+  <br>
+  <br>
+
+
+
+  <section class="contact-header">
+    <h1>Contact Us</h1>
+    <p>Have questions? We're here to help. Reach out via the form or directly using the details below.</p>
+  </section>
+
+  <section class="contact-container">
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+
+    <div class="contact-info">
+      <div class="info-block">
+        <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
+        <p>Email us at:</p>
+        <a href="mailto:afenn@loyalist.expl">afenn@loyalist.expl</a>
+      </div>
+
+      <div class="info-block">
+        <h3><i class="fas fa-phone icon"></i> Call Us</h3>
+        <p>Business hours:</p>
+        <a href="tel:+16472661270">+1 647 266 1270</a>
+      </div>
+
+      <div class="info-block">
+        <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
+        <p>Peterson McVicar LLP,<br>110 Yonge Street, Suite 1601, Toronto ON M5C 1T4</p>
+      </div>
+
+      <div class="map-placeholder">
+        <iframe src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen loading="lazy" title="Company Location"></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p>
+          <strong>Email:</strong><br />
+          <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
+        </p><br />
+        <p>
+          <strong>Phone:</strong><br />
+          <a href="tel:+16472961270">+1 647‑296‑1270</a>
+        </p><br />
+        <p>
+          <strong>Address:</strong><br />133 Richmond St W, Suite 204<br />Toronto,
+          ON M5H 2L3, Canada
+        </p><br />
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="investor.html">Investors</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
+
+        </div><br />
+        <div class="subscribe-box">
+          <h4>Subscribe to Our Newsletter</h4>
+
+          <form class="subscribe-form" onsubmit="handleSubscribe(event)" aria-label="Homepage Newsletter Subscription">
+            <input type="email" placeholder="Enter your email" id="homepageSubscriberEmail" name="email" required
+              style="padding: 10px; width: 250px;" /><br /><br />
+            <button type="submit" style="padding: 10px 20px;">Subscribe</button>
+          </form>
+
+          <br /><br />
+          <div id="subscribe-message" class="subscribe-message" style="display: none; font-weight: bold;"></div>
+        </div>
+      </div><br />
+
+    </div><br />
+
+    <div class="footer-bottom ">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+>>>>>>> 9e0808d5ab29d3f3927d381c9b10252dd6cf5e30
 </html>
