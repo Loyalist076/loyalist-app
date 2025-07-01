@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loyalist Exploration Limited</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <link
       rel="stylesheet"
@@ -31,7 +31,7 @@
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -485,68 +485,236 @@
     margin-top: 10px;
   }
 }
-  .reports-section {
-    background-color: #d4b248;
-    padding: 60px 20px;
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-  }
+.section-title {
+  background: #000;
+  color: #c4a12e;
+  padding: 20px 50px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .reports-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: #f9f9f9;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  }
-
-  .reports-container h2 {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #d4b248;
-    border-bottom: 2px solid #d4b248;
-    padding-bottom: 10px;
-  }
-
-  .report-year h3 {
-    font-size: 24px;
-    margin-top: 30px;
-    color: #d4b248;
-  }
-
-  .report-year ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .report-year li {
-    margin: 10px 0;
-  }
-
-  .report-year a {
-    color: black;
-    text-decoration: none;
-  }
-
-  .report-year a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 768px) {
-    .advisors-container, .reports-container {
-      padding: 20px;
+ body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
     }
-    .advisors-container h2, .reports-container h2 {
+ .section-title {
+      background: #000;
+      color: #c4a12e;
+      padding: 20px 5vw;
       font-size: 24px;
+      font-weight: bold;
     }
-    .advisor-card h3, .report-year h3 {
-      font-size: 18px;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
     }
-    .advisor-card li, .report-year li {
+    .projects-section {
+      background-color: white;
+      padding: 50px 5vw;
+    }
+    .project-category-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #D4B248;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #D4B248;
+      padding-bottom: 10px;
+    }
+    .loveland-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .loveland-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      min-height: 480px;
+      cursor: pointer;
+    }
+    .loveland-card:hover {
+      transform: scale(1.025);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .loveland-card img,
+    .potential-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .loveland-card:hover img,
+    .potential-card:hover img {
+      transform: scale(1.05);
+    }
+    .project-content {
+      padding: 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #222;
+    }
+    .project-content p {
       font-size: 14px;
+      line-height: 1.6;
+      color: #555;
+      flex-grow: 1;
     }
+    .loveland-card a,
+    .potential-card a {
+      margin: 16px;
+      padding: 8px 16px;
+      font-size: 13.5px;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: all 0.3s ease;
+    }
+    .loveland-card a:hover,
+    .potential-card a:hover {
+      background: #D4B248;
+      color: white;
+      border-color: #D4B248;
+    }
+    .potential-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .potential-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      min-height: 480px;
+      max-width: 420px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .projects-section {
+        padding: 30px 20px;
+      }
+      .loveland-grid,
+      .potential-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+        justify-items: center;
+      }
+    }
+.overview-section {
+  display: flex;
+  padding: 60px;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.overview-text {
+  flex: 1;
+  min-width: 300px;
+}
+.overview-text h2 {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.overview-text span {
+  color: #D4B248;
+}
+.overview-text p {
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.stats {
+  margin-top: 20px;
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+.stats div {
+  font-weight: bold;
+  font-size: 16px;
+  max-width: 160px;
+}
+.stats-desc {
+  font-size: 5px;
+  color: #333;
+  margin-top: 4px;
+}
+.overview-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+.overview-image img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  border-radius: 6px;
+}
+@media (max-width: 1024px) {
+  .overview-section {
+    flex-direction: column;
+    padding: 40px 30px;
   }
+  .overview-text {
+    text-align: center;
+  }
+  .overview-text h2 {
+    font-size: 28px;
+  }
+  .overview-text p {
+    font-size: 14.5px;
+  }
+  .stats {
+    justify-content: center;
+    gap: 40px;
+  }
+  .stats div {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .overview-section {
+    padding: 30px 20px;
+  }
+  .overview-text h2 {
+    font-size: 24px;
+  }
+  .overview-text p {
+    font-size: 14px;
+  }
+  .stats div {
+    font-size: 14px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .overview-image img {
+    max-width: 100%;
+  }
+}
+
+
 /* footer */
 .site-footer {
   background-color: #000;
@@ -557,12 +725,14 @@
 
 .footer-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap;
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
-  gap: 30px;
+  gap: 30px; */
+  padding-left: 20px;
 }
+
 
 .footer-container h4 {
   color: #FFD700;
@@ -651,13 +821,14 @@
     display: inline-block;
   }
 }
-    </style>
-  </head>
-  <body>
-    <header class="header">
+
+</style>
+</head>
+<body>
+<header class="header">
       <div class="align-logo">
         <div class="logo">
-           <a href="index.html">
+            <a href="index.html">
           <img src="image/logo10.png" alt="Logo" /></a>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
@@ -665,31 +836,31 @@
 
       <nav class="navbar" id="navbar">
         <ul>
-          <li><a href="#"></a></li>
+          
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+              
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="#">Potential Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="advisiors.html">Advisiors</a></li>
-              <li><a href="fina.html">Financial Statements & MD&A</a></li>
-       
+              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="statements.html">Financial Statements & MD&A</a></li>
+
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
           </li>
@@ -697,12 +868,13 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-              <li><a href="news.html">News</a></li>
+               <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
+              <!-- <li><a href="#">Releases</a></li> -->
             </ul>
           </li>
 
-          <li><a href="Contact.html"></a></li>
+         
         </ul>
         <div class="header-buttons">
           <button onclick="openModal('login')"><strong>Login</strong></button>
@@ -732,48 +904,76 @@
         </div>
       </div>
     </div>
+ <div class="section-title">Projects</div>
+    <!-- project -->
+     <!-- Loveland Projects -->
 
- <!-- financial -->
- <section class="reports-section">
-  <div class="reports-container">
-    <h2>Financial Reports</h2>
-    <div class="report-year">
-      <h3>2024</h3>
-      <ul>
-        <li><a href="image/a.pdf">Financial Statements September 30, 2024</a></li>
-        <li><a href="image/b.pdf">MD&A September 30, 2024</a></li>
-        <li><a href="image/c.pdf">Financial Statements June 30, 2024</a></li>
-        <li><a href="image/d.pdf">MD&A June 30, 2024</a></li>
-        <li><a href="image/e.pdf">Financial Statements March 31, 2024</a></li>
-        <li><a href="image/f.pdf">MD&A March 31, 2024</a></li>
-      </ul>
+  <!-- Potential Projects -->
+  <section class="projects-section">
+    <h2 class="project-category-title">Potential Projects</h2>
+    <div class="potential-grid">
+      <div class="potential-card">
+        <img src="image/tully.webp" alt="Tully Gold Project">
+        <div class="project-content">
+          <h3>TULLY – High Grade Gold Exploration</h3>
+          <p>In Spring 2025, Loyalist signed an LOI for the Tully Gold Project, located 25 km northeast of Timmins, near the Bradshaw Gold Project.</p>
+        </div>
+        <a href="tully.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+
+      <div class="potential-card">
+        <img src="image/goldrush.png" alt="Gold Rush Project">
+        <div class="project-content">
+          <h3>GOLD RUSH</h3>
+          <p>Located 30 km west of Timmins, Gold Rush hosts 41 claims across 820 hectares with multiple zones of interest like the North Shaft Zone.</p>
+        </div>
+        <a href="gold.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
     </div>
-    <div class="report-year">
-      <h3>2023</h3>
-      <ul>
-        <li><a href="image/g.pdf">Financial Statements December 31, 2023</a></li>
-        <li><a href="image/h.pdf">MD&A December 31, 2023</a></li>
-      </ul>
+  </section>
+
+
+<!-- Black title bar -->
+  <!-- <div class="section-title">Projects</div> -->
+  <!-- project section -->
+   
+  <!-- overview section -->
+  <section class="overview-section">
+    <div class="overview-text">
+      <h2>Unveiling the Potential<br>of Our <br><span>Exploration Projects</span></h2>
+      <p>At Loyalist Exploration Limited, we are dedicated to uncovering valuable mineral resources. Our projects in Ontario and Newfoundland showcase our commitment to exploration and development. Explore the details of each project and discover the potential that lies beneath the surface. We focus on gold, copper, and nickel.</p>
+      <div class="stats">
+        <div>
+          <h1>35000</h1>
+          <div class="stats-desc">Meters of drilling completed across all our active exploration sites.</div>
+        </div>
+        <div>
+          <h1>98%</h1>
+          <div class="stats-desc"><h4>Increase in identified mineral resources since project inception.</h4></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="overview-image">
+      <img src="image/6.png" alt="Exploration Map">
+    </div>
+  </section>
     <!-- footer -->
-     <footer class="site-footer">
+ <footer class="site-footer">
       <div class="footer-container">
         <div class="contact-column">
           <h4>Contact Information</h4>
           <p>
             <strong>Email:</strong><br/>
             <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
-          </p><br/>
+          </p>
           <p>
             <strong>Phone:</strong><br/>
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p><br/>
+          </p>
           <p>
             <strong>Address:</strong><br />133 Richmond St W, Suite 204<br />Toronto,
             ON M5H 2L3, Canada
-          </p><br/>
+          </p>
         </div>
         <div class="quick-links">
           <h4>Quick Links</h4>
@@ -789,18 +989,18 @@
           <h4>Follow Us</h4>
           <div class="social-icons">
             <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+            <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-          </div><br/>
-
-        </div>
+          </div>
+          </div>
       </div><br/>
-      <div class="footer-bottom">
+       <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-      </div>
+      </div> 
     </footer>
-<script>
-          // Toggle entire navbar menu on small screens
+  
+    <script>
+         // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
@@ -838,6 +1038,17 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
+  const slider = document.querySelector('.projects-slider');
+  const leftArrow = document.querySelector('.slider-arrow.left');
+  const rightArrow = document.querySelector('.slider-arrow.right');
+
+  leftArrow.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
+  });
 </script>
 </body>
 </html>

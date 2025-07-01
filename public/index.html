@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="style.css" />
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 </head>
 
 <body>
@@ -28,20 +32,25 @@
           <a href="#">About Us</a>
           <ul class="dropdown">
             <li><a href="company.html">Company Profile</a></li>
-            <li><a href="directors.html">Directors</a></li>
-            <li><a href="corporate.html">Corporate Structure</a></li>
+            <li><a href="directors.html">Our Team</a></li>
+       
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="project.html">Projects</a>
+          <a href="#">Projects</a>
+           <ul class="dropdown">
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+            <li><a href="potential.html">Potential Project</a></li>
+          </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-            <li><a href="advisiors.html">Advisiors</a></li>
-            <li><a href="fina.html">Financial Statements & MD&A</a></li>
+                 <li><a href="corporate.html">Corporate Structure</a></li>
+            <!-- <li><a href="advisiors.html">Advisiors</a></li> -->
+            <li><a href="statements.html">Financial Statements & MD&A</a></li>
 
             <!-- <li><a href="#">Presentations</a></li> -->
           </ul>
@@ -50,7 +59,7 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">News & Media</a>
           <ul class="dropdown">
-            <li><a href="news.html">News</a></li>
+            <li><a href="news.html">Press Release</a></li>
             <li><a href="disclaimers.html">Disclaimer</a></li>
 
           </ul>
@@ -87,6 +96,7 @@
   <section class="hero">
     <div class="hero-overlay">
       <div class="hero-content">
+        <!-- <img src="image/11.png" alt="Loyalist Logo" class="hero-logo1" /> -->
         <h1>"BUY TIMMINS” STRATEGY</h1>
         <p>
          Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Creek Mine.
@@ -116,7 +126,7 @@
           <li>✔ Environmentally Responsible Practices</li>
           <li>✔ Transparent, Investor-Driven Approach</li>
         </ul>
-        <a href="#projects" class="about-btn"><strong>Explore Our Projects</strong></a>
+        <a href="#projects" class="about-btn"><strong>View our latest presentation</strong></a>
       </div>
       <div class="about-image">
         <img src="image/about.png" alt="Mining Exploration" />
@@ -130,7 +140,7 @@
     <span class="close-btn" onclick="closePopup()">&times;</span>
     <img src="image/11.png" alt="Loyalist Logo" class="popup-logo1" />
     <h2>NEWSLETTER SUBSCRIPTION</h2>
-    <p>Stay updated with our latest gold.</p>
+    <p>Stay updated with our latest press release.</p>
     <input type="email" id="subscriberEmail" placeholder="Enter your email" />
     <button id="subscribeBtn" onclick="subscribe()">Subscribe</button>
   </div>
@@ -147,35 +157,28 @@
       </p>
 
       <div class="projects-grid">
-        <div class="project-card">
-          <img src="image/1.png" alt="Gold Rush Project" />
-          <div class="card-content">
-            <h3>Gold Rush Property</h3>
-            <p>
-              Rich in high-grade gold & silver, this site is currently in the
-              drilling phase with promising initial results.
-            </p>
-          </div>
-        </div>
+       
 
         <div class="project-card">
           <img src="image/2.png" alt="Loveland Property" />
           <div class="card-content">
-            <h3>Loveland Property</h3>
+            <a href="loveland-project.html">
+            <h3>Loveland Property</h3></a>
             <p>
               Focused on Nickel-Copper-Gold deposits. Exploration confirmed
               significant base metal mineralization.
             </p>
           </div>
         </div>
+         
 
         <div class="project-card">
-          <img src="image/3.png" alt="Future Sites" />
+          <img src="image/tully.webp" alt="Future Sites" />
           <div class="card-content">
-            <h3>Upcoming Discoveries</h3>
+            <a href="potential.html">
+            <h3>Tully-High Grade Gold Exploration</h3></a>
             <p>
-              We are actively assessing new acquisition targets in Ontario to
-              expand our portfolio and drive growth.
+              Loyalist signed LOI in 2025 to acquire Tully Gold Project for exploration and development.
             </p>
           </div>
         </div>
@@ -238,16 +241,23 @@
     </div>
   </section>
   <!-- latest news  -->
-  <section class="news-section">
-    <div class="news-header">
-      <h2>Latest News & Announcements</h2>
-      <button class="learn-more">Learn More</button>
-    </div>
-
-
- <div class="news-container">
-    <div class="latest-news" id="latestNewsContainer"></div>
+ <!-- LATEST NEWS SECTION -->
+<section class="news-section">
+  <div class="news-header">
+    <h2>Latest News & Announcements</h2>
+    <a href="all-news.html" class="learn-more">Learn More</a>
   </div>
+
+  <div class="news-carousel-wrapper">
+    <button class="carousel-btn left" id="prevBtn">&#8249;</button>
+    <div class="news-carousel-container">
+      <div class="news-carousel" id="latestNewsCarousel">
+        <!-- News cards will be loaded here -->
+      </div>
+    </div>
+    <button class="carousel-btn right" id="nextBtn">&#8250;</button>
+  </div>
+</section>
 
   </section>
   <br>
@@ -331,7 +341,7 @@
         <div class="social-icons">
           <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
               class="fab fa-linkedin-in"></i></a>
-          <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
 
         </div><br />
@@ -358,6 +368,8 @@
 
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>

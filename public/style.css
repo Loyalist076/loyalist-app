@@ -21,7 +21,7 @@
 
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -493,6 +493,7 @@
 }
 
 
+
 /* hero section */
 .hero {
   height: 100vh;
@@ -520,9 +521,10 @@
 }
 
 .hero-content h1 {
-  font-size: 5rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   animation: slideUp 1s ease-out;
+  
 }
 
 .hero-content p {
@@ -570,6 +572,7 @@
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
+  font-size: 1rem;
   margin-top: 10px; /* Increase this to control space */
   transition: background 0.3s ease;
 }
@@ -577,7 +580,12 @@
 .hero-btn:hover {
   background-color: #e6c200;
 }
-
+.hero-logo1 {
+  /* width: 280px; */
+  height: 90px;
+  margin-bottom: 20px;
+  animation: fadeInLeft 1.5s ease;
+}
 
 /* Animations */
 @keyframes fadeInLeft {
@@ -822,11 +830,11 @@
     
   }
   /* Logo Styling */
-.popup-logo1 {
-  width: 180px;
-  height: 50px;
+/* .popup-logo1 {
+  width: 224px;
+  height: 68px;
   margin-bottom: 15px;
-}
+} */
 
 
   .popup-content h2 {
@@ -917,7 +925,7 @@
   }
 
   .popup-logo1 {
-    width: 140px;
+    width: 224px;
   }
 
 .projects-section {
@@ -976,7 +984,9 @@
   color:#D4B248;
   margin-bottom: 10px;
 }
-
+.card-content a {
+text-decoration: none;
+}
 .card-content p {
   font-size: 15px;
   color: #666;
@@ -1197,58 +1207,114 @@ body {
       color: white;
     }
 
-    .news-container {
-      position: relative;
-      padding: 20px;
+     .news-carousel-wrapper {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .news-carousel-container {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .news-carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    padding: 30px;
+  }
+
+  .news-card {
+    flex: 0 0 25%; /* 4 cards in row */
+    min-width: 250px;
+    max-width: 300px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: black;
+    padding: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .news-card:hover {
+    transform: scale(1.03);
+  }
+
+  .news-card h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .news-card h3 a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .news-card h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .news-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d4b248;
+  border: none;
+  color: white;
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+  .carousel-btn.left {
+    left: 0;
+  }
+
+  .carousel-btn.right {
+    right: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .news-card {
+      flex: 0 0 33.33%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .news-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
-    .latest-news {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px 0;
+    .carousel-btn {
+      display: none;
     }
 
     .news-card {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-      color: black;
-      padding: 20px;
-      transition: transform 0.2s ease;
+      flex: 0 0 100%;
     }
 
-    .news-card:hover {
-      transform: scale(1.03);
+    .news-carousel {
+      gap: 10px;
     }
-
-    .news-card h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .news-card h3 a {
-      color: black;
-      text-decoration: none;
-    }
-
-    .news-card h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .news-card p {
-      margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      .latest-news {
-        grid-template-columns: 1fr;
-      }
-    }
+  }
 
 body {
   background: #f7f7f7;
@@ -1429,6 +1495,7 @@ body {
 
 .subscribe-form button:hover {
   background-color: #e6c400;
+  justify-content: center;
 }
 
 .subscribe-message {

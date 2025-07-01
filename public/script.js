@@ -8,6 +8,23 @@ function toggleDropdown(e) {
     e.currentTarget.classList.toggle('active');
   }
 }
+function toggleDropdown(e) {
+  if (window.innerWidth <= 1024) {
+    e.stopPropagation(); // Prevent click from bubbling
+    const current = e.currentTarget;
+
+    // Toggle only the clicked dropdown
+    current.classList.toggle('active');
+
+    // Close other open dropdowns
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+      if (item !== current) {
+        item.classList.remove('active');
+      }
+    });
+  }
+}
+
 
 // Modal handling
 function openModal(type) {
@@ -188,30 +205,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // for news 
 
-    async function loadNews() {
-      try {
-        const response = await fetch('/api/news');
-        const newsList = await response.json();
+     async function loadNews() {
+    try {
+      const response = await fetch('/api/news');
+      const newsList = await response.json();
 
-        const latestNewsContainer = document.getElementById('latestNewsContainer');
-        latestNewsContainer.innerHTML = '';
+      const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const newsCarousel = document.getElementById('latestNewsCarousel');
+      newsCarousel.innerHTML = '';
 
-        newsList.forEach(news => {
-          const card = document.createElement('div');
-          card.className = 'news-card';
-          card.innerHTML = `
-            <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
-            <p>${new Date(news.date).toLocaleDateString()}</p>
-          `;
-          latestNewsContainer.appendChild(card);
-        });
-      } catch (err) {
-        console.error('Error fetching news:', err);
-      }
+      sortedNews.forEach(news => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.innerHTML = `
+          <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
+          <p>${new Date(news.date).toLocaleDateString()}</p>
+        `;
+        newsCarousel.appendChild(card);
+      });
+
+      let scrollAmount = 0;
+      const carouselContainer = document.querySelector('.news-carousel-container');
+      const cardWidth = newsCarousel.querySelector('.news-card')?.offsetWidth || 250;
+      const gap = 20;
+
+      document.getElementById('prevBtn').addEventListener('click', () => {
+        scrollAmount = Math.max(0, scrollAmount - (cardWidth + gap) * 1);
+        newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
+      });
+
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        const maxScroll = newsCarousel.scrollWidth - carouselContainer.clientWidth;
+        scrollAmount = Math.min(maxScroll, scrollAmount + (cardWidth + gap) * 1);
+        newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
+      });
+
+    } catch (err) {
+      console.error('Error fetching news:', err);
+      document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
     }
+  }
 
-    window.addEventListener('DOMContentLoaded', loadNews);
-  
+  window.addEventListener('DOMContentLoaded', loadNews);
 
      
   document.getElementById('contactForm')?.addEventListener('submit', async (e) => {

@@ -47,7 +47,7 @@ const sendNewsletterToAll = async (subject, pdfUrl) => {
 // 📤 Upload PDF to Cloudinary & notify
 router.post('/upload', upload.single('pdf'), async (req, res) => {
   try {
-    const { title } = req.body;
+    const { title, date } = req.body;
     if (!req.file || !title) {
       return res.status(400).json({ error: 'PDF title and file are required.' });
     }
@@ -63,7 +63,7 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
     // Remove temp file after upload
     fs.unlinkSync(tempFilePath);
 
-    const newPdf = new Pdf({ title, url: uploaded.secure_url });
+    const newPdf = new Pdf({ title, url: uploaded.secure_url, date });
     await newPdf.save();
 
     await sendNewsletterToAll(`New PDF: ${title}`, uploaded.secure_url);
@@ -87,6 +87,18 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.error('❌ Fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch PDFs' });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleted = await Pdf.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'PDF not found' });
+
+    res.json({ message: 'PDF deleted successfully' });
+  } catch (err) {
+    console.error('❌ Delete error:', err);
+    res.status(500).json({ error: 'Failed to delete PDF' });
   }
 });
 

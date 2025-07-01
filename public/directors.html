@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- 
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <style>
 * {
@@ -104,7 +107,7 @@ body {
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -825,6 +828,7 @@ body {
       font-size: 16px;
     }
 
+
     .team-section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -901,6 +905,29 @@ body {
     padding: 15px;
   }
 }
+.advisors-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+.advisors-section h3{
+  background-color: #9c7c39;
+}
+
+.advisors-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.advisors-section h2 {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
 
 /* Small screens: Adjust grid */
 @media (max-width: 480px) {
@@ -922,6 +949,25 @@ body {
     font-size: 13px;
   }
 }
+
+
+  
+  
+
+  @media (max-width: 768px) {
+    .advisors-container {
+      padding: 20px;
+    }
+    .advisors-container h2 {
+      font-size: 24px;
+    }
+    .advisor-card h3 {
+      font-size: 18px;
+    }
+    .advisor-card li {
+      font-size: 14px;
+    }
+  }
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -1063,30 +1109,30 @@ body {
 
       <nav class="navbar" id="navbar">
         <ul>
-          <li><a href="#"></a></li>
+       
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+              
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="">Investors</a>
+            <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="advisiors.html">Advisors</a></li>
-              <li><a href="fina.html">Financial Statements& MD&A</a></li>
+              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="statements.html">Financial Statements& MD&A</a></li>
               
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -1095,7 +1141,7 @@ body {
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-              <li><a href="news.html">News</a></li>
+              <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
             </ul>
           </li>
@@ -1211,6 +1257,27 @@ body {
       </div>
     </div>
   </section>
+
+   <!-- Advisors -->
+<section class="advisors-section">
+  <div class="advisors-container">
+    <h2>Advisors</h2>
+    <div class="team-card">
+      <img src="image/jean.jpg" alt="Jean Roy">
+      <div class="team-info">
+        <h3>Jean Roy</h3>
+        <p class="title">Timmins, ON, Canada</p>
+        <ul>
+          <li>Former business advisor to “Pelangio Larder Mines” in the acquisition of a major interest in the multi-million oz. Detour Lake gold deposit</li>
+          <li>Former advisor to Richfield Ventures Inc. during discovery of Blackwater gold deposit, BC, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  
   <footer class="site-footer">
   <div class="footer-container">
     <div class="contact-column">
@@ -1231,14 +1298,12 @@ body {
     </div>
     <div class="social-column">
       <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-      </div><br/>
-
-
-    </div>
+    <div class="social-icons">
+            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
+          </div>
+     </div>
   </div><br/>
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>

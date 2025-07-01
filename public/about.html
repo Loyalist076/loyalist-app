@@ -33,7 +33,7 @@
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -603,7 +603,6 @@
   box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
 
-    /* Footer */
    .site-footer {
   background-color: #000;
   color: #ddd;
@@ -658,13 +657,12 @@
 .social-icons a:hover {
   color: #FFD700;
 }
-
-.subscribe-form input[type="email"] {
+    .subscribe-form input[type="email"] {
   padding: 10px;
   flex: 1;
   background-color: #111;
   color:#FFD700;
-  /* border: none; */
+  border: none;
    border: 3px solid #FFD700;
   border-radius: 4px;
 }
@@ -690,7 +688,6 @@
   font-size: 14px;
 }
 
-
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
@@ -709,6 +706,16 @@
     display: inline-block;
   }
 }
+
+
+
+
+
+
+
+     
+
+    
 
 
 
@@ -782,24 +789,24 @@
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+              
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="advisiors.html">Advisiors</a></li>
-              <li><a href="fina.html">Financial Statements & MD&A</a></li>
+              <li><a href="corporate.html">Corporate  Structure</a></li>
+              <li><a href="statements.html">Financial Statements & MD&A</a></li>
               
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -808,7 +815,7 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-              <li><a href="news.html">News</a></li>
+              <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
               
             </ul>
@@ -921,11 +928,11 @@
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+        <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
       </div>
    
-      <div class="subscribe-box">
+      <!-- <div class="subscribe-box">
   <h4>Subscribe to Our Newsletter</h4>
 
   <form class="subscribe-form" onsubmit="handleAboutSubscribe(event)" aria-label="About Page Newsletter Subscription">
@@ -938,10 +945,11 @@
       style="padding: 10px; width: 250px;"
     /><br /><br />
     <button type="submit" style="padding: 10px 20px;">Subscribe</button>
-  </form>
+  </form> -->
 
   <br /><br />
-  <div id="about-subscribe-message" class="subscribe-message" style="display: none; font-weight: bold;"></div>
+  <!-- <div id="about-subscribe-message" class="subscribe-message" style="display: none; font-weight: bold;"></div> -->
+</div>
 </div>
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>

@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loyalist Exploration Limited</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
-    <link
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <style>
-        *{
-      box-sizing: border-box;
-    }
+  <title>All News</title>
+  <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #d4b248;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      padding: 0;
     }
 
-     .header {
+         .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -485,80 +480,72 @@
     margin-top: 10px;
   }
 }
-.section-title {
-  background: #000;
-  color: #c4a12e;
-  padding: 20px 50px;
-  font-size: 24px;
-  font-weight: bold;
-}
-.container {
-      max-width: 1200px;
-      margin: 40px auto;
-      background: #fff;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-      padding: 30px;
-    }
-
-    .project-image {
-      flex: 1 1 400px;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 40px;
       border-radius: 10px;
     }
 
-    .project-content {
-      flex: 1 1 500px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #b59200;
     }
 
-    .project-title {
-      font-size: 40px;
-      font-weight: 700;
-      color: #2d2d2d;
-      margin-bottom: 10px;
+    .filter-buttons {
+      margin-bottom: 20px;
     }
 
-    .project-subtitle {
-      font-size: 17px;
-      font-weight: 500;
-      color: #555;
-      margin-bottom: 15px;
+    .filter-buttons button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #d4b248;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
     }
 
-    .project-description p {
-      font-size: 16px;
-      line-height: 1.8;
-      text-align: justify;
-      margin-bottom: 15px;
+    .filter-buttons button.active {
+      background-color: black;
+    }
+
+    ul.news-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .news-item {
+      margin-bottom: 20px;
+      border-bottom: 1px dotted #888;
+      padding-bottom: 12px;
+    }
+
+    .news-item a {
+      text-decoration: none;
       color: #333;
+      font-weight: 600;
     }
 
-    @media (max-width: 768px) {
+    .news-item a:hover {
+      text-decoration: underline;
+    }
+
+    .news-date {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 600px) {
       .container {
-        flex-direction: column;
         padding: 20px;
       }
-
-      .project-title {
-        font-size: 22px;
-      }
-
-      .project-description p {
-        font-size: 15px;
-      }
     }
-/* footer */
+
+    /* footer */
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -664,9 +651,10 @@
     display: inline-block;
   }
 }
-</style>
+  </style>
 </head>
 <body>
+
 <header class="header">
       <div class="align-logo">
         <div class="logo">
@@ -678,22 +666,22 @@
 
       <nav class="navbar" id="navbar">
         <ul>
-          
+          <!-- <li><a href="#"></a></li> -->
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
               <li><a href="directors.html">Our Team</a></li>
-              
+              <!-- <li><a href="corporate.html">Corporate Structure</a></li> -->
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Projects</a>
             <ul class="dropdown">
-              <li><a href="loveland-project.html">Loveland  Projects</a></li>
-              <li><a href="potential.html">Potentional Projects</a></li>
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
             </ul>
           </li>
 
@@ -701,7 +689,7 @@
             <a href="#">Investors</a>
             <ul class="dropdown">
               <li><a href="corporate.html">Corporate Structure</a></li>
-               <li><a href="statements.html">Financial Statements & MD&A</a></li>
+              <li><a href="statements.html">Financial Statements & MD&A</a></li>
 
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -710,13 +698,13 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-               <li><a href="news.html">Press Release</a></li>
+               <li><a href="news.html">Press Release </a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
-             
+              <!-- <li><a href="#">Releases</a></li> -->
             </ul>
           </li>
 
-         
+          <!-- <li><a href="Contact.html"></a></li> -->
         </ul>
        
       </nav>
@@ -743,30 +731,19 @@
         </div>
       </div>
     </div>
-      <!-- Black title bar -->
-  <div class="section-title"> Geological Project</div>
+
   <div class="container">
-  <div class="project-image">
-    <img src="image/Geology.png" alt="Geological Setting">
-  </div>
-
-  <div class="project-content">
-    <h1 class="project-title">Geological Setting</h1>
-    <div class="project-description">
-      <p>
-        The Loveland property is underlain by volcanic rocks of the Kidd-Munro Assemblage, intruded by gabbroic and ultramafic bodies with limited surface exposure. Geology is interpreted from outcrop, drilling and geophysical surveys, highlighting a favourable setting for both magmatic nickel-copper and lode gold systems.
-      </p>
-      <p>
-        Nickel and copper mineralization occurs as semi-massive to massive sulfides—primarily pyrrhotite, chalcopyrite, and pentlandite—within gabbroic intrusions and along volcanic contacts. Two historical zones, the Hollinger Zone (422,350 tonnes at 0.71% Ni and 0.42% Cu) and Cominco Zone (130,000 tonnes at 0.73% Ni and 0.68% Cu), remain open for expansion.
-      </p>
-      <p>
-        Gold mineralization was also intersected beneath the Cominco Zone in altered granodiorite, with notable intercepts including 10.39 grams per tonne gold over 3.1 metres and surface samples returning up to 11.48 grams per tonne gold. These results support Loveland’s potential as a dual-target property for both critical and precious metals.
-      </p>
+    <h1>News Releases</h1>
+    <div class="filter-buttons" id="yearButtons">
+      <button data-year="all" class="active">All</button>
+      <!-- Dynamic year buttons -->
     </div>
+    <ul class="news-list" id="newsList">
+      <!-- News items inserted dynamically -->
+    </ul>
   </div>
-</div>
 
-    <!-- footer -->
+   <!-- footer -->
  <footer class="site-footer">
       <div class="footer-container">
         <div class="contact-column">
@@ -802,16 +779,15 @@
             <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
           </div>
           </div>
-          </div>
-          
-
       </div><br/>
        <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
       </div> 
     </footer>
-   <script>
-         // Toggle entire navbar menu on small screens
+
+  <script>
+
+           // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
@@ -833,22 +809,83 @@ function toggleDropdown(e) {
     });
   }
 }
+    let allNews = [];
 
-// Modal handling (login / contact)
-function openModal(type) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-}
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+    function extractYear(dateStr) {
+      return new Date(dateStr).getFullYear();
+    }
 
-// Welcome popup close
-function closePopup() {
-  document.getElementById("welcomePopup").style.display = "none";
-}
-</script>
+    function generateYearButtons(newsArray) {
+      const years = [...new Set(newsArray.map(item => extractYear(item.date)))].sort((a, b) => b - a);
+      const container = document.getElementById('yearButtons');
+
+      years.forEach(year => {
+        const btn = document.createElement('button');
+        btn.textContent = year;
+        btn.dataset.year = year;
+        container.appendChild(btn);
+      });
+    }
+
+    function renderNews(filteredNews) {
+      const list = document.getElementById('newsList');
+      list.innerHTML = '';
+
+      if (!filteredNews.length) {
+        list.innerHTML = '<li>No news available.</li>';
+        return;
+      }
+
+      filteredNews.forEach(news => {
+        const li = document.createElement('li');
+        li.className = 'news-item';
+        li.innerHTML = `<span class="news-date">${formatDate(news.date)}:</span>
+                        <a href="${news.url}" target="_blank">${news.title}</a>`;
+        list.appendChild(li);
+      });
+    }
+
+    function handleFilter(year) {
+      document.querySelectorAll('#yearButtons button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.year === year);
+      });
+
+      if (year === 'all') {
+        renderNews(allNews);
+      } else {
+        const filtered = allNews.filter(item => extractYear(item.date) == year);
+        renderNews(filtered);
+      }
+    }
+
+    async function fetchNews() {
+      try {
+        const res = await fetch('/api/pdf');
+        const data = await res.json();
+        allNews = data
+          .filter(item => item.date)
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+        generateYearButtons(allNews);
+        renderNews(allNews);
+
+        // Add button event listeners
+        document.querySelectorAll('#yearButtons button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            handleFilter(btn.dataset.year);
+          });
+        });
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+      }
+    }
+
+    window.onload = fetchNews;
+  </script>
 </body>
 </html>

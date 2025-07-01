@@ -106,7 +106,7 @@
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -651,7 +651,8 @@ function closeModal() {
 <header class="header">
       <div class="align-logo">
         <div class="logo">
-          <img src="image/logo10.png" alt="Logo" />
+          <a href="index.html">
+          <img src="image/logo10.png" alt="Logo" /></a>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
       </div>
@@ -670,17 +671,17 @@ function closeModal() {
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potentional Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="Contact.html">Investors</a>
+            <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="fin.html">Statements</a></li>
+              <li><a href="statements.html">Statements</a></li>
               <li><a href="directors.html">MD&A</a></li>
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
