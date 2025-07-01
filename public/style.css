@@ -493,6 +493,7 @@
 }
 
 
+
 /* hero section */
 .hero {
   height: 100vh;
@@ -1429,6 +1430,7 @@ body {
 
 .subscribe-form button:hover {
   background-color: #e6c400;
+  justify-content: center;
 }
 
 .subscribe-message {

@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loyalist Exploration Limited</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <style>
-        *{
-      box-sizing: border-box;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All News</title>
+  <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #d4b248;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      padding: 0;
     }
 
-     .header {
+         .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,6 +20,7 @@
     background-color:white;
    
 }
+
 .logo img {
     height: 50px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
@@ -484,73 +476,72 @@
     margin-top: 10px;
   }
 }
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+    }
 
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #b59200;
+    }
 
-/* investor */
-/* Investor Section Styles */
-.investor-section {
-  background-color:  #D4B248;
-  padding: 60px 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #1a1a1a;
-}
+    .filter-buttons {
+      margin-bottom: 20px;
+    }
 
-.investor-container {
-  max-width: 1100px;
-  margin: auto;
-}
+    .filter-buttons button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #d4b248;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
 
-.investor-section h2 {
-  font-size: 32px;
-  color:black;
-  margin-bottom: 20px;
-  border-bottom: 2px solid black;
-  display: inline-block;
-  padding-bottom: 8px;
-}
+    .filter-buttons button.active {
+      background-color: black;
+    }
 
-.investor-section p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
+    ul.news-list {
+      list-style-type: none;
+      padding: 0;
+    }
 
-.investor-block {
-  margin-bottom: 40px;
-}
+    .news-item {
+      margin-bottom: 20px;
+      border-bottom: 1px dotted #888;
+      padding-bottom: 12px;
+    }
 
-.investor-block h3 {
-  font-size: 22px;
-  color: black;
-  margin-bottom: 15px;
-}
+    .news-item a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
 
-.investor-block ul {
-  list-style: none;
-  padding-left: 0;
-}
+    .news-item a:hover {
+      text-decoration: underline;
+    }
 
-.investor-block ul li {
-  margin-bottom: 8px;
-  font-size: 16px;
-}
+    .news-date {
+      font-weight: bold;
+      margin-right: 5px;
+    }
 
-.investor-block a {
-  color: black;
-  text-decoration: none;
-  font-weight: 500;
-}
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
 
-.investor-block a:hover {
-  text-decoration: underline;
-}
-
-.investor-block p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* footer */
+    /* footer */
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -560,12 +551,14 @@
 
 .footer-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap;
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
-  gap: 30px;
+  gap: 30px; */
+  padding-left: 20px;
 }
+
 
 .footer-container h4 {
   color: #FFD700;
@@ -605,7 +598,6 @@
 .social-icons a:hover {
   color: #FFD700;
 }
-
 .subscribe-form input[type="email"] {
   padding: 10px;
   flex: 1;
@@ -636,6 +628,7 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
@@ -654,9 +647,10 @@
     display: inline-block;
   }
 }
-</style>
+  </style>
 </head>
 <body>
+
 <header class="header">
       <div class="align-logo">
         <div class="logo">
@@ -708,10 +702,7 @@
 
           <li><a href="Contact.html"></a></li>
         </ul>
-        <div class="header-buttons">
-          <button onclick="openModal('login')"><strong>Login</strong></button>
-          <button onclick="openModal('contact')"><strong>Get in Touch</strong></button>
-        </div>
+       
       </nav>
     </header>
 
@@ -737,42 +728,18 @@
       </div>
     </div>
 
-    <!-- investor -->
-     <section class="investor-section">
-  <div class="investor-container">
-    <h2>Investor Information</h2>
-    <p>Loyalist Exploration Limited is committed to maintaining transparency and providing timely updates to our shareholders and investors. Below you'll find access to our corporate documents, share structure, and contact information for investor relations.</p>
-
-    <div class="investor-block">
-      <h3>Share Structure</h3>
-      <ul>
-        <li><strong>Issued & Outstanding:</strong> 50,000,000</li>
-        <li><strong>Warrants:</strong> 10,000,000</li>
-        <li><strong>Options:</strong> 2,000,000</li>
-        <li><strong>Fully Diluted:</strong> 62,000,000</li>
-      </ul>
+  <div class="container">
+    <h1>News Releases</h1>
+    <div class="filter-buttons" id="yearButtons">
+      <button data-year="all" class="active">All</button>
+      <!-- Dynamic year buttons -->
     </div>
-
-    <div class="investor-block">
-      <h3>Corporate Filings</h3>
-      <ul>
-        <li><a href="image/a.pdf" target="_blank">Annual General Meeting Materials 2024</a></li>
-        <li><a href="image/b.pdf" target="_blank">Investor Presentation 2024</a></li>
-        <li><a href="image/c.pdf" target="_blank">Corporate Fact Sheet</a></li>
-      </ul>
-    </div>
-
-    <div class="investor-block">
-      <h3>Investor Contact</h3>
-      <p>
-        <strong>Email:</strong> <a href="mailto:investors@loyalistexp.ca">investors@loyalistexp.ca</a><br>
-        <strong>Phone:</strong> +1 (416) 123‑4567<br>
-        <strong>Address:</strong> 123 Mining Lane, Timmins, ON, Canada
-      </p>
-    </div>
+    <ul class="news-list" id="newsList">
+      <!-- News items inserted dynamically -->
+    </ul>
   </div>
-</section>
-<!-- footer -->
+
+   <!-- footer -->
  <footer class="site-footer">
       <div class="footer-container">
         <div class="contact-column">
@@ -780,15 +747,15 @@
           <p>
             <strong>Email:</strong><br/>
             <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
-          </p><br/>
+          </p>
           <p>
             <strong>Phone:</strong><br/>
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p><br/>
+          </p>
           <p>
             <strong>Address:</strong><br />133 Richmond St W, Suite 204<br />Toronto,
             ON M5H 2L3, Canada
-          </p><br/>
+          </p>
         </div>
         <div class="quick-links">
           <h4>Quick Links</h4>
@@ -808,13 +775,15 @@
             <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
           </div>
           </div>
-          </div>
-      <div class="footer-bottom">
+      </div><br/>
+       <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-      </div>
+      </div> 
     </footer>
-    <script>
-             // Toggle entire navbar menu on small screens
+
+  <script>
+
+           // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
@@ -836,23 +805,83 @@ function toggleDropdown(e) {
     });
   }
 }
+    let allNews = [];
 
-// Modal handling (login / contact)
-function openModal(type) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-}
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+    function extractYear(dateStr) {
+      return new Date(dateStr).getFullYear();
+    }
 
-// Welcome popup close
-function closePopup() {
-  document.getElementById("welcomePopup").style.display = "none";
-}
-  
-</script>
+    function generateYearButtons(newsArray) {
+      const years = [...new Set(newsArray.map(item => extractYear(item.date)))].sort((a, b) => b - a);
+      const container = document.getElementById('yearButtons');
+
+      years.forEach(year => {
+        const btn = document.createElement('button');
+        btn.textContent = year;
+        btn.dataset.year = year;
+        container.appendChild(btn);
+      });
+    }
+
+    function renderNews(filteredNews) {
+      const list = document.getElementById('newsList');
+      list.innerHTML = '';
+
+      if (!filteredNews.length) {
+        list.innerHTML = '<li>No news available.</li>';
+        return;
+      }
+
+      filteredNews.forEach(news => {
+        const li = document.createElement('li');
+        li.className = 'news-item';
+        li.innerHTML = `<span class="news-date">${formatDate(news.date)}:</span>
+                        <a href="${news.url}" target="_blank">${news.title}</a>`;
+        list.appendChild(li);
+      });
+    }
+
+    function handleFilter(year) {
+      document.querySelectorAll('#yearButtons button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.year === year);
+      });
+
+      if (year === 'all') {
+        renderNews(allNews);
+      } else {
+        const filtered = allNews.filter(item => extractYear(item.date) == year);
+        renderNews(filtered);
+      }
+    }
+
+    async function fetchNews() {
+      try {
+        const res = await fetch('/api/pdf');
+        const data = await res.json();
+        allNews = data
+          .filter(item => item.date)
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+        generateYearButtons(allNews);
+        renderNews(allNews);
+
+        // Add button event listeners
+        document.querySelectorAll('#yearButtons button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            handleFilter(btn.dataset.year);
+          });
+        });
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+      }
+    }
+
+    window.onload = fetchNews;
+  </script>
 </body>
 </html>

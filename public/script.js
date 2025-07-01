@@ -8,6 +8,23 @@ function toggleDropdown(e) {
     e.currentTarget.classList.toggle('active');
   }
 }
+function toggleDropdown(e) {
+  if (window.innerWidth <= 1024) {
+    e.stopPropagation(); // Prevent click from bubbling
+    const current = e.currentTarget;
+
+    // Toggle only the clicked dropdown
+    current.classList.toggle('active');
+
+    // Close other open dropdowns
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+      if (item !== current) {
+        item.classList.remove('active');
+      }
+    });
+  }
+}
+
 
 // Modal handling
 function openModal(type) {
