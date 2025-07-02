@@ -2,8 +2,25 @@ const express = require('express');
 const router = express.Router();
 const Subscriber = require('../models/Subscriber');
 
-// Define allowed form sources
-const allowedSources = ['popup', 'homepage', 'about'];
+// ✅ Updated allowed form sources (including 'statements')
+const allowedSources = [
+  'popup',
+  'homepage',
+  'about',
+  'loveleand-project',
+  'potential',
+  'company',
+  'directors',
+  'corporate',
+  'statements',
+  'news',
+  'disclaimers',
+  'projects',
+  'investor',
+  'contact'
+
+
+];
 
 // POST /api/subscribe - Newsletter popup form
 router.post('/', async (req, res) => {
@@ -28,11 +45,14 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     console.error('Popup Subscription Error:', err);
+    if (err.code === 11000) {
+      return res.status(409).json({ message: 'Email already subscribed via popup.' });
+    }
     res.status(500).json({ message: 'Server error.' });
   }
 });
 
-// POST /api/subscribe/homepage - For homepage, about, etc.
+// POST /api/subscribe/homepage - Used by all other forms
 router.post('/homepage', async (req, res) => {
   const { email, source } = req.body;
 
@@ -62,6 +82,11 @@ router.post('/homepage', async (req, res) => {
     });
   } catch (err) {
     console.error(`${formSource} Subscription Error:`, err);
+    if (err.code === 11000) {
+      return res.status(409).json({
+        message: `Email already subscribed via ${formSource}.`
+      });
+    }
     res.status(500).json({ message: 'Server error.' });
   }
 });

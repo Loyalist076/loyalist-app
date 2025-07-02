@@ -632,15 +632,12 @@
   border-radius: 4px;
   font-size: 14px;
 }
-
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
   border-top: 1px solid #333;
   font-size: 14px;
 }
-
-/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -777,9 +774,19 @@
             <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-          </div>
-          </div>
-      </div><br/>
+            
+            <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
+    <button type="submit">Subscribe</button>
+  </form>
+  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
+</div>
+      </div>
+    </div>
+  </div><br/>
+
        <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
       </div> 

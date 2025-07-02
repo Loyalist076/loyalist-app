@@ -70,9 +70,8 @@
       <div class="header-buttons">
         <button id="getInTouchBtn">Get in Touch</button>
 
-        <button id="loginBtn" onclick="window.location.href='login.html'">Login</button>
-        <button id="registerBtn" onclick="window.location.href='register.html'">Register</button>
-        <button id="logoutBtn" style="display: none;">Logout</button>
+   
+       
       </div>
   </header>
 
@@ -242,11 +241,11 @@
   </section>
   <!-- latest news  -->
  <!-- LATEST NEWS SECTION -->
-<section class="news-section">
-  <div class="news-header">
-    <h2>Latest News & Announcements</h2>
-    <a href="all-news.html" class="learn-more">Learn More</a>
-  </div>
+    <section class="news-section">
+      <div class="news-header">
+        <h2>Latest News & Announcements</h2>
+        <button class="learn-more"><a href="all-news.html">Learn More</a></button>
+      </div>
 
   <div class="news-carousel-wrapper">
     <button class="carousel-btn left" id="prevBtn">&#8249;</button>
@@ -264,49 +263,66 @@
   <br>
 
 
+<!-- contact section -->
+ <section class="contact-header">
+      <h1>Contact Us</h1>
+      <p>
+        Have questions? We're here to help. Reach out via the form or directly
+        using the details below.
+      </p>
+    </section>
 
-  <section class="contact-header">
-    <h1>Contact Us</h1>
-    <p>Have questions? We're here to help. Reach out via the form or directly using the details below.</p>
-  </section>
+    <section class="contact-container">
+      <div class="contact-form">
+        <h2>Get In Touch</h2>
+        <form action="#" method="POST">
+          <label>Name*</label>
+          <input type="text" name="name" required />
 
-  <section class="contact-container">
-    <div class="contact-form">
-      <h2>Get In Touch</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+          <label>Email*</label>
+          <input type="email" name="email" required />
 
+          <label>Subject</label>
+          <input type="text" name="subject" />
 
-    <div class="contact-info">
-      <div class="info-block">
-        <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
-        <p>Email us at:</p>
-        <a href="mailto:afenn@loyalist.expl">afenn@loyalist.expl</a>
+          <label>Message*</label>
+          <textarea name="message" rows="6" required></textarea>
+
+          <button type="submit"><strong>Send Message</strong></button>
+        </form>
       </div>
 
-      <div class="info-block">
-        <h3><i class="fas fa-phone icon"></i> Call Us</h3>
-        <p>Business hours:</p>
-        <a href="tel:+16472661270">+1 647 266 1270</a>
+      <div class="contact-info">
+        <div class="info-block">
+          <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
+          <p>For inquiries about projects or corporate info, email us at:</p>
+          <a href="mailto:afenn@loyalist.expl">afenn@loyalist.expl</a>
+        </div>
+        <div class="info-block">
+          <h3><i class="fa-solid fa-phone"></i> Call Us</h3>
+          <p>Reach our team during business hours:</p>
+          <a href="tel:+16472661270">+1 647 266 1270</a>
+        </div>
+        <div class="info-block">
+          <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
+          <p>Head office:</p>
+          <p>
+            Peterson McVicar LLP,<br />110 Yonge Street, Suite 1601, Toronto ON
+            M5C 1T4
+          </p>
+        </div>
+        <div class="map-placeholder">
+          <!-- Embed map iframe here -->
+          <iframe
+            src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            aria-label="Company location map"
+            allowfullscreen
+            loading="lazy"
+          >
+          </iframe>
+        </div>
       </div>
-
-      <div class="info-block">
-        <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
-        <p>Peterson McVicar LLP,<br>110 Yonge Street, Suite 1601, Toronto ON M5C 1T4</p>
-      </div>
-
-      <div class="map-placeholder">
-        <iframe src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          allowfullscreen loading="lazy" title="Company Location"></iframe>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
   <footer class="site-footer">
@@ -345,21 +361,17 @@
           <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
 
         </div><br />
-        <div class="subscribe-box">
-          <h4>Subscribe to Our Newsletter</h4>
-
-          <form class="subscribe-form" onsubmit="handleSubscribe(event)" aria-label="Homepage Newsletter Subscription">
-            <input type="email" placeholder="Enter your email" id="homepageSubscriberEmail" name="email" required
-              style="padding: 10px; width: 250px;" /><br /><br />
-            <button type="submit" style="padding: 10px 20px;">Subscribe</button>
-          </form>
-
-          <br /><br />
-          <div id="subscribe-message" class="subscribe-message" style="display: none; font-weight: bold;"></div>
-        </div>
-      </div><br />
-
-    </div><br />
+          <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" placeholder="Enter your email" id="homepageSubscriberEmail" required /><br/><br/>
+    <button type="submit">Subscribe</button>
+  </form>
+  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
+</div>
+      </div>
+    </div>
+  </div><br/>
 
     <div class="footer-bottom ">
       <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>

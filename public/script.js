@@ -36,72 +36,78 @@ function openModal(type) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
-// pop up welcome message
-
- document.addEventListener("DOMContentLoaded", () => {
-  // Close popup
-  function closePopup() {
+  document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById('welcomePopup');
-    if (popup) popup.style.display = 'none';
-  }
 
-  // Subscribe function
-  async function subscribe() {
-    const emailInput = document.getElementById('subscriberEmail');
-    const popupContent = document.querySelector('.popup-content');
-
-    // Create or reuse a status message element inside the popup
-    let statusBox = document.getElementById('subscribeStatus');
-    if (!statusBox) {
-      statusBox = document.createElement('div');
-      statusBox.id = 'subscribeStatus';
-      statusBox.style.marginTop = '10px';
-      statusBox.style.fontWeight = 'bold';
-      popupContent.appendChild(statusBox);
+    // Show popup only if not already shown
+    const hasSeenPopup = localStorage.getItem('loyalist_popup_shown');
+    if (!hasSeenPopup && popup) {
+      popup.style.display = 'flex';
+      localStorage.setItem('loyalist_popup_shown', 'true');
+    } else if (popup) {
+      popup.style.display = 'none';
     }
 
-    const email = emailInput.value.trim();
-    statusBox.style.display = 'block';
-
-    if (email === '') {
-      statusBox.innerText = "⚠️ Please enter your email address.";
-      statusBox.style.color = "red";
-      return;
+    // Close popup
+    function closePopup() {
+      if (popup) popup.style.display = 'none';
     }
 
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+    // Subscribe function
+    async function subscribe() {
+      const emailInput = document.getElementById('subscriberEmail');
+      const popupContent = document.querySelector('.popup-content');
 
-      const data = await res.json();
+      // Create or reuse a status message element inside the popup
+      let statusBox = document.getElementById('subscribeStatus');
+      if (!statusBox) {
+        statusBox = document.createElement('div');
+        statusBox.id = 'subscribeStatus';
+        statusBox.style.marginTop = '10px';
+        statusBox.style.fontWeight = 'bold';
+        popupContent.appendChild(statusBox);
+      }
 
-      if (!res.ok) {
-        statusBox.innerText = data.message || '❌ Subscription failed.';
-        statusBox.style.color = 'red';
+      const email = emailInput.value.trim();
+      statusBox.style.display = 'block';
+
+      if (email === '') {
+        statusBox.innerText = "⚠️ Please enter your email address.";
+        statusBox.style.color = "red";
         return;
       }
 
-      statusBox.innerText = "✅ Thank you for subscribing!";
-      statusBox.style.color = "green";
-      emailInput.value = '';
-      setTimeout(closePopup, 2000); // Close popup after 2s
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
 
-    } catch (error) {
-      console.error(error);
-      statusBox.innerText = "❌ Network or server error.";
-      statusBox.style.color = "red";
+        const data = await res.json();
+
+        if (!res.ok) {
+          statusBox.innerText = data.message || '❌ Subscription failed.';
+          statusBox.style.color = 'red';
+          return;
+        }
+
+        statusBox.innerText = "✅ Thank you for subscribing!";
+        statusBox.style.color = "green";
+        emailInput.value = '';
+        setTimeout(closePopup, 2000);
+
+      } catch (error) {
+        console.error(error);
+        statusBox.innerText = "❌ Network or server error.";
+        statusBox.style.color = "red";
+      }
     }
-  }
 
-  // Expose functions to HTML buttons
-  window.closePopup = closePopup;
-  window.subscribe = subscribe;
-});
-
-  
+    // Expose functions to window for button handlers
+    window.closePopup = closePopup;
+    window.subscribe = subscribe;
+  });
 
 
 // for login register and logout functionality 
@@ -205,48 +211,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // for news 
 
-     async function loadNews() {
-    try {
-      const response = await fetch('/api/news');
-      const newsList = await response.json();
+    async function loadNews() {
+      try {
+        const response = await fetch('/api/news');
+        const newsList = await response.json();
 
-      const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const newsCarousel = document.getElementById('latestNewsCarousel');
-      newsCarousel.innerHTML = '';
+        const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const newsCarousel = document.getElementById('latestNewsCarousel');
+        newsCarousel.innerHTML = '';
 
-      sortedNews.forEach(news => {
-        const card = document.createElement('div');
-        card.className = 'news-card';
-        card.innerHTML = `
-          <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
-          <p>${new Date(news.date).toLocaleDateString()}</p>
-        `;
-        newsCarousel.appendChild(card);
-      });
+        sortedNews.forEach(news => {
+          const card = document.createElement('div');
+          card.className = 'news-card';
+          card.innerHTML = `
+            <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
+            <p>${new Date(news.date).toLocaleDateString()}</p>
+          `;
+          newsCarousel.appendChild(card);
+        });
 
-      let scrollAmount = 0;
-      const carouselContainer = document.querySelector('.news-carousel-container');
-      const cardWidth = newsCarousel.querySelector('.news-card')?.offsetWidth || 250;
-      const gap = 20;
+        let scrollAmount = 0;
+        const carouselContainer = document.querySelector('.news-carousel-container');
+        const cardWidth = newsCarousel.querySelector('.news-card')?.offsetWidth || 250;
+        const gap = 24;
 
-      document.getElementById('prevBtn').addEventListener('click', () => {
-        scrollAmount = Math.max(0, scrollAmount - (cardWidth + gap) * 1);
-        newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
-      });
+        document.getElementById('prevBtn').addEventListener('click', () => {
+          scrollAmount = Math.max(0, scrollAmount - (cardWidth + gap));
+          newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
+        });
 
-      document.getElementById('nextBtn').addEventListener('click', () => {
-        const maxScroll = newsCarousel.scrollWidth - carouselContainer.clientWidth;
-        scrollAmount = Math.min(maxScroll, scrollAmount + (cardWidth + gap) * 1);
-        newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
-      });
+        document.getElementById('nextBtn').addEventListener('click', () => {
+          const maxScroll = newsCarousel.scrollWidth - carouselContainer.clientWidth;
+          scrollAmount = Math.min(maxScroll, scrollAmount + (cardWidth + gap));
+          newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
+        });
 
-    } catch (err) {
-      console.error('Error fetching news:', err);
-      document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+      }
     }
-  }
 
-  window.addEventListener('DOMContentLoaded', loadNews);
+    window.addEventListener('DOMContentLoaded', loadNews);
 
      
   document.getElementById('contactForm')?.addEventListener('submit', async (e) => {

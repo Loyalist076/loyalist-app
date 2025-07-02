@@ -12,7 +12,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -564,88 +564,89 @@
   */
 .company-profile {
   background: #D4B248;
-  padding: 80px 40px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.profile-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start; /* Keep content to the left */
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.profile-content {
-  flex: 1 1 55%;
-  text-align: left; /* Make sure it's not centered */
+.company-profile .container {
+  max-width: 1100px;
+  margin: auto;
 }
 
 .section-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #1a1a1a;
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #222;
+  text-transform: uppercase;
+  border-bottom: 3px solid #D4B248;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.section-title::after {
-  content: '';
-  width: 60px;
-  height: 4px;
-  background-color: #D4B248; /* contrast underline */
-  display: block;
-  margin-top: 8px;
-  border-radius: 2px;
+/* Accordion Style */
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.profile-content p {
+.accordion-header {
+  background: #fff;
+  padding: 18px 20px;
   font-size: 18px;
-  line-height: 1.7;
+  font-weight: 600;
   color: #333;
+  cursor: pointer;
+  position: relative;
 }
 
-.profile-icon {
-  flex: 1 1 35%;
-  text-align: right;
-}
-
-.profile-icon img {
-  max-width: 320px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+.accordion-header::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+  color: #D4B248;
   transition: transform 0.3s ease;
 }
 
-.profile-icon img:hover {
-  transform: scale(1.05);
+.accordion-header.active::after {
+  content: "-";
+  transform: rotate(180deg);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .profile-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile-content, .profile-icon {
-    flex: 1 1 100%;
-    text-align: center;
-  }
-
-  .profile-icon img {
-    max-width: 220px;
-  }
-
-  .section-title::after {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.accordion-body {
+  background: #fff;
+  padding: 0 20px 20px 20px;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
 }
+
+.accordion-body p,
+.accordion-body ul {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+.accordion-body h4 {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #555;
+}
+
+.accordion-body a {
+  color: #D4B248;
+  text-decoration: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 
 
 /* footer */
@@ -795,7 +796,6 @@
           <li><a href="Contact.html"></a></li>
         </ul>
         <div class="header-buttons">
-          <button onclick="openModal('login')"><strong>Login</strong></button>
           <button onclick="openModal('contact')"><strong>Get in Touch</strong></button>
         </div>
       </nav>
@@ -823,7 +823,7 @@
       </div>
     </div>
     <!-- company -->
-<section class="company-profile">
+<!-- <section class="company-profile">
   
   <div class="profile-container">
     <div class="profile-content">
@@ -836,6 +836,90 @@
     </div>
     <div class="profile-icon">
       <img src="image/company.png" alt="Company Icon" />
+    </div>
+  </div>
+</section> -->
+<section class="company-profile">
+  <div class="container">
+    <h1 class="section-title">Company Profile</h1>
+
+    <div class="accordion">
+      <!-- Section 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Overview</div>
+        <div class="accordion-body">
+          <p>Loyalist Exploration Limited is a Canadian mineral exploration company focused on acquiring, exploring, and developing high-potential mineral properties. Listed on the CSE under <strong>CSE: PNGC</strong>, the company is dedicated to responsible exploration in strategic regions.</p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Mission</div>
+        <div class="accordion-body">
+          <p>To discover and develop valuable mineral resources in underexplored yet highly prospective geological regions, delivering long-term value to shareholders and communities.</p>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Flagship Projects</div>
+        <div class="accordion-body">
+          <h4>🔶 Loveland Property</h4><br/>
+          <ul>
+            <li><strong>Location:</strong> 45 km NW of Timmins, Ontario</li>
+            <li><strong>Size:</strong> 292 claims (~6,244 ha)</li>
+            <li><strong>Minerals:</strong> Nickel, Copper, Gold</li>
+            <li><strong>Historical Estimates:</strong>
+              <ul>
+                <li>Hollinger Zone: 422,350 tons @ 0.71% Ni, 0.42% Cu</li>
+                <li>Cominco Zone: 130,000 tons @ 0.73% Ni, 0.68% Cu</li>
+              </ul>
+            </li>
+            <li><strong>Gold Assays:</strong> 6.37 g/t Au over 8.55 m; grabs up to 11.48 g/t Au</li>
+          </ul>
+          <h4>🟡 Gold Rush Property</h4><br/>
+          <ul>
+            <li><strong>Focus:</strong> Gold and Silver exploration</li>
+            <li><strong>Location:</strong> Timmins Mining District</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Recent Financing</div>
+        <div class="accordion-body">
+          <p>Raised <strong>$275,000</strong> (first tranche of $1.5M offering). Proceeds support exploration at Loveland, acquisitions, and working capital.</p>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Vision</div>
+        <div class="accordion-body">
+          <p>Actively expanding its portfolio through the “Buy and Explore Timmins” strategy, focusing on value creation through disciplined exploration and smart acquisitions.</p>
+        </div>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Technical Oversight</div>
+        <div class="accordion-body">
+          <p>Exploration programs are led by <strong>Stephen Balch, P.Geo.</strong>, a qualified person under NI 43-101 and industry expert.</p>
+        </div>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Contact</div>
+        <div class="accordion-body">
+          <p><strong>Errol Farr</strong><br>
+          President & CEO<br>
+          📧 efarr001@icloud.com<br>
+          📞 +1 (647) 296-1270<br>
+          🌐 <a href="http://loyalistexp.ca" target="_blank">loyalistexp.ca</a></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -867,8 +951,24 @@
         <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
         <br/><br/>
-      </div>
-    </div>
+      <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleCompanySubscribe(event)">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      id="companySubscriberEmail"
+      required
+    /><br /><br />
+    <button type="submit">Subscribe</button>
+  </form>
+  <div
+    id="company-subscribe-message"
+    class="subscribe-message"
+    style="display: none;"
+  >
+</div>
+
   </div><br/>
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
@@ -913,9 +1013,69 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
+  // Accordion toggle
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const isActive = header.classList.contains('active');
 
-</script>
-    </body>
+      // Close all
+      document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+      document.querySelectorAll('.accordion-body').forEach(body => body.style.display = 'none');
+
+      // Open clicked one if not already open
+      if (!isActive) {
+        header.classList.add('active');
+        header.nextElementSibling.style.display = 'block';
+      }
+    });
+  });
+
+ async function handleCompanySubscribe(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('companySubscriberEmail');
+    const messageDiv = document.getElementById('company-subscribe-message');
+    const email = emailInput.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailPattern.test(email)) {
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/subscribe/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'company' }),
+      });
+
+      const data = await res.json();
+
+      messageDiv.style.display = 'block';
+      if (res.ok) {
+        messageDiv.style.color = 'green';
+        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        emailInput.value = '';
+        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+      } else {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = data.message || 'Something went wrong.';
+        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Server error. Please try again later.';
+      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+    }
+  } 
+  </script>
+     </body>
     </html>
     
 
