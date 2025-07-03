@@ -1,27 +1,25 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campus News</title>
+  <title> Press Release </title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
+     *{
+      box-sizing: border-box;
     }
-  /* body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #d4b248;
+    body {
       margin: 0;
-      padding: 0;
-    } */
-
-         .header {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+     .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,9 +27,8 @@
     background-color:white;
    
 }
-
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -172,6 +169,7 @@
     .navbar {
         text-align: left; /* Align navbar items to the left */
         
+        
     }
 
     
@@ -231,6 +229,7 @@
 
   .navbar.active {
     display: flex;
+    background-color: #b38f28;
   }
 
   .dropdown {
@@ -485,6 +484,7 @@
     margin-top: 10px;
   }
 }
+
     .hero {
       text-align: center;
       padding: 70px 20px 50px;
@@ -512,37 +512,69 @@
       margin: auto;
     }
 
+     .news-list {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .news-group {
+      margin-bottom: 30px;
+    }
+
+    .news-date {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .news-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
     .news-card {
       background: #fff;
-      padding: 25px;
+      padding: 20px;
       border-left: 6px solid #D4B248;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 0.4s ease-in-out;
+      flex: 1 1 calc(33.333% - 30px);
+      min-width: 280px;
     }
 
-    .news-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .read-more {
+    .news-card a {
       color: #D4B248;
-      font-weight: bold;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-      transition: color 0.3s;
+      font-weight: 600;
+      display: block;
     }
 
-    .read-more:hover {
+    .news-card a:hover {
       color: #b38f28;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .news-items {
+        flex-direction: column;
+      }
+
+      .news-card {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .news-card {
+        flex: 1 1 calc(50% - 30px);
+      }
     }
 
     .view-all-container {
@@ -617,11 +649,42 @@
     .social-icons a:hover {
       color: #FFD700;
     }
+    .subscribe-form input[type="email"] {
+  padding: 10px;
+  flex: 1;
+  background-color: #111;
+  color:#FFD700;
+  border: none;
+   border: 3px solid #FFD700;
+  border-radius: 4px;
+}
+.subscribe-form button {
+  padding: 10px 16px;
+  background-color: #FFD700;
+  /* color: #000; */
+  border: 3px solid #FFD700;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background-color: #e6c400;
+}
+.subscribe-message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #222;
+  color:  #e6c400;
+  border-radius: 4px;
+  font-size: 14px;
+}
 
     .footer-bottom {
       text-align: center;
       margin-top: 30px;
       font-size: 14px;
+      border-top: 1px solid #333;
     }
 
     @media (max-width: 768px) {
@@ -669,30 +732,30 @@
 
       <nav class="navbar" id="navbar">
         <ul>
-          <li><a href="#"></a></li>
+        
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="advisiors.html">Advisiors</a></li>
-              <li><a href="fina.html">Financial Statements & MD&A</a></li>
+              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="statements.html">Financial Statements & MD&A</a></li>
 
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -701,37 +764,63 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-               <li><a href="news.html">News</a></li>
+               <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
               <!-- <li><a href="#">Releases</a></li> -->
             </ul>
           </li>
 
-          <li><a href="Contact.html"></a></li>
+          
         </ul>
-       
+        <div class="header-buttons">
+         
+        </div>
       </nav>
     </header>
 
-  <header class="hero">
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div id="login-form" class="form">
+          <h2>Login</h2>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button type="submit">Submit</button>
+        </div>
+
+        <div id="contact-form" class="form">
+          <h2>Get in Touch</h2>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+
+
+   <header class="hero">
     <h1>News</h1>
-    <p>Stay updated with the latest happenings at our campus</p>
+    <p>Stay updated with our latest press release</p>
   </header>
 
-  <section class="news-grid" id="newsContainer">
-    <!-- Latest news will load here -->
+  <section class="news-list" id="newsContainer">
+    <!-- News will load here grouped by date -->
   </section>
 
   <div class="view-all-container">
     <a href="all-news.html" class="view-all-btn">View All News</a>
   </div>
 
+
   <footer class="site-footer">
     <div class="footer-container">
       <div class="contact-column">
         <h4>Contact Information</h4>
-        <p><strong>Email:</strong> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+16472961270">+1 647‑296‑1270</a></p>
+        <p><strong>Email:</strong><br/> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
+        <p><strong>Phone:</strong><br/> <a href="tel:+16472961270">+1 647‑296‑1270</a></p>
         <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
       </div>
       <div class="quick-links">
@@ -748,21 +837,38 @@
         <h4>Follow Us</h4>
         <div class="social-icons">
           <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
         </div>
+  <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleNewsSubscribe(event)">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      id="newsSubscriberEmail"
+      required
+    /><br /><br />
+    <button type="submit">Subscribe</button>
+  </form>
+  <div
+    id="news-subscribe-message"
+    class="subscribe-message"
+    style="display: none;"
+  ></div>
+</div>
+
       </div>
-    </div><br />
+    </div>
+  </div><br/>
     <div class="footer-bottom">
       <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // function toggleMenu() {
-    //   document.getElementById('navbar').classList.toggle('active');
-    // }
-    function toggleMenu() {
+              // Toggle entire navbar menu on small screens
+function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
 
@@ -784,349 +890,109 @@ function toggleDropdown(e) {
   }
 }
 
-    async function fetchNewsPDFs() {
-      try {
-        const res = await fetch('/api/pdf');
-        const data = await res.json();
 
-        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-        const latestThree = sorted.slice(0, 3);
+async function fetchNewsPDFs() {
+  try {
+    const res = await fetch('/api/pdf');
+    const data = await res.json();
 
-        const container = document.getElementById('newsContainer');
-        container.innerHTML = '';
+    const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const latestThree = sorted.slice(0, 3);
+    const groupedByDate = {};
 
-        if (!latestThree.length) {
-          container.innerHTML = '<p>No news available.</p>';
-          return;
-        }
+    latestThree.forEach(item => {
+      const date = new Date(item.date);
+      const dateKey = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit'
+      }).toUpperCase();
 
-        latestThree.forEach(item => {
-          const date = new Date(item.date);
-          const formattedDate = date.toLocaleString('default', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-          });
+      if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
+      groupedByDate[dateKey].push(item);
+    });
 
-          const card = document.createElement('div');
-          card.className = 'news-card';
-          card.innerHTML = `
-            <div style="font-size: 14px; color: #777; margin-bottom: 8px;">${formattedDate}</div>
-            <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">${item.title}</div>
-            <div style="font-size: 15px; color: #444; margin-bottom: 15px;">
-              ${item.description || 'Click below to read the full newsletter.'}
-            </div>
-            <a href="${item.url}" target="_blank" class="read-more">Read More →</a>
-          `;
-          container.appendChild(card);
-        });
-      } catch (error) {
-        console.error('❌ Failed to load news:', error);
-        document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load news.</p>';
-      }
+    const container = document.getElementById('newsContainer');
+    container.innerHTML = '';
+
+    for (let date in groupedByDate) {
+      const group = document.createElement('div');
+      group.className = 'news-group';
+
+      const dateHeader = document.createElement('h3');
+      dateHeader.className = 'news-date';
+      dateHeader.textContent = date;
+      group.appendChild(dateHeader);
+
+      const row = document.createElement('div');
+      row.className = 'news-items';
+
+      groupedByDate[date].forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        // 👇 Use backend route to serve PDF inline
+        const pdfViewUrl = `/api/pdf/view/${item._id}`;
+        card.innerHTML = `<a href="${pdfViewUrl}" target="_blank">${item.title}</a>`;
+        row.appendChild(card);
+      });
+
+      group.appendChild(row);
+      container.appendChild(group);
+    }
+  } catch (err) {
+    console.error('Failed to load news:', err);
+    document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+  }
+}
+
+window.onload = fetchNewsPDFs;
+
+
+    async function handleNewsSubscribe(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('newsSubscriberEmail');
+    const messageDiv = document.getElementById('news-subscribe-message');
+    const email = emailInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailPattern.test(email)) {
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Please enter a valid email address.';
+      return;
     }
 
-    window.onload = fetchNewsPDFs;
-  </script>
+    try {
+      const res = await fetch('/api/subscribe/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'news' }),
+      });
+
+      const data = await res.json();
+      messageDiv.style.display = 'block';
+
+      if (res.ok) {
+        messageDiv.style.color = 'green';
+        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        emailInput.value = '';
+        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+      } else {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = data.message || 'Something went wrong.';
+        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Server error. Please try again later.';
+      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+    }
+  }
+
+    
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campus News</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo img {
-      height: 50px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .logo img:hover {
-      transform: scale(1.05);
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .navbar a {
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      color: #D4B248;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: #D4B248;
-      color: #fff;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .news-card {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #D4B248;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .action-buttons {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .action-buttons a {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background-color: #D4B248;
-      color: black;
-      font-weight: 700;
-      padding: 8px 14px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-    }
-
-    .action-buttons a:hover {
-      background-color: #bfa032;
-    }
-
-    .site-footer {
-      background-color: #000;
-      color: #ddd;
-      padding: 40px 20px 20px;
-    }
-
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-      gap: 30px;
-    }
-
-    .footer-container h4 {
-      color: #FFD700;
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-
-    .footer-container a {
-      color: #ddd;
-      text-decoration: none;
-    }
-
-    .footer-container a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-column,
-    .quick-links,
-    .social-column {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .quick-links ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .quick-links li {
-      margin-bottom: 10px;
-    }
-
-    .social-icons a {
-      margin-right: 15px;
-      font-size: 20px;
-      color: #ddd;
-    }
-
-    .social-icons a:hover {
-      color: #FFD700;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .quick-links ul {
-        display: inline-block;
-      }
-
-      .navbar ul {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="header">
-    <div class="logo">
-      <a href="index.html">
-        <img src="image/loyalist logo-03.png" alt="Logo" />
-      </a>
-    </div>
-    <nav class="navbar" id="navbar">
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="project.html">Projects</a></li>
-        <li><a href="statements.html">Statements</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <header class="hero">
-    <h1>News</h1>
-    <p>Stay updated with the latest happenings at our campus</p>
-  </header>
-
-  <section class="news-grid" id="newsContainer">
-    <!-- News cards will be inserted here dynamically -->
-  </section>
-
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="contact-column">
-        <h4>Contact Information</h4>
-        <p><strong>Email:</strong> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+16472961270">+1 647‑296‑1270</a></p>
-        <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
-      </div>
-      <div class="quick-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#investors">Investors</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="social-column">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-    </div><br />
-    <div class="footer-bottom">
-      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    async function fetchNewsPDFs() {
-      try {
-        const res = await fetch('/api/pdf');
-        const data = await res.json();
-
-        const container = document.getElementById('newsContainer');
-        container.innerHTML = '';
-
-        if (!data.length) {
-          container.innerHTML = '<p>No newsletters found.</p>';
-          return;
-        }
-
-        data.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'news-card';
-   card.innerHTML = `
-  <strong>📄 ${item.title}</strong>
-  <div class="action-buttons">
-    <a href="${item.url}" target="_blank" rel="noopener noreferrer">
-      <img src="image/view1.png" alt="View" style="width:20px; vertical-align:middle;" /> View
-    </a>
-    <a href="${item.url}" download>
-      <img src="image/pdf1.png" alt="Download" style="width:20px; vertical-align:middle;" /> PDF
-    </a>
-  </div>
-`;
-
-
-          container.appendChild(card);
-        });
-      } catch (error) {
-        console.error('❌ Failed to load PDFs:', error);
-        document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load newsletters.</p>';
-      }
-    }
-
-    window.onload = fetchNewsPDFs;
-  </script>
-</body>
-
->>>>>>> 9e0808d5ab29d3f3927d381c9b10252dd6cf5e30
 </html>

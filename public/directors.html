@@ -4,8 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- 
+ <title>Our Team </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   <style>
 * {
     box-sizing: border-box;
@@ -105,7 +109,7 @@ body {
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -923,6 +927,104 @@ body {
     font-size: 13px;
   }
 }
+/* Advisor Banner */
+.advisors-banner {
+  background: #b1974c;
+  text-align: center;
+  padding: 20px 0;
+}
+.advisors-banner h1 {
+  font-size: 36px;
+  color: #000;
+}
+
+.advisors-sub-banner {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Advisor Section Layout */
+.advisor-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+/* Reusing leadership style */
+.advisor-card {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  height: auto;
+  max-width: 700px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.advisor-card:hover {
+  transform: scale(1.02);
+}
+
+.advisor-card img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-right: 4px solid #b1974c;
+}
+
+.advisor-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.advisor-info h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #222;
+}
+
+.advisor-info .title {
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.advisor-info ul {
+  padding-left: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .advisor-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .advisor-card img {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 4px solid #b1974c;
+  }
+
+  .advisor-info {
+    padding: 15px;
+  }
+}
+
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -1026,7 +1128,43 @@ body {
     display: inline-block;
   }
 }
+/* Responsive */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
 
+      .contact-image {
+        width: 100%;
+        height: 220px;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 22px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-form input,
+      .contact-form textarea {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        padding: 10px;
+        font-size: 15px;
+      }
+    }
 
 
 
@@ -1064,30 +1202,29 @@ body {
 
       <nav class="navbar" id="navbar">
         <ul>
-          <li><a href="#"></a></li>
+         
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-            <!-- <ul class="dropdown">
-              <li><a href="#">Current Projects</a></li>
-              <li><a href="#">Past Projects</a></li>
-            </ul> -->
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
+            </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="">Investors</a>
             <ul class="dropdown">
-              <li><a href="advisiors.html">Advisors</a></li>
-              <li><a href="fina.html">Financial Statements& MD&A</a></li>
+              <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="statements.html">Financial Statements& MD&A</a></li>
               
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -1096,16 +1233,14 @@ body {
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-              <li><a href="news.html">News</a></li>
+              <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
             </ul>
           </li>
 
-          <li><a href="Contact.html"></a></li>
+       
         </ul>
         <div class="header-buttons">
-          <button onclick="openModal('login')"><strong>Login</strong></button>
-          <button onclick="openModal('contact')"><strong>Get in Touch</strong></button>
         </div>
       </nav>
     </header>
@@ -1212,6 +1347,29 @@ body {
       </div>
     </div>
   </section>
+  <!-- advisior -->
+   <section class="advisors-banner">
+  <h1>Advisors</h1>
+</section>
+
+<!-- <section class="advisors-sub-banner">
+  Meet the trusted professionals guiding our strategic direction.
+</section> -->
+
+<section class="advisor-section">
+  <div class="advisor-card">
+    <img src="image/errol.jpeg" alt="Jean Roy">
+    <div class="advisor-info">
+      <h3>Jean Roy</h3>
+      <p class="title">Timmins, ON, Canada</p>
+      <ul>
+        <li>Former business advisor to “Pelangio Larder Mines” for Detour Lake gold deposit acquisition.</li>
+        <li>Former advisor to Richfield Ventures Inc. during discovery of Blackwater gold deposit, BC.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
   <footer class="site-footer">
   <div class="footer-container">
     <div class="contact-column">
@@ -1234,9 +1392,27 @@ body {
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+        <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
       </div><br/>
+
+   <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleDirectorsSubscribe(event)">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      id="directorsSubscriberEmail"
+      required
+    /><br /><br />
+    <button type="submit">Subscribe</button>
+  </form>
+  <div
+    id="directors-subscribe-message"
+    class="subscribe-message"
+    style="display: none;"
+  ></div>
+</div>
 
 
     </div>
@@ -1287,8 +1463,53 @@ function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
 
+ async function handleDirectorsSubscribe(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('directorsSubscriberEmail');
+    const messageDiv = document.getElementById('directors-subscribe-message');
+    const email = emailInput.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailPattern.test(email)) {
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/subscribe/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'directors' }),
+      });
+
+      const data = await res.json();
+
+      messageDiv.style.display = 'block';
+      if (res.ok) {
+        messageDiv.style.color = 'green';
+        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        emailInput.value = '';
+        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+      } else {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = data.message || 'Something went wrong.';
+        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Server error. Please try again later.';
+      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+    }
+  }
 </script>
-  </body>
+
+</body>
   </html>
 
 

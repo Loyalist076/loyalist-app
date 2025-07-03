@@ -10,14 +10,32 @@ const subscriberSchema = new mongoose.Schema(
     },
     source: {
       type: String,
-      enum: ['popup', 'homepage', 'about'],
+      enum: [
+        'popup',
+        'homepage',
+        'about',
+        'loveleand-project',
+        'potential',
+        'company',
+        'directors',
+        'corporate',
+        'statements',
+        'news',
+        'disclaimers',
+        'projects',
+        'investor',
+        'contact'
+
+
+
+      ],
       default: 'popup',
     },
   },
   { timestamps: true }
 );
 
-// ✅ Unique for each (email + source) pair
+// ✅ Ensure unique combination of email + source
 subscriberSchema.index({ email: 1, source: 1 }, { unique: true });
 
 module.exports = mongoose.model('Subscriber', subscriberSchema);

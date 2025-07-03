@@ -851,7 +851,10 @@ function closePopup() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loyalist Exploration Limited - Ownership Structure</title>
-
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     * {
@@ -879,7 +882,7 @@ function closePopup() {
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
@@ -1520,27 +1523,31 @@ function closePopup() {
 
       <nav class="navbar" id="navbar">
         <ul>
-          <li><a href="#"></a></li>
+       
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-              <li><a href="#">Corporate Structure</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+              
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="project.html">Projects</a>
-           
+            <a href="#">Projects</a>
+           <ul class="dropdown">
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+            <li><a href="potential.html">Potential Project</a></li>
+       
+          </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
             <ul class="dropdown">
-                   <li><a href="advisiors.html">Advisiors</a></li>
-              <li><a href="fina.html">Financial Statements& MD&A</a></li>
+                   <li><a href="corporate.html">Corporate Structure</a></li>
+              <li><a href="statements.html">Financial Statements& MD&A</a></li>
        
               <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
@@ -1549,7 +1556,7 @@ function closePopup() {
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">News & Media</a>
             <ul class="dropdown">
-              <li><a href="news.html">News</a></li>
+              <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
             </ul>
           </li>
@@ -1557,8 +1564,7 @@ function closePopup() {
           <li><a href="Contact.html"></a></li>
         </ul>
         <div class="header-buttons">
-          <button onclick="openModal('login')"><strong>Login</strong></button>
-          <button onclick="openModal('contact')"><strong>Get in Touch</strong></button>
+        
         </div>
       </nav>
     </header>
@@ -1635,14 +1641,32 @@ function closePopup() {
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-twitter"></i></a>
+        <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-        
-      </div>
-      <br/>
-    <div class="subscribe-box">
+     
+      <br/><br/>
+         <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleCorporateSubscribe(event)">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      id="corporateSubscriberEmail"
+      required
+    /><br /><br />
+    <button type="submit">Subscribe</button>
+  </form>
+  <div
+    id="corporate-subscribe-message"
+    class="subscribe-message"
+    style="display: none;"
+  ></div>
+</div>
 
+      </div>
+    </div>
   </div><br/>
+   
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
@@ -1686,6 +1710,51 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
+
+ async function handleCorporateSubscribe(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('corporateSubscriberEmail');
+    const messageDiv = document.getElementById('corporate-subscribe-message');
+    const email = emailInput.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailPattern.test(email)) {
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/subscribe/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'corporate' }),
+      });
+
+      const data = await res.json();
+
+      messageDiv.style.display = 'block';
+      if (res.ok) {
+        messageDiv.style.color = 'green';
+        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        emailInput.value = '';
+        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+      } else {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = data.message || 'Something went wrong.';
+        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      }
+    } catch (err) {
+      console.error('Subscription error:', err);
+      messageDiv.style.display = 'block';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Server error. Please try again later.';
+      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+    }
+  }
 </script>
 </body>
 </html>
