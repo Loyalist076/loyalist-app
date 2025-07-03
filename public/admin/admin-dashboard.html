@@ -300,4 +300,308 @@
   </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      position: fixed;
+      height: 100vh;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      left: 0;
+    }
+
+    .sidebar.hidden {
+      left: -260px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding: 10px 0;
+    }
+
+    .logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 12px 16px;
+      color: #1f2937;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background: rgba(255, 255, 255, 0.3);
+      color: #111827;
+    }
+
+    .main {
+      margin-left: 240px;
+      flex: 1;
+      padding: 32px;
+      transition: margin-left 0.3s ease;
+      max-width: 100%;
+    }
+
+    .header {
+      height: 64px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .logout-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      margin-right: 16px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      width: 100%;
+    }
+
+    .stat-card {
+      flex: 1 1 250px;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .stat-card h3 {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .stat-card p {
+      font-size: 28px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    canvas {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        left: -260px;
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 16px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .header {
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <img src="../image/loyalist logo-03.png" alt="Logo" />
+      </div>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="manage-users.html">Manage Users</a>
+        <a href="pdf-manager.html">Manage PDFs</a>
+        <a href="messages.html">Messages</a>
+        <a href="admin-news.html">News Manager</a>
+        <a href="manage-admins.html">Manage Admins</a>
+        <a href="subscribed-users.html">View Subscribers</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <div class="header">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="title" id="welcomeMessage">Welcome, Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Total Users</h3>
+          <p id="totalUsers">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Messages</h3>
+          <p id="totalMessages">0</p>
+        </div>
+      </div>
+
+      <canvas id="statsChart"></canvas>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    let chart;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const name = localStorage.getItem('adminName') || 'Admin';
+      document.getElementById('welcomeMessage').textContent = `Welcome, ${name}`;
+    });
+
+    socket.on('dashboardStats', (data) => {
+      const totalUsers = data.totalUsers || 0;
+      const totalMessages = data.totalMessages || 0;
+      document.getElementById('totalUsers').textContent = totalUsers;
+      document.getElementById('totalMessages').textContent = totalMessages;
+
+      const ctx = document.getElementById('statsChart').getContext('2d');
+
+      if (chart) {
+        chart.data.datasets[0].data = [totalUsers, totalMessages];
+        chart.update();
+      } else {
+        chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Users', 'Messages'],
+            datasets: [{
+              label: 'Overview',
+              data: [totalUsers, totalMessages],
+              backgroundColor: ['#60a5fa', '#34d399'],
+              borderRadius: 8
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      }
+    });
+
+    function logout() {
+      localStorage.clear();
+      alert("Logging out...");
+      window.location.href = '../login.html';
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
+    }
+
+    // Auto-close sidebar on outside click
+    document.addEventListener('click', function (event) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.querySelector('.menu-toggle');
+      if (
+        !sidebar.contains(event.target) &&
+        !toggleBtn.contains(event.target) &&
+        sidebar.classList.contains('active')
+      ) {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+>>>>>>> 9e0808d5ab29d3f3927d381c9b10252dd6cf5e30
 </html>

@@ -36,24 +36,21 @@ const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
-const pdfRoutes = require('./routes/pdfRoutes'); // adjust path as needed
+const pdfRoutes = require('./routes/pdfRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const subscriberRoutes = require('./routes/subscriberRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes');
-
+const testRoutes = require('./routes/testRoutes');
 
 app.use('/api', authRoutes);
-app.use('/api/messages', messageRoutes); // ✅ this is essential
+app.use('/api/messages', messageRoutes);
 app.use('/api', userRoutes);
 app.use('/api/news', newsRoutes);
-app.use('/api/pdf', pdfRoutes); // ✅ must match this
+app.use('/api/pdf', pdfRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/subscribe', subscriberRoutes); // ✅ only once
-app.use('/api/test', require('./routes/testRoutes'));
-app.use('/api/subscribe', subscriptionRoutes);
-
-
-
+app.use('/api/subscribe', subscriberRoutes); // Use only once
+app.use('/api/subscribe', subscriptionRoutes); // ✅ This seems like a duplication. Consider merging if both handle same thing
+app.use('/api/test', testRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
