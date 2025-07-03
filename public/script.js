@@ -211,48 +211,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // for news 
 
-    async function loadNews() {
-      try {
-        const response = await fetch('/api/news');
-        const newsList = await response.json();
+   async function loadNews() {
+  try {
+    const response = await fetch('/api/news');
+    const newsList = await response.json();
 
-        const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
-        const newsCarousel = document.getElementById('latestNewsCarousel');
-        newsCarousel.innerHTML = '';
+    const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const newsCarousel = document.getElementById('latestNewsCarousel');
+    newsCarousel.innerHTML = '';
 
-        sortedNews.forEach(news => {
-          const card = document.createElement('div');
-          card.className = 'news-card';
-          card.innerHTML = `
-            <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
-            <p>${new Date(news.date).toLocaleDateString()}</p>
-          `;
-          newsCarousel.appendChild(card);
-        });
+    sortedNews.forEach(news => {
+      const card = document.createElement('div');
+      card.className = 'news-card';
+      card.innerHTML = `
+        <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
+        <p>${new Date(news.date).toLocaleDateString()}</p>
+      `;
+      newsCarousel.appendChild(card);
+    });
 
-        let scrollAmount = 0;
-        const carouselContainer = document.querySelector('.news-carousel-container');
-        const cardWidth = newsCarousel.querySelector('.news-card')?.offsetWidth || 250;
-        const gap = 24;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
 
-        document.getElementById('prevBtn').addEventListener('click', () => {
-          scrollAmount = Math.max(0, scrollAmount - (cardWidth + gap));
-          newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-          const maxScroll = newsCarousel.scrollWidth - carouselContainer.clientWidth;
-          scrollAmount = Math.min(maxScroll, scrollAmount + (cardWidth + gap));
-          newsCarousel.style.transform = `translateX(-${scrollAmount}px)`;
-        });
-
-      } catch (err) {
-        console.error('Error fetching news:', err);
-        document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
-      }
+    function updateCarousel() {
+      const cardWidth = newsCarousel.querySelector('.news-card').offsetWidth + 24;
+      newsCarousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
 
-    window.addEventListener('DOMContentLoaded', loadNews);
+    prevBtn.addEventListener('click', () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalCards = newsCarousel.children.length;
+      const visibleCards = getVisibleCards();
+      const maxIndex = totalCards - visibleCards;
+      currentIndex = Math.min(currentIndex + 1, maxIndex);
+      updateCarousel();
+    });
+
+    function getVisibleCards() {
+      if (window.innerWidth >= 1025) return 4; // desktop
+      if (window.innerWidth >= 769) return 2;  // tablet
+      return 1;                                // mobile
+    }
+
+    window.addEventListener('resize', updateCarousel);
+  } catch (err) {
+    console.error('Error fetching news:', err);
+    document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', loadNews);
+
 
      
   document.getElementById('contactForm')?.addEventListener('submit', async (e) => {

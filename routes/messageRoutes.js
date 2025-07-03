@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Message = require('../models/Message');
 
-// Handler for saving contact form messages
+// 📩 Handler for saving contact form messages
 async function handleContactForm(req, res, source) {
   try {
     const { name, email, subject, message } = req.body;
 
-    // Validation
+    // 🔒 Validation
     if (
       typeof name !== 'string' || name.trim().length < 2 ||
       typeof email !== 'string' || !/.+@.+\..+/.test(email.trim()) ||
@@ -27,7 +27,7 @@ async function handleContactForm(req, res, source) {
 
     await newMessage.save();
     res.status(201).json({ message: 'Message sent successfully.' });
-
+    console.log(`✅ New message saved from [${source}] - ${name}`);
   } catch (err) {
     console.error(`❌ Error in POST /api/messages/contact/${source}:`, err.message);
     res.status(500).json({ message: 'Internal server error.', error: err.message });
@@ -47,6 +47,21 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.error('❌ Error fetching messages:', err.message);
     res.status(500).json({ message: 'Failed to fetch messages.', error: err.message });
+  }
+});
+
+// 🗑️ DELETE route to delete a message by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const message = await Message.findByIdAndDelete(req.params.id);
+    if (!message) {
+      return res.status(404).json({ message: 'Message not found.' });
+    }
+    console.log(`🗑️ Message deleted (ID: ${req.params.id})`);
+    res.status(200).json({ message: 'Message deleted successfully.' });
+  } catch (err) {
+    console.error(`❌ Error deleting message (ID: ${req.params.id}):`, err.message);
+    res.status(500).json({ message: 'Failed to delete message.', error: err.message });
   }
 });
 
