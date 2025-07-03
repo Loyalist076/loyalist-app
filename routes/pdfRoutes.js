@@ -53,7 +53,6 @@ const sendNewsletterToAll = async (subject, pdfViewUrl) => {
 router.post('/upload', upload.single('pdf'), async (req, res) => {
   try {
     const { title, date } = req.body;
-    const { title, date } = req.body;
     if (!req.file || !title) {
       return res.status(400).json({ error: 'PDF title and file are required.' });
     }
