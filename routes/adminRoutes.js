@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 // Get all pending admin requests
 router.get('/pending-admins', async (req, res) => {
-  try {
+  try {    
     const pendingAdmins = await User.find({ role: 'admin', isAdminApproved: false });
     res.json(pendingAdmins);
   } catch (err) {
