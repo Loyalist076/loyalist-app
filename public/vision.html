@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loyalist Exploration Limited</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+        *{
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+     .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:white;
+   
+}
+
+.logo img {
+    height: 75px; /* Adjust logo size */
+     transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.navbar {
+     display: flex;
+     align-items: center;
+     padding-right: 1%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.navbar a {
+    display: block;
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #c4a12e; /* Lighter blue */
+}
+
+.dropdown {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position the dropdown */
+    background-color: black; /* White background */
+    min-width: 160px; /* Set a minimum width */
+    z-index: 1; /* Sit on top */
+}
+
+.dropdown li {
+    float: none; /* Stack dropdown items vertically */
+}
+
+.dropdown a {
+    color: #D4B248; /* Navy blue text */
+    padding: 12px 16px; /* Padding for dropdown items */
+    text-decoration: none;
+    display: block; /* Make dropdown items block elements */
+}
+
+.dropdown a:hover {
+    background-color: black; /* Light gray on hover */
+}
+
+@media (min-width: 1025px) {
+  .navbar li:hover > .dropdown {
+    display: block;
+  }
+}
+/* Tablet & Mobile - Already Exists */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: #D4B248;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 12px 20px;
+    color: white;
+  }
+
+  .dropdown {
+    position: relative;
+    display: none;
+    background-color: black;
+    box-shadow: none;
+  }
+
+  .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Disable hover effect */
+  }
+
+  .header-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+    padding-right: 1rem;
+  }
+
+  .dropdown a {
+    color: #D4B248;
+  }
+}
+
+/* Desktop hover dropdown */
+@media (min-width: 1025px) {
+  .navbar li:hover > .dropdown {
+    display: block;
+  }
+}
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar li {
+        display: block; /* Stack items vertically on small screens */
+        text-align: left; /* Align text to the left */
+    }
+
+    .navbar {
+        text-align: left; /* Align navbar items to the left */
+        
+    }
+
+    
+}
+/* Mobile Navbar Toggle Button */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  padding-right: 1%;/* toggle */
+}
+
+
+
+
+
+/* Hide menu on small screens by default */
+@media (max-width: 768px) {
+
+  .align-logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navbar {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color:#D4B248;
+  }
+
+  .navbar ul {
+    width: 100%;
+  }
+
+  .navbar li {
+    display: block;
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 10px 20px;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+  }
+
+  .navbar li:hover .dropdown {
+    display: none; /* Disable hover dropdown on mobile */
+  }
+
+  .navbar li.active .dropdown {
+    display: block;
+  }
+}
+
+
+
+
+.header-buttons button {
+      background-color:  #D4B248;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .header-buttons button:hover {
+      background-color:  #D4B248;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color:  #D4B248;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-content button[type="submit"] {
+      background-color:  #D4B248;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      color:#D4B248 ;
+      cursor: pointer;
+    }
+
+    .form {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-buttons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .header-buttons button {
+        margin-left: 5px;
+      }
+
+      .dropdown {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown a {
+        padding-left: 30px;
+      }
+    }
+/* Desktop dropdown hover */
+.navbar li:hover > .dropdown {
+  display: block;
+}
+.icon {
+  font-size: 28px;
+  color: #ffc107; /* Gold/Yellow */
+  margin-bottom: 10px;
+}
+
+/* Default: hide dropdowns */
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color:black;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown li {
+  display: block;
+}
+
+.dropdown a {
+  color: #D4B248;
+  padding: 10px 15px;
+}
+
+/* Mobile-friendly override */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    box-shadow: none;
+  }
+
+  .navbar .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Prevent hover on touch devices */
+  }
+}
+/* Tablet & Kindle View */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .align-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  .navbar {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    background-color: #D4B248;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 12px 20px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: none;
+    background-color: black;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Disable hover on tablet */
+  }
+
+  .header-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+}
+
+    /* black */
+    .section-title {
+      background: #000;
+      color: #c4a12e;
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      padding: 30px;
+    }
+
+    .project-image {
+      flex: 1 1 400px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .project-content {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+
+    .project-subtitle {
+      font-size: 17px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .project-description p {
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .project-title {
+        font-size: 22px;
+      }
+
+      .project-description p {
+        font-size: 15px;
+      }
+    }
+    .section-title {
+  background: #000;
+  color: #c4a12e;
+  padding: 20px 50px;
+  font-size: 24px;
+  font-weight: bold;
+}
+/* footer */
+.site-footer {
+  background-color: #000;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  /* flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px; */
+  padding-left: 20px;
+}
+
+
+.footer-container h4 {
+  color: #FFD700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-container a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}
+
+.contact-column, .quick-links, .social-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 20px;
+  color: #ddd;
+}
+
+.social-icons a:hover {
+  color: #FFD700;
+}
+.subscribe-form input[type="email"] {
+  padding: 10px;
+  flex: 1;
+  background-color: #111;
+  color:#FFD700;
+  border: none;
+   border: 3px solid #FFD700;
+  border-radius: 4px;
+}
+.subscribe-form button {
+  padding: 10px 16px;
+  background-color: #FFD700;
+  /* color: #000; */
+  border: 3px solid #FFD700;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background-color: #e6c400;
+}
+.subscribe-message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #222;
+  color:  #e6c400;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .quick-links ul {
+    display: inline-block;
+  }
+}
+</style>
+</head>
+<body>
+<header class="header">
+      <div class="align-logo">
+        <div class="logo">
+            <a href="index.html">
+          <img src="image/logo10.png" alt="Logo" /></a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <ul>
+          
+
+          <li class="has-dropdown" onclick="toggleDropdown(event)">
+            <a href="#">About Us</a>
+            <ul class="dropdown">
+              <li><a href="company.html">Company Profile</a></li>
+              <li><a href="directors.html">Our Team</a></li>
+              
+            </ul>
+          </li>
+
+          <li class="has-dropdown" onclick="toggleDropdown(event)">
+            <a href="#">Projects</a>
+            <ul class="dropdown">
+              <li><a href="loveland-project.html">Loveland Projects</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown" onclick="toggleDropdown(event)">
+            <a href="#">Investors</a>
+            <ul class="dropdown">
+              <li><a href="corporate.html">Corporate Structure</a></li>
+               <li><a href="statements.html">Financial Statements & MD&A</a></li>
+
+              <!-- <li><a href="#">Presentations</a></li> -->
+            </ul>
+          </li>
+
+          <li class="has-dropdown" onclick="toggleDropdown(event)">
+            <a href="#">News & Media</a>
+            <ul class="dropdown">
+               <li><a href="news.html">Press Release</a></li>
+              <li><a href="disclaimers.html">Disclaimer</a></li>
+              <!-- <li><a href="#">Releases</a></li> -->
+            </ul>
+          </li>
+
+          <li><a href="Contact.html"></a></li>
+        </ul>
+       
+      </nav>
+    </header>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div id="login-form" class="form">
+          <h2>Login</h2>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button type="submit">Submit</button>
+        </div>
+
+        <div id="contact-form" class="form">
+          <h2>Get in Touch</h2>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+    <!-- Black title bar -->
+  <div class="section-title">Acquisition & Strategic Vision</div>
+
+ <div class="container">
+  <div class="project-image">
+    <img src="image/core.png" alt="Acquisition & Strategic Vision">
+  </div>
+
+  <div class="project-content">
+    <h1 class="project-title">Acquisition & Strategic Vision</h1>
+    <div class="project-description">
+      <p>
+        Loyalist Exploration acquired a 100% interest in the Loveland Property from STLLR Gold in 2025 through a transaction consisting of C$250,000 cash, 10 million Loyalist shares, and a 2% NSR, with a 1% buyback option for C$1,000,000.
+      </p>
+      <p>
+        The Company plans to advance Loveland through holistic interpretation of historical data, modern geophysical surveys and geochemical targeting techniques, and drilling to further define the mineralized zones and test for extensions and new discoveries.
+      </p>
+      <p>
+        With increasing global demand for nickel and copper in battery and electrification markets, as well as a rising gold value environment, Loveland represents a cornerstone asset in Loyalist’s exploration portfolio.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+ <footer class="site-footer">
+      <div class="footer-container">
+        <div class="contact-column">
+          <h4>Contact Information</h4>
+          <p><br/>
+            <strong>Email:</strong><br/>
+            <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
+          </p><br/>
+          <p>
+            <strong>Phone:</strong><br/>
+            <a href="tel:+16472961270">+1 647‑296‑1270</a>
+          </p><br/>
+          <p>
+            <strong>Address:</strong><br />133 Richmond St W, Suite 204<br />Toronto,
+            ON M5H 2L3, Canada
+          </p>
+        </div><br/>
+        <div class="quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="investor.html">Investors</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="social-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
+          </div><br/>
+         <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
+    <button type="submit">Subscribe</button>
+  </form>
+  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
+</div>
+      </div>
+    </div>
+  </div><br/>
+       <div class="footer-bottom">
+        <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+      </div> 
+    </footer>
+   <script>
+         // Toggle entire navbar menu on small screens
+function toggleMenu() {
+  document.getElementById('navbar').classList.toggle('active');
+}
+
+// Toggle dropdowns on click for mobile/tablet (<= 1024px)
+function toggleDropdown(e) {
+  if (window.innerWidth <= 1024) {
+    e.stopPropagation(); // Prevent click from bubbling
+    const current = e.currentTarget;
+
+    // Toggle only the clicked dropdown
+    current.classList.toggle('active');
+
+    // Close other open dropdowns
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+      if (item !== current) {
+        item.classList.remove('active');
+      }
+    });
+  }
+}
+
+// Modal handling (login / contact)
+function openModal(type) {
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+// Welcome popup close
+function closePopup() {
+  document.getElementById("welcomePopup").style.display = "none";
+}
+</script>
+</body>
+</html>
