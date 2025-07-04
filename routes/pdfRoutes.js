@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
-const axios = require('axios'); // 👈 Required to stream PDFs
+const axios = require('axios');
 const Pdf = require('../models/Pdf');
 const Subscriber = require('../models/Subscriber');
 const sgMail = require('@sendgrid/mail');
@@ -33,7 +33,7 @@ const sendNewsletterToAll = async (subject, pdfViewUrl) => {
     const emails = subscribers.map(sub => sub.email);
     const msg = {
       to: emails,
-      from: 'gandhiswayam772@gmail.com', // ✅ Must be verified sender in SendGrid
+      from: 'gandhiswayam772@gmail.com',
       subject,
       html: `
         <h2>${subject}</h2>
@@ -59,35 +59,29 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
 
     const tempFilePath = req.file.path;
 
-    // Upload to Cloudinary (resource_type raw for PDF)
     const uploaded = await cloudinary.uploader.upload(tempFilePath, {
       resource_type: 'raw',
-      folder: 'pdfs', // Optional folder in Cloudinary
+      folder: 'pdfs',
     });
 
-    // Delete local temp file
     fs.unlinkSync(tempFilePath);
 
-    // Save to MongoDB
     const newPdf = new Pdf({
       title,
       url: uploaded.secure_url,
-      public_id: uploaded.public_id, // 👈 Save public_id for later deletion
+      public_id: uploaded.public_id,
       date
     });
     await newPdf.save();
 
-    // Create proxy view URL for newsletters
     const pdfViewUrl = `${req.protocol}://${req.get('host')}/api/pdf/view/${newPdf._id}`;
-
-    // Send newsletter to subscribers
     await sendNewsletterToAll(`New PDF: ${title}`, pdfViewUrl);
 
     res.status(201).json({
       message: '✅ PDF uploaded and newsletter sent!',
       pdf: {
         title: newPdf.title,
-        viewUrl: pdfViewUrl, // Return proxy view URL
+        viewUrl: pdfViewUrl,
         date: newPdf.date
       }
     });
@@ -108,26 +102,21 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 📄 Stream PDF inline (fix: avoid download)
+// 📄 View PDF inline
 router.get('/view/:id', async (req, res) => {
   try {
     const pdf = await Pdf.findById(req.params.id);
-    if (!pdf) {
-      return res.status(404).send('PDF not found.');
-    }
+    if (!pdf) return res.status(404).send('PDF not found.');
 
-    // Fetch PDF from Cloudinary as a stream
     const pdfResponse = await axios({
       method: 'GET',
       url: pdf.url,
       responseType: 'stream'
     });
 
-    // Set headers to force browser to render PDF
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `inline; filename="${pdf.title}.pdf"`);
 
-    // Pipe the PDF stream to the client
     pdfResponse.data.pipe(res);
   } catch (err) {
     console.error('❌ View PDF error:', err);
@@ -135,21 +124,39 @@ router.get('/view/:id', async (req, res) => {
   }
 });
 
-// 🗑 Delete PDF by ID (also from Cloudinary)
+// 📥 Download PDF as attachment
+router.get('/download/:id', async (req, res) => {
+  try {
+    const pdf = await Pdf.findById(req.params.id);
+    if (!pdf) return res.status(404).send('PDF not found.');
+
+    const pdfResponse = await axios({
+      method: 'GET',
+      url: pdf.url,
+      responseType: 'stream'
+    });
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="${pdf.title}.pdf"`);
+
+    pdfResponse.data.pipe(res);
+  } catch (err) {
+    console.error('❌ Download PDF error:', err);
+    res.status(500).send('Failed to download PDF.');
+  }
+});
+
+// 🗑 Delete PDF
 router.delete('/:id', async (req, res) => {
   try {
     const pdf = await Pdf.findById(req.params.id);
-    if (!pdf) {
-      return res.status(404).json({ error: 'PDF not found' });
-    }
+    if (!pdf) return res.status(404).json({ error: 'PDF not found' });
 
-    // Delete from Cloudinary
     if (pdf.public_id) {
       await cloudinary.uploader.destroy(pdf.public_id, { resource_type: 'raw' });
       console.log(`🗑️ Cloudinary PDF deleted: ${pdf.public_id}`);
     }
 
-    // Delete from MongoDB
     await Pdf.findByIdAndDelete(req.params.id);
 
     res.json({ message: '✅ PDF deleted successfully' });

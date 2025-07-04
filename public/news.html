@@ -891,61 +891,74 @@ function toggleDropdown(e) {
 }
 
 
-async function fetchNewsPDFs() {
-  try {
-    const res = await fetch('/api/pdf');
-    const data = await res.json();
+  async function fetchNewsPDFs() {
+      try {
+        const res = await fetch('/api/pdf');
+        const data = await res.json();
 
-    const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const latestThree = sorted.slice(0, 3);
-    const groupedByDate = {};
+        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const latestThree = sorted.slice(0, 3);
+        const groupedByDate = {};
 
-    latestThree.forEach(item => {
-      const date = new Date(item.date);
-      const dateKey = date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: '2-digit'
-      }).toUpperCase();
+        latestThree.forEach(item => {
+          const date = new Date(item.date);
+          const dateKey = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+          }).toUpperCase();
 
-      if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
-      groupedByDate[dateKey].push(item);
-    });
+          if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
+          groupedByDate[dateKey].push(item);
+        });
 
-    const container = document.getElementById('newsContainer');
-    container.innerHTML = '';
+        const container = document.getElementById('newsContainer');
+        container.innerHTML = '';
 
-    for (let date in groupedByDate) {
-      const group = document.createElement('div');
-      group.className = 'news-group';
+        for (let date in groupedByDate) {
+          const group = document.createElement('div');
+          group.className = 'news-group';
 
-      const dateHeader = document.createElement('h3');
-      dateHeader.className = 'news-date';
-      dateHeader.textContent = date;
-      group.appendChild(dateHeader);
+          const dateHeader = document.createElement('h3');
+          dateHeader.className = 'news-date';
+          dateHeader.textContent = date;
+          group.appendChild(dateHeader);
 
-      const row = document.createElement('div');
-      row.className = 'news-items';
+          const row = document.createElement('div');
+          row.className = 'news-items';
 
-      groupedByDate[date].forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'news-card';
-        // 👇 Use backend route to serve PDF inline
-        const pdfViewUrl = `/api/pdf/view/${item._id}`;
-        card.innerHTML = `<a href="${pdfViewUrl}" target="_blank">${item.title}</a>`;
-        row.appendChild(card);
-      });
+          groupedByDate[date].forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
 
-      group.appendChild(row);
-      container.appendChild(group);
+            const pdfViewUrl = `/api/pdf/view/${item._id}`;
+            const pdfDownloadUrl = `/api/pdf/download/${item._id}`;
+
+            card.innerHTML = `
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <a href="${pdfViewUrl}" target="_blank" class="news-title">
+                  ${item.title}
+                </a>
+                <a href="${pdfDownloadUrl}" download title="Download PDF" class="download-btn">
+                  Download
+                </a>
+              </div>
+            `;
+
+            row.appendChild(card);
+          });
+
+          group.appendChild(row);
+          container.appendChild(group);
+        }
+      } catch (err) {
+        console.error('Failed to load news:', err);
+        document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+      }
     }
-  } catch (err) {
-    console.error('Failed to load news:', err);
-    document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load news.</p>';
-  }
-}
 
-window.onload = fetchNewsPDFs;
+    window.onload = fetchNewsPDFs;
+
 
 
     async function handleNewsSubscribe(event) {
