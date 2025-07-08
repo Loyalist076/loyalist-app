@@ -7,7 +7,7 @@ const upcomingEventController = require('../controllers/upcomingEventController'
 // ================================
 
 // @route   GET /api/upcoming-events
-// @desc    Get all upcoming events
+// @desc    Get all upcoming events   
 router.get('/', upcomingEventController.getAllEvents);
 
 // @route   POST /api/upcoming-events
