@@ -91,7 +91,7 @@ app.get('/', (req, res) => {
 });
 
 // Start server 
-const PORT =  5050;                          
+const PORT =  5050;                              
 server.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });      
