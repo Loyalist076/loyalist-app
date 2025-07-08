@@ -8,10 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -33,13 +30,13 @@
           <ul class="dropdown">
             <li><a href="company.html">Company Profile</a></li>
             <li><a href="directors.html">Our Team</a></li>
-       
+
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
-           <ul class="dropdown">
+          <ul class="dropdown">
             <li><a href="loveland-project.html">Loveland Project</a></li>
             <li><a href="potential.html">Potential Project</a></li>
           </ul>
@@ -48,7 +45,7 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-                 <li><a href="corporate.html">Corporate Structure</a></li>
+            <li><a href="corporate.html">Corporate Structure</a></li>
             <!-- <li><a href="advisiors.html">Advisiors</a></li> -->
             <li><a href="statements.html">Financial Statements & MD&A</a></li>
 
@@ -70,40 +67,82 @@
       <div class="header-buttons">
         <button id="getInTouchBtn">Get in Touch</button>
 
-   
-       
+
+
       </div>
   </header>
 
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeModalBtn">&times;</span>
-<form id="popupContactForm">
-  <img src="image/logo10.png" alt="Loyalist Logo" class="popup-logo2" />
+      <form id="popupContactForm">
+        <img src="image/logo10.png" alt="Loyalist Logo" class="popup-logo2" />
 
-  <input type="text" name="name" placeholder="Your Name" required /><br><br>
-  <input type="email" name="email" placeholder="Your Email" required /><br><br>
-  <input type="text" name="subject" placeholder="Subject" required /><br><br>
-  <textarea name="message" placeholder="Message" required></textarea><br><br>
-  <button type="submit">Send Message</button>
-</form>
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
 
-    
+
     </div>
   </div>
 
-  <section class="hero">
+  <!-- <section class="hero">
     <div class="hero-overlay">
-      <div class="hero-content">
-        <!-- <img src="image/11.png" alt="Loyalist Logo" class="hero-logo1" /> -->
-        <h1>"BUY TIMMINS” STRATEGY</h1>
+      <div class="hero-content"> -->
+  <!-- <img src="image/11.png" alt="Loyalist Logo" class="hero-logo1" /> -->
+  <!-- <h1>"BUY TIMMINS” STRATEGY</h1>
         <p>
          Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Creek Mine.
         </p>
         <a href="#projects" class="hero-btn">Start Your Exploration</a>
       </div>
     </div>
+  </section> -->
+  <!-- <section class="hero">
+  <div class="hero-overlay"> -->
+  <!-- Left Content -->
+  <!-- <div class="hero-left">
+      <div class="hero-content">
+        <h1>"BUY TIMMINS” STRATEGY</h1>
+        <p>
+          Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Creek Mine.
+        </p>
+        <a href="#projects" class="hero-btn">Start Your Exploration</a>
+      </div>
+    </div> -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <!-- Left Content -->
+      <div class="hero-left">
+        <div class="hero-content">
+          <h1>"BUY TIMMINS” STRATEGY</h1>
+          <p>
+            Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and
+            strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million
+            ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the
+            Kidd Creek Mine.
+          </p><br />
+          <a href="#projects" class="hero-btn">Start Your Exploration</a>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="hero-right">
+        <div id="upcomingEvents" class="news-box1">
+          <h2>UPCOMING EVENTS</h2>
+        </div>
+
+      </div>
+    </div>
+    </div>
   </section>
+
+
+
+
   <!-- about us  -->
   <section class="about-section" id="about">
     <div class="about-container">
@@ -133,17 +172,17 @@
     </div>
   </section>
 
-<!-- Welcome Popup-->
-<div class="welcome-popup" id="welcomePopup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <img src="image/11.png" alt="Loyalist Logo" class="popup-logo1" />
-    <h2>NEWSLETTER SUBSCRIPTION</h2>
-    <p>Stay updated with our latest press release.</p>
-    <input type="email" id="subscriberEmail" placeholder="Enter your email" />
-    <button id="subscribeBtn" onclick="subscribe()">Subscribe</button>
+  <!-- Welcome Popup-->
+  <div class="welcome-popup" id="welcomePopup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <img src="image/11.png" alt="Loyalist Logo" class="popup-logo1" />
+      <h2>NEWSLETTER SUBSCRIPTION</h2>
+      <p>Stay updated with our latest press release.</p>
+      <input type="email" id="subscriberEmail" placeholder="Enter your email" />
+      <button id="subscribeBtn" onclick="subscribe()">Subscribe</button>
+    </div>
   </div>
-</div>
 
 
   <!-- projects -->
@@ -156,26 +195,28 @@
       </p>
 
       <div class="projects-grid">
-       
+
 
         <div class="project-card">
           <img src="image/2.png" alt="Loveland Property" />
           <div class="card-content">
             <a href="loveland-project.html">
-            <h3>Loveland Property</h3></a>
+              <h3>Loveland Property</h3>
+            </a>
             <p>
               Focused on Nickel-Copper-Gold deposits. Exploration confirmed
               significant base metal mineralization.
             </p>
           </div>
         </div>
-         
+
 
         <div class="project-card">
           <img src="image/tully.webp" alt="Future Sites" />
           <div class="card-content">
             <a href="potential.html">
-            <h3>Potential Projects</h3></a>
+              <h3>Potential Projects</h3>
+            </a>
             <p>
               Loyalist signed LOI in 2025 to acquire Tully Gold Project for exploration and development.
             </p>
@@ -240,96 +281,93 @@
     </div>
   </section>
   <!-- latest news  -->
- <!-- LATEST NEWS SECTION -->
-    <section class="news-section">
-      <div class="news-header">
-        <h2>Latest News & Announcements</h2>
-        <button class="learn-more"><a href="all-news.html">Learn More</a></button>
+  <!-- LATEST NEWS SECTION -->
+  <section class="news-section" id="news-section">
+    <div class="news-header">
+      <h2>Latest News & Announcements</h2>
+      
+      <button class="learn-more"><a href="all-news.html">Learn More</a></button>
+    </div>
+
+    <div class="news-carousel-wrapper">
+      <button class="carousel-btn left" id="prevBtn" aria-label="Previous">
+        &#8249;
+      </button>
+
+      <div class="news-carousel-container">
+        <div class="news-carousel" id="latestNewsCarousel">
+          <!-- News cards will be dynamically loaded here -->
+        </div>
       </div>
 
- <div class="news-carousel-wrapper">
-  <button class="carousel-btn left" id="prevBtn" aria-label="Previous">
-    &#8249;
-  </button>
-
-  <div class="news-carousel-container">
-    <div class="news-carousel" id="latestNewsCarousel">
-      <!-- News cards will be dynamically loaded here -->
+      <button class="carousel-btn right" id="nextBtn" aria-label="Next">
+        &#8250;
+      </button>
     </div>
-  </div>
 
-  <button class="carousel-btn right" id="nextBtn" aria-label="Next">
-    &#8250;
-  </button>
-</div>
-
-</section>
+  </section>
 
   </section>
   <br>
   <br>
 
 
-<!-- contact section -->
- <section class="contact-header">
-      <h1>Contact Us</h1>
-      <p>
-        Have questions? We're here to help. Reach out via the form or directly
-        using the details below.
-      </p>
-    </section>
+  <!-- contact section -->
+  <section class="contact-header">
+    <h1>Contact Us</h1>
+    <p>
+      Have questions? We're here to help. Reach out via the form or directly
+      using the details below.
+    </p>
+  </section>
 
-    <section class="contact-container">
-      <div class="contact-form">
-        <h2>Get In Touch</h2>
-        <form action="#" method="POST">
-          <label>Name*</label>
-          <input type="text" name="name" required />
+  <section class="contact-container">
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+      <form action="#" method="POST">
+        <label>Name*</label>
+        <input type="text" name="name" required />
 
-          <label>Email*</label>
-          <input type="email" name="email" required />
+        <label>Email*</label>
+        <input type="email" name="email" required />
 
-          <label>Subject</label>
-          <input type="text" name="subject" />
+        <label>Subject</label>
+        <input type="text" name="subject" />
 
-          <label>Message*</label>
-          <textarea name="message" rows="6" required></textarea>
+        <label>Message*</label>
+        <textarea name="message" rows="6" required></textarea>
 
-          <button type="submit"><strong>Send Message</strong></button>
-        </form>
+        <button type="submit"><strong>Send Message</strong></button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-block">
+        <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
+        <p>For inquiries about projects or corporate info, email us at:</p>
+        <a href="mailto:afenn@loyalist.expl">afenn@loyalist.expl</a>
       </div>
-
-      <div class="contact-info">
-        <div class="info-block">
-          <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
-          <p>For inquiries about projects or corporate info, email us at:</p>
-          <a href="mailto:afenn@loyalist.expl">afenn@loyalist.expl</a>
-        </div>
-        <div class="info-block">
-          <h3><i class="fa-solid fa-phone"></i> Call Us</h3>
-          <p>Reach our team during business hours:</p>
-          <a href="tel:+16472661270">+1 647 266 1270</a>
-        </div>
-        <div class="info-block">
-          <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
-          <p>Head office:</p>
-          <p>
-            Peterson McVicar LLP,<br />110 Yonge Street, Suite 1601, Toronto ON
-            M5C 1T4
-          </p>
-        </div>
-        <div class="map-placeholder">
-          <!-- Embed map iframe here -->
-          <iframe
-            src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            aria-label="Company location map"
-            allowfullscreen
-            loading="lazy"
-          >
-          </iframe>
-        </div>
+      <div class="info-block">
+        <h3><i class="fa-solid fa-phone"></i> Call Us</h3>
+        <p>Reach our team during business hours:</p>
+        <a href="tel:+16472661270">+1 647 266 1270</a>
       </div>
-    </section>
+      <div class="info-block">
+        <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
+        <p>Head office:</p>
+        <p>
+          Peterson McVicar LLP,<br />110 Yonge Street, Suite 1601, Toronto ON
+          M5C 1T4
+        </p>
+      </div>
+      <div class="map-placeholder">
+        <!-- Embed map iframe here -->
+        <iframe src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          aria-label="Company location map" allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
 
   <footer class="site-footer">
@@ -368,17 +406,17 @@
           <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
 
         </div><br />
-          <div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-    <input type="email" placeholder="Enter your email" id="homepageSubscriberEmail" required /><br/><br/>
-    <button type="submit">Subscribe</button>
-  </form>
-  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
-</div>
+        <div class="subscribe-box">
+          <h4>Subscribe to Our Newsletter</h4>
+          <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+            <input type="email" placeholder="Enter your email" id="homepageSubscriberEmail" required /><br /><br />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
+        </div>
       </div>
     </div>
-  </div><br/>
+    </div><br />
 
     <div class="footer-bottom ">
       <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>

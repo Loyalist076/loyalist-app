@@ -208,6 +208,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Script for Upcoming Events section
+fetch('/api/upcoming-events')
+  .then(res => res.json())
+  .then(events => {
+    const container = document.getElementById('upcomingEvents');
+    container.innerHTML = '<h2>UPCOMING EVENTS</h2>'; // Preserve the main heading
+
+    // Optional: limit to next 2 events
+    const upcoming = events.slice(0, 2);
+
+    upcoming.forEach(event => {
+      const div = document.createElement('div');
+      div.className = 'news-card1';
+      div.innerHTML = `
+        <h3 class="event-title">${event.title}</h3>
+        <span class="date">${new Date(event.date).toDateString()}</span>
+        <p>“${event.description}”</p>
+      `;
+      container.appendChild(div);
+    });
+  })
+  .catch(err => console.error('Error fetching upcoming events:', err));
+
 
 // for news 
 

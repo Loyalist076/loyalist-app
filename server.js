@@ -40,6 +40,8 @@ const pdfRoutes = require('./routes/pdfRoutes'); // adjust path as needed
 const adminRoutes = require('./routes/adminRoutes');
 const subscriberRoutes = require('./routes/subscriberRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes');
+const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
+
 
 
 app.use('/api', authRoutes);
@@ -51,6 +53,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/subscribe', subscriberRoutes); // ✅ only once
 app.use('/api/test', require('./routes/testRoutes'));
 app.use('/api/subscribe', subscriptionRoutes);
+app.use('/api/upcoming-events', upcomingEventRoutes);
 
 
 
