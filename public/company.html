@@ -648,13 +648,13 @@
 }
 
 
-
-/* footer */
 .site-footer {
   background-color: #000;
   color: #ddd;
-  padding: 40px 20px 20px;
+  padding: 40px 20px 0;
+  font-family: Arial, sans-serif;
 }
+
 .footer-container {
   display: flex;
   flex-wrap: wrap;
@@ -662,51 +662,60 @@
   max-width: 1200px;
   margin: auto;
   gap: 30px;
+  padding-bottom: 30px;
 }
+
 .footer-container h4 {
   color: #D4B248;
   margin-bottom: 15px;
   font-size: 18px;
 }
+
 .footer-container a {
   color: #ddd;
   text-decoration: none;
 }
+
 .footer-container a:hover {
   text-decoration: underline;
 }
+
 .contact-column, .quick-links, .social-column {
   flex: 1;
   min-width: 200px;
 }
+
 .quick-links ul {
   list-style: none;
   padding: 0;
 }
+
 .quick-links li {
   margin-bottom: 10px;
 }
+
 .social-icons a {
   margin-right: 15px;
   font-size: 20px;
   color: #ddd;
 }
+
 .social-icons a:hover {
   color: #D4B248;
 }
+
 .subscribe-form input[type="email"] {
   padding: 10px;
   flex: 1;
   background-color: #111;
-  color:#D4B248;
-  border: none;
-   border: 3px solid #D4B248;
+  color: #D4B248;
+  border: 3px solid #D4B248;
   border-radius: 4px;
 }
+
 .subscribe-form button {
   padding: 10px 16px;
   background-color: #D4B248;
-  /* color: #000; */
   border: 3px solid #D4B248;
   border-radius: 4px;
   font-weight: bold;
@@ -716,30 +725,46 @@
 .subscribe-form button:hover {
   background-color: #D4B248;
 }
+
 .subscribe-message {
   margin-top: 10px;
   padding: 10px;
   background-color: #222;
-  color:  #D4B248;
+  color: #D4B248;
   border-radius: 4px;
   font-size: 14px;
 }
+
 .footer-bottom {
   text-align: center;
-  padding-top: 20px;
+  padding: 20px 10px;
+  background-color: #000;
   border-top: 1px solid #333;
   font-size: 14px;
+  color: #aaa;
 }
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .quick-links ul {
     display: inline-block;
   }
 }
+
+
+
+
+
+
+     
+
+    
 
 </style>
 </head>
@@ -862,7 +887,7 @@
       <!-- Section 3 -->
       <div class="accordion-item">
         <div class="accordion-header">Flagship Projects</div>
-        <div class="accordion-body"><br/>
+        <div class="accordion-body">
           <h4>🔶 Loveland Property</h4><br/>
           <ul>
             <li><strong>Location:</strong> 45 km NW of Timmins, Ontario</li>
@@ -924,15 +949,25 @@
 </section>
 
 
-    
+ <!-- Footer HTML -->
 <footer class="site-footer">
   <div class="footer-container">
+    <!-- Contact Info -->
     <div class="contact-column">
       <h4>Contact Information</h4>
-      <p><strong>Email:</strong><br/> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p><br/>
-      <p><strong>Phone:</strong><br/> <a href="tel:+16472961270">+1 647‑296‑1270</a></p><br/>
-      <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p><br/>
+      <p><strong>Email:</strong><br /> 
+        <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
+      </p>
+      <p><strong>Phone:</strong><br />
+        <a href="tel:+16472961270">+1 647‑296‑1270</a>
+      </p>
+      <p><strong>Address:</strong><br />
+        133 Richmond St W, Suite 204<br />
+        Toronto, ON M5H 2L3, Canada
+      </p>
     </div>
+
+    <!-- Quick Links -->
     <div class="quick-links">
       <h4>Quick Links</h4>
       <ul>
@@ -943,36 +978,42 @@
         <li><a href="Contact.html">Contact</a></li>
       </ul>
     </div>
+
+    <!-- Social + Newsletter -->
     <div class="social-column">
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-        <br/><br/>
+      </div>
+      <br />
       <div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-  <form class="subscribe-form" onsubmit="handleCompanySubscribe(event)">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      id="companySubscriberEmail"
-      required
-    /><br /><br />
-    <button type="submit">Subscribe</button>
-  </form>
-  <div
-    id="company-subscribe-message"
-    class="subscribe-message"
-    style="display: none;"
-  >
-</div>
+        <h4>Subscribe to Our Newsletter</h4>
+        <form class="subscribe-form" onsubmit="handleCompanySubscribe(event)">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            id="companySubscriberEmail"
+            required
+          /><br /><br />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div id="company-subscribe-message" class="subscribe-message" style="display: none;">
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </div><br/>
+  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
 </footer>
+
+
+  
+
     <script>
        // Toggle entire navbar menu on small screens
 function toggleMenu() {

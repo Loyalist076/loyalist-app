@@ -1,9 +1,7 @@
 const UpcomingEvent = require('../models/UpcomingEvent');
 
 // Get all events (sorted by date ascending)
-exports.getAllEvents = async (req, res, next) => {
-    console.log('📥 Incoming request to upcoming-events:', req.method, req.originalUrl);
-  next();
+exports.getAllEvents = async (req, res) => {
     try {
         const events = await UpcomingEvent.find().sort({ date: 1 });
         res.status(200).json(events);
