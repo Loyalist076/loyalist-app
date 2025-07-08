@@ -229,7 +229,7 @@ fetch('/api/upcoming-events')
       container.appendChild(div);
     });
   })
-  .catch(err => console.error('Error fetching upcoming events:', err));
+  .catch(err => console.error('hello i am an error:', err));
 
 
 // for news 
