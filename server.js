@@ -90,8 +90,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start server 
-const PORT =  5050;                              
+// Start server
+const PORT =  process.env.PORT || 5050;
 server.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
-});      
+});

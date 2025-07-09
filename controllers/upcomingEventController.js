@@ -13,6 +13,7 @@ exports.getAllEvents = async (req, res) => {
   }
 };
 
+
 // Create a new event
 exports.createEvent = async (req, res) => {
     const { title, date, description } = req.body;
