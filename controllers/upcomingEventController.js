@@ -2,13 +2,15 @@ const UpcomingEvent = require('../models/UpcomingEvent');
 
 // Get all events (sorted by date ascending)
 exports.getAllEvents = async (req, res) => {
-    try {
-        const events = await UpcomingEvent.find().sort({ date: 1 });
-        res.status(200).json(events);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Server error while fetching events' });
-    }
+  try {
+    console.log("Fetching events...");
+    const events = await UpcomingEvent.find().sort({ date: 1});
+    console.log("Sending 200 response");
+    return res.status(200).json(events);
+  } catch (err) {
+    console.error("Error caught, sending 500 response");
+    return res.status(500).json({ message: 'Server error while fetching events' });
+  }
 };
 
 // Create a new event

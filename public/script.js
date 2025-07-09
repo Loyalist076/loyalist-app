@@ -224,7 +224,7 @@ fetch('/api/upcoming-events')
       div.innerHTML = `
         <h3 class="event-title">${event.title}</h3>
         <span class="date">${new Date(event.date).toDateString()}</span>
-        <p>“${event.description}”</p>
+        <p>${event.description}</p>
       `;
       container.appendChild(div);
     });

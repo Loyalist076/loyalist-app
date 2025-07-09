@@ -749,7 +749,9 @@ body {
   margin-bottom: 25px;
   animation: slideUp 1.3s ease-out;
 }
-
+.hero-btn-wrapper {
+  text-align: left; /* 🖥 Default: left aligned */
+}
 .hero-btn {
   display: inline-block;
   padding: 14px 32px;
@@ -760,11 +762,17 @@ body {
   font-weight: bold;
   font-size: 1rem;
   transition: background 0.3s ease, transform 0.3s ease;
+ 
 }
 
 .hero-btn:hover {
   background-color: #D4B248;
   transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .hero-btn-wrapper {
+    text-align: center;
+  }
 }
 
 /* RIGHT */
@@ -1457,12 +1465,14 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .news-header h2 {
   font-size: 24px;
-  padding-left: .5%;
+  padding-left: 0.5%;
   padding-right: 1%;
+  margin: 0;
 }
 
 .learn-more {
@@ -1477,14 +1487,16 @@ body {
 .learn-more a {
   text-decoration: none;
   color: black;
+  font-size: 14px;
 }
 
+/* Carousel Wrapper */
 .news-carousel-wrapper {
   position: relative;
   overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 60px; /* 👈 Padding added for arrow space */
+  padding: 0 80px; /* ⬅️ Balanced space for arrows */
 }
 
 .news-carousel-container {
@@ -1493,10 +1505,13 @@ body {
 
 .news-carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out;
   gap: 24px;
+  padding: 40px 0;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
 }
 
+/* News Cards */
 .news-card {
   flex: 0 0 auto;
   width: 100%;
@@ -1504,14 +1519,14 @@ body {
   background: linear-gradient(145deg, #ffffff, #f4f4f4);
   border-radius: 20px;
   border: 1px solid #ddd;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); */
   padding: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); */
 }
 
 .news-card h3 {
@@ -1536,6 +1551,7 @@ body {
   line-height: 1.6;
 }
 
+/* Arrows */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -1547,37 +1563,38 @@ body {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  z-index: 20;
+  z-index: 10;
   border-radius: 50%;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.8;
-  transition: background 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+  /* box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .carousel-btn:hover {
   background: #bfa03e;
-  opacity: 1;
+  transform: scale(1.1);
 }
 
 .carousel-btn.left {
-  left: 10px; /* 👈 Properly positioned within padding */
+  left: 2px; /* Equal padding on both sides */
 }
 
 .carousel-btn.right {
-  right: 10px; /* 👈 Properly positioned within padding */
+  right: 20px;
 }
 
+/* Responsive Cards */
 @media (max-width: 768px) {
   .news-card {
-    max-width: 90%; /* show 1 card on mobile */
+    max-width: 90%;
     margin: 0 auto;
   }
 
   .news-carousel-wrapper {
-    padding: 0 40px; /* smaller padding for arrows */
+    padding: 0 50px;
   }
 
   .carousel-btn {
@@ -1589,20 +1606,40 @@ body {
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .news-card {
-    max-width: 45%; /* show 2 cards on tablets */
+    max-width: 45%;
   }
 }
 
 @media (min-width: 1025px) {
   .news-card {
-    max-width: 23%; /* show 4 cards on desktop */
+    max-width: 23%;
   }
 }
 
-  .learn-more a {
-    font-size: 14px;
-    padding: 10px 20px;
+@media (max-width: 768px) {
+  .news-card {
+    max-width: 90%;
+    margin: 0 auto;
   }
+
+  .news-carousel-wrapper {
+    padding: 0 50px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .carousel-btn.left {
+    left: 2px; /* ✅ Updated for mobile */
+  }
+
+  .carousel-btn.right {
+    right: 10px; /* ✅ Updated for mobile */
+  }
+}
 
 
 body {

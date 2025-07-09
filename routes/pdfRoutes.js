@@ -22,7 +22,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const upload = multer({ dest: 'uploads/' }); // Temporary folder for uploads
 
 // 📧 Newsletter sender function
-const sendNewsletterToAll = async (subject, pdfViewUrl) => {
+const sendNewsletterToAll = async (title, pdfViewUrl) => {
   try {
     const subscribers = await Subscriber.find();
     if (!subscribers.length) {
@@ -31,15 +31,15 @@ const sendNewsletterToAll = async (subject, pdfViewUrl) => {
     }
 
     const emails = subscribers.map(sub => sub.email);
+
     const msg = {
       to: emails,
-      from: 'gandhiswayam772@gmail.com',
-      subject,
-      html: `
-        <h2>${subject}</h2>
-        <p>A new PDF has been uploaded. Click below to view:</p>
-        <p><a href="${pdfViewUrl}" target="_blank">📄 View PDF</a></p>
-      `
+      from: 'gandhiswayam772@gmail.com', // ✅ Verified sender
+      templateId: 'd-6253652138f644b28cdd87edd5319c00', // ✅ Your dynamic template ID
+      dynamic_template_data: {
+        title,        // maps to {{title}} in the template
+        link: pdfViewUrl // maps to {{link}} in the template
+      },
     };
 
     await sgMail.sendMultiple(msg);
@@ -75,7 +75,7 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
     await newPdf.save();
 
     const pdfViewUrl = `${req.protocol}://${req.get('host')}/api/pdf/view/${newPdf._id}`;
-    await sendNewsletterToAll(`New PDF: ${title}`, pdfViewUrl);
+    await sendNewsletterToAll(title, pdfViewUrl);
 
     res.status(201).json({
       message: '✅ PDF uploaded and newsletter sent!',
@@ -167,3 +167,5 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+
