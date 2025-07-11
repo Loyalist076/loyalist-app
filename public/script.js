@@ -1,3 +1,18 @@
+  const MIN_PRELOAD_TIME = 2000; // 2 seconds
+    const start = Date.now();
+
+    window.addEventListener("load", () => {
+      const elapsed = Date.now() - start;
+      const remaining = Math.max(0, MIN_PRELOAD_TIME - elapsed);
+
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+        setTimeout(() => {
+          const preloader = document.getElementById("preloader");
+          if (preloader) preloader.remove();
+        }, 600);
+      }, remaining);
+    });
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
