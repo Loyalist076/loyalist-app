@@ -17,17 +17,11 @@ const io = socketIo(server); // Attach socket.io
 const User = require('./models/User');
 const Message = require('./models/Message');
 
-// Optional: Security middleware (uncomment if needed)
-// const cors = require('cors');
-// const helmet = require('helmet');
-// app.use(cors());
-// app.use(helmet());
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files (includes PDFs)
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
@@ -36,27 +30,26 @@ const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
-const pdfRoutes = require('./routes/pdfRoutes'); // adjust path as needed
+const pdfRoutes = require('./routes/pdfRoutes');
 const adminRoutes = require('./routes/adminRoutes');
-const subscriberRoutes = require('./routes/subscriberRoutes');
-const subscriptionRoutes = require('./routes/subscriptionRoutes');
+const subscriptionRoutes = require('./routes/subscriptionRoutes'); // ✅ Mailchimp
+const testRoutes = require('./routes/testRoutes');
 const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
 
-
-
 app.use('/api', authRoutes);
-app.use('/api/messages', messageRoutes); // ✅ this is essential
+app.use('/api/messages', messageRoutes);
 app.use('/api', userRoutes);
 app.use('/api/news', newsRoutes);
-app.use('/api/pdf', pdfRoutes); // ✅ must match this
+app.use('/api/pdf', pdfRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/subscribe', subscriberRoutes); // ✅ only once
-app.use('/api/test', require('./routes/testRoutes'));
-app.use('/api/subscribe', subscriptionRoutes);
+app.use('/api/test', testRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes);
 
+// ✅ Mount only this to handle subscriptions via Mailchimp
+app.use('/api/subscribe', subscriptionRoutes);
 
-
+// ❌ Removed conflicting line that was overriding Mailchimp logic:
+// app.use('/api/subscribe', subscriberRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
@@ -90,8 +83,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start server 
-const PORT = process.env.PORT || 5050;                              
+// Start server
+const PORT = process.env.PORT || 5050;
 server.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
-});      
+});

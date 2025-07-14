@@ -53,6 +53,7 @@ function closeModal() {
 }
   document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById('welcomePopup');
+      console.log("🧪 Subscribe function triggered");
 
     // Show popup only if not already shown
     const hasSeenPopup = localStorage.getItem('loyalist_popup_shown');
