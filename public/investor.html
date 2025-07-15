@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
     <style>
         *{
       box-sizing: border-box;
@@ -484,11 +485,152 @@
     margin-top: 10px;
   }
 }
+ :root {
+      --gold: #d4af37;
+      --white: #ffffff;
+      --black: #111111;
+      --light-bg: #fef9e7;
+      --gray: #666;
+    }
 
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #D4B248;
+      color: var(--black);
+    }
+
+    .container {
+      display: flex;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .left, .right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--gold);
+    }
+
+    h2 {
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+      font-size: 1.8rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-body {
+      color: var(--black);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    ul.ownership-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .ownership-list li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 0.8rem 0;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-btn {
+      background: var(--gold);
+      border: none;
+      padding: 8px 14px;
+      color: var(--black);
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .filter-btn:hover {
+      background: #D4B248;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .report-grid .card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: var(--gold);
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: var(--black);
+      font-weight: bold;
+    }
+
+    @media (min-width: 768px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .report-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .report-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
 /* investor */
 /* Investor Section Styles */
-.investor-section {
+/* .investor-section {
   background-color:  #D4B248;
   padding: 60px 20px;
   font-family: 'Segoe UI', sans-serif;
@@ -548,7 +690,7 @@
 .investor-block p {
   font-size: 16px;
   line-height: 1.6;
-}
+} */
 
 /* footer */
 .site-footer {
@@ -689,16 +831,16 @@
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
-            <ul class="dropdown">
+            <!-- <ul class="dropdown">
               <li><a href="corporate.html">Corporate Structure</a></li>
-              <li><a href="statements.html">Financial Statements & MD&A</a></li>
+              <li><a href="statements.html">Financial Statements & MD&A</a></li> -->
 
               <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
+            <!-- </ul> -->
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">News & Media</a>
+            <a href="#">News</a>
             <ul class="dropdown">
                <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
@@ -736,7 +878,7 @@
     </div>
 
     <!-- investor -->
-     <section class="investor-section">
+     <!-- <section class="investor-section">
   <div class="investor-container">
     <h2>Investor Information</h2>
     <p>Loyalist Exploration Limited is committed to maintaining transparency and providing timely updates to our shareholders and investors. Below you'll find access to our corporate documents, share structure, and contact information for investor relations.</p>
@@ -755,8 +897,8 @@
       <h3>Corporate Filings</h3>
       <ul>
         <li><a href="image/a.pdf" target="_blank">Annual General Meeting Materials 2024</a></li>
-        <li><a href="image/b.pdf" target="_blank">Investor Presentation 2024</a></li>
-        <li><a href="image/c.pdf" target="_blank">Corporate Fact Sheet</a></li>
+        <li><a href="statements.html" target="_blank">Investor Presentation 2024</a></li>
+        <li><a href="corporate.html" target="_blank">Corporate Fact Sheet</a></li>
       </ul>
     </div>
 
@@ -769,7 +911,107 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->
+ <div class="container">
+
+    <!-- Left: Corporate Info -->
+    <div class="left">
+
+      <!-- Capital Structure -->
+      <section class="section capital">
+        <h2>Capital Structure</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-header">Common Shares Outstanding</div>
+            <div class="card-body">260.3M</div>
+          </div>
+          <div class="card">
+            <div class="card-header">Warrants</div>
+            <div class="card-body">124.4M</div>
+          </div>
+          <div class="card">
+            <div class="card-header">Options</div>
+            <div class="card-body">4.1M</div>
+          </div>
+          <div class="card">
+            <div class="card-header">Fully Diluted</div>
+            <div class="card-body">388.9M</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Share Ownership -->
+      <section class="section ownership">
+        <h2>Share Ownership</h2>
+        <ul class="ownership-list">
+          <li><span>Timmins Shareholders</span><span>18%</span></li>
+          <li><span>Significant Shareholders</span><span>41%</span></li>
+          <li><span>Float</span><span>41%</span></li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- Right: Financial Reports -->
+    <div class="right">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn" onclick="filterReports('all')">All</button>
+        <button class="filter-btn" onclick="filterReports('annual')">Annual Reports</button>
+        <button class="filter-btn" onclick="filterReports('quarterly')">Quarterly</button>
+        <button class="filter-btn" onclick="filterReports('mda')">MD&A</button>
+        <button class="filter-btn" onclick="filterReports('estma')">ESTMA</button>
+      </div>
+
+      <!-- Reports -->
+      <section class="report-grid" id="reportGrid">
+        <div class="card quarterly">
+          <h3>Financial Statements - Sep 30, 2024</h3>
+          <p>Third quarter financial statements and disclosures.</p>
+          <a href="image/a.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card quarterly">
+          <h3>Financial Statements - Mar 31, 2024</h3>
+          <p>First quarter financial statements and disclosures.</p>
+          <a href="image/e.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card quarterly">
+          <h3>Financial Statements - Jun 30, 2024</h3>
+          <p>Second quarter financial statements and disclosures.</p>
+          <a href="image/c.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card mda">
+          <h3>MD&A - Jun 30, 2024</h3>
+          <p>Management discussion and analysis for Q2 2024.</p>
+          <a href="image/d.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card mda">
+          <h3>MD&A - Sep 30, 2024</h3>
+          <p>Management discussion and analysis for Q3 2024.</p>
+          <a href="image/b.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card mda">
+          <h3>MD&A - Mar 31, 2024</h3>
+          <p>Management discussion and analysis for Q1 2024.</p>
+          <a href="image/f.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card annual">
+          <h3>Financial Statements - Dec 31, 2023</h3>
+          <p>Audited year-end financial statements and MD&A.</p>
+          <a href="image/g.pdf" target="_blank">Download</a>
+        </div>
+        <div class="card estma">
+          <h3>2023 ESTMA Filing</h3>
+          <p>Extractive Sector Transparency Measures Act report.</p>
+          <a href="image/h.pdf" target="_blank">Download</a>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
 <!-- footer -->
  <footer class="site-footer">
       <div class="footer-container">
@@ -913,6 +1155,17 @@ function closePopup() {
       setTimeout(() => (messageDiv.style.display = 'none'), 5000);
     }
   }
+    function filterReports(category) {
+      const allCards = document.querySelectorAll(".report-grid .card");
+      allCards.forEach(card => {
+        if (category === "all") {
+          card.style.display = "block";
+        } else {
+          card.style.display = card.classList.contains(category) ? "block" : "none";
+        }
+      });
+    }
+ 
 
 </script>
 </body>

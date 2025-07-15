@@ -1267,7 +1267,14 @@ body {
 .investor-points li span {
   line-height: 1;
   transform: translateY(1px);
+ 
 }
+.investor-points li span a {
+  color: #D4B248;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 
 
 
