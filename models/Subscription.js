@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 
-const subscriberSchema = new mongoose.Schema({
+const subscriptionSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
     unique: true
   },
-  subscribedAt: {
-    type: Date,
-    default: Date.now
+  name: String,
+  source: {
+    type: String,
+    enum: ['website', 'admin'],
+    default: 'website'
   }
-});
+}, { timestamps: true });
 
-module.exports = mongoose.model('Subscription', subscriberSchema);
+module.exports = mongoose.model('Subscription', subscriptionSchema);
