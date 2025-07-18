@@ -349,16 +349,14 @@ window.addEventListener('DOMContentLoaded', loadNews);
 
 // for subscribe form 
 
-  async function handleSubscribe(event) {
+ async function handleSubscribe(event) {
     event.preventDefault();
 
     const emailInput = document.getElementById('homepageSubscriberEmail');
     const messageDiv = document.getElementById('subscribe-message');
     const email = emailInput.value.trim();
 
-    // Simple email regex
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!email || !emailPattern.test(email)) {
       messageDiv.style.display = 'block';
       messageDiv.style.color = 'red';
@@ -367,10 +365,10 @@ window.addEventListener('DOMContentLoaded', loadNews);
     }
 
     try {
-      const res = await fetch('/api/subscribe/homepage', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email })
       });
 
       const data = await res.json();
@@ -380,17 +378,21 @@ window.addEventListener('DOMContentLoaded', loadNews);
         messageDiv.style.color = 'green';
         messageDiv.textContent = data.message || 'Subscribed successfully!';
         emailInput.value = '';
-
-        setTimeout(() => {
-          messageDiv.style.display = 'none';
-        }, 4000);
       } else {
-        messageDiv.style.color = 'red';
-        messageDiv.textContent = data.message || 'Something went wrong.';
-        setTimeout(() => {
-          messageDiv.style.display = 'none';
-        }, 5000);
+        const errorMsg = data?.error || data?.message;
+        if (errorMsg?.includes('looks fake or invalid')) {
+          messageDiv.style.color = 'orange';
+          messageDiv.textContent = 'Email saved, but not accepted by Mailchimp. Try a real email.';
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = errorMsg || 'Something went wrong.';
+        }
       }
+
+      // Hide the message after 5 seconds
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
     } catch (err) {
       console.error('❌ Subscription error:', err);
       messageDiv.style.display = 'block';

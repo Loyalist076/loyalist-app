@@ -875,21 +875,21 @@
         </div>
   <div class="subscribe-box">
   <h4>Subscribe to Our Newsletter</h4>
-  <form class="subscribe-form" onsubmit="handleNewsSubscribe(event)">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      id="newsSubscriberEmail"
-      required
-    /><br /><br />
-    <button type="submit">Subscribe</button>
-  </form>
-  <div
-    id="news-subscribe-message"
-    class="subscribe-message"
-    style="display: none;"
-  ></div>
-</div>
+<form class="subscribe-form" onsubmit="handleNewsSubscribe(event)">
+  <input
+    type="email"
+    placeholder="Enter your email"
+    id="newsSubscriberEmail"
+    required
+  /><br /><br />
+  <button type="submit">Subscribe</button>
+</form>
+<div
+  id="news-subscribe-message"
+  class="subscribe-message"
+  style="display: none;"
+></div>
+
 
       </div>
     </div>
@@ -994,7 +994,7 @@ function toggleDropdown(e) {
 
 
 
-    async function handleNewsSubscribe(event) {
+   async function handleNewsSubscribe(event) {
     event.preventDefault();
 
     const emailInput = document.getElementById('newsSubscriberEmail');
@@ -1010,10 +1010,10 @@ function toggleDropdown(e) {
     }
 
     try {
-      const res = await fetch('/api/subscribe/homepage', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'news' }),
+        body: JSON.stringify({ email })
       });
 
       const data = await res.json();
@@ -1023,21 +1023,30 @@ function toggleDropdown(e) {
         messageDiv.style.color = 'green';
         messageDiv.textContent = data.message || 'Subscribed successfully!';
         emailInput.value = '';
-        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
       } else {
-        messageDiv.style.color = 'red';
-        messageDiv.textContent = data.message || 'Something went wrong.';
-        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+        const errorMsg = data?.error || data?.message;
+        if (errorMsg?.includes('looks fake or invalid')) {
+          messageDiv.style.color = 'orange';
+          messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = errorMsg || 'Something went wrong.';
+        }
       }
+
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
     } catch (err) {
-      console.error('Subscription error:', err);
+      console.error('❌ Subscription error:', err);
       messageDiv.style.display = 'block';
       messageDiv.style.color = 'red';
       messageDiv.textContent = 'Server error. Please try again later.';
-      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
     }
   }
-
     
     </script>
 </body>

@@ -948,24 +948,24 @@
         <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
      
       <br/><br/>
-         <div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-  <form class="subscribe-form" onsubmit="handleCorporateSubscribe(event)">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      id="corporateSubscriberEmail"
-      required
-    /><br /><br />
-    <button type="submit">Subscribe</button>
-  </form>
-  <div
-    id="corporate-subscribe-message"
-    class="subscribe-message"
-    style="display: none;"
-  ></div>
-</div>
+        <h4>Subscribe to Our Newsletter</h4>
+<form class="subscribe-form" onsubmit="handleCorporateSubscribe(event)">
+  <input
+    type="email"
+    placeholder="Enter your email"
+    id="corporateSubscriberEmail"
+    required
+  /><br /><br />
+  <button type="submit">Subscribe</button>
+</form>
+<div
+  id="corporate-subscribe-message"
+  class="subscribe-message"
+  style="display: none;"
+></div>
 
+
+</div>
       </div>
     </div>
   </div><br/>
@@ -1014,51 +1014,60 @@ function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
 
- async function handleCorporateSubscribe(event) {
-    event.preventDefault();
+ function handleCorporateSubscribe(event) {
+  event.preventDefault();
 
-    const emailInput = document.getElementById('corporateSubscriberEmail');
-    const messageDiv = document.getElementById('corporate-subscribe-message');
-    const email = emailInput.value.trim();
+  const emailInput = document.getElementById('corporateSubscriberEmail');
+  const messageDiv = document.getElementById('corporate-subscribe-message');
+  const email = emailInput.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailPattern.test(email)) {
+    messageDiv.style.display = 'block';
+    messageDiv.style.color = 'red';
+    messageDiv.textContent = 'Please enter a valid email address.';
+    return;
+  }
 
-    if (!email || !emailPattern.test(email)) {
+  fetch('/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email })
+  })
+    .then(res => res.json().then(data => ({ status: res.status, body: data })))
+    .then(({ status, body }) => {
       messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Please enter a valid email address.';
-      return;
-    }
 
-    try {
-      const res = await fetch('/api/subscribe/homepage', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'corporate' }),
-      });
-
-      const data = await res.json();
-
-      messageDiv.style.display = 'block';
-      if (res.ok) {
+      if (status === 200 || status === 201) {
         messageDiv.style.color = 'green';
-        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        messageDiv.textContent = body.message || 'Subscribed successfully!';
         emailInput.value = '';
-        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
       } else {
-        messageDiv.style.color = 'red';
-        messageDiv.textContent = data.message || 'Something went wrong.';
-        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+        const errorMsg = body?.error || body?.message;
+        if (errorMsg?.includes('looks fake or invalid')) {
+          messageDiv.style.color = 'orange';
+          messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = errorMsg || 'Something went wrong.';
+        }
       }
-    } catch (err) {
-      console.error('Subscription error:', err);
+
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
+    })
+    .catch(err => {
+      console.error('❌ Subscription error:', err);
       messageDiv.style.display = 'block';
       messageDiv.style.color = 'red';
       messageDiv.textContent = 'Server error. Please try again later.';
-      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
-    }
-  }
-  
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 5000);
+    });
+}
+
 </script>
 </body>
 </html>

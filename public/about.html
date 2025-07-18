@@ -1,263 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - Loyalist Exploration</title>
-      <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-   <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
+  <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <style>
-    *{
+    * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f5f5;
       color: #333;
     }
-    .promo-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); justify-content: center; align-items: center; z-index: 1000; }
-    .promo-modal.active { display: flex; }
-    .promo-content { background: white; border-radius: 8px; padding: 2rem; max-width: 400px; width: 90%; position: relative; text-align: center; animation: scaleIn 0.4s ease; }
-    .promo-close { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 24px; cursor: pointer; }
-    .promo-btn { background: #b1974c; color: white; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 6px; cursor: pointer; transition: background 0.3s; }
-    .promo-btn:hover { background: #9c7c39; }
-    @keyframes scaleIn { from { transform: scale(0.9); } to { transform: scale(1); } }
 
-      .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color:white;
-   
-}
+    .promo-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-.logo img {
-    height: 75px; /* Adjust logo size */
-     transition: transform 0.3s ease-in-out;
-}
-.logo img:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-}
+    .promo-modal.active {
+      display: flex;
+    }
 
-.navbar {
-     display: flex;
-     align-items: center;
-     padding-right: 1%;
-}
+    .promo-content {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      text-align: center;
+      animation: scaleIn 0.4s ease;
+    }
 
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-}
+    .promo-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-.navbar li {
-    display: inline-block;
-    position: relative; /* Needed for dropdown positioning */
-}
+    .promo-btn {
+      background: #b1974c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-.navbar a {
-    display: block;
-    color: black;
-    padding: 14px 20px;
-    text-decoration: none;
-}
+    .promo-btn:hover {
+      background: #9c7c39;
+    }
 
-.navbar a:hover {
-    background-color: #c4a12e; /* Lighter blue */
-}
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.9);
+      }
 
-.dropdown {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position the dropdown */
-    background-color: black; /* White background */
-    min-width: 160px; /* Set a minimum width */
-    z-index: 1; /* Sit on top */
-}
+      to {
+        transform: scale(1);
+      }
+    }
 
-.dropdown li {
-    float: none; /* Stack dropdown items vertically */
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
 
-.dropdown a {
-    color: #D4B248; /* Navy blue text */
-    padding: 12px 16px; /* Padding for dropdown items */
-    text-decoration: none;
-    display: block; /* Make dropdown items block elements */
-}
+    }
 
-.dropdown a:hover {
-    background-color: black; /* Light gray on hover */
-}
+    .logo img {
+      height: 75px;
+      /* Adjust logo size */
+      transition: transform 0.3s ease-in-out;
+    }
 
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-/* Tablet & Mobile - Already Exists */
-@media (max-width: 1024px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-    background-color: #D4B248;
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-
-  .navbar li {
-    width: 100%;
-  }
-
-  .navbar a {
-    padding: 12px 20px;
-    color: white;
-  }
-
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    box-shadow: none;
-  }
-
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
-
-  .navbar li:hover > .dropdown {
-    display: none; /* Disable hover effect */
-  }
-
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-    padding-right: 1rem;
-  }
-
-  .dropdown a {
-    color: #D4B248;
-  }
-}
-
-/* Desktop hover dropdown */
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-
-
-
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar li {
-        display: block; /* Stack items vertically on small screens */
-        text-align: left; /* Align text to the left */
+    .logo img:hover {
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
     }
 
     .navbar {
-        text-align: left; /* Align navbar items to the left */
-        
+      display: flex;
+      align-items: center;
+      padding-right: 1%;
     }
 
-    
-}
-/* Mobile Navbar Toggle Button */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-  padding-right: 1%;/* toggle */
-}
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      position: relative;
+      /* Needed for dropdown positioning */
+    }
+
+    .navbar a {
+      display: block;
+      color: black;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #c4a12e;
+      /* Lighter blue */
+    }
+
+    .dropdown {
+      display: none;
+      /* Hidden by default */
+      position: absolute;
+      /* Position the dropdown */
+      background-color: black;
+      /* White background */
+      min-width: 160px;
+      /* Set a minimum width */
+      z-index: 1;
+      /* Sit on top */
+    }
+
+    .dropdown li {
+      float: none;
+      /* Stack dropdown items vertically */
+    }
+
+    .dropdown a {
+      color: #D4B248;
+      /* Navy blue text */
+      padding: 12px 16px;
+      /* Padding for dropdown items */
+      text-decoration: none;
+      display: block;
+      /* Make dropdown items block elements */
+    }
+
+    .dropdown a:hover {
+      background-color: black;
+      /* Light gray on hover */
+    }
+
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+    /* Tablet & Mobile - Already Exists */
+    @media (max-width: 1024px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #D4B248;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+        color: white;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover effect */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+        padding-right: 1rem;
+      }
+
+      .dropdown a {
+        color: #D4B248;
+      }
+    }
+
+    /* Desktop hover dropdown */
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar li {
+        display: block;
+        /* Stack items vertically on small screens */
+        text-align: left;
+        /* Align text to the left */
+      }
+
+      .navbar {
+        text-align: left;
+        /* Align navbar items to the left */
+
+      }
+
+
+    }
+
+    /* Mobile Navbar Toggle Button */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: black;
+      cursor: pointer;
+      padding-right: 1%;
+      /* toggle */
+    }
 
 
 
 
 
-/* Hide menu on small screens by default */
-@media (max-width: 768px) {
+    /* Hide menu on small screens by default */
+    @media (max-width: 768px) {
 
-  .align-logo{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
 
-  .navbar {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    background-color:#D4B248;
-  }
+      .navbar {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        background-color: #D4B248;
+      }
 
-  .navbar ul {
-    width: 100%;
-  }
+      .navbar ul {
+        width: 100%;
+      }
 
-  .navbar li {
-    display: block;
-    width: 100%;
-  }
+      .navbar li {
+        display: block;
+        width: 100%;
+      }
 
-  .navbar a {
-    padding: 10px 20px;
-  }
+      .navbar a {
+        padding: 10px 20px;
+      }
 
-  .navbar.active {
-    display: flex;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .dropdown {
-    position: static;
-  }
+      .dropdown {
+        position: static;
+      }
 
-  .navbar li:hover .dropdown {
-    display: none; /* Disable hover dropdown on mobile */
-  }
+      .navbar li:hover .dropdown {
+        display: none;
+        /* Disable hover dropdown on mobile */
+      }
 
-  .navbar li.active .dropdown {
-    display: block;
-  }
-}
+      .navbar li.active .dropdown {
+        display: block;
+      }
+    }
 
 
 
 
-.header-buttons button {
-      background-color:  #D4B248;
+    .header-buttons button {
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -268,7 +343,7 @@
     }
 
     .header-buttons button:hover {
-      background-color:  #D4B248;
+      background-color: #D4B248;
     }
 
     /* Modal Styles */
@@ -281,7 +356,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .modal-content {
@@ -296,7 +371,7 @@
 
     .modal-content h2 {
       margin-bottom: 15px;
-      color:  #D4B248;
+      color: #D4B248;
     }
 
     .modal-content input,
@@ -309,7 +384,7 @@
     }
 
     .modal-content button[type="submit"] {
-      background-color:  #D4B248;
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px;
@@ -322,7 +397,7 @@
       top: 8px;
       right: 12px;
       font-size: 24px;
-      color:#D4B248 ;
+      color: #D4B248;
       cursor: pointer;
     }
 
@@ -363,144 +438,151 @@
         padding-left: 30px;
       }
     }
-/* Desktop dropdown hover */
-.navbar li:hover > .dropdown {
-  display: block;
-}
-.icon {
-  font-size: 28px;
-  color: #ffc107; /* Gold/Yellow */
-  margin-bottom: 10px;
-}
 
-/* Default: hide dropdowns */
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color:black;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 4px;
-  top: 100%;
-  left: 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    /* Desktop dropdown hover */
+    .navbar li:hover>.dropdown {
+      display: block;
+    }
 
-.dropdown li {
-  display: block;
-}
+    .icon {
+      font-size: 28px;
+      color: #ffc107;
+      /* Gold/Yellow */
+      margin-bottom: 10px;
+    }
 
-.dropdown a {
-  color: #D4B248;
-  padding: 10px 15px;
-}
+    /* Default: hide dropdowns */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-/* Mobile-friendly override */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-  }
+    .dropdown li {
+      display: block;
+    }
 
-  .navbar.active {
-    display: flex;
-  }
+    .dropdown a {
+      color: #D4B248;
+      padding: 10px 15px;
+    }
 
-  .navbar li {
-    width: 100%;
-  }
+    /* Mobile-friendly override */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
 
-  .dropdown {
-    position: relative;
-    box-shadow: none;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .navbar .has-dropdown.active > .dropdown {
-    display: block;
-  }
+      .navbar li {
+        width: 100%;
+      }
 
-  .navbar li:hover > .dropdown {
-    display: none; /* Prevent hover on touch devices */
-  }
-}
-/* Tablet & Kindle View */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .align-logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
+      .dropdown {
+        position: relative;
+        box-shadow: none;
+      }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .navbar .has-dropdown.active>.dropdown {
+        display: block;
+      }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    font-size: 28px;
-    padding: 10px;
-  }
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Prevent hover on touch devices */
+      }
+    }
 
-  .navbar {
-    width: 100%;
-    flex-direction: column;
-    display: none;
-    background-color: #D4B248;
-  }
+    /* Tablet & Kindle View */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
 
-  .navbar.active {
-    display: flex;
-  }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+        padding: 10px;
+      }
 
-  .navbar li {
-    width: 100%;
-  }
+      .navbar {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        background-color: #D4B248;
+      }
 
-  .navbar a {
-    padding: 12px 20px;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    border-radius: 0;
-    box-shadow: none;
-  }
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
 
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
+      .navbar li {
+        width: 100%;
+      }
 
-  .navbar li:hover > .dropdown {
-    display: none; /* Disable hover on tablet */
-  }
+      .navbar a {
+        padding: 12px 20px;
+      }
 
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-}
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
-/* black */
-.section-title {
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover on tablet */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+      }
+    }
+
+    /* black */
+    .section-title {
       background: #000;
       color: #c4a12e;
       padding: 20px 50px;
       font-size: 24px;
       font-weight: bold;
     }
+
     .about-hero {
       background: url('image/5.png') no-repeat center center/cover;
       height: 50vh;
@@ -519,9 +601,9 @@
       border-radius: 10px;
       width: 100vw;
       height: 50vh;
-      padding:9%;
+      padding: 9%;
       justify-content: center;
-      
+
     }
 
     .section {
@@ -533,7 +615,7 @@
 
     .section h2 {
       font-size: 32px;
-      color:#D4B248;
+      color: #D4B248;
       margin-bottom: 20px;
       position: relative;
     }
@@ -542,14 +624,15 @@
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 20px;
-      
+
     }
 
-    .directory, .structure {
+    .directory,
+    .structure {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-    
+
     }
 
     .card {
@@ -559,17 +642,18 @@
       border-radius: 8px;
       flex: 1;
       min-width: 250px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
-    .card a {
-  color: #D4B248;
-  text-decoration: none;
-  font-weight: 500;
-}
 
-.card a:hover {
-  text-decoration: underline;
-}
+    .card a {
+      color: #D4B248;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
 
     .card h4 {
       color: #D4B248;
@@ -590,13 +674,13 @@
         height: 50vh;
         width:100vw */
         font-size: 40px;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px 30px;
-      border-radius: 10px;
-      width: 100vw;
-      height: 50vh;
-      padding:9%;
-      justify-content: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 15px 30px;
+        border-radius: 10px;
+        width: 100vw;
+        height: 50vh;
+        padding: 9%;
+        justify-content: center;
       }
 
       .section h2 {
@@ -606,129 +690,136 @@
       .card {
         flex: 100%;
       }
-    } 
-     .directory .card,
-.structure .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
+    }
 
-.directory .card.clicked,
-.structure .card.clicked {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-}
+    .directory .card,
+    .structure .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-   .site-footer {
-  background-color: #000;
-  color: #ddd;
-  padding: 40px 20px 20px;
-  font-family: Arial, sans-serif;
-}
+    .directory .card.clicked,
+    .structure .card.clicked {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  gap: 30px;
-}
+    .site-footer {
+      background-color: #000;
+      color: #ddd;
+      padding: 40px 20px 20px;
+      font-family: Arial, sans-serif;
+    }
 
-.footer-container h4 {
-  color: #D4B248;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 30px;
+    }
 
-.footer-container a {
-  color: #ddd;
-  text-decoration: none;
-}
+    .footer-container h4 {
+      color: #D4B248;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
 
-.footer-container a:hover {
-  text-decoration: underline;
-}
+    .footer-container a {
+      color: #ddd;
+      text-decoration: none;
+    }
 
-.contact-column,
-.quick-links,
-.social-column {
-  flex: 1;
-  min-width: 200px;
-}
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
 
-.quick-links ul {
-  list-style: none;
-  padding: 0;
-}
+    .contact-column,
+    .quick-links,
+    .social-column {
+      flex: 1;
+      min-width: 200px;
+    }
 
-.quick-links li {
-  margin-bottom: 10px;
-}
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
 
-.social-icons a {
-  margin-right: 15px;
-  font-size: 20px;
-  color: #ddd;
-}
+    .quick-links li {
+      margin-bottom: 10px;
+    }
 
-.social-icons a:hover {
-  color: #D4B248;
-}
-   .subscribe-form input[type="email"] {
-  padding: 10px;
-  flex: 1;
-  background-color: #111;
-  color:#D4B248;
-  border: none;
-   border: 3px solid #D4B248;
-  border-radius: 4px;
-}
-.subscribe-form button {
-  padding: 10px 16px;
-  background-color: #D4B248;
-  /* color: #000; */
-  border: 3px solid #D4B248;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ddd;
+    }
 
-.subscribe-form button:hover {
-  background-color: #D4B248;
-}
-.subscribe-message {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #222;
-  color:  #D4B248;
-  border-radius: 4px;
-  font-size: 14px;
-}
-.footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #333;
-  font-size: 14px;
-}
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .quick-links ul {
-    display: inline-block;
-  }
-}
+    .social-icons a:hover {
+      color: #D4B248;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      flex: 1;
+      background-color: #111;
+      color: #D4B248;
+      border: none;
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+    }
+
+    .subscribe-form button {
+      padding: 10px 16px;
+      background-color: #D4B248;
+      /* color: #000; */
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .subscribe-form button:hover {
+      background-color: #D4B248;
+    }
+
+    .subscribe-message {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #222;
+      color: #D4B248;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .quick-links ul {
+        display: inline-block;
+      }
+    }
 
 
 
 
 
-     
 
-    
+
+
 
 
 
@@ -760,6 +851,7 @@
     }
 
     @media (max-width: 480px) {
+
       .contact-form input,
       .contact-form textarea {
         padding: 10px;
@@ -771,11 +863,11 @@
         font-size: 15px;
       }
     }
- 
   </style>
 </head>
+
 <body>
-   <!-- Promo modal -->
+  <!-- Promo modal -->
   <div id="promo-modal" class="promo-modal">
     <div class="promo-content">
       <button class="promo-close" aria-label="Close">&times;</button>
@@ -786,95 +878,97 @@
   </div>
   <!-- Header -->
   <header class="header">
-      <div class="align-logo">
-        <div class="logo">
-          <a href="index.html">
+    <div class="align-logo">
+      <div class="logo">
+        <a href="index.html">
           <img src="image/logo10.png" alt="Logo" /></a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
       </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
 
-      <nav class="navbar" id="navbar">
-        <ul>
-          <li><a href="#"></a></li>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="#"></a></li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">About Us</a>
-            <ul class="dropdown">
-              <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Our Team</a></li>
-              
-            </ul>
-          </li>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="directors.html">Our Team</a></li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Projects</a>
-            <ul class="dropdown">
-              <li><a href="loveland-project.html">Loveland Projects</a></li>
-              <li><a href="potential.html">Potential Projects</a></li>
-            </ul>
-          </li>
+          </ul>
+        </li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Investors</a>
-            <ul class="dropdown">
-              <li><a href="corporate.html">Corporate  Structure</a></li>
-              <li><a href="statements.html">Financial Statements & MD&A</a></li>
-              
-              <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
-          </li>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="loveland-project.html">Loveland Projects</a></li>
+            <li><a href="potential.html">Potential Projects</a></li>
+          </ul>
+        </li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="corporate.html">Corporate Structure</a></li>
+            <li><a href="statements.html">Financial Statements & MD&A</a></li>
+
+            <!-- <li><a href="#">Presentations</a></li> -->
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="news.html">Press Release</a>
+          <!-- <ul class="dropdown">
               <li><a href="news.html">Press Release</a></li>
               <li><a href="disclaimers.html">Disclaimer</a></li>
               
             </ul> -->
-          </li>
+        </li>
 
-          <li><a href="Contact.html"></a></li>
-        </ul>
-        <div class="header-buttons">
-         
-        </div>
-      </nav>
-    </header>
+        <li><a href="Contact.html"></a></li>
+      </ul>
+      <div class="header-buttons">
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+    </nav>
+  </header>
 
-        <div id="login-form" class="form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Submit</button>
-        </div>
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
 
-        <div id="contact-form" class="form">
-          <h2>Get in Touch</h2>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </div>
+      <div id="login-form" class="form">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Submit</button>
+      </div>
+
+      <div id="contact-form" class="form">
+        <h2>Get in Touch</h2>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
       </div>
     </div>
+  </div>
 
-  
 
-<!-- Black title bar -->
+
+  <!-- Black title bar -->
   <!-- <div class="section-title">Contact Us</div> -->
   <section class="about-hero">
-    <h1>About Loyalist Exploration</h1>      
+    <h1>About Loyalist Exploration</h1>
   </section>
 
   <section class="section">
     <h2>Company Profile</h2>
-    <p>Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Mine. </p>
+    <p>Loyalist Exploration is executing a focused strategy of acquiring and advancing high-potential gold and strategic
+      metals projects in the prolific Timmins Mining Camp – a district that has produced over 70 million ounces of gold
+      and is host to one of the world’s largest volcanogenic massive sulfide (VMS) deposits, the Kidd Mine. </p>
     <!-- <p>We are driven by a commitment to transparency, sustainability, and delivering long-term value to our investors, stakeholders, and communities.</p> -->
   </section>
 
@@ -904,239 +998,232 @@
     <div class="structure">
       <div class="card">
         <h4>Board of Directors</h4>
-        <p>Seasoned professionals with extensive experience in mining exploration, finance, and corporate governance.</p>
+        <p>Seasoned professionals with extensive experience in mining exploration, finance, and corporate governance.
+        </p>
       </div>
       <div class="card">
         <h4>Management Team</h4>
-        <p>Led by CEO Andrew Fennell, the team brings geological expertise and strategic vision to Loyalist’s exploration roadmap.</p>
+        <p>Led by CEO Andrew Fennell, the team brings geological expertise and strategic vision to Loyalist’s
+          exploration roadmap.</p>
       </div>
       <div class="card">
         <h4>Advisory Board</h4>
-        <p>Industry experts guiding technical decisions and providing insight into market dynamics and acquisition strategies.</p>
+        <p>Industry experts guiding technical decisions and providing insight into market dynamics and acquisition
+          strategies.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
-  <div class="footer-container">
-    <div class="contact-column">
-      <h4>Contact Information</h4>
-      <p><strong>Email:</strong><br/><a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
-      <p><strong>Phone:</strong><br/><a href="tel:+16472961270">+1 647‑296‑1270</a></p>
-      <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
-    </div>
-    <div class="quick-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="project.html">Projects</a></li>
-        <li><a href="investor.html">Investors</a></li>
-        <li><a href="news.html">Press Release</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-        <li><a href="disclaimers.html">Disclaimer</a></li>
-      </ul>
-    </div>
-     <div class="social-column">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
-        <br/>
-<div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-  <form class="subscribe-form" onsubmit="handleContactSubscribe(event)">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      id="contactSubscriberEmail"
-      required
-    /><br/><br/>
-    <button type="submit">Subscribe</button>
-  </form>
-  <div
-    id="contact-subscribe-message"
-    class="subscribe-message"
-    style="display: none;"
-  ></div>
-</div>
-
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p><strong>Email:</strong><br /><a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
+        <p><strong>Phone:</strong><br /><a href="tel:+16472961270">+1 647‑296‑1270</a></p>
+        <p><strong>Address:</strong><br>133 Richmond St W, Suite 204<br>Toronto, ON M5H 2L3, Canada</p>
       </div>
-    </div>
-  </div><br/>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="investor.html">Investors</a></li>
+          <li><a href="news.html">Press Release</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="disclaimers.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://loyalistexp.ca/"><i class="fab fa-facebook-f"></i></a>
+          <br />
+          <div class="subscribe-box">
+            <h4>Subscribe to Our Newsletter</h4>
+            <form class="subscribe-form" onsubmit="handleContactSubscribe(event)">
+              <input type="email" placeholder="Enter your email" id="contactSubscriberEmail" required /><br /><br />
+              <button type="submit">Subscribe</button>
+            </form>
+            <div id="contact-subscribe-message" class="subscribe-message" style="display: none;"></div>
+          </div>
 
-        
-  <div class="footer-bottom">
-    <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-  </div>
-</footer>
+        </div>
+      </div>
+    </div><br />
+
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
-   
-  // Toggle entire navbar menu on small screens
-  function toggleMenu() {
-    document.getElementById('navbar').classList.toggle('active');
-  }
 
-  // Toggle dropdowns on click for mobile/tablet (<= 1024px)
-  function toggleDropdown(e) {
-    if (window.innerWidth <= 1024) {
-      e.stopPropagation(); // Prevent event bubbling
-      const current = e.currentTarget;
-
-      // Toggle the clicked dropdown
-      current.classList.toggle('active');
-
-      // Close other open dropdowns
-      document.querySelectorAll('.has-dropdown').forEach(item => {
-        if (item !== current) {
-          item.classList.remove('active');
-        }
-      });
+    // Toggle entire navbar menu on small screens
+    function toggleMenu() {
+      document.getElementById('navbar').classList.toggle('active');
     }
-  }
 
-  // Modal handling (login / contact / signup)
-  function openModal(type) {
-    const modal = document.getElementById("modal");
-    if (!modal) return;
+    // Toggle dropdowns on click for mobile/tablet (<= 1024px)
+    function toggleDropdown(e) {
+      if (window.innerWidth <= 1024) {
+        e.stopPropagation(); // Prevent event bubbling
+        const current = e.currentTarget;
 
-    modal.style.display = "block";
-    document.body.classList.add('no-scroll');
+        // Toggle the clicked dropdown
+        current.classList.toggle('active');
 
-    document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-    document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-    const signupForm = document.getElementById("signup-form");
-    if (signupForm) {
-      signupForm.style.display = type === "signup" ? "block" : "none";
+        // Close other open dropdowns
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+          if (item !== current) {
+            item.classList.remove('active');
+          }
+        });
+      }
     }
-  }
 
-  function closeModal() {
-    const modal = document.getElementById("modal");
-    if (!modal) return;
+    // Modal handling (login / contact / signup)
+    function openModal(type) {
+      const modal = document.getElementById("modal");
+      if (!modal) return;
 
-    modal.style.display = "none";
-    document.body.classList.remove('no-scroll');
-  }
+      modal.style.display = "block";
+      document.body.classList.add('no-scroll');
 
-  // Welcome or generic popup close
-  function closePopup() {
-    document.body.classList.remove('no-scroll');
-    const modalOverlay = document.querySelector('.modal-overlay');
-    if (modalOverlay) modalOverlay.style.display = 'none';
-    closeModal();
-  }
+      document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+      document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+      const signupForm = document.getElementById("signup-form");
+      if (signupForm) {
+        signupForm.style.display = type === "signup" ? "block" : "none";
+      }
+    }
 
-  // Optional promo modal (auto-show on load)
-  window.addEventListener('load', () => {
-    setTimeout(showPromo, 2000);
-  });
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      if (!modal) return;
 
-  function showPromo() {
-    const promo = document.getElementById('promo-modal');
-    if (!promo) return;
-    promo.classList.add('active');
-    document.body.classList.add('no-scroll');
-  }
+      modal.style.display = "none";
+      document.body.classList.remove('no-scroll');
+    }
 
-  function closePromo() {
-    const promo = document.getElementById('promo-modal');
-    if (!promo) return;
-    promo.classList.remove('active');
-    document.body.classList.remove('no-scroll');
-  }
+    // Welcome or generic popup close
+    function closePopup() {
+      document.body.classList.remove('no-scroll');
+      const modalOverlay = document.querySelector('.modal-overlay');
+      if (modalOverlay) modalOverlay.style.display = 'none';
+      closeModal();
+    }
 
-  function redirectPromo() {
-    window.location.href = 'news.html';
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    // Close promo handlers
-    document.querySelector('#promo-modal .promo-close')?.addEventListener('click', closePromo);
-    document.querySelector('#promo-modal .promo-btn')?.addEventListener('click', redirectPromo);
-
-    // Card click animation (optional)
-    const cards = document.querySelectorAll('.directory .card, .structure .card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.add('clicked');
-        setTimeout(() => card.classList.remove('clicked'), 300);
-      });
+    // Optional promo modal (auto-show on load)
+    window.addEventListener('load', () => {
+      setTimeout(showPromo, 2000);
     });
 
-    // Scroll-trigger animations
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => observer.observe(section));
-  });
-
-  // Optional: Close dropdowns when clicking outside
-  window.addEventListener('click', function (e) {
-    const navbar = document.getElementById("navbar");
-    if (!navbar.contains(e.target) && window.innerWidth <= 1024) {
-      document.querySelectorAll(".has-dropdown").forEach(item => item.classList.remove("active"));
+    function showPromo() {
+      const promo = document.getElementById('promo-modal');
+      if (!promo) return;
+      promo.classList.add('active');
+      document.body.classList.add('no-scroll');
     }
-  });
 
-// for subscribe box 
+    function closePromo() {
+      const promo = document.getElementById('promo-modal');
+      if (!promo) return;
+      promo.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
 
- async function handleAboutSubscribe(event) {
-  event.preventDefault();
+    function redirectPromo() {
+      window.location.href = 'news.html';
+    }
 
-  const emailInput = document.getElementById('aboutSubscriberEmail');
-  const messageDiv = document.getElementById('about-subscribe-message');
-  const email = emailInput.value.trim();
+    document.addEventListener('DOMContentLoaded', () => {
+      // Close promo handlers
+      document.querySelector('#promo-modal .promo-close')?.addEventListener('click', closePromo);
+      document.querySelector('#promo-modal .promo-btn')?.addEventListener('click', redirectPromo);
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Card click animation (optional)
+      const cards = document.querySelectorAll('.directory .card, .structure .card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.add('clicked');
+          setTimeout(() => card.classList.remove('clicked'), 300);
+        });
+      });
 
-  if (!email || !emailPattern.test(email)) {
-    messageDiv.style.display = 'block';
-    messageDiv.style.color = 'red';
-    messageDiv.textContent = 'Please enter a valid email address.';
-    return;
-  }
+      // Scroll-trigger animations
+      const sections = document.querySelectorAll('.section');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
 
-  try {
-    const res = await fetch('/api/subscribe/homepage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'about' }), // ✅ important!
+      sections.forEach(section => observer.observe(section));
     });
 
-    const data = await res.json();
+    // Optional: Close dropdowns when clicking outside
+    window.addEventListener('click', function (e) {
+      const navbar = document.getElementById("navbar");
+      if (!navbar.contains(e.target) && window.innerWidth <= 1024) {
+        document.querySelectorAll(".has-dropdown").forEach(item => item.classList.remove("active"));
+      }
+    });
 
-    messageDiv.style.display = 'block';
-    if (res.ok) {
-      messageDiv.style.color = 'green';
-      messageDiv.textContent = data.message || 'Subscribed successfully!';
-      emailInput.value = '';
-      setTimeout(() => (messageDiv.style.display = 'none'), 4000);
-    } else {
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = data.message || 'Something went wrong.';
-      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+    async function handleContactSubscribe(event) {
+      event.preventDefault();
+
+      const emailInput = document.getElementById('contactSubscriberEmail');
+      const messageDiv = document.getElementById('contact-subscribe-message');
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!email || !emailPattern.test(email)) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+
+        const data = await res.json();
+
+        messageDiv.style.display = 'block';
+        if (res.ok) {
+          messageDiv.style.color = 'green';
+          messageDiv.textContent = data.message || 'Subscribed successfully!';
+          emailInput.value = '';
+          setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = data.error || data.message || 'Subscription failed.';
+          setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+        }
+      } catch (err) {
+        console.error('Subscription error:', err);
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Server error. Please try again later.';
+        setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+      }
     }
-  } catch (err) {
-    console.error('Subscription error:', err);
-    messageDiv.style.display = 'block';
-    messageDiv.style.color = 'red';
-    messageDiv.textContent = 'Server error. Please try again later.';
-    setTimeout(() => (messageDiv.style.display = 'none'), 5000);
-  }
-}
-
 
 
   </script>
 </body>
+
 </html>
