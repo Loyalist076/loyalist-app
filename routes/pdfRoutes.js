@@ -28,12 +28,15 @@ const upload = multer({ dest: 'uploads/' });
 const sendNewsletterToAll = async (title, pdfViewUrl) => {
   try {
     const subscribers = await Subscription.find();
+    console.log(`🔍 Found ${subscribers.length} subscriber(s).`);
+
     if (!subscribers.length) {
-      console.log('📭 No subscribers to notify.');
+      console.log('📭 No subscribers found. Skipping newsletter send.');
       return;
     }
 
     const emails = subscribers.map(sub => sub.email);
+    console.log(`📬 Sending to: ${emails.join(', ')}`);
 
     const msg = {
       to: emails,
@@ -41,10 +44,9 @@ const sendNewsletterToAll = async (title, pdfViewUrl) => {
       templateId: 'd-969c67452b8b49c3b61d369980cad588', // ✅ Dynamic template ID
       dynamic_template_data: {
         title,
-        link: pdfViewUrl
+        link: pdfViewUrl,
       },
     };
-    
 
     await sgMail.sendMultiple(msg);
     console.log(`✅ Newsletter sent to ${emails.length} subscriber(s).`);
@@ -63,31 +65,38 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
 
     const tempFilePath = req.file.path;
 
+    // 🔼 Upload to Cloudinary
     const uploaded = await cloudinary.uploader.upload(tempFilePath, {
       resource_type: 'raw',
       folder: 'pdfs',
     });
 
+    // ❌ Delete local temp file
     fs.unlinkSync(tempFilePath);
 
+    // 💾 Save to MongoDB
     const newPdf = new Pdf({
       title,
       url: uploaded.secure_url,
       public_id: uploaded.public_id,
-      date
+      date,
     });
     await newPdf.save();
 
+    // 👁️ Generate view link
     const pdfViewUrl = `${BASE_URL}/api/pdf/view/${newPdf._id}`;
+
+    // 📧 Notify subscribers
     await sendNewsletterToAll(title, pdfViewUrl);
 
+    // ✅ Respond
     res.status(201).json({
       message: '✅ PDF uploaded and newsletter sent!',
       pdf: {
         title: newPdf.title,
         viewUrl: pdfViewUrl,
-        date: newPdf.date
-      }
+        date: newPdf.date,
+      },
     });
   } catch (err) {
     console.error('❌ Upload error:', err);
@@ -115,7 +124,7 @@ router.get('/view/:id', async (req, res) => {
     const pdfResponse = await axios({
       method: 'GET',
       url: pdf.url,
-      responseType: 'stream'
+      responseType: 'stream',
     });
 
     res.setHeader('Content-Type', 'application/pdf');
@@ -137,7 +146,7 @@ router.get('/download/:id', async (req, res) => {
     const pdfResponse = await axios({
       method: 'GET',
       url: pdf.url,
-      responseType: 'stream'
+      responseType: 'stream',
     });
 
     res.setHeader('Content-Type', 'application/pdf');
