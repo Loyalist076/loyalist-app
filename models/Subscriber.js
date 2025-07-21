@@ -25,9 +25,6 @@ const subscriberSchema = new mongoose.Schema(
         'projects',
         'investor',
         'contact'
-
-
-
       ],
       default: 'popup',
     },

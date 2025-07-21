@@ -3,10 +3,13 @@ const multer = require('multer');
 const fs = require('fs');
 const axios = require('axios');
 const Pdf = require('../models/Pdf');
-const Subscriber = require('../models/Subscriber');
+const Subscription = require('../models/Subscription');
 const sgMail = require('@sendgrid/mail');
 const cloudinary = require('cloudinary').v2;
 const router = express.Router();
+
+// ✅ Environment Base URL for production
+const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
 
 // ✅ Cloudinary configuration
 cloudinary.config({
@@ -19,12 +22,12 @@ cloudinary.config({
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // 📂 Multer temporary upload setup
-const upload = multer({ dest: 'uploads/' }); // Temporary folder for uploads
+const upload = multer({ dest: 'uploads/' });
 
 // 📧 Newsletter sender function
 const sendNewsletterToAll = async (title, pdfViewUrl) => {
   try {
-    const subscribers = await Subscriber.find();
+    const subscribers = await Subscription.find();
     if (!subscribers.length) {
       console.log('📭 No subscribers to notify.');
       return;
@@ -34,13 +37,14 @@ const sendNewsletterToAll = async (title, pdfViewUrl) => {
 
     const msg = {
       to: emails,
-      from: 'gandhiswayam772@gmail.com', // ✅ Verified sender
-      templateId: 'd-6253652138f644b28cdd87edd5319c00', // ✅ Your dynamic template ID
+      from: 'loyalistexploration@gmail.com', // ✅ Verified sender
+      templateId: 'd-969c67452b8b49c3b61d369980cad588', // ✅ Dynamic template ID
       dynamic_template_data: {
-        title,        // maps to {{title}} in the template
-        link: pdfViewUrl // maps to {{link}} in the template
+        title,
+        link: pdfViewUrl
       },
     };
+    
 
     await sgMail.sendMultiple(msg);
     console.log(`✅ Newsletter sent to ${emails.length} subscriber(s).`);
@@ -74,7 +78,7 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
     });
     await newPdf.save();
 
-    const pdfViewUrl = `${req.protocol}://${req.get('host')}/api/pdf/view/${newPdf._id}`;
+    const pdfViewUrl = `${BASE_URL}/api/pdf/view/${newPdf._id}`;
     await sendNewsletterToAll(title, pdfViewUrl);
 
     res.status(201).json({
@@ -124,7 +128,7 @@ router.get('/view/:id', async (req, res) => {
   }
 });
 
-// 📥 Download PDF as attachment
+// 📥 Download PDF
 router.get('/download/:id', async (req, res) => {
   try {
     const pdf = await Pdf.findById(req.params.id);
@@ -167,5 +171,3 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
-
-
