@@ -511,11 +511,11 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f9f9f9;
     }
-    .projects-section {
+     .projects-section {
       background-color: white;
       padding: 50px 5vw;
     }
-    .project-category-title {
+   /* .project-category-title {
       font-size: 28px;
       font-weight: 700;
       color: #D4B248;
@@ -620,7 +620,101 @@
         display: grid;
         justify-items: center;
       }
-    }
+    } */
+
+    .loveland-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.loveland-list-card {
+  display: flex;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.loveland-list-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.loveland-list-card img {
+  width: 240px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.list-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.list-card-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.list-card-content p {
+  font-size: 14.5px;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.list-card-content a {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 8px 16px;
+  font-size: 13.5px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.list-card-content a:hover {
+  background-color: #D4B248;
+  color: #fff;
+  border-color: #D4B248;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .loveland-list-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .loveland-list-card img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .list-card-content {
+    align-items: center;
+  }
+
+  .list-card-content a {
+    align-self: center;
+  }
+}
+
 .overview-section {
   display: flex;
   padding: 60px;
@@ -992,7 +1086,7 @@
     <!-- project -->
      <!-- Loveland Projects -->
 <!-- Loveland Projects -->
-  <section class="projects-section">
+  <!-- <section class="projects-section">
     <h2 class="project-category-title">Loveland Projects</h2>
     <div class="loveland-grid">
       <div class="loveland-card">
@@ -1032,6 +1126,52 @@
       </div>
     </div>
   </section>
+ -->
+  <section class="projects-section">
+  <h2 class="project-category-title">Loveland Projects</h2>
+
+  <div class="loveland-list">
+    <!-- Card 1 -->
+    <div class="loveland-list-card">
+      <img src="image/loveland.png" alt="Loveland Project">
+      <div class="list-card-content">
+        <h3>Loveland Project</h3>
+        <p>The Loveland Property is a high-potential gold, copper and nickel exploration project located about 35 km northwest of Timmins.</p>
+        <a href="loveland.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="loveland-list-card">
+      <img src="image/Geology.png" alt="Geological Settings">
+      <div class="list-card-content">
+        <h3>Geological Settings</h3>
+        <p>Underlain by volcanic rocks of the Kidd-Munro Assemblage, the Loveland area shows promise for nickel-copper and lode gold systems.</p>
+        <a href="geological.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="loveland-list-card">
+      <img src="image/loyalist.png" alt="Historic Work Highlights">
+      <div class="list-card-content">
+        <h3>Historic Work Highlights</h3>
+        <p>The Hollinger and Cominco zones have seen strong nickel-copper sulfide intercepts since the 1970s.</p>
+        <a href="historic.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="loveland-list-card">
+      <img src="image/core.png" alt="Acquisition & Strategic Vision">
+      <div class="list-card-content">
+        <h3>Acquisition & Strategic Vision</h3>
+        <p>Loyalist acquired 100% interest in Loveland from STLLR Gold in 2025 through a structured deal including shares and NSR.</p>
+        <a href="vision.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -1073,10 +1213,9 @@
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
           </p>
           <p>
-            <strong>Address:</strong><br /> Peterson McVicar LLP,<br />110 Yonge Street,
-          Suite 1601,
-          <br/> Toronto ON M5C 1T4
-          </p>
+            <strong>Address:</strong><br />110 Yonge Street,
+          Suite 1601
+          <br/> Toronto, Ontario M5C1T4</p> 
         </div>
         <div class="quick-links">
           <h4>Quick Links</h4>
