@@ -33,6 +33,7 @@ const newsRoutes = require('./routes/newsRoutes');
 const pdfRoutes = require('./routes/pdfRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes'); // ✅ Mailchimp
+const financialRoutes = require('./routes/financialRoutes');
 
 
 const testRoutes = require('./routes/testRoutes');
@@ -46,6 +47,9 @@ app.use('/api/pdf', pdfRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/test', testRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes);
+app.use('/api/financials', financialRoutes);
+app.use('/uploads', express.static('public/uploads'));
+
 
 // ✅ Mount only this to handle subscriptions via Mailchimp
 app.use('/api/subscribe', subscriptionRoutes);

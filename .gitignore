@@ -1,4 +1,9 @@
 # Node modules
 node_modules/
 
+# Environment variables
 .env
+
+# Ignore all uploaded financial statements (PDFs)
+public/uploads/financials/*
+!public/uploads/financials/.gitkeep
