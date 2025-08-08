@@ -563,20 +563,90 @@
 
 
   */
+.company-profile {
+  background: #D4B248;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.company-profile .container {
+  max-width: 1100px;
+  margin: auto;
+}
 
 .section-title {
   text-align: center;
   font-size: 36px;
-  /* margin-bottom: 40px; */
+  margin-bottom: 40px;
   color: #222;
   text-transform: uppercase;
   border-bottom: 3px solid #D4B248;
-  /* display: inline-block; */
+  display: inline-block;
   padding-bottom: 10px;
-  padding-top: 20px;
 }
 
+/* Accordion Style */
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
+.accordion-header {
+  background: #fff;
+  padding: 18px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.accordion-header::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+  color: #D4B248;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  content: "-";
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  background: #fff;
+  padding: 0 20px 20px 20px;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.accordion-body p,
+.accordion-body ul {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+.accordion-body h4 {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #555;
+}
+
+.accordion-body a {
+  color: #D4B248;
+  text-decoration: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 
 .site-footer {
@@ -687,9 +757,7 @@
     display: inline-block;
   }
 }
-.a{
-    background-color: #D4B248;
-}
+
 
 
 
@@ -729,8 +797,7 @@
             <a href="#">Projects</a>
             <ul class="dropdown">
               <li><a href="loveland-project.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-              <li><a href="gold.html">Gold Rush Project</a></li>
+              <li><a href="potential.html">Potential Projects</a></li>
             </ul>
           </li>
 
@@ -797,74 +864,90 @@
     </div>
   </div>
 </section> -->
-<div class="a">
- <h1 class="section-title">Company Profile</h1>
-  
-<main style="max-width: 900px; margin: auto; padding: 30px; font-family: 'Segoe UI', sans-serif; line-height: 1.7; color: #222; ">
+<section class="company-profile">
+  <div class="container">
+    <h1 class="section-title">Company Profile</h1>
 
-  <h1>Loyalist Closes Purchase of the Loveland Project and Announces $275,000 Financing</h1>
-  <p><strong>Toronto, Ontario – June 30, 2025 –</strong> Loyalist Exploration Limited (CSE: PNGC) is pleased to announce it has completed the acquisition of the Loveland gold, copper, and nickel Property from STLLR Gold Inc. The property, located 45 km northwest of Timmins, Ontario, is the first acquisition under the Company’s “Buy and Explore Timmins” strategy.</p>
+    <div class="accordion">
+      <!-- Section 1 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Overview</div>
+        <div class="accordion-body">
+          <p>Loyalist Exploration Limited is a Canadian mineral exploration company focused on acquiring, exploring, and developing high-potential mineral properties. Listed on the CSE under <strong>CSE: PNGC</strong>, the company is dedicated to responsible exploration in strategic regions.</p>
+        </div>
+      </div>
 
-  <h2>Property Highlights</h2>
-  <ul>
-    <li>292 contiguous mineral claims totaling 6,244 hectares (15,430 acres)</li>
-    <li>Hollinger Zone: Historical estimate of 422,350 short tons grading 0.71% Ni and 0.42% Cu</li>
-    <li>Cominco Zone: Historical estimate of 130,000 short tons grading 0.73% Ni and 0.68% Cu</li>
-    <li>10 km long exploration corridor open along strike and depth</li>
-    <li>Notable gold intercepts: 6.37 g/t Au over 8.55m, 6.17 g/t Au over 3.0m, 10.39 g/t Au over 3.1m</li>
-    <li>Surface grab samples: 8.98 g/t Au and 11.48 g/t Au (approx. 400m SE of Cominco zone)</li>
-  </ul>
+      <!-- Section 2 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Mission</div>
+        <div class="accordion-body">
+          <p>To discover and develop valuable mineral resources in underexplored yet highly prospective geological regions, delivering long-term value to shareholders and communities.</p>
+        </div>
+      </div>
 
-  <h2>Management Commentary</h2>
-  <p><strong>Errol Farr</strong>, President & CEO of Loyalist:  
-  “We are very pleased to complete the acquisition of this highly prospective property. The Loveland Property is now a cornerstone asset in our exploration portfolio.”</p>
+      <!-- Section 3 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Flagship Projects</div>
+        <div class="accordion-body"><br/>
+          <h4>🔶 Loveland Property</h4><br/>
+          <ul>
+            <li><strong>Location:</strong> 45 km NW of Timmins, Ontario</li>
+            <li><strong>Size:</strong> 292 claims (~6,244 ha)</li>
+            <li><strong>Minerals:</strong> Nickel, Copper, Gold</li>
+            <li><strong>Historical Estimates:</strong>
+              <ul>
+                <li>Hollinger Zone: 422,350 tons @ 0.71% Ni, 0.42% Cu</li>
+                <li>Cominco Zone: 130,000 tons @ 0.73% Ni, 0.68% Cu</li>
+              </ul>
+            </li>
+            <li><strong>Gold Assays:</strong> 6.37 g/t Au over 8.55 m; grabs up to 11.48 g/t Au</li>
+          </ul>
+          <h4>🟡 Gold Rush Property</h4><br/>
+          <ul>
+            <li><strong>Focus:</strong> Gold and Silver exploration</li>
+            <li><strong>Location:</strong> Timmins Mining District</li>
+          </ul>
+        </div>
+      </div>
 
-  <p><strong>John McBride</strong>, VP Exploration at STLLR Gold:  
-  “Historical data and proximity to producing mines highlight Loveland’s potential. We support Loyalist’s exploration vision.”</p>
+      <!-- Section 4 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Recent Financing</div>
+        <div class="accordion-body">
+          <p>Raised <strong>$275,000</strong> (first tranche of $1.5M offering). Proceeds support exploration at Loveland, acquisitions, and working capital.</p>
+        </div>
+      </div>
 
-  <h2>Ownership & Transaction Details</h2>
-  <p>Loyalist now owns 100% of one leased and 292 unpatented mining claims. Consideration to STLLR includes:</p>
-  <ul>
-    <li>$250,000 cash</li>
-    <li>10,000,000 Loyalist shares</li>
-    <li>2.0% NSR royalty (Loyalist may buy back 1.0% for $1M)</li>
-  </ul>
+      <!-- Section 5 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Vision</div>
+        <div class="accordion-body">
+          <p>Actively expanding its portfolio through the “Buy and Explore Timmins” strategy, focusing on value creation through disciplined exploration and smart acquisitions.</p>
+        </div>
+      </div>
 
-  <h2>Loveland Property Overview</h2>
-  <p>The property lies in the Superior Province of the Eastern Canadian Shield, within the Abitibi Greenstone Belt. Local geology includes mafic to intermediate volcanic flows intruded by feldspar porphyries and gabbro.</p>
-  <p>Mineralization includes chalcopyrite, pentlandite, and pyrrhotite — occurring within gabbro and at contacts with volcanic rocks.</p>
+      <!-- Section 6 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Technical Oversight</div>
+        <div class="accordion-body">
+          <p>Exploration programs are led by <strong>Stephen Balch, P.Geo.</strong>, a qualified person under NI 43-101 and industry expert.</p>
+        </div>
+      </div>
 
-  <h2>The Hollinger Zone</h2>
-  <p>Located along mafic-intrusive and volcanic contacts, this zone shows massive sulphide development. Historical drilling outlined a zone 125 m along strike and up to 240 m deep, remaining open down-plunge. Overburden ranges from 12–41 m.</p>
-
-  <h2>The Cominco Zone</h2>
-  <p>Discovered by Cominco in 1972 and expanded by Amador Gold between 2007-2010. Multiple drill holes confirmed high-grade nickel and copper with open potential. Example: LL08-05 intersected 1.0% Ni and 1.92% Cu over 2.70 m.</p>
-
-  <h2>Gold Mineralization</h2>
-  <p>Gold mineralization was found 300 m below Cominco. LL08-13 returned 6.37 g/t Au over 8.55 m. Surface grab samples revealed values up to 11.48 g/t Au in mineralized granodiorite.</p>
-
-  <h2>Exploration Potential</h2>
-  <p>A 10 km corridor between the Hollinger and Cominco zones shows high potential. Historical geophysics and untested targets remain. Hollinger’s historical resource (1974): 401,000 tonnes @ 0.71% Ni and 0.42% Cu (not NI 43-101 compliant).</p>
-
-  <h2>Financing Announcement</h2>
-  <p>Loyalist closed a $275,000 first tranche of a $1.5 million private placement. Issued 27.5M units at $0.01 each. Each unit includes 1 share and 1 warrant (exercise at $0.05 for 36 months). Finder’s fees: $24,000 + 3M warrants.</p>
-
-  <h2>Use of Funds</h2>
-  <p>Funds will support the Loveland acquisition and general working capital. All securities are subject to a four-month hold.</p>
-
-  <h2>Qualified Person</h2>
-  <p><strong>Stephen Balch, P.Geo.</strong> (Independent Director) reviewed and approved the technical content per NI 43-101 standards.</p>
-
-  <h2>About Loyalist Exploration Limited</h2>
-  <p>Loyalist is a Canadian exploration company focused on mineral properties in Timmins, Ontario. Flagship assets include the Loveland (nickel/copper/gold) and Gold Rush (gold/silver) properties.</p>
-
-  <h2>Contact</h2>
-  <p><strong>Errol Farr, President & CEO</strong><br>
-  Email: <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a><br>
-  Phone: 647-296-1270<br>
-  Website: <a href="https://loyalistexp.ca" target="_blank">loyalistexp.ca</a></p>
-
-</main>
+      <!-- Section 7 -->
+      <div class="accordion-item">
+        <div class="accordion-header">Contact</div>
+        <div class="accordion-body">
+          <p><strong>Errol Farr</strong><br>
+          President & CEO<br>
+          📧 efarr001@icloud.com<br>
+          📞 +1 (647) 296-1270<br>
+          🌐 <a href="http://loyalistexp.ca" target="_blank">loyalistexp.ca</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
  <!-- Footer HTML -->
@@ -931,7 +1014,6 @@
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
 </footer>
-</div>
 
 
   

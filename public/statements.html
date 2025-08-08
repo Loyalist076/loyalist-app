@@ -731,66 +731,6 @@ function closeModal() {
   modal.style.display = "none";
   document.body.classList.remove('no-scroll');
 }
-
-
-// for fetching finanicial statemnents
-  let allStatements = [];
-
-  // Fetch financial statements from backend
-  async function loadFinancialStatements() {
-    try {
-      const res = await fetch('/api/financials');
-      const data = await res.json();
-      allStatements = data;
-      renderStatements(data); // Initially show all
-    } catch (error) {
-      console.error('Failed to load financial statements:', error);
-    }
-  }
-
-  // Render cards
-  function renderStatements(statements) {
-    const container = document.getElementById('reportGrid');
-    container.innerHTML = '';
-
-    if (statements.length === 0) {
-      container.innerHTML = '<p>No financial statements available.</p>';
-      return;
-    }
-
-    statements.forEach(statement => {
-      const card = document.createElement('div');
-      card.className = `card ${statement.category}`;
-
-      const date = new Date(statement.date);
-      const formattedDate = date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-
-      card.innerHTML = `
-        <h3>${statement.title || `Financial Statement - ${formattedDate}`}</h3>
-        <p>${statement.description || 'No description provided.'}</p>
-        <a href="${statement.fileUrl}" target="_blank">Download</a>
-      `;
-
-      container.appendChild(card);
-    });
-  }
-
-  // Filter by category
-  function filterReports(category) {
-    if (category === 'all') {
-      renderStatements(allStatements);
-    } else {
-      const filtered = allStatements.filter(s => s.category === category);
-      renderStatements(filtered);
-    }
-  }
-
-  // Initial load
-  loadFinancialStatements();
   </script>
 </head>
 <body>
@@ -832,9 +772,8 @@ function closeModal() {
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Projects</a>
             <ul class="dropdown">
-               <li><a href="loveland-project.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-               <li><a href="gold.html">Gold Project</a></li>
+              <li><a href="loveland-project.html">Loveland Project</a></li>
+              <li><a href="potential.html">Potentional Projects</a></li>
             </ul>
           </li>
 
@@ -890,21 +829,68 @@ function closeModal() {
 
  
 <!-- Black title bar -->
- <!-- Title -->
-<div class="section-title">Financial Statements</div>
+  <div class="section-title">Financial Statements</div>
 
-<!-- Filter Buttons -->
-<div class="filter-bar">
-  <button class="filter-btn" onclick="filterReports('all')">All</button>
-  <button class="filter-btn" onclick="filterReports('annual')">Annual Reports</button>
-  <button class="filter-btn" onclick="filterReports('quarterly')">Quarterly</button>
-  <button class="filter-btn" onclick="filterReports('mda')">MD&A</button>
-  <button class="filter-btn" onclick="filterReports('estma')">ESTMA</button>
-</div>
+  <div class="filter-bar">
+    <button class="filter-btn" onclick="filterReports('all')">All</button>
+    <button class="filter-btn" onclick="filterReports('annual')">Annual Reports</button>
+    <button class="filter-btn" onclick="filterReports('quarterly')">Quarterly</button>
+    <button class="filter-btn" onclick="filterReports('mda')">MD&A</button>
+    <button class="filter-btn" onclick="filterReports('estma')">ESTMA</button>
+  </div>
 
-<!-- Dynamic Report Grid -->
-<section class="report-grid" id="reportGrid">
-  <!-- Dynamic cards will be inserted here -->
+<section class="report-grid">
+  <!-- 2024 Q3 -->
+  <div class="card quarterly">
+    <h3>Financial Statements - September 30, 2024</h3>
+    <p>Third quarter financial statements and disclosures.</p>
+    <a href="image/a.pdf" target="_blank">Download</a>
+  </div>
+
+   <div class="card quarterly">
+    <h3>Financial Statements - March 31, 2024</h3>
+    <p>First quarter financial statements and disclosures.</p>
+    <a href="image/e.pdf" target="_blank">Download</a>
+  </div>
+
+  <!-- 2024 Q2 -->
+  <div class="card quarterly">
+    <h3>Financial Statements - June 30, 2024</h3>
+    <p>Second quarter financial statements and disclosures.</p>
+    <a href="image/c.pdf" target="_blank">Download</a>
+  </div>
+  <div class="card mda">
+    <h3>MD&A - June 30, 2024</h3>
+    <p>Management discussion and analysis for Q2 2024.</p>
+    <a href="image/d.pdf" target="_blank">Download</a>
+  </div>
+
+  <!-- 2024 Q1 -->
+   <div class="card mda">
+    <h3>MD&A - September 30, 2024</h3>
+    <p>Management discussion and analysis for Q3 2024.</p>
+    <a href="image/b.pdf" target="_blank">Download</a>
+  </div>
+  <div class="card mda">
+    <h3>MD&A - March 31, 2024</h3>
+    <p>Management discussion and analysis for Q1 2024.</p>
+    <a href="image/f.pdf" target="_blank">Download</a>
+  </div>
+
+  <!-- 2023 Year-End -->
+  <div class="card annual">
+    <h3>Financial Statements - December 31, 2023</h3>
+    <p>Audited year-end financial statements and MD&A.</p>
+    <a href="image/g.pdf" target="_blank">Download</a>
+  </div>
+
+  <!-- ESTMA -->
+  <div class="card estma">
+    <h3>2023 ESTMA Filing</h3>
+    <p>Extractive Sector Transparency Measures Act report.</p>
+    <br>
+    <a href="image/h.pdf" target="_blank">Download</a>
+  </div>
 </section>
 
 
@@ -913,7 +899,9 @@ function closeModal() {
     <p><b>We are committed to maintaining the highest standards in financial reporting and operational transparency. Our reports are designed to empower investors and stakeholders with actionable insights.</b></p>
   </section>
 
-
+  <!-- <footer>
+    &copy; 2025 Loyalist Exploration. All rights reserved.
+  </footer> -->
 
   <footer class="site-footer">
   <div class="footer-container">
