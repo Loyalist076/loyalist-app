@@ -1018,6 +1018,62 @@ body {
     padding: 15px;
   }
 }
+/* Extra breakpoints for smoother responsiveness */
+@media (max-width: 1024px) {
+  .team-section {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  .team-card {
+    height: auto;
+  }
+  .team-card img {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-section {
+    grid-template-columns: 1fr; /* full width on small screens */
+  }
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    text-align: center;
+  }
+  .team-card img {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 4px solid #D4B248;
+  }
+  .team-info {
+    padding: 12px;
+  }
+  .team-info h3 {
+    font-size: 18px;
+  }
+  .team-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .read-more {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  .popup-content {
+    padding: 15px;
+  }
+  .popup-content h2 {
+    font-size: 18px;
+  }
+  .popup-content p {
+    font-size: 13px;
+  }
+}
 
 
 .site-footer {
