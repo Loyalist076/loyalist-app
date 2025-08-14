@@ -482,106 +482,102 @@
   }
 }
 
- /* ====== SIDEBAR + CONTENT STYLES FROM SECOND FILE ====== */
-    .main-container {
-      display: flex;
-      max-width: 100vw;
-      padding: 30px;
-      background:  #D4B248;
-    }
-    .sidebar {
-      width: 300px;
-      border-right: 1px solid black;
-      max-height: calc(100vh - 150px);
-      overflow-y: auto;
-      position: sticky;
-      top: 100px;
-    }
-    .sidebar button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      border: none;
-      background: black;
-      color: white;
-      text-align: left;
-      font-size: 16px;
-      cursor: pointer;
-      border-bottom: 2px solid #fff;
-      transition: background 0.3s;
-    }
-    .sidebar button:hover:not(.active) { background: #999; }
-    .sidebar button.active { background:white; color: black; }
-    .content {
-      flex: 1;
-      padding: 0 20px;
-      max-height: calc(100vh - 150px);
-      overflow-y: auto;
-    }
-    .content h2 { margin-top: 0; color: #222; }
-    .content p, .content li {
-      line-height: 1.6;
-      font-size: 15px;
-      color: #333;
-    }
-    ul { padding-left: 20px; }
-
-/* ====== RESPONSIVE STYLES ====== */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .main-container {
-    flex-direction: row; /* keep side by side but reduce sidebar */
-    padding: 0 5px;
-  }
-
-  .sidebar {
-    width: 220px;
-  }
-
-  .content {
-    padding: 0 15px;
-  }
+/* company */
+/* .company-profile {
+  background:  #D4B248;
+  padding: 80px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
 }
 
-/* Large phones / small tablets */
+.profile-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.profile-content {
+  flex: 1 1 55%;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color:  #D4B248;
+  display: block;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.profile-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.profile-icon {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.profile-icon img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.05);
+}
 @media (max-width: 768px) {
-  .main-container {
-    flex-direction: column; /* stack sidebar above content */
+  .profile-container {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .sidebar {
-    width: 100%;
-    max-height: none; /* allow scrolling naturally */
-    position: relative;
-    top: 0;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
+  .profile-content,
+  .profile-icon {
+    flex: 1 1 100%;
   }
 
-  .content {
-    max-height: none;
-    padding: 10px 0;
+  .profile-icon img {
+    max-width: 200px;
   }
 }
 
-/* Small phones */
-@media (max-width: 480px) {
-  .sidebar button {
-    padding: 12px;
-    font-size: 14px;
-  }
 
-  .content p,
-  .content li {
-    font-size: 14px;
-    line-height: 1.4;
-  }
+  */
 
-  ul {
-    padding-left: 15px;
-  }
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  /* margin-bottom: 40px; */
+  color: #222;
+  text-transform: uppercase;
+  border-bottom: 3px solid #D4B248;
+  /* display: inline-block; */
+  padding-bottom: 10px;
+  padding-top: 20px;
 }
+
+
+
 
 .site-footer {
   background-color: #000;
@@ -691,7 +687,9 @@
     display: inline-block;
   }
 }
-
+.a{
+    background-color: #D4B248;
+}
 
 
 
@@ -782,29 +780,91 @@
         </div>
       </div>
     </div>
-
-    
-<!-- ===== SIDEBAR + CONTENT ===== -->
-<div class="main-container">
-  <div class="sidebar">
-    <button class="active" onclick="showSection('about')">About Loyalist</button>
-    <button onclick="showSection('highlights')">Property Highlights</button>
-    <button onclick="showSection('loveland')">Loveland Property</button>
-    <button onclick="showSection('hollinger')">The Hollinger Zone</button>
-    <button onclick="showSection('cominco')">Cominco Zone</button>
-    <button onclick="showSection('gold')">Gold Mineralization</button>
-    <button onclick="showSection('exploration')">Exploration Potential</button>
-    <button onclick="showSection('financing')">Closing of Financing</button>
-    <button onclick="showSection('statement')">Historical Estimates Statement</button>
-    <button onclick="showSection('qualified')">Qualified Person</button>
-     <button onclick="showSection('contact')">Contact</button>
+    <!-- company -->
+<!-- <section class="company-profile">
+  
+  <div class="profile-container">
+    <div class="profile-content">
+      <h2 class="section-title">Company Profile</h2>
+      <p>
+        <strong>Loyalist Exploration Limited</strong> is a mineral exploration company concentrating on acquiring,
+        exploring, and developing quality mineral properties in Canada. The Company is focused on the recently
+        announced <strong>Gold Rush</strong> gold/silver property, located in the <strong>Timmins, Ontario</strong> mining district.
+      </p>
+    </div>
+    <div class="profile-icon">
+      <img src="image/company.png" alt="Company Icon" />
+    </div>
   </div>
-  <div class="content" id="contentArea">
-    <h2>About Loyalist Exploration Limited</h2>
-    <p>Loyalist Exploration Limited is a mineral exploration company concentrating on acquiring, exploring, and developing quality mineral properties in Canada.</p>
-  </div>
-</div>
+</section> -->
+<div class="a">
+ <h1 class="section-title">Company Profile</h1>
+  
+<main style="max-width: 900px; margin: auto; padding: 30px; font-family: 'Segoe UI', sans-serif; line-height: 1.7; color: #222; ">
 
+  <h1>Loyalist Closes Purchase of the Loveland Project and Announces $275,000 Financing</h1>
+  <p><strong>Toronto, Ontario – June 30, 2025 –</strong> Loyalist Exploration Limited (CSE: PNGC) is pleased to announce it has completed the acquisition of the Loveland gold, copper, and nickel Property from STLLR Gold Inc. The property, located 45 km northwest of Timmins, Ontario, is the first acquisition under the Company’s “Buy and Explore Timmins” strategy.</p>
+
+  <h2>Property Highlights</h2>
+  <ul>
+    <li>292 contiguous mineral claims totaling 6,244 hectares (15,430 acres)</li>
+    <li>Hollinger Zone: Historical estimate of 422,350 short tons grading 0.71% Ni and 0.42% Cu</li>
+    <li>Cominco Zone: Historical estimate of 130,000 short tons grading 0.73% Ni and 0.68% Cu</li>
+    <li>10 km long exploration corridor open along strike and depth</li>
+    <li>Notable gold intercepts: 6.37 g/t Au over 8.55m, 6.17 g/t Au over 3.0m, 10.39 g/t Au over 3.1m</li>
+    <li>Surface grab samples: 8.98 g/t Au and 11.48 g/t Au (approx. 400m SE of Cominco zone)</li>
+  </ul>
+
+  <h2>Management Commentary</h2>
+  <p><strong>Errol Farr</strong>, President & CEO of Loyalist:  
+  “We are very pleased to complete the acquisition of this highly prospective property. The Loveland Property is now a cornerstone asset in our exploration portfolio.”</p>
+
+  <p><strong>John McBride</strong>, VP Exploration at STLLR Gold:  
+  “Historical data and proximity to producing mines highlight Loveland’s potential. We support Loyalist’s exploration vision.”</p>
+
+  <h2>Ownership & Transaction Details</h2>
+  <p>Loyalist now owns 100% of one leased and 292 unpatented mining claims. Consideration to STLLR includes:</p>
+  <ul>
+    <li>$250,000 cash</li>
+    <li>10,000,000 Loyalist shares</li>
+    <li>2.0% NSR royalty (Loyalist may buy back 1.0% for $1M)</li>
+  </ul>
+
+  <h2>Loveland Property Overview</h2>
+  <p>The property lies in the Superior Province of the Eastern Canadian Shield, within the Abitibi Greenstone Belt. Local geology includes mafic to intermediate volcanic flows intruded by feldspar porphyries and gabbro.</p>
+  <p>Mineralization includes chalcopyrite, pentlandite, and pyrrhotite — occurring within gabbro and at contacts with volcanic rocks.</p>
+
+  <h2>The Hollinger Zone</h2>
+  <p>Located along mafic-intrusive and volcanic contacts, this zone shows massive sulphide development. Historical drilling outlined a zone 125 m along strike and up to 240 m deep, remaining open down-plunge. Overburden ranges from 12–41 m.</p>
+
+  <h2>The Cominco Zone</h2>
+  <p>Discovered by Cominco in 1972 and expanded by Amador Gold between 2007-2010. Multiple drill holes confirmed high-grade nickel and copper with open potential. Example: LL08-05 intersected 1.0% Ni and 1.92% Cu over 2.70 m.</p>
+
+  <h2>Gold Mineralization</h2>
+  <p>Gold mineralization was found 300 m below Cominco. LL08-13 returned 6.37 g/t Au over 8.55 m. Surface grab samples revealed values up to 11.48 g/t Au in mineralized granodiorite.</p>
+
+  <h2>Exploration Potential</h2>
+  <p>A 10 km corridor between the Hollinger and Cominco zones shows high potential. Historical geophysics and untested targets remain. Hollinger’s historical resource (1974): 401,000 tonnes @ 0.71% Ni and 0.42% Cu (not NI 43-101 compliant).</p>
+
+  <h2>Financing Announcement</h2>
+  <p>Loyalist closed a $275,000 first tranche of a $1.5 million private placement. Issued 27.5M units at $0.01 each. Each unit includes 1 share and 1 warrant (exercise at $0.05 for 36 months). Finder’s fees: $24,000 + 3M warrants.</p>
+
+  <h2>Use of Funds</h2>
+  <p>Funds will support the Loveland acquisition and general working capital. All securities are subject to a four-month hold.</p>
+
+  <h2>Qualified Person</h2>
+  <p><strong>Stephen Balch, P.Geo.</strong> (Independent Director) reviewed and approved the technical content per NI 43-101 standards.</p>
+
+  <h2>About Loyalist Exploration Limited</h2>
+  <p>Loyalist is a Canadian exploration company focused on mineral properties in Timmins, Ontario. Flagship assets include the Loveland (nickel/copper/gold) and Gold Rush (gold/silver) properties.</p>
+
+  <h2>Contact</h2>
+  <p><strong>Errol Farr, President & CEO</strong><br>
+  Email: <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a><br>
+  Phone: 647-296-1270<br>
+  Website: <a href="https://loyalistexp.ca" target="_blank">loyalistexp.ca</a></p>
+
+</main>
 
 
  <!-- Footer HTML -->
@@ -871,6 +931,7 @@
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
 </footer>
+</div>
 
 
   
@@ -975,205 +1036,6 @@ function closePopup() {
       setTimeout(() => (messageDiv.style.display = 'none'), 5000);
     }
   } 
-const sections = {
-        about: `
-            <h2>About Loyalist Exploration Limited</h2>
-            <p>
-                Loyalist Exploration Limited (CSE: PNGC) is pleased to announce the completion of the acquisition of the Loveland gold, copper and nickel Property from STLLR Gold Inc. 
-                Located about 45 km northwest of Timmins, Ontario, this is the first acquisition of Loyalist’s “Buy and Explore Timmins” strategy.
-            </p>
-            <p>
-                The Loveland Property includes the Hollinger and Cominco Volcanogenic Massive Sulfide zones, both with historical mineral resources of nickel and copper, 
-                open along strike and at depth forming a 10 km exploration corridor. Significant historical gold assays exist at surface and in drill core.
-            </p>
-        `,
-        highlights: `
-            <h2>Property Highlights</h2>
-            <ul>
-                <li>292 contiguous mineral claims, total area 6,244 hectares (15,430 acres)</li>
-                <li>Hollinger Zone: 422,350 short tons grading 0.71% Ni and 0.42% Cu</li>
-                <li>Cominco Zone: 130,000 short tons grading 0.73% Ni and 0.68% Cu</li>
-                <li>Open along strike and depth, 10 km exploration corridor</li>
-                <li>Gold assays from drill holes: 6.37 g/t Au over 8.55 m, 6.17 g/t Au over 3.0 m, 10.39 g/t Au over 3.1 m</li>
-                <li>Surface grab samples: 8.98 g/t Au and 11.48 g/t Au</li>
-            </ul>
-        `,
-        loveland: `
-            <h2>Loveland Property</h2>
-            <p>
-               The Loveland Property is located in Byers, Loveland, Thorburn, and Moberly townships, in the Porcupine
-Mining Division. The Property lies within the Superior Province of Archean basement rocks, in the Eastern
-Canadian Shield. It is situated in the northwest region of the Abitibi Greenstone belt. The local geology
-consists of intercalated mafic to intermediate volcanic flows. These flows are locally intruded by feldspar
-porphyries and gabbro. The gabbroic rocks have similarities to the Kamiskotia gabbroic complex.
-            <p>
-                Mineralization consists of chalcopyrite, pentlandite, and pyrrhotite. Sulphides occur as inter-granular
-mineralization within a gabbro, transitioning to fracture-controlled and semi-massive lenses along the
-contact between the gabbro and mafic to intermediate volcanic flows. The mineral concentration occurs as
-trace to semi-massive (up to 75%) pyrrhotite, with minor pyrite and local concentrations of 6% to 8%
-chalcopyrite and pentlandite.
-            </p>
-        `,
-        hollinger: `
-            <h2>The Hollinger Zone</h2>
-            <p>
-               
-Mineralized zones of massive sulphide are present along the contact of mafic (gabbroic) intrusions (dykes)
-and intermediate volcanic rocks further to the west. Along the contact, the metavolcanic andesitic rocks are
-intensely altered (feldspathization), whereas the gabbro is only minimally altered within a narrow zone of
-schistose carbonate alteration. The massive sulphide zones consist primarily of pyrrhotite-pyritechalcopyrite- pentlandite, presenting as intergranular mineralization increasing to massive sulphides
-approaching the andesite contact. The main zone is interpreted as occupying a shear zone dipping steeply
-towards N075° and plunging southward at 60°.
-            </p>
-            <p>
-                Drill intersections have delineated the historical deposit over 125 m of strike and show a maximum
-interpreted width of 16 m to a maximum depth of 240 m. The historical deposit coincides with airborne and
-ground geophysical Mag and EM anomalies. An isopach map for the drill intercepts suggests that the
-deposit is open down-plunge southward and becomes thicker with depth. The historical Hollinger Zone
-deposit is not exposed at surface. Overburden depths recorded for the Hollinger Mines’ drill holes range
-from 12 m on the flank of the deposit to 41 m directly over it.
-            </p>
-        `,
-        cominco: `
-            <h2>Cominco Zone</h2>
-            <p>
-               The Cominco zone was discovered by Cominco in 1972. The zone was drill tested to a depth of
-approximately 120 m. Four drill campaigns completed by Amador Gold between 2007 and 2010, were
-designed to test for possible depth and strike extensions of the Cominco zone. The first three drill
-campaigns intersected the mineralized gabbro on 50 m centres both down dip and along strike to define
-the mineralized horizon. The fourth campaign was designed to infill specific areas of the Cominco zone on
-25 m spacing to define the geometry of mineralization, which is steeply dipping to the WSW. The drilling
-extended both the dip and strike lengths of the earlier defined mineralization and it remains open in both
-directions as well as down dip.
-
-            </p>
-            <ul>
-                <li>45.0 m @ 0.70% Ni, 0.75% Cu</li>
-                <li>22.80 m @ 0.53% Ni, 0.88% Cu (incl. 11.20 m @ 0.65% Ni, 1.0% Cu; 2.70 m @ 1.0% Ni, 1.92% Cu)</li>
-                <li>37.60 m @ 0.33% Ni, 0.38% Cu (incl. 8.50 m @ 0.59% Ni, 0.73% Cu; 6.00 m @ 0.85% Ni, 0.78% Cu)</li>
-                <li>4.0 m @ 0.98% Ni, 1.41% Cu (deep zone)</li>
-            </ul>
-        `,
-        gold: `
-            <h2>Gold Mineralization</h2>
-            <p>
-                Gold mineralization was intersected in holes drilled by Amador Gold Corp. to a depth of 300 m below the
-historical Cominco Zone deposit in 2007-2009 (4). Gold-bearing arsenopyrite and pyrite mineralization was
-encountered in sections of silicified granodiorite. Amador’s significant historical drill hole (LL08-13)
-intersected a mineralized interval that assayed 6.37 g/t Au over 8.55 m (383.25 m to 391.8 m down-hole).
-Additional intervals from the hole included 6.17 g/t over 3.0 m from 403.0 m to 406.0 m and 10.39 g/t over
-3.1 m from 410.30 m to 413.4 m. (4) The reported lengths of gold intersections are core lengths and not true
-lengths which are currently unknown.
-Anomalous gold values ranging from 100 ppb to 3800 ppb were recorded from several other drill holes
-(including AMDG07-01, LL08-04, LL08-09, LL09-13W, LL08-14, LL08-21, LL08-22, and LL08-23) over a
-strike more than 500 m within the granodiorite. The anomalous gold values occur over various widths from
-less than a metre to several metres of core. True widths are unknown. Prospecting in 2008 led to the
-discovery of a surface gold showing about 400 m southeast of the historical Cominco Zone deposit. The
-showing returned grab samples containing 8.98 g/t Au and 11.48 g/t Au collected from granodiorite
-containing quartz-stringers mineralized with disseminated sulphides(6)(7).
-The gold-bearing sulphide mineralization occurs with silicification that presents as silica flooding and quartz
-veining. The better values, such as those from hole LL08-13, occur in intervals with blue-grey quartz veining
-and strong silicification with 3-10% sulphides comprising arsenopyrite, pyrite and trace amounts of
-sphalerite, and possibly trace galena and chalcopyrite. Silicification with trace to 2% sulphides was
-observed marginal to joints and local quartz stringers in all holes where anomalous gold was recorded.
-The results from Amador’s drilling suggest the presence of a system of gold enrichment within the
-granodiorite. Additional exploration will be required to determine the orientation and extent of the goldenriched zone.
-            </p>
-            <ul>
-                <li>8.55 m @ 6.37 g/t Au</li>
-                <li>3.0 m @ 6.17 g/t Au</li>
-                <li>3.1 m @ 10.39 g/t Au</li>
-            </ul>
-            <p>
-                Surface showings: 8.98 g/t Au, 11.48 g/t Au in quartz-stringer granodiorite.
-            </p>
-        `,
-        exploration: `
-            <h2>Exploration Potential</h2>
-            <p>
-                Earlier work by Hollinger Mines to the southeast of the historical Cominco zone, within the original Moneta
-Loveland land package by Hollinger Mines lead to the discovery of the Hollinger zone, which contains a
-historical mineral resource estimate from 1974 of 401,000 tonnes grading 0.71% Ni and 0.42% Cu. Note
-that this estimate, developed prior to the introduction of NI 43-101 has not been independently verified and
-investors are cautioned not to treat this estimate as reliable or current. This zone is open at depth and it
-has only been drilled to 120 m. The trend extrapolated from the Hollinger and Cominco zones highlights a
-potential exploration corridor of approximately 10 km strike length.
-Extensive airborne surveys were completed over many areas of the Abitibi Greenstone Belt including Byers
-and Loveland townships. A series of ground geophysical surveys was also completed on portions of the
-Property. The geophysical surveys have highlighted several favourable exploration targets that have yet to
-be drill tested.
-        `,
-        financing: `
-            <h2>Closing of Financing</h2>
-            <p>
-                         The Company is also pleased to announce it has issued 27,500,000 units of the Company (“Units”) for
-aggregate gross proceeds of $275,000 (the “First Tranche”) of its upsized non-brokered private placement
-of $1,500,000 of Units (the “Offering”), at a price of $0.01 per Unit (the “Offering Price”). Each Unit consists
-of one common share of the Company and one common share purchase warrant exercisable at a price of
-$0.05 for thirty-six months following the date of issuance.
-
-In connection with the Offering, the Company paid finder’s fees of $24,000 and issued 3,000,000 finder’s
-warrants to acquire one Unit of the Offering at the Offering Price for a period of sixty months from the closing
-date of the Financing.
-The proceeds from the financing will be used for the acquisition of the Loveland Property as well as general
-working capital purposes.
-All of the securities issued and issuable in connection with the Offering and the Acquisition are subject to a
-hold period expiring four months and one day after the date of issuance of the securities. Completion of the
-Offering and the Acquisition is subject to the receipt of all required regulatory approvals, including the
-approval of the Canadian Securities Exchange.
-The securities offered have not been registered under the United States Securities Act of 1933, as
-amended, and may not be offered or sold in the United States or to, or for the account or benefit of, U.S.
-persons absent registration or an applicable exemption from registration requirements. This release does
-not constitute an offer for sale of securities in the United States.
-            </p>
-        `,
-        statement: `
-            <h2>Statement Regarding Historical Mineral Resource Estimates</h2>
-            <p>
-                          The Hollinger zone historical mineral resource estimate is unclassified and does not comply with CIM
-Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The Hollinger
-zone historical mineral resource estimate was taken from a report titled “Geological Report, Rousseau
-Loveland Property, Loveland Township” authored by W. C. Kerr and dated February 1992, citing data
-provided by Hollinger Mines Limited from 1974. Given the age of the information and the lack of underlying
-data, investors are cautioned not to treat the estimate as current or rely on the estimate in making an
-investment decision. The historical mineral estimate is being included herein to provide shareholders with
-background on the rationale for acquiring the asset. A qualified person has not done sufficient work to
-classify this historical mineral resource estimate as current mineral resources and the Company is not
-treating these historical mineral resource estimate as a current estimate. It is uncertain whether following
-evaluation and/or further exploration, the historical mineral resource estimate will ever be able to be
-reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring
-any or all of the historical resource estimates up to the CIM reporting standards. Hollinger historical estimate from 1974, not NI 43-101 compliant, unverified, and should not be relied upon for investment decisions. 
-                No current plans to upgrade to CIM standards.
-            </p>
-        `,
-        qualified: `
-        <h2>Qualified Person</h2>
-        <p>
-            Stephen Balch, P.Geo., independent director for Loyalist, who is a “Qualified Person” as defined by NI 43-
-            101, has reviewed and approved the technical content of this press release.
-        </p>
-    `,
-    contact: `
-        <h2>Contact Information</h2>
-        <p>
-            For further information, please contact:
-        </p>
-        <ul>
-          <br>
-          <h1>Errol Farr,President and CEO</h1>
-            <li><strong>Email:efarr001@icloud.com</strong> </li>
-            <li><strong>Tel:647-296-1270</strong> </li>
-           
-        </ul>
-    `
-};
-       
-
-    function showSection(section) {
-        document.getElementById('contentArea').innerHTML = sections[section];
-        document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-    }
   </script>
      </body>
     </html>
