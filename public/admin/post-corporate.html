@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Corporate Structure</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h2 { margin-top: 30px; }
+    .section { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+    button { margin-top: 20px; padding: 10px 20px; border: none; background: #007BFF; color: #fff; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .item-container { margin-bottom: 15px; }
+    .remove-btn { margin-left: 10px; background: red; }
+  </style>
+</head>
+<body>
+
+  <h1>Post Corporate Structure</h1>
+
+  <!-- Capital Structure Section -->
+  <section class="section">
+    <h2>Capital Structure</h2>
+    <div id="capitalContainer">
+      <!-- Capital structure items will be added here -->
+    </div>
+    <button type="button" onclick="addCapitalItem()">Add Capital Item</button>
+  </section>
+
+  <!-- Share Ownership Section -->
+  <section class="section">
+    <h2>Share Ownership</h2>
+    <div id="ownershipContainer">
+      <!-- Ownership items will be added here -->
+    </div>
+    <button type="button" onclick="addOwnershipItem()">Add Shareholder</button>
+  </section>
+
+  <button onclick="submitCorporate()">Submit Corporate Structure</button>
+
+  <script>
+    // Add Capital Item
+    function addCapitalItem(type = '', value = '') {
+      const container = document.getElementById('capitalContainer');
+      const div = document.createElement('div');
+      div.className = 'item-container';
+      div.innerHTML = `
+        <label>Type</label>
+        <input type="text" class="capital-type" value="${type}" placeholder="e.g., Common Shares Outstanding" required>
+        <label>Value</label>
+        <input type="text" class="capital-value" value="${value}" placeholder="e.g., 260.3M" required>
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Remove</button>
+      `;
+      container.appendChild(div);
+    }
+
+    // Add Ownership Item
+    function addOwnershipItem(shareholder = '', percentage = '') {
+      const container = document.getElementById('ownershipContainer');
+      const div = document.createElement('div');
+      div.className = 'item-container';
+      div.innerHTML = `
+        <label>Shareholder</label>
+        <input type="text" class="ownership-shareholder" value="${shareholder}" placeholder="e.g., Timmins Shareholders" required>
+        <label>Percentage</label>
+        <input type="text" class="ownership-percentage" value="${percentage}" placeholder="e.g., 18%" required>
+        <button type="button" class="remove-btn" onclick="removeItem(this)">Remove</button>
+      `;
+      container.appendChild(div);
+    }
+
+    // Remove item
+    function removeItem(btn) {
+      btn.parentElement.remove();
+    }
+
+    // Submit Corporate Structure
+    async function submitCorporate() {
+      const capitalTypes = Array.from(document.querySelectorAll('.capital-type')).map(input => input.value);
+      const capitalValues = Array.from(document.querySelectorAll('.capital-value')).map(input => input.value);
+      const shareHolders = Array.from(document.querySelectorAll('.ownership-shareholder')).map(input => input.value);
+      const percentages = Array.from(document.querySelectorAll('.ownership-percentage')).map(input => input.value);
+
+      const capitalStructure = capitalTypes.map((type, i) => ({ type, value: capitalValues[i] }));
+      const shareOwnership = shareHolders.map((shareholder, i) => ({ shareholder, percentage: percentages[i] }));
+
+      try {
+        const response = await fetch('/api/company-structure', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ capitalStructure, shareOwnership })
+        });
+
+        if (!response.ok) throw new Error('Failed to submit corporate structure');
+
+        alert('✅ Corporate Structure submitted successfully!');
+      } catch (err) {
+        console.error(err);
+        alert('❌ Error submitting corporate structure');
+      }
+    }
+
+    // Optionally, load existing data when admin opens page
+    async function loadExistingCorporate() {
+      try {
+        const response = await fetch('/api/company-structure');
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!data) return;
+
+        // Load Capital Structure
+        if (data.capitalStructure) {
+          data.capitalStructure.forEach(item => addCapitalItem(item.type, item.value));
+        }
+
+        // Load Share Ownership
+        if (data.shareOwnership) {
+          data.shareOwnership.forEach(item => addOwnershipItem(item.shareholder, item.percentage));
+        }
+      } catch (err) {
+        console.error('Error loading existing corporate structure:', err);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadExistingCorporate);
+  </script>
+
+</body>
+</html>

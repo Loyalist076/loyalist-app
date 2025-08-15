@@ -802,7 +802,7 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Projects</a>
            <ul class="dropdown">
-            <li><a href="project.html">Loveland Project</a></li>
+            <li><a href="loveland.html">Loveland Project</a></li>
             <li><a href="tully.html">Tully Project</a></li>
             <li><a href="gold.html">Gold Rush Project</a></li>
        
@@ -885,42 +885,25 @@
     </div>
   </section> -->
   
-  <!-- Capital Structure -->
-  <section class="section capital">
-    <div class="wrapper">
-      <h2>Capital Structure</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-header">Common Shares Outstanding</div>
-          <div class="card-body">260.3M</div>
-        </div>
-        <div class="card">
-          <div class="card-header">Warrants</div>
-          <div class="card-body">124.4M</div>
-        </div>
-        <div class="card">
-          <div class="card-header">Options</div>
-          <div class="card-body">4.1M</div>
-        </div>
-        <div class="card">
-          <div class="card-header">Fully Diluted</div>
-          <div class="card-body">388.9M</div>
-        </div>
-      </div>
+ <!-- Capital Structure -->
+<section class="section capital">
+  <div class="wrapper">
+    <h2>Capital Structure</h2>
+    <div class="cards">
+      <!-- Capital Structure cards will be injected here dynamically -->
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Share Ownership -->
-  <section class="section ownership">
-    <div class="wrapper">
-      <h2>Share Ownership</h2>
-      <ul class="ownership-list">
-        <li><span>Timmins Shareholders</span><span>18%</span></li>
-        <li><span>Significant Shareholders</span><span>41%</span></li>
-        <li><span>Float</span><span>41%</span></li>
-      </ul>
-    </div>
-  </section>
+<!-- Share Ownership -->
+<section class="section ownership">
+  <div class="wrapper">
+    <h2>Share Ownership</h2>
+    <ul class="ownership-list">
+      <!-- Share Ownership items will be injected here dynamically -->
+    </ul>
+  </div>
+</section>
 
     <footer class="site-footer">
   <div class="footer-container">
@@ -1073,6 +1056,45 @@ function closePopup() {
     });
 }
 
+// Fetch company structure (capital + ownership) from backend
+  async function fetchCompanyStructure() {
+    try {
+      const response = await fetch('/api/company-structure');
+      if (!response.ok) throw new Error('Failed to fetch company structure');
+
+      const data = await response.json();
+
+      // ===== Render Capital Structure =====
+      const capitalContainer = document.querySelector('.cards');
+      if (data.capitalStructure && capitalContainer) {
+        capitalContainer.innerHTML = data.capitalStructure.map(item => `
+          <div class="card">
+            <div class="card-header">${item.type}</div>
+            <div class="card-body">${item.value}</div>
+          </div>
+        `).join('');
+      }
+
+      // ===== Render Share Ownership =====
+      const ownershipList = document.querySelector('.ownership-list');
+      if (data.shareOwnership && ownershipList) {
+        ownershipList.innerHTML = data.shareOwnership.map(item => `
+          <li>
+            <span>${item.shareholder}</span>
+            <span>${item.percentage}</span>
+          </li>
+        `).join('');
+      }
+
+    } catch (error) {
+      console.error('❌ Error fetching company structure:', error);
+    }
+  }
+
+  // Fetch on page load
+  window.addEventListener('DOMContentLoaded', fetchCompanyStructure);
+
+  
 </script>
 </body>
 </html>
