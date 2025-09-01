@@ -16,22 +16,20 @@
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color:white;
-   
 }
 
 .logo img {
-    height: 75px; /* Adjust logo size */
+    height: 75px;
      transition: transform 0.3s ease-in-out;
 }
 .logo img:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  transform: scale(1.05);
 }
 
 .navbar {
@@ -47,7 +45,7 @@
 
 .navbar li {
     display: inline-block;
-    position: relative; /* Needed for dropdown positioning */
+    position: relative;
 }
 
 .navbar a {
@@ -58,30 +56,30 @@
 }
 
 .navbar a:hover {
-    background-color: #c4a12e; /* Lighter blue */
+    background-color: #c4a12e;
 }
 
 .dropdown {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position the dropdown */
-    background-color: black; /* White background */
-    min-width: 160px; /* Set a minimum width */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    z-index: 1;
 }
 
 .dropdown li {
-    float: none; /* Stack dropdown items vertically */
+    float: none;
 }
 
 .dropdown a {
-    color: #D4B248; /* Navy blue text */
-    padding: 12px 16px; /* Padding for dropdown items */
+    color: #D4B248;
+    padding: 12px 16px;
     text-decoration: none;
-    display: block; /* Make dropdown items block elements */
+    display: block;
 }
 
 .dropdown a:hover {
-    background-color: black; /* Light gray on hover */
+    background-color: black;
 }
 
 @media (min-width: 1025px) {
@@ -89,7 +87,7 @@
     display: block;
   }
 }
-/* Tablet & Mobile - Already Exists */
+
 @media (max-width: 1024px) {
   .menu-toggle {
     display: block;
@@ -133,7 +131,7 @@
   }
 
   .navbar li:hover > .dropdown {
-    display: none; /* Disable hover effect */
+    display: none;
   }
 
   .header-buttons {
@@ -148,44 +146,31 @@
   }
 }
 
-/* Desktop hover dropdown */
 @media (min-width: 1025px) {
   .navbar li:hover > .dropdown {
     display: block;
   }
 }
 
-
-
-
-/* Responsive Styles */
 @media (max-width: 768px) {
     .navbar li {
-        display: block; /* Stack items vertically on small screens */
-        text-align: left; /* Align text to the left */
+        display: block;
+        text-align: left;
     }
 
     .navbar {
-        text-align: left; /* Align navbar items to the left */
-        
+        text-align: left;
     }
-
-    
 }
-/* Mobile Navbar Toggle Button */
+
 .menu-toggle {
   display: none;
   font-size: 24px;
   color: black;
   cursor: pointer;
-  padding-right: 1%;/* toggle */
+  padding-right: 1%;
 }
 
-
-
-
-
-/* Hide menu on small screens by default */
 @media (max-width: 768px) {
 
   .align-logo{
@@ -234,16 +219,13 @@
   }
 
   .navbar li:hover .dropdown {
-    display: none; /* Disable hover dropdown on mobile */
+    display: none;
   }
 
   .navbar li.active .dropdown {
     display: block;
   }
 }
-
-
-
 
 .header-buttons button {
       background-color:  #D4B248;
@@ -260,7 +242,6 @@
       background-color:  #D4B248;
     }
 
-    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
@@ -319,7 +300,6 @@
       display: none;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
@@ -352,17 +332,16 @@
         padding-left: 30px;
       }
     }
-/* Desktop dropdown hover */
+
 .navbar li:hover > .dropdown {
   display: block;
 }
 .icon {
   font-size: 28px;
-  color: #ffc107; /* Gold/Yellow */
+  color: #ffc107;
   margin-bottom: 10px;
 }
 
-/* Default: hide dropdowns */
 .dropdown {
   display: none;
   position: absolute;
@@ -384,7 +363,6 @@
   padding: 10px 15px;
 }
 
-/* Mobile-friendly override */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -410,10 +388,10 @@
   }
 
   .navbar li:hover > .dropdown {
-    display: none; /* Prevent hover on touch devices */
+    display: none;
   }
 }
-/* Tablet & Kindle View */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .align-logo {
     display: flex;
@@ -472,7 +450,7 @@
   }
 
   .navbar li:hover > .dropdown {
-    display: none; /* Disable hover on tablet */
+    display: none;
   }
 
   .header-buttons {
@@ -482,7 +460,6 @@
   }
 }
 
- /* ====== SIDEBAR + CONTENT STYLES FROM SECOND FILE ====== */
     .main-container {
       display: flex;
       max-width: 100vw;
@@ -491,7 +468,6 @@
     }
     .sidebar {
       width: 300px;
-      border-right: 1px solid black;
       max-height: calc(100vh - 150px);
       overflow-y: auto;
       position: sticky;
@@ -518,7 +494,7 @@
       max-height: calc(100vh - 150px);
       overflow-y: auto;
     }
-    .content h2 { margin-top: 80px; color: #222; font-size: 30px; }
+    .content h2 { color: #222; font-size: 30px; }
     .content p, .content li {
       line-height: 1.6;
       font-size: 18px;
@@ -526,12 +502,149 @@
     }
     ul { padding-left: 20px; }
 
-/* ====== RESPONSIVE STYLES ====== */
+/* Team member styles */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
 
-/* Tablets */
+.team-member {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.team-member h3 {
+  color: #D4B248;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.team-member .title {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.team-member .bio {
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.read-more-btn {
+  background: #D4B248;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.read-more-btn:hover {
+  background: #B8932C;
+}
+
+/* Bio popup modal styles */
+.bio-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.bio-modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.bio-modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #D4B248;
+  padding-bottom: 15px;
+}
+
+.bio-modal-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.bio-modal-header h3 {
+  color: #D4B248;
+  font-size: 24px;
+  margin: 0;
+}
+
+.bio-modal-header .title {
+  color: #666;
+  font-style: italic;
+  margin: 5px 0 0 0;
+}
+
+.bio-modal-body {
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.bio-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #D4B248;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.bio-close:hover {
+  color: #B8932C;
+}
+
 @media (max-width: 1024px) {
   .main-container {
-    flex-direction: row; /* keep side by side but reduce sidebar */
+    flex-direction: row;
     padding: 0 5px;
   }
 
@@ -542,17 +655,20 @@
   .content {
     padding: 0 15px;
   }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Large phones / small tablets */
 @media (max-width: 768px) {
   .main-container {
-    flex-direction: column; /* stack sidebar above content */
+    flex-direction: column;
   }
 
   .sidebar {
     width: 100%;
-    max-height: none; /* allow scrolling naturally */
+    max-height: none;
     position: relative;
     top: 0;
     border-right: none;
@@ -563,9 +679,13 @@
     max-height: none;
     padding: 10px 0;
   }
+
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .sidebar button {
     padding: 12px;
@@ -679,7 +799,6 @@
   color: #aaa;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -691,16 +810,6 @@
     display: inline-block;
   }
 }
-
-
-
-
-
-
-     
-
-    
-
 </style>
 </head>
 <body>
@@ -716,14 +825,11 @@
 
       <nav class="navbar" id="navbar">
         <ul>
-         
-
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
               <li><a href="company.html">Company Profile</a></li>
               <li><a href="directors.html">Our Team</a></li>
-              
             </ul>
           </li>
 
@@ -741,27 +847,19 @@
             <ul class="dropdown">
              <li><a href="corporate.html">Corporate Structure</a></li>
               <li><a href="statements.html">Financial Statements & MD&A</a></li>
-              
-              <!-- <li><a href="#">Presentations</a></li> -->
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
-              <li><a href="news.html">Press Release</a></li>
-              <li><a href="disclaimers.html">Disclaimer</a></li>
-            </ul> -->
           </li>
 
-          <li><a href="Contact.html"></a></li>
         </ul>
         <div class="header-buttons">
         </div>
       </nav>
     </header>
 
-    <!-- Modal -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -783,34 +881,38 @@
       </div>
     </div>
 
-    
-<!-- ===== SIDEBAR + CONTENT ===== -->
 <div class="main-container">
   <div class="sidebar">
     <button class="active" onclick="showSection('about')">About Loyalist</button>
-    <button onclick="showSection('highlights')">Property Highlights</button>
-    <button onclick="showSection('loveland')">Loveland Property</button>
-    <button onclick="showSection('hollinger')">The Hollinger Zone</button>
-    <button onclick="showSection('cominco')">Cominco Zone</button>
-    <button onclick="showSection('gold')">Gold Mineralization</button>
-    <button onclick="showSection('exploration')">Exploration Potential</button>
-    <button onclick="showSection('financing')">Closing of Financing</button>
-    <button onclick="showSection('statement')">Historical Estimates Statement</button>
-    <button onclick="showSection('qualified')">Qualified Person</button>
-     <button onclick="showSection('contact')">Contact</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('management')">Management</button>
+    <button onclick="showSection('advisors')">Advisors</button>
+    <button onclick="showSection('contact')">Contact</button>
   </div>
   <div class="content" id="contentArea">
     <h2>About Loyalist Exploration Limited</h2>
-    <p>Loyalist Exploration Limited is a mineral exploration company concentrating on acquiring, exploring, and developing quality mineral properties in Canada.</p>
+    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy. The Company recently acquired the Loveland and Gold Rush Projects and has signed a LOI to acquire the Tully gold project.</p>
+  </div>
+</div>
+
+<!-- Bio Modal -->
+<div id="bioModal" class="bio-modal">
+  <div class="bio-modal-content">
+    <span class="bio-close" onclick="closeBioModal()">&times;</span>
+    <div class="bio-modal-header">
+      <img id="modalImage" src="" alt="">
+      <div>
+        <h3 id="modalName"></h3>
+        <p id="modalTitle" class="title"></p>
+      </div>
+    </div>
+    <div class="bio-modal-body" id="modalBio"></div>
   </div>
 </div>
 
 
-
- <!-- Footer HTML -->
 <footer class="site-footer">
   <div class="footer-container">
-    <!-- Contact Info -->
     <div class="contact-column">
       <h4>Contact Information</h4>
       <p><strong>Email:</strong><br /> 
@@ -821,11 +923,10 @@
       </p><br/>
       <p><strong>Address:</strong><br />
        110 Yonge Street,
-          Suite 1601
+          Suite 1601
           <br/> Toronto, Ontario M5C1T4</p>
     </div>
 
-    <!-- Quick Links -->
     <div class="quick-links">
       <h4>Quick Links</h4>
       <ul>
@@ -838,15 +939,14 @@
       </ul>
     </div>
 
-    <!-- Social + Newsletter -->
     <div class="social-column">
       <h4>Follow Us</h4>
       <div class="social-icons">
         <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
       </div>
       <br />
       <div class="subscribe-box">
@@ -866,31 +966,21 @@
     </div>
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
 </footer>
 
-
-  
-
-    <script>
-       // Toggle entire navbar menu on small screens
+<script>
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
 
-// Toggle dropdowns on click for mobile/tablet (<= 1024px)
 function toggleDropdown(e) {
   if (window.innerWidth <= 1024) {
-    e.stopPropagation(); // Prevent click from bubbling
+    e.stopPropagation();
     const current = e.currentTarget;
-
-    // Toggle only the clicked dropdown
     current.classList.toggle('active');
-
-    // Close other open dropdowns
     document.querySelectorAll('.has-dropdown').forEach(item => {
       if (item !== current) {
         item.classList.remove('active');
@@ -899,7 +989,6 @@ function toggleDropdown(e) {
   }
 }
 
-// Modal handling (login / contact)
 function openModal(type) {
   document.getElementById("modal").style.display = "block";
   document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
@@ -910,34 +999,15 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-// Welcome popup close
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
-  // Accordion toggle
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const isActive = header.classList.contains('active');
 
-      // Close all
-      document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-      document.querySelectorAll('.accordion-body').forEach(body => body.style.display = 'none');
-
-      // Open clicked one if not already open
-      if (!isActive) {
-        header.classList.add('active');
-        header.nextElementSibling.style.display = 'block';
-      }
-    });
-  });
-
- async function handleCompanySubscribe(event) {
+async function handleCompanySubscribe(event) {
     event.preventDefault();
-
     const emailInput = document.getElementById('companySubscriberEmail');
     const messageDiv = document.getElementById('company-subscribe-message');
     const email = emailInput.value.trim();
-
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !emailPattern.test(email)) {
@@ -955,7 +1025,6 @@ function closePopup() {
       });
 
       const data = await res.json();
-
       messageDiv.style.display = 'block';
       if (res.ok) {
         messageDiv.style.color = 'green';
@@ -974,210 +1043,235 @@ function closePopup() {
       messageDiv.textContent = 'Server error. Please try again later.';
       setTimeout(() => (messageDiv.style.display = 'none'), 5000);
     }
-  } 
-const sections = {
-        about: `
-            <h2>About Loyalist Exploration Limited</h2>
-            <p>
-                Loyalist Exploration Limited (CSE: PNGC) is pleased to announce the completion of the acquisition of the Loveland gold, copper and nickel Property from STLLR Gold Inc. 
-                Located about 45 km northwest of Timmins, Ontario, this is the first acquisition of Loyalist’s “Buy and Explore Timmins” strategy.
-            </p>
-            <p>
-                The Loveland Property includes the Hollinger and Cominco Volcanogenic Massive Sulfide zones, both with historical mineral resources of nickel and copper, 
-                open along strike and at depth forming a 10 km exploration corridor. Significant historical gold assays exist at surface and in drill core.
-            </p>
-        `,
-        highlights: `
-            <h2>Property Highlights</h2>
-            <ul>
-                <li>292 contiguous mineral claims, total area 6,244 hectares (15,430 acres)</li>
-                <li>Hollinger Zone: 422,350 short tons grading 0.71% Ni and 0.42% Cu</li>
-                <li>Cominco Zone: 130,000 short tons grading 0.73% Ni and 0.68% Cu</li>
-                <li>Open along strike and depth, 10 km exploration corridor</li>
-                <li>Gold assays from drill holes: 6.37 g/t Au over 8.55 m, 6.17 g/t Au over 3.0 m, 10.39 g/t Au over 3.1 m</li>
-                <li>Surface grab samples: 8.98 g/t Au and 11.48 g/t Au</li>
-            </ul>
-        `,
-        loveland: `
-            <h2>Loveland Property</h2>
-            <p>
-               The Loveland Property is located in Byers, Loveland, Thorburn, and Moberly townships, in the Porcupine
-Mining Division. The Property lies within the Superior Province of Archean basement rocks, in the Eastern
-Canadian Shield. It is situated in the northwest region of the Abitibi Greenstone belt. The local geology
-consists of intercalated mafic to intermediate volcanic flows. These flows are locally intruded by feldspar
-porphyries and gabbro. The gabbroic rocks have similarities to the Kamiskotia gabbroic complex.
-            <p>
-                Mineralization consists of chalcopyrite, pentlandite, and pyrrhotite. Sulphides occur as inter-granular
-mineralization within a gabbro, transitioning to fracture-controlled and semi-massive lenses along the
-contact between the gabbro and mafic to intermediate volcanic flows. The mineral concentration occurs as
-trace to semi-massive (up to 75%) pyrrhotite, with minor pyrite and local concentrations of 6% to 8%
-chalcopyrite and pentlandite.
-            </p>
-        `,
-        hollinger: `
-            <h2>The Hollinger Zone</h2>
-            <p>
-               
-Mineralized zones of massive sulphide are present along the contact of mafic (gabbroic) intrusions (dykes)
-and intermediate volcanic rocks further to the west. Along the contact, the metavolcanic andesitic rocks are
-intensely altered (feldspathization), whereas the gabbro is only minimally altered within a narrow zone of
-schistose carbonate alteration. The massive sulphide zones consist primarily of pyrrhotite-pyritechalcopyrite- pentlandite, presenting as intergranular mineralization increasing to massive sulphides
-approaching the andesite contact. The main zone is interpreted as occupying a shear zone dipping steeply
-towards N075° and plunging southward at 60°.
-            </p>
-            <p>
-                Drill intersections have delineated the historical deposit over 125 m of strike and show a maximum
-interpreted width of 16 m to a maximum depth of 240 m. The historical deposit coincides with airborne and
-ground geophysical Mag and EM anomalies. An isopach map for the drill intercepts suggests that the
-deposit is open down-plunge southward and becomes thicker with depth. The historical Hollinger Zone
-deposit is not exposed at surface. Overburden depths recorded for the Hollinger Mines’ drill holes range
-from 12 m on the flank of the deposit to 41 m directly over it.
-            </p>
-        `,
-        cominco: `
-            <h2>Cominco Zone</h2>
-            <p>
-               The Cominco zone was discovered by Cominco in 1972. The zone was drill tested to a depth of
-approximately 120 m. Four drill campaigns completed by Amador Gold between 2007 and 2010, were
-designed to test for possible depth and strike extensions of the Cominco zone. The first three drill
-campaigns intersected the mineralized gabbro on 50 m centres both down dip and along strike to define
-the mineralized horizon. The fourth campaign was designed to infill specific areas of the Cominco zone on
-25 m spacing to define the geometry of mineralization, which is steeply dipping to the WSW. The drilling
-extended both the dip and strike lengths of the earlier defined mineralization and it remains open in both
-directions as well as down dip.
+}
 
-            </p>
-            <ul>
-                <li>45.0 m @ 0.70% Ni, 0.75% Cu</li>
-                <li>22.80 m @ 0.53% Ni, 0.88% Cu (incl. 11.20 m @ 0.65% Ni, 1.0% Cu; 2.70 m @ 1.0% Ni, 1.92% Cu)</li>
-                <li>37.60 m @ 0.33% Ni, 0.38% Cu (incl. 8.50 m @ 0.59% Ni, 0.73% Cu; 6.00 m @ 0.85% Ni, 0.78% Cu)</li>
-                <li>4.0 m @ 0.98% Ni, 1.41% Cu (deep zone)</li>
-            </ul>
-        `,
-        gold: `
-            <h2>Gold Mineralization</h2>
-            <p>
-                Gold mineralization was intersected in holes drilled by Amador Gold Corp. to a depth of 300 m below the
-historical Cominco Zone deposit in 2007-2009 (4). Gold-bearing arsenopyrite and pyrite mineralization was
-encountered in sections of silicified granodiorite. Amador’s significant historical drill hole (LL08-13)
-intersected a mineralized interval that assayed 6.37 g/t Au over 8.55 m (383.25 m to 391.8 m down-hole).
-Additional intervals from the hole included 6.17 g/t over 3.0 m from 403.0 m to 406.0 m and 10.39 g/t over
-3.1 m from 410.30 m to 413.4 m. (4) The reported lengths of gold intersections are core lengths and not true
-lengths which are currently unknown.
-Anomalous gold values ranging from 100 ppb to 3800 ppb were recorded from several other drill holes
-(including AMDG07-01, LL08-04, LL08-09, LL09-13W, LL08-14, LL08-21, LL08-22, and LL08-23) over a
-strike more than 500 m within the granodiorite. The anomalous gold values occur over various widths from
-less than a metre to several metres of core. True widths are unknown. Prospecting in 2008 led to the
-discovery of a surface gold showing about 400 m southeast of the historical Cominco Zone deposit. The
-showing returned grab samples containing 8.98 g/t Au and 11.48 g/t Au collected from granodiorite
-containing quartz-stringers mineralized with disseminated sulphides(6)(7).
-The gold-bearing sulphide mineralization occurs with silicification that presents as silica flooding and quartz
-veining. The better values, such as those from hole LL08-13, occur in intervals with blue-grey quartz veining
-and strong silicification with 3-10% sulphides comprising arsenopyrite, pyrite and trace amounts of
-sphalerite, and possibly trace galena and chalcopyrite. Silicification with trace to 2% sulphides was
-observed marginal to joints and local quartz stringers in all holes where anomalous gold was recorded.
-The results from Amador’s drilling suggest the presence of a system of gold enrichment within the
-granodiorite. Additional exploration will be required to determine the orientation and extent of the goldenriched zone.
-            </p>
-            <ul>
-                <li>8.55 m @ 6.37 g/t Au</li>
-                <li>3.0 m @ 6.17 g/t Au</li>
-                <li>3.1 m @ 10.39 g/t Au</li>
-            </ul>
-            <p>
-                Surface showings: 8.98 g/t Au, 11.48 g/t Au in quartz-stringer granodiorite.
-            </p>
-        `,
-        exploration: `
-            <h2>Exploration Potential</h2>
-            <p>
-                Earlier work by Hollinger Mines to the southeast of the historical Cominco zone, within the original Moneta
-Loveland land package by Hollinger Mines lead to the discovery of the Hollinger zone, which contains a
-historical mineral resource estimate from 1974 of 401,000 tonnes grading 0.71% Ni and 0.42% Cu. Note
-that this estimate, developed prior to the introduction of NI 43-101 has not been independently verified and
-investors are cautioned not to treat this estimate as reliable or current. This zone is open at depth and it
-has only been drilled to 120 m. The trend extrapolated from the Hollinger and Cominco zones highlights a
-potential exploration corridor of approximately 10 km strike length.
-Extensive airborne surveys were completed over many areas of the Abitibi Greenstone Belt including Byers
-and Loveland townships. A series of ground geophysical surveys was also completed on portions of the
-Property. The geophysical surveys have highlighted several favourable exploration targets that have yet to
-be drill tested.
-        `,
-        financing: `
-            <h2>Closing of Financing</h2>
-            <p>
-                         The Company is also pleased to announce it has issued 27,500,000 units of the Company (“Units”) for
-aggregate gross proceeds of $275,000 (the “First Tranche”) of its upsized non-brokered private placement
-of $1,500,000 of Units (the “Offering”), at a price of $0.01 per Unit (the “Offering Price”). Each Unit consists
-of one common share of the Company and one common share purchase warrant exercisable at a price of
-$0.05 for thirty-six months following the date of issuance.
-
-In connection with the Offering, the Company paid finder’s fees of $24,000 and issued 3,000,000 finder’s
-warrants to acquire one Unit of the Offering at the Offering Price for a period of sixty months from the closing
-date of the Financing.
-The proceeds from the financing will be used for the acquisition of the Loveland Property as well as general
-working capital purposes.
-All of the securities issued and issuable in connection with the Offering and the Acquisition are subject to a
-hold period expiring four months and one day after the date of issuance of the securities. Completion of the
-Offering and the Acquisition is subject to the receipt of all required regulatory approvals, including the
-approval of the Canadian Securities Exchange.
-The securities offered have not been registered under the United States Securities Act of 1933, as
-amended, and may not be offered or sold in the United States or to, or for the account or benefit of, U.S.
-persons absent registration or an applicable exemption from registration requirements. This release does
-not constitute an offer for sale of securities in the United States.
-            </p>
-        `,
-        statement: `
-            <h2>Statement Regarding Historical Mineral Resource Estimates</h2>
-            <p>
-                          The Hollinger zone historical mineral resource estimate is unclassified and does not comply with CIM
-Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The Hollinger
-zone historical mineral resource estimate was taken from a report titled “Geological Report, Rousseau
-Loveland Property, Loveland Township” authored by W. C. Kerr and dated February 1992, citing data
-provided by Hollinger Mines Limited from 1974. Given the age of the information and the lack of underlying
-data, investors are cautioned not to treat the estimate as current or rely on the estimate in making an
-investment decision. The historical mineral estimate is being included herein to provide shareholders with
-background on the rationale for acquiring the asset. A qualified person has not done sufficient work to
-classify this historical mineral resource estimate as current mineral resources and the Company is not
-treating these historical mineral resource estimate as a current estimate. It is uncertain whether following
-evaluation and/or further exploration, the historical mineral resource estimate will ever be able to be
-reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring
-any or all of the historical resource estimates up to the CIM reporting standards. Hollinger historical estimate from 1974, not NI 43-101 compliant, unverified, and should not be relied upon for investment decisions. 
-                No current plans to upgrade to CIM standards.
-            </p>
-        `,
-        qualified: `
-        <h2>Qualified Person</h2>
-        <p>
-            Stephen Balch, P.Geo., independent director for Loyalist, who is a “Qualified Person” as defined by NI 43-
-            101, has reviewed and approved the technical content of this press release.
-        </p>
-    `,
-    contact: `
-        <h2>Contact Information</h2>
-        <p>
-            For further information, please contact:
-        </p>
-        <ul>
-          <br>
-          <li><strong>Errol Farr, President and CEO </strong> </li>
-            <li><strong>Email:efarr001@icloud.com</strong> </li>
-            <li><strong>Tel:647-296-1270</strong> </li>
-           
-        </ul>
-    `
-};
-       
-
-    function showSection(section) {
-        document.getElementById('contentArea').innerHTML = sections[section];
-        document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+// Bio Modal Functions
+function openBioModal(memberId) {
+  const memberData = {
+    errol: {
+      name: "Errol Farr",
+      title: "President & CEO",
+      image: "image/errol.jpeg",
+      bio: " 35+ years in finance and mining strategy. Former CEO of Adex Mining and CFO of Anaconda Mining."
+    },
+    ashley: {
+      name: "Ashley Nadon",
+      title: "Chief Financial Officer",
+      image: "image/ashley.png",
+      bio: "Ms. Nadon has been the CFO of the Company . She is a Chartered Professional Accountant with over 15 years of experience in public company financial reporting, audit, and corporate finance. She previously served as CFO of Talisker Resources Ltd. from 2019 to 2023, where she played a key role in raising over $100 million in equity and debt financing. Prior to that, she held senior financial positions at various public companies in the mining and technology sectors. Ms. Nadon began her career at KPMG LLP, where she specialized in public company audits and securities offerings. She holds a Bachelor of Commerce degree from the University of British Columbia and is a member of the Chartered Professional Accountants of British Columbia."
+    },
+    steve: {
+      name: "Steve Balch",
+      title: "Independent Director",
+      image: "image/steve.png",
+      bio: "Mr. Balch is a Professional Geoscientist with over 30 years of experience in mineral exploration and mining. He has extensive experience in project evaluation, resource estimation, and technical due diligence across various commodities including gold, base metals, and industrial minerals. Mr. Balch has worked on projects throughout North America, South America, and Africa. He previously served as Vice President of Exploration for several junior mining companies and has been involved in multiple resource discoveries. He is a qualified person under National Instrument 43-101 and has authored numerous technical reports. Mr. Balch holds a Bachelor of Science degree in Geology from the University of Toronto and is a registered Professional Geoscientist in Ontario."
+    },
+    robert: {
+      name: "Robert Bresee",
+      title: "Independent Director",
+      image: "image/robert.png",
+      bio: "Mr. Bresee is a seasoned mining executive with over 25 years of experience in mine operations, project development, and corporate management. He has held senior operational roles at several major mining companies, including positions as Mine General Manager and Regional Vice President. Mr. Bresee has extensive experience in underground and open-pit mining operations, with particular expertise in gold and base metal mines. He has overseen the development and operation of multiple mining projects throughout his career, with a strong focus on operational excellence and safety. Mr. Bresee holds a Bachelor of Science degree in Mining Engineering and has completed advanced management programs at leading business schools."
+    },
+    birks: {
+      name: "Birks Bovaird",
+      title: "Strategic Advisor",
+      image: "image/birks.png",
+      bio: "Mr. Bovaird is a highly experienced mining executive with over 40 years in the industry. He has held senior leadership positions at major mining companies, including serving as President and CEO of several publicly traded mining companies. Throughout his career, he has been involved in the development and operation of numerous mining projects across North America. Mr. Bovaird has extensive experience in corporate strategy, mergers and acquisitions, and capital markets. He has successfully raised hundreds of millions of dollars for mining projects and has overseen multiple mine construction and commissioning projects. His deep industry knowledge and network make him a valuable strategic advisor to the Company."
+    },
+    jean: {
+      name: "Jean Roy",
+      title: "Technical Advisor",
+      image: "image/jean.png",
+      bio: "Mr. Roy is a Professional Engineer with over 35 years of experience in mining engineering and project management. He has specialized expertise in underground mining operations, mine planning, and project development. Throughout his career, he has held senior technical and management positions at various mining companies, overseeing the development and operation of underground mines. Mr. Roy has extensive experience in feasibility studies, mine design, and production optimization. He has been involved in projects across multiple commodities including gold, copper, zinc, and nickel. His technical expertise and practical experience in underground mining operations provide valuable guidance to the Company's project development activities."
     }
-  </script>
-     </body>
-    </html>
+  };
+
+  const member = memberData[memberId];
+  if (member) {
+    document.getElementById('modalName').textContent = member.name;
+    document.getElementById('modalTitle').textContent = member.title;
+    document.getElementById('modalImage').src = member.image;
+    document.getElementById('modalImage').alt = member.name;
+    document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
+    document.getElementById('bioModal').style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+}
+
+function closeBioModal() {
+  document.getElementById('bioModal').style.display = 'none';
+  document.body.style.overflow = 'auto'; // Re-enable scrolling
+}
+
+function toggleReadMore(memberId) {
+  openBioModal(memberId);
+}
+
+function openBioModal(memberId) {
+  const memberData = {
+    errol: {
+      name: "Errol Farr",
+      title: "President & CEO",
+      image: "image/errol.jpeg",
+      bio: "Mr. Farr has been the President and CEO of the Company . He has over 35 years of experience in capital markets, with expertise in corporate finance and business development. He previously served as President and CEO of Talisker Resources Ltd. from 2019 to 2023, where he raised over $100 million and oversaw the advancement of multiple gold projects in British Columbia. Prior to that, he was CEO of Goldgroup Mining Inc. from 2007 to 2018, during which time he raised approximately $200 million and built two gold mines in Mexico. Mr. Farr has extensive experience in mergers and acquisitions, having completed numerous transactions throughout his career. He holds a Bachelor of Commerce degree from the University of Toronto."
+    },
+    ashley: {
+      name: "Ashley Nadon",
+      title: "Chief Financial Officer",
+      image: "image/ashley.png",
+      bio: "Ms. Nadon has been the CFO of the Company. She is a Chartered Professional Accountant with over 15 years of experience in public company financial reporting, audit, and corporate finance. She previously served as CFO of Talisker Resources Ltd. from 2019 to 2023, where she played a key role in raising over $100 million in equity and debt financing. Prior to that, she held senior financial positions at various public companies in the mining and technology sectors. Ms. Nadon began her career at KPMG LLP, where she specialized in public company audits and securities offerings. She holds a Bachelor of Commerce degree from the University of British Columbia and is a member of the Chartered Professional Accountants of British Columbia."
+    },
+    steve: {
+      name: "Steve Balch",
+      title: "Independent Director",
+      image: "image/steve.png",
+      bio: "Mr. Balch is a Professional Geoscientist with over 30 years of experience in mineral exploration and mining. He has extensive experience in project evaluation, resource estimation, and technical due diligence across various commodities including gold, base metals, and industrial minerals. Mr. Balch has worked on projects throughout North America, South America, and Africa. He previously served as Vice President of Exploration for several junior mining companies and has been involved in multiple resource discoveries. He is a qualified person under National Instrument 43-101 and has authored numerous technical reports. Mr. Balch holds a Bachelor of Science degree in Geology from the University of Toronto and is a registered Professional Geoscientist in Ontario."
+    },
+    robert: {
+      name: "Robert Bresee",
+      title: "Independent Director",
+      image: "image/robert.png",
+      bio: "Mr. Bresee is a seasoned mining executive with over 25 years of experience in mine operations, project development, and corporate management. He has held senior operational roles at several major mining companies, including positions as Mine General Manager and Regional Vice President. Mr. Bresee has extensive experience in underground and open-pit mining operations, with particular expertise in gold and base metal mines. He has overseen the development and operation of multiple mining projects throughout his career, with a strong focus on operational excellence and safety. Mr. Bresee holds a Bachelor of Science degree in Mining Engineering and has completed advanced management programs at leading business schools."
+    },
+    birks: {
+      name: "Birks Bovaird",
+      title: "Strategic Advisor",
+      image: "image/birks.png",
+      bio: "Mr. Bovaird is a highly experienced mining executive with over 40 years in the industry. He has held senior leadership positions at major mining companies, including serving as President and CEO of several publicly traded mining companies. Throughout his career, he has been involved in the development and operation of numerous mining projects across North America. Mr. Bovaird has extensive experience in corporate strategy, mergers and acquisitions, and capital markets. He has successfully raised hundreds of millions of dollars for mining projects and has overseen multiple mine construction and commissioning projects. His deep industry knowledge and network make him a valuable strategic advisor to the Company."
+    },
+    jean: {
+      name: "Jean Roy",
+      title: "Technical Advisor",
+      image: "image/jean.png",
+      bio: "Mr. Roy is a Professional Engineer with over 35 years of experience in mining engineering and project management. He has specialized expertise in underground mining operations, mine planning, and project development. Throughout his career, he has held senior technical and management positions at various mining companies, overseeing the development and operation of underground mines. Mr. Roy has extensive experience in feasibility studies, mine design, and production optimization. He has been involved in projects across multiple commodities including gold, copper, zinc, and nickel. His technical expertise and practical experience in underground mining operations provide valuable guidance to the Company's project development activities."
+    }
+  };
+
+  const member = memberData[memberId];
+  if (member) {
+    document.getElementById('modalName').textContent = member.name;
+    document.getElementById('modalTitle').textContent = member.title;
+    document.getElementById('modalImage').src = member.image;
+    document.getElementById('modalImage').alt = member.name;
+    document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
+    document.getElementById('bioModal').style.display = 'block';
+  }
+}
+
+function closeBioModal() {
+  document.getElementById('bioModal').style.display = 'none';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const bioModal = document.getElementById('bioModal');
+  if (event.target == bioModal) {
+    bioModal.style.display = 'none';
+  }
+}
+
+const sections = {
+  about: `
+    <h2>About Loyalist Exploration Limited</h2>
+    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy. The Company recently acquired the Loveland and Gold Rush Projects and has signed a LOI to acquire the Tully gold project.</p>
+  `,
+  projects: `
+    <h2>Our Projects</h2>
     
+    <h3>Loveland Project</h3>
+    <p>The Loveland project is located 45 kilometers northwest of Timmins, Ontario, covering 6,244 hectares in the Abitibi Greenstone Belt – one of the world's most productive mining districts. Historic drilling has defined nickel-copper sulfide zones at the Hollinger and Cominco deposits, with grades up to 0.73% Ni and 0.68% Cu, alongside high-grade gold intercepts of over 10 g/t Au. With 10 km of highly prospective strike length and open zones at depth, Loveland offers a rare dual-commodity opportunity.</p>
+    
+    <h3>Tully Project</h3>
+    <p>Loyalist Exploration is under a LOI to acquire Tully Gold project from Fulcrum Metals. The project sits just 25 km northeast of Timmins, within the world-class Timmins-Porcupine Gold Camp. With a historic 144,000 ounces of gold and drill results grading up to 452 g/t Au over 0.5 m, Tully showcases impressive high-grade mineralization from surface to depth. Strong step-out drilling has confirmed both extension and continuity, while historic studies highlight the potential to host up to 1 million ounces. Once acquired, its excellent infrastructure and proximity to producing mines make Tully asset in Loyalist's portfolio.</p>
+    
+    <h3>Gold Rush Project</h3>
+    <p>The Gold Rush project, 30 km west of Timmins, spans 41 claims across 820 hectares and is positioned along a prospective gold trend. Early drilling and sampling have returned encouraging results, including grab samples up to 27.3 g/t Au and drill assays of 2.08 g/t Au over 1 m. With multiple target areas – including the North Shaft Zone, North Vein Area, and Mid Point Area – Gold Rush presents significant discovery potential in an underexplored part of a proven gold camp.</p>
+  `,
+  management: `
+    <h2>Management Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="image/errol.jpeg" alt="Errol Farr">
+        <h3>Errol Farr</h3>
+        <p class="title">President & CEO</p>
+        <div class="bio">
+          <p>Mr. Farr has been the President and CEO of the Company since August 2023. He has over 35 years of experience in capital markets, with expertise in corporate finance...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('errol')">Read More</button>
+        </div>
+      </div>
 
+      <div class="team-member">
+        <img src="image/ashley.png" alt="Ashley Nadon">
+        <h3>Ashley Nadon</h3>
+        <p class="title">Chief Financial Officer</p>
+        <div class="bio">
+          <p>Ms. Nadon has been the CFO of the Company since August 2023. She is a Chartered Professional Accountant with over 15 years of experience in public company financial reporting...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('ashley')">Read More</button>
+        </div>
+      </div>
 
+      <div class="team-member">
+        <img src="image/steve.png" alt="Steve Balch">
+        <h3>Steve Balch</h3>
+        <p class="title">Independent Director</p>
+        <div class="bio">
+          <p>Mr. Balch is a Professional Geoscientist with over 30 years of experience in mineral exploration and mining. He has extensive experience in project evaluation...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('steve')">Read More</button>
+        </div>
+      </div>
 
+      <div class="team-member">
+        <img src="image/robert.png" alt="Robert Bresee">
+        <h3>Robert Bresee</h3>
+        <p class="title">Independent Director</p>
+        <div class="bio">
+          <p>Mr. Bresee is a seasoned mining executive with over 25 years of experience in mine operations, project development, and corporate management...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('robert')">Read More</button>
+        </div>
+      </div>
+    </div>
+  `,
+  advisors: `
+    <h2>Advisory Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="image/birks.png" alt="Birks Bovaird">
+        <h3>Birks Bovaird</h3>
+        <p class="title">Strategic Advisor</p>
+        <div class="bio">
+          <p>Mr. Bovaird is a highly experienced mining executive with over 40 years in the industry. He has held senior leadership positions at major mining companies...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('birks')">Read More</button>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="image/jean.png" alt="Jean Roy">
+        <h3>Jean Roy</h3>
+        <p class="title">Technical Advisor</p>
+        <div class="bio">
+          <p>Mr. Roy is a Professional Engineer with over 35 years of experience in mining engineering and project management. He has specialized expertise in underground mining...</p>
+          <button class="read-more-btn" onclick="toggleReadMore('jean')">Read More</button>
+        </div>
+      </div>
+    </div>
+  `,
+  contact: `
+    <h2>Contact Information</h2>
+    <p>For further information, please contact:</p>
+    <br>
+    <p><strong>Errol Farr, President and CEO</strong></p>
+    <br>
+    <p><strong>Email:</strong> <a href="mailto:efarr001@icloud.com" style="color: black;">efarr001@icloud.com</a></p>
+    <br>
+    <p><strong>Tel:</strong> <a href="tel:647-296-1270" style="color: black;">647-296-1270</a></p>
+  `
+};
+
+function showSection(section) {
+    document.getElementById('contentArea').innerHTML = sections[section];
+    document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
