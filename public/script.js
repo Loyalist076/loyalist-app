@@ -225,25 +225,58 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Script for Upcoming Events section
+// fetch('/api/upcoming-events')
+//   .then(res => res.json())
+//   .then(events => {
+//     const container = document.getElementById('upcomingEvents');
+//     container.innerHTML = '<h2>UPCOMING EVENTS</h2>'; // Preserve the main heading
+
+//     // Optional: limit to next 2 events
+//     const upcoming = events.slice(0, 2);
+
+//     upcoming.forEach(event => {
+//       const div = document.createElement('div');
+//       div.className = 'news-card1';
+//       div.innerHTML = `
+//         <h3 class="event-title">${event.title}</h3>
+//         <span class="date">${new Date(event.date).toDateString()}</span>
+//         <p>${event.description}</p>
+//       `;
+//       container.appendChild(div);
+//     });
+//   })
+//   .catch(err => console.error('hello i am an error:', err));
+
+// Script for Upcoming Events section
 fetch('/api/upcoming-events')
   .then(res => res.json())
   .then(events => {
     const container = document.getElementById('upcomingEvents');
-    container.innerHTML = '<h2>UPCOMING EVENTS</h2>'; // Preserve the main heading
 
-    // Optional: limit to next 2 events
-    const upcoming = events.slice(0, 2);
+    if (events.length > 0) {
+      // Only show section if there are events
+      container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
 
-    upcoming.forEach(event => {
-      const div = document.createElement('div');
-      div.className = 'news-card1';
-      div.innerHTML = `
-        <h3 class="event-title">${event.title}</h3>
-        <span class="date">${new Date(event.date).toDateString()}</span>
-        <p>${event.description}</p>
-      `;
-      container.appendChild(div);
-    });
+      // Optional: limit to next 2 events
+      const upcoming = events.slice(0, 2);
+
+      upcoming.forEach(event => {
+        const div = document.createElement('div');
+        div.className = 'news-card1';
+        div.innerHTML = `
+          <div class="hero-right"> 
+<h3>Upcoming Events<h3>
+<h3 class="event-title">${event.title}</h3> 
+<span class="date">${new Date(event.date).toDateString()}</span> 
+<p>${event.description}</p> 
+</div>
+        `;
+        container.appendChild(div);
+      });
+    } else {
+      // Hide or clear the section if no events
+      container.style.display = 'none';
+    }
   })
   .catch(err => console.error('hello i am an error:', err));
 

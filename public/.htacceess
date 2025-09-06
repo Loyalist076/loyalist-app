@@ -1,0 +1,41 @@
+# --- Clean URLs: remove .html from links and serve static files ---
+# Make sure mod_rewrite is enabled on the server (a2enmod rewrite) and
+# AllowOverride All is set for this directory in Apache config.
+
+# Turn off MultiViews to avoid content negotiation interfering with rewrites
+Options -MultiViews
+
+# Ensure the default file is index.html
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Do not rewrite existing files or directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Redirect requests that explicitly include .html to the extensionless URL
+  # Example: /about.html -> /about  (301 permanent redirect)
+  RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html(\s|\?)
+  RewriteRule ^ %1 [R=301,L]
+
+  # Internally rewrite extensionless requests to their .html counterparts
+  # Example: /about -> /about.html
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^ %{REQUEST_URI}.html [L]
+
+  # Support "directory style" URLs mapping to file.html
+  # Example: /about/ -> /about.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # Fallback: if nothing matches and you want to serve the homepage (optional)
+  # Uncomment the following two lines if you prefer SPA-style fallback to index.html
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteRule . /index.html [L]
+</IfModule>
