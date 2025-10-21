@@ -848,8 +848,15 @@ function toggleDropdown(e) {
       filteredNews.forEach(news => {
         const li = document.createElement('li');
         li.className = 'news-item';
-        li.innerHTML = `<span class="news-date">${formatDate(news.date)}:</span>
-                        <a href="${news.url}" target="_blank">${news.title}</a>`;
+
+        const pdfViewUrl = `/api/pdf/view/${news._id}`;
+        const pdfDownloadUrl = `/api/pdf/download/${news._id}`;
+
+        li.innerHTML = `
+          <span class="news-date">${formatDate(news.date)}:</span>
+          <a href="${pdfViewUrl}" target="_blank">${news.title}</a>
+          <a href="${pdfDownloadUrl}" download title="Download PDF" style="margin-left: 10px; color: #d4b248; text-decoration: underline; font-size: 14px;">Download</a>
+        `;
         list.appendChild(li);
       });
     }
