@@ -19,11 +19,6 @@ function toggleMenu() {
 
 // Handle mobile dropdowns
 function toggleDropdown(e) {
-  if (window.innerWidth <= 768) {
-    e.currentTarget.classList.toggle('active');
-  }
-}
-function toggleDropdown(e) {
   if (window.innerWidth <= 1024) {
     e.stopPropagation(); // Prevent click from bubbling
     const current = e.currentTarget;

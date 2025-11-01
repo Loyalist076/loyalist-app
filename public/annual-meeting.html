@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Reports & Filings | Loyalist Exploration</title>
+  <title>Annual Meeting Documents | Loyalist Exploration</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-   <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -103,7 +100,7 @@
     align-items: center;
     padding: 10px 20px;
     background-color:white;
-   
+
 }
 
 .logo img {
@@ -180,7 +177,7 @@
         text-align: left; /* Align navbar items to the left */
     }
 
-    
+
 }
 /* Mobile Navbar Toggle Button */
 .menu-toggle {
@@ -432,27 +429,6 @@
   font-size: 40px;
   font-weight: bold;
 }
-    /* header {
-      background: linear-gradient(90deg, #1b1b1b, #3a3a3a);
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; color: #ccc; } */
-
-    .filter-bar {
-      display: flex; justify-content: center; gap: 20px;
-      flex-wrap: wrap; margin: 30px 0;
-    }
-    .filter-btn {
-      padding: 10px 18px;
-      border: none; border-radius: 6px;
-      background: #d4b248;
-      font-weight: 600; cursor: pointer;
-      transition: background 0.3s;
-    }
-    .filter-btn:hover { background: #D4B248; }
 
     .report-grid {
       display: grid;
@@ -493,14 +469,7 @@
     }
     .why-section h2 { font-size: 2rem; margin-bottom: 20px; color: #111; }
     .why-section p { max-width: 700px; margin: auto; color:  #333; }
-/* 
-    footer {
-      background: #1a1a1a;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    } */
+
      /* footer */
 .site-footer {
       background-color: #000;
@@ -611,49 +580,6 @@
       }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /* Responsive */
     @media (max-width: 768px) {
       .contact-section {
@@ -692,18 +618,171 @@
         font-size: 15px;
       }
     }
+
+    .year-section {
+      margin-bottom: 50px;
+    }
+
+    .year-header {
+      background: #000;
+      color: #D4B248;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .year-header i {
+      font-size: 1.3rem;
+    }
+
+    .document-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 4px solid #D4B248;
+    }
+
+    .document-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .document-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .document-title i {
+      color: #ef4444;
+      font-size: 1.1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .document-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+
+    .document-meta {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .document-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .document-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #D4B248;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #b39639;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
+
+    .empty-state {
+      background: white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+      color: #64748b;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      color: #94a3b8;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+      font-size: 1.1rem;
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .documents-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .year-header {
+        font-size: 1.3rem;
+        padding: 12px 20px;
+      }
+    }
   </style>
   <script>
-    function filterReports(type) {
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (type === 'all' || card.classList.contains(type)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
     // Toggle main menu (hamburger)
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
@@ -731,80 +810,16 @@ function closeModal() {
   modal.style.display = "none";
   document.body.classList.remove('no-scroll');
 }
-
-
-// for fetching finanicial statemnents
-  let allStatements = [];
-
-  // Fetch financial statements from backend
-  async function loadFinancialStatements() {
-    try {
-      const res = await fetch('/api/financials');
-      const data = await res.json();
-      allStatements = data;
-      renderStatements(data); // Initially show all
-    } catch (error) {
-      console.error('Failed to load financial statements:', error);
-    }
-  }
-
-  // Render cards
-  function renderStatements(statements) {
-    const container = document.getElementById('reportGrid');
-    container.innerHTML = '';
-
-    if (statements.length === 0) {
-      container.innerHTML = '<p>No financial statements available.</p>';
-      return;
-    }
-
-    statements.forEach(statement => {
-      const card = document.createElement('div');
-      card.className = `card ${statement.category}`;
-
-      const date = new Date(statement.date);
-      const formattedDate = date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-
-      card.innerHTML = `
-        <h3>${statement.title || `Financial Statement - ${formattedDate}`}</h3>
-        <p>${statement.description || 'No description provided.'}</p>
-        <a href="${statement.fileUrl}" target="_blank">Download</a>
-      `;
-
-      container.appendChild(card);
-    });
-  }
-
-  // Filter by category
-  function filterReports(category) {
-    if (category === 'all') {
-      renderStatements(allStatements);
-    } else {
-      const filtered = allStatements.filter(s => s.category === category);
-      renderStatements(filtered);
-    }
-  }
-
-  // Initial load
-  loadFinancialStatements();
   </script>
 </head>
 <body>
-  <!-- <header>
-    <h1>Financial Reports & Filings</h1>
-    <p>Access detailed and transparent financial disclosures from Loyalist Exploration</p>
-  </header> -->
   <div id="promo-modal" class="promo-modal">
   <div class="promo-content">
     <button class="promo-close" onclick="closePromo()">×</button>
     <h2>Unlock Exclusive Insights!</h2>
     <p>Discover how Loyalist Exploration is leading the mining exploration industry with sustainable and innovative solutions.</p>
     <button class="promo-btn" onclick="redirectPromo()">Learn More</button>
- 
+
   </div>
 </div>
 <header class="header">
@@ -879,27 +894,22 @@ function closeModal() {
     </div>
   </div>
 
-  
 
 
 
- 
+
+
 <!-- Black title bar -->
  <!-- Title -->
-<div class="section-title">Financial Statements</div>
+<div class="section-title">Annual Meeting Documents</div>
 
-<!-- Filter Buttons -->
-<div class="filter-bar">
-  <button class="filter-btn" onclick="filterReports('all')">All</button>
-  <button class="filter-btn" onclick="filterReports('annual')">Annual Reports</button>
-  <button class="filter-btn" onclick="filterReports('quarterly')">Quarterly</button>
-  <button class="filter-btn" onclick="filterReports('mda')">MD&A</button>
+<!-- Main Content -->
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+  <!-- Documents by Year -->
+  <div id="documentsContainer" class="loading">
+    <i class="fas fa-circle-notch fa-spin"></i> Loading documents...
+  </div>
 </div>
-
-<!-- Dynamic Report Grid -->
-<section class="report-grid" id="reportGrid">
-  <!-- Dynamic cards will be inserted here -->
-</section>
 
 
   <section class="why-section">
@@ -916,7 +926,7 @@ function closeModal() {
       <p><strong>Email:</strong><br/> <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p><br/>
       <p><strong>Phone:</strong><br/> <a href="tel:+16472961270">+1 647‑296‑1270</a></p><br/>
       <p><strong>Address:</strong><br>110 Yonge Street,
-          Suite 1601
+          Suite 1601
           <br/> Toronto, Ontario M5C1T4</p>
     </div>
     <div class="quick-links">
@@ -960,8 +970,8 @@ function closeModal() {
       </div>
     </div>
   </div><br/>
-    
- 
+
+
   <div class="footer-bottom">
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
@@ -1023,5 +1033,78 @@ function closeModal() {
   }
 </script>
 
+  <script src="script.js"></script>
+  <script>
+    // Load annual meeting documents
+    async function loadAnnualMeetingDocuments() {
+      const container = document.getElementById('documentsContainer');
+
+      try {
+        const response = await fetch('/api/annual-meeting-documents/by-year?active=true');
+        const documentsByYear = await response.json();
+
+        const years = Object.keys(documentsByYear).sort((a, b) => b - a);
+
+        if (years.length === 0) {
+          container.innerHTML = '<p>No annual meeting documents available.</p>';
+          return;
+        }
+
+        let html = '';
+
+        years.forEach(year => {
+          const docs = documentsByYear[year];
+
+          // Year header
+          html += `
+            <div class="year-section">
+              <div class="year-header">
+                <i class="fas fa-calendar-alt"></i>
+                <span>${year} Annual Meeting</span>
+              </div>
+              <section class="report-grid">
+          `;
+
+          // Render documents as cards
+          docs.forEach(doc => {
+            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+
+            html += `
+              <div class="card">
+                <h3>${doc.title || `Annual Meeting Document - ${year}`}</h3>
+                <p>${doc.description || 'No description provided.'}</p>
+                <p style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
+                  <i class="fas fa-calendar"></i> ${uploadDate}
+                </p>
+                <a href="/api/annual-meeting-documents/download/${doc._id}" target="_blank">Download</a>
+              </div>
+            `;
+          });
+
+          html += `
+              </section>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      } catch (error) {
+        console.error('Error loading annual meeting documents:', error);
+        container.innerHTML = `
+          <p style="text-align: center; color: #ef4444;">
+            <i class="fas fa-exclamation-circle"></i>
+            Unable to load documents at this time. Please try again later.
+          </p>
+        `;
+      }
+    }
+
+    // Load documents on page load
+    loadAnnualMeetingDocuments();
+  </script>
 </body>
 </html>

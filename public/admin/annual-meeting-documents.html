@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Annual Meeting Documents - Loyalist Exploration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      padding: 10px 16px;
+      background-color: #007bff;
+      color: white;
+      font-size: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .btn-delete {
+      background-color: #dc3545;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+
+    .btn-edit {
+      background-color: #28a745;
+      padding: 8px 12px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .btn-edit:hover {
+      background-color: #218838;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .documents-section {
+      margin-top: 40px;
+    }
+
+    .year-group {
+      margin-bottom: 30px;
+    }
+
+    .year-header {
+      background: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .document-item {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .document-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .document-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .document-desc {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .document-meta {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .document-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .file-info {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
+    #uploadForm {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .badge-active {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .badge-inactive {
+      background-color: #6c757d;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="admin-dashboard.html" class="back-link">← Back to Dashboard</a>
+
+    <h2>Annual Meeting Documents Management</h2>
+
+    <!-- Upload Form -->
+    <form id="uploadForm" enctype="multipart/form-data">
+      <h3>Upload New Document</h3>
+
+      <div class="form-row">
+        <div>
+          <label for="title">Document Title *</label>
+          <input type="text" id="title" name="title" required placeholder="e.g., Notice of Annual Meeting" />
+        </div>
+
+        <div>
+          <label for="year">Meeting Year *</label>
+          <input type="number" id="year" name="year" required placeholder="2024" min="2000" max="2100" />
+        </div>
+      </div>
+
+      <label for="description">Description (Optional)</label>
+      <textarea id="description" name="description" placeholder="Brief description of the document"></textarea>
+
+      <label for="displayOrder">Display Order (Optional)</label>
+      <input type="number" id="displayOrder" name="displayOrder" placeholder="0" min="0" />
+      <small style="color: #666;">Lower numbers appear first. Leave empty for default order.</small>
+
+      <label for="pdfFile">PDF File *</label>
+      <input type="file" id="pdfFile" name="pdf" accept=".pdf" required />
+      <small style="color: #666;">Maximum file size: 10MB</small>
+
+      <button type="submit" id="uploadBtn">Upload Document</button>
+
+      <div id="uploadMessage" class="message"></div>
+    </form>
+
+    <!-- Documents List -->
+    <div class="documents-section">
+      <h3>Existing Documents</h3>
+      <div id="documentsList">
+        <p style="text-align: center; color: #666;">Loading documents...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Check authentication
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    if (!token || user.role !== 'admin') {
+      alert('Admin access required');
+      window.location.href = '/login.html';
+    }
+
+    // Upload form handler
+    document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const uploadBtn = document.getElementById('uploadBtn');
+      const message = document.getElementById('uploadMessage');
+
+      uploadBtn.disabled = true;
+      uploadBtn.textContent = 'Uploading...';
+
+      const formData = new FormData();
+      formData.append('title', document.getElementById('title').value.trim());
+      formData.append('year', document.getElementById('year').value.trim());
+      formData.append('description', document.getElementById('description').value.trim());
+      formData.append('displayOrder', document.getElementById('displayOrder').value.trim() || '0');
+      formData.append('pdf', document.getElementById('pdfFile').files[0]);
+
+      try {
+        const response = await fetch('/api/annual-meeting-documents', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          message.textContent = data.message || 'Document uploaded successfully!';
+          message.className = 'message success';
+          message.style.display = 'block';
+
+          // Reset form
+          document.getElementById('uploadForm').reset();
+
+          // Reload documents list
+          loadDocuments();
+        } else {
+          message.textContent = data.message || 'Upload failed';
+          message.className = 'message error';
+          message.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Upload error:', error);
+        message.textContent = 'Network error. Please try again.';
+        message.className = 'message error';
+        message.style.display = 'block';
+      } finally {
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = 'Upload Document';
+
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 5000);
+      }
+    });
+
+    // Load documents
+    async function loadDocuments() {
+      const container = document.getElementById('documentsList');
+
+      try {
+        const response = await fetch('/api/annual-meeting-documents/by-year');
+        const documentsByYear = await response.json();
+
+        if (Object.keys(documentsByYear).length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #666;">No documents found.</p>';
+          return;
+        }
+
+        let html = '';
+
+        // Sort years in descending order
+        const years = Object.keys(documentsByYear).sort((a, b) => b - a);
+
+        years.forEach(year => {
+          const docs = documentsByYear[year];
+
+          html += `
+            <div class="year-group">
+              <div class="year-header">${year} Annual Meeting</div>
+          `;
+
+          docs.forEach(doc => {
+            const fileSize = (doc.fileSize / 1024 / 1024).toFixed(2);
+            const statusBadge = doc.isActive
+              ? '<span class="badge badge-active">Active</span>'
+              : '<span class="badge badge-inactive">Inactive</span>';
+
+            html += `
+              <div class="document-item">
+                <div class="document-info">
+                  <div class="document-title">
+                    ${doc.title}
+                    ${statusBadge}
+                  </div>
+                  ${doc.description ? `<div class="document-desc">${doc.description}</div>` : ''}
+                  <div class="document-meta">
+                    Order: ${doc.displayOrder} | Size: ${fileSize} MB | Uploaded: ${new Date(doc.createdAt).toLocaleDateString()}
+                  </div>
+                  <div class="file-info">
+                    <a href="${doc.fileUrl}" target="_blank" rel="noopener">View Document →</a>
+                  </div>
+                </div>
+                <div class="document-actions">
+                  <button class="btn-edit" onclick="toggleActive('${doc._id}', ${!doc.isActive})">
+                    ${doc.isActive ? 'Deactivate' : 'Activate'}
+                  </button>
+                  <button class="btn-delete" onclick="deleteDocument('${doc._id}', '${doc.title}')">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            `;
+          });
+
+          html += '</div>';
+        });
+
+        container.innerHTML = html;
+      } catch (error) {
+        console.error('Error loading documents:', error);
+        container.innerHTML = '<p style="text-align: center; color: red;">Failed to load documents.</p>';
+      }
+    }
+
+    // Toggle active status
+    async function toggleActive(id, newStatus) {
+      if (!confirm(`${newStatus ? 'Activate' : 'Deactivate'} this document?`)) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/annual-meeting-documents/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ isActive: newStatus })
+        });
+
+        if (response.ok) {
+          alert('Status updated successfully');
+          loadDocuments();
+        } else {
+          const data = await response.json();
+          alert(data.message || 'Failed to update status');
+        }
+      } catch (error) {
+        console.error('Error updating status:', error);
+        alert('Network error. Please try again.');
+      }
+    }
+
+    // Delete document
+    async function deleteDocument(id, title) {
+      if (!confirm(`Are you sure you want to permanently delete "${title}"?`)) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/annual-meeting-documents/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          alert('Document deleted successfully');
+          loadDocuments();
+        } else {
+          const data = await response.json();
+          alert(data.message || 'Failed to delete document');
+        }
+      } catch (error) {
+        console.error('Error deleting document:', error);
+        alert('Network error. Please try again.');
+      }
+    }
+
+    // Load documents on page load
+    loadDocuments();
+
+    // Set current year as default
+    document.getElementById('year').value = new Date().getFullYear();
+  </script>
+</body>
+</html>
