@@ -1050,7 +1050,8 @@ function closePopup() {
 // Fetch company structure (capital + ownership) from backend
   async function fetchCompanyStructure() {
     try {
-      const response = await fetch('/api/company-structure');
+      const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+      const response = await fetchFunc('/api/company-structure');
       if (!response.ok) throw new Error('Failed to fetch company structure');
 
       const data = await response.json();
@@ -1085,7 +1086,10 @@ function closePopup() {
   // Fetch on page load
   window.addEventListener('DOMContentLoaded', fetchCompanyStructure);
 
-  
+
 </script>
+
+<script src="cache-utils.js"></script>
+
 </body>
 </html>

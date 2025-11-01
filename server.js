@@ -56,13 +56,17 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Rate Limiting
+// Rate Limiting - Increased for better user experience with client-side caching
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: 500, // Limit each IP to 500 requests per 15 minutes (increased from 100)
   message: 'Too many requests from this IP, please try again later.',
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  skip: (req) => {
+    // Skip rate limiting for health check endpoints
+    return req.path === '/api/health' || req.path === '/health';
+  }
 });
 app.use('/api/', limiter);
 

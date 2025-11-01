@@ -923,7 +923,8 @@ function toggleDropdown(e) {
 
   async function fetchNewsPDFs() {
       try {
-        const res = await fetch('/api/pdf');
+        const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+        const res = await fetchFunc('/api/pdf');
         const data = await res.json();
 
         const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -1044,7 +1045,10 @@ function toggleDropdown(e) {
       }, 5000);
     }
   }
-    
+
     </script>
+
+<script src="cache-utils.js"></script>
+
 </body>
 </html>

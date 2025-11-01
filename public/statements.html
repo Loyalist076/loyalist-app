@@ -736,10 +736,11 @@ function closeModal() {
 // for fetching finanicial statemnents
   let allStatements = [];
 
-  // Fetch financial statements from backend
+  // Fetch financial statements from backend with caching
   async function loadFinancialStatements() {
     try {
-      const res = await fetch('/api/financials');
+      const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+      const res = await fetchFunc('/api/financials');
       const data = await res.json();
       allStatements = data;
       renderStatements(data); // Initially show all
@@ -1022,6 +1023,8 @@ function closeModal() {
     }
   }
 </script>
+
+<script src="cache-utils.js"></script>
 
 </body>
 </html>
