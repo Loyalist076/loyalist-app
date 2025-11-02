@@ -92,6 +92,9 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f5f5;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
      .header {
@@ -422,6 +425,12 @@
 
 
 
+    .main-content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
 .section-title {
   background: #000;
   color: #D4B248;
@@ -735,27 +744,66 @@
     }
 
     .empty-state {
-      background: white;
-      padding: 60px 20px;
-      border-radius: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 80px 40px;
+      border-radius: 16px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+      margin: 40px auto;
+      max-width: 600px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .empty-state:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
 
     .empty-state i {
-      font-size: 4rem;
-      color: #cbd5e1;
-      margin-bottom: 20px;
+      font-size: 5rem;
+      color: #D4B248;
+      margin-bottom: 25px;
+      display: block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
     .empty-state h3 {
-      color: #64748b;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      color: #1f2937;
+      font-size: 1.75rem;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .empty-state p {
-      color: #94a3b8;
+      color: #6b7280;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .empty-state .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #D4B248;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .empty-state .btn-home:hover {
+      background: #b39639;
+      transform: translateX(5px);
     }
 
     .loading {
@@ -779,6 +827,23 @@
       .year-header {
         font-size: 1.3rem;
         padding: 12px 20px;
+      }
+
+      .empty-state {
+        padding: 60px 20px;
+        margin: 20px;
+      }
+
+      .empty-state i {
+        font-size: 4rem;
+      }
+
+      .empty-state h3 {
+        font-size: 1.5rem;
+      }
+
+      .empty-state p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -847,8 +912,8 @@ function closeModal() {
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
           <ul class="dropdown">
-            <li><a href="loveland.html">Loveland Project</a></li>
             <li><a href="tully.html">Tully Project </a></li>
+            <li><a href="loveland.html">Loveland Project</a></li>
              <li><a href="gold.html">Gold Rush project</a></li>
           </ul>
         </li>
@@ -899,12 +964,13 @@ function closeModal() {
 
 
 
+<div class="main-content-wrapper">
 <!-- Black title bar -->
  <!-- Title -->
 <div class="section-title">Annual Meeting Documents</div>
 
 <!-- Main Content -->
-<div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; flex: 1;">
   <!-- Documents by Year -->
   <div id="documentsContainer" class="loading">
     <i class="fas fa-circle-notch fa-spin"></i> Loading documents...
@@ -912,12 +978,12 @@ function closeModal() {
 </div>
 
 
-  <section class="why-section">
+  <!-- <section class="why-section">
     <h2>Why Loyalist?</h2>
     <p><b>We are committed to maintaining the highest standards in financial reporting and operational transparency. Our reports are designed to empower investors and stakeholders with actionable insights.</b></p>
-  </section>
+  </section> -->
 
-
+</div>
 
   <footer class="site-footer">
   <div class="footer-container">
@@ -1048,7 +1114,17 @@ function closeModal() {
         const years = Object.keys(documentsByYear).sort((a, b) => b - a);
 
         if (years.length === 0) {
-          container.innerHTML = '<p>No annual meeting documents available.</p>';
+          container.innerHTML = `
+            <div class="empty-state">
+              <i class="fas fa-folder-open"></i>
+              <h3>No Documents Available</h3>
+              <p>There are currently no annual meeting documents available. Please check back later for updates.</p>
+              <a href="index.html" class="btn-home">
+                <i class="fas fa-home"></i>
+                Return to Home
+              </a>
+            </div>
+          `;
           return;
         }
 
