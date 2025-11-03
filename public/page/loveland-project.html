@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TULLY Gold Exploration | Loyalist Exploration Project</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <meta name="description" content="Explore the Loveland Project's high-grade gold, copper & nickel potential in Ontario's Timmins district." />
+    <title>Loveland Gold, Copper & Nickel Project | Loyalist Exploration</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
     <style>
         *{
       box-sizing: border-box;
@@ -363,7 +364,7 @@
 }
 .icon {
   font-size: 28px;
-  color: #D4B248; /* Gold/Yellow */
+  color:#D4B248; /* Gold/Yellow */
   margin-bottom: 10px;
 }
 
@@ -487,6 +488,26 @@
   }
 }
 
+    /* black */
+    .section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      color: #222;
+    }
+
     .container {
       max-width: 1200px;
       margin: 40px auto;
@@ -501,7 +522,6 @@
 
     .project-image {
       flex: 1 1 400px;
-      max-width: 100%;
     }
 
     .project-image img {
@@ -509,57 +529,59 @@
       height: auto;
       max-height: 800px;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
 
     .project-content {
-      flex: 2 1 500px;
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .project-title {
-      font-size: 40px;
-      margin-bottom: 16px;
-      color: #111;
+      font-size: 25px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+
+    .project-subtitle {
+      font-size: 17px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 15px;
     }
 
     .project-description p {
-      font-size: 15px;
-      color: #333;
-      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.8;
       text-align: justify;
+      margin-bottom: 15px;
+      color: #333;
     }
 
-    /* Responsive layout */
-    @media (max-width: 992px) {
+    @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        padding: 15px;
+        padding: 20px;
       }
 
       .project-title {
         font-size: 22px;
       }
-    }
-
-    @media (max-width: 600px) {
-      .project-title {
-        font-size: 20px;
-      }
 
       .project-description p {
-        font-size: 14px;
-      }
-
-      .project-description table {
-        font-size: 11px;
-      }
-
-      .project-description th,
-      .project-description td {
-        padding: 6px !important;
+        font-size: 15px;
       }
     }
+    .section-title {
+  background: #000;
+  color: #D4B248;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: bold;
+}
 /* footer */
 
 .site-footer {
@@ -758,8 +780,8 @@
 <header class="header">
     <div class="align-logo">
       <div class="logo">
-        <a href="index.html">
-          <img src="image/logo.png" alt="Logo" /></a>
+        <a href="../index.html">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
@@ -771,8 +793,8 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">About Us</a>
           <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="directors.html">Our Team</a></li>
+            <li><a href="../company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
 
           </ul>
         </li>
@@ -780,23 +802,23 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
           <ul class="dropdown">
-            <li><a href="tully.html">Tully Project </a></li>
-            <li><a href="loveland.html">Loveland Project</a></li>
-             <li><a href="gold.html">Gold Rush project</a></li>
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-            <li><a href="corporate.html">Corporate Structure</a></li>
-            <li><a href="statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting.html">Annual Meeting</a></li>
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="news.html">Press Release</a>
+          <a href="press-release.html">Press Release</a>
 
         </li>
 
@@ -814,7 +836,7 @@
     <div class="modal-content">
       <span class="close-btn" id="closeModalBtn">&times;</span>
       <form id="popupContactForm">
-        <img src="image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
 
         <input type="text" name="name" placeholder="Your Name" required /><br><br>
         <input type="email" name="email" placeholder="Your Email" required /><br><br>
@@ -826,112 +848,118 @@
 
     </div>
   </div>
-    <div class="container">
-  <div class="project-image">
-    <img src="image/SPGMI Map - 2025-10-3.png" alt="TULLY Project">
-  </div>
-  
-  <div class="project-content">
-    <h1 class="project-title">TULLY – High grade gold development</h1>
-    <div class="project-description">
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li>Defining production permitting schedule and cost</li>
-        <li>Planning 43-101 technical report with resource update and preliminary economic assessment</li>
-        <li>Planning 2026 exploration program</li>
-      </ul>
+    <!-- Black title bar -->
+  <div class="section-title">Loveland Project</div>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Tully Property Highlights:</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li>458 hectare mining lease</li>
-        <li>25 km northeast of Timmins</li>
-        <li><strong>Historical resource estimate of:</strong>
-          <ul style="margin-left: 20px; margin-top: 10px;">
-            <li>Indicated: 358,000 tonnes grading 6.56 g/t gold for 76,000 ounces</li>
-            <li>Inferred: 184,000 tonnes 5.17 g/t gold for 31,000 ounces</li>
-            <li>Total: 107,000 ounces (uncapped 144,000 ounces)</li>
-          </ul>
-        </li>
-        <li>Potential for expansion</li>
-      </ul>
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/abc.jpeg" alt="Loveland Project">
+    </div>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Historic Mineral Resource Estimate</h3>
-      <p style="font-size: 14px; margin-bottom: 10px;"><em>December 15, 2013 by Francis Minerals Ltd</em></p>
+    <div class="project-content">
+      <h1 class="project-title">LOVELAND – High grade gold, copper, and nickel exploration</h1>
+      <div class="project-description">
 
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
-        <thead>
-          <tr style="background-color: #D4B248; color: white;">
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Model</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Classification</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Tonnes (*1000)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Grade (Au g/t)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Grams Au (*1000)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Ounces Au</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Capped</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">Indicated</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">358</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">6.56</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">2,350</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">76,000</td>
-          </tr>
-          <tr style="background-color: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Capped</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">Inferred</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">184</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">5.17</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1,000</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">31,000</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Uncapped</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">Indicated</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">362</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">8.70</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">3,150</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">101,000</td>
-          </tr>
-          <tr style="background-color: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Uncapped</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">Inferred</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">186</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">7.17</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1,337</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">43,000</td>
-          </tr>
-        </tbody>
-      </table>
+        <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Engaged Caracle Creek to complete a 43-101 technical report</li>
+          <li>Planning 2026 exploration program</li>
+        </ul>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">The Tully Project Overview</h3>
-      <h4 style="margin-top: 15px; margin-bottom: 10px;">The Tully Deposit</h4>
-      <p>
-        Tully is located approximately 25 kms northeast of Timmins and includes an historic indicated and inferred Mineral Resource Estimate (not published). The Project is located within the Timmins-Porcupine Gold Camp and is approximately 2 km southwest of the Bradshaw Gold Project of Gowest Gold Ltd. The Timmins-Porcupine Gold Camp, includes the Dome and Hollinger mines.
-      </p>
-      <p>
-        Prospective structures splay off the Porcupine-Destor Fault through the Tully area. Mineralisation at Tully occurs within a 30 m wide mafic volcanic unit with an approximate west-southwest strike and steep northerly dip. The hanging wall consists of sedimentary rocks and the footwall consists of ultramafic rocks. As currently understood, the deposit comprises an array of shallowly inclined quartz-carbonate veins or lenses stacked 'ladder-style' within the volcanic rocks and constrained by its hanging wall and footwall contacts. The higher-grade core of the deposit extends over 600 m along strike and 400 m down dip, and plunges moderately toward the east-northeast. The mineralised veins/lenses host gold primarily within irregular pyrite clusters and also commonly as free visible gold.
-      </p>
-      <p>
-        The Tully property occurs within a swampy area and is covered by blanket of glacial drift, averaging 30 m thickness which hid the deposit from early explorers; thus, the geology is entirely derived from drillhole and geophysical data. Exploration by a number of companies over several decades has resulted in the drilling of many holes - the historical resource estimate utilised data from an extensive database of 356 holes totalling 91,623 m, with 718 vein intercepts being interpreted and incorporated into the lens wireframes.
-      </p>
-      <p style="font-style: italic; color: #666; font-size: 14px; margin-top: 15px;">
-        A qualified person has not done sufficient work to classify the historical estimate as current mineral resources or mineral reserves. Loyalist is not treating the historical estimate as current mineral resources or mineral reserves.
-      </p>
+        <h3 style="color: #D4B248; margin-bottom: 15px;">Project Highlights:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Gold assays from one drill hole include 6.37 g/t Au over 8.55 m from 383.25 m to 391.8 m down-hole, 6.17 g/t Au over 3.0 m from 403.0 m to 406.0 m and 10.39 g/t Au over 3.1 m from 410.30 m to 413.4 m.<sup>(3)</sup></li>
+          <li>Surface gold grab samples about 400 m southeast of the historical Cominco Zone contain 8.98 g/t Au and 11.48 g/t Au.<sup>(3)(7)</sup></li>
+          <li>292 contiguous mineral claims for a total area of 6,244 hectares (15,430 acres).</li>
+          <li>Hollinger Zone, historical estimate of 422,350 short tons grading 0.71% Ni and 0.42% Cu.<sup>(1)</sup></li>
+          <li>Cominco Zone, historical estimate of 130,000 short tons grading 0.73% Ni and 0.68% Cu.<sup>(2)</sup></li>
+          <li>Open along strike and at depth, forming an exploration corridor with a 10 km strike length.</li>
+        </ul>
 
-      <h4 style="margin-top: 20px; margin-bottom: 10px;">Statement Regarding Historical Mineral Resource Estimates</h4>
-      <p style="font-size: 14px; color: #666;">
-        The Tully deposit historical Mineral Resource Estimate ("MRE") is unclassified and does not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The MRE was taken from a report titled "Tully Deposit Mineral Resource Estimate" authored by Francis Minerals Ltd. and dated December 15, 2014. Investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The MRE is being included herein to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical MRE as current mineral resources and the Company is not treating this historical MRE as a current estimate. It is uncertain whether following evaluation and/or further exploration, the historical MRE will ever be able to be reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring the MRE up to the CIM reporting standards.
-      </p>
-
-      <h4 style="margin-top: 20px; margin-bottom: 10px;">Qualified Person</h4>
-      <p style="font-size: 14px;">
-        Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of this page.
-      </p>
+        <h3 style="color: #D4B248; margin-bottom: 15px; margin-top: 25px;">CEO Statement</h3>
+        <p style="font-style: italic; padding: 15px; background: #f9f9f9; border-left: 4px solid #D4B248;">
+          <strong>Errol Farr, Chief Executive Officer</strong> states: "We are very pleased to engage Caracle Creek to complete our first 43-101 Technical Report on Loveland. A requirement of the Canadian Securities Exchange, the Report will provide the foundation for future exploration activities on the property and continue the execution of the Company's Buy Timmins strategy".
+        </p>
+      </div>
     </div>
   </div>
-</div>
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/Geology.png" alt="Geological Setting">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Loveland Property</h1>
+      <div class="project-description">
+        <p>
+          The Loveland Property is located in Byers, Loveland, Thorburn, and Moberly townships, in the Porcupine Mining Division. The Property lies within the southwest portion of the prolific Abitibi Greenstone Belt of the Archean Superior Province. The local geology consists of intercalated mafic to intermediate volcanic flows. These flows are locally intruded by feldspar porphyries and gabbro. The gabbroic rocks have similarities to the Kamiskotia gabbroic complex.
+        </p>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/loveland.png" alt="Gold Mineralization">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Gold Mineralization</h1>
+      <div class="project-description">
+        <p>
+          Gold mineralization was intersected in holes drilled by Amador Gold Corp. to a depth of 300 m below the historical Cominco Zone deposit in 2007-2009<sup>(4)</sup>. Gold-bearing arsenopyrite and pyrite mineralization was encountered in sections of silicified granodiorite. Amador's significant historical drill hole (LL08-13) intersected a mineralized interval that assayed <strong>6.37 g/t Au over 8.55 m</strong> (383.25 m to 391.8 m down-hole). Additional intervals from the hole included <strong>6.17 g/t over 3.0 m</strong> from 403.0 m to 406.0 m and <strong>10.39 g/t over 3.1 m</strong> from 410.30 m to 413.4 m.<sup>(4)</sup> The reported lengths of gold intersections are core lengths and not true lengths which are currently unknown.
+        </p>
+        <p>
+          Anomalous gold values ranging from 100 ppb to 3800 ppb were recorded from several other drill holes (including AMDG07-01, LL08-04, LL08-09, LL09-13W, LL08-14, LL08-21, LL08-22, and LL08-23) over a strike more than 500 m within the granodiorite. The anomalous gold values occur over various widths from less than a metre to several metres of core. True widths are unknown. Prospecting in 2008 led to the discovery of a surface gold showing about 400 m southeast of the historical Cominco Zone deposit. The showing returned grab samples containing <strong>8.98 g/t Au and 11.48 g/t Au</strong> collected from granodiorite containing quartz-stringers mineralized with disseminated sulphides<sup>(5)(6)</sup>.
+        </p>
+        <p>
+          The gold-bearing sulphide mineralization occurs with silicification that presents as silica flooding and quartz veining. The better values, such as those from hole LL08-13, occur in intervals with blue-grey quartz veining and strong silicification with 3-10% sulphides comprising arsenopyrite, pyrite and trace amounts of sphalerite, and possibly trace galena and chalcopyrite. Silicification with trace to 2% sulphides was observed marginal to joints and local quartz stringers in all holes where anomalous gold was recorded.
+        </p>
+        <p>
+          The results from Amador's drilling suggest the presence of a system of gold enrichment within the granodiorite. Additional exploration will be required to determine the orientation and extent of the gold-enriched zone.
+        </p>
+        <p>
+          For more information on Loveland's nickel/copper potential see the Company's press release dated June 30, 2025.
+        </p>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/STLLR_X_LE_resized (1).png" alt="Statements and Disclaimers">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Statement Regarding Historical Mineral Resource Estimates</h1>
+      <div class="project-description">
+        <p style="font-size: 14px; color: #666;">
+          The Hollinger and Cominco zone historical mineral resource estimates are unclassified and do not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The Hollinger zone historical mineral resource estimate was taken from a report titled "Geological Report, Rousseau Loveland Property, Loveland Township" authored by W. C. Kerr and dated February 1992, citing data provided by Hollinger Mines Limited from 1974. The Cominco zone historical mineral resource estimate was taken from a report titled "Amador Gold Corp. – Annual Report 2009" dated May 26, 2009.
+        </p>
+        <p style="font-size: 14px; color: #666;">
+          Given the age of the information and the lack of underlying data, investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The historical mineral estimate is being included herein to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical mineral resource estimate as current mineral resources and the Company is not treating these historical mineral resource estimates as a current estimate. It is uncertain whether following evaluation and/or further exploration, the historical mineral resource estimate will ever be able to be reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring any or all of the historical resource estimates up to the CIM reporting standards.
+        </p>
+
+        <h4 style="margin-top: 20px; margin-bottom: 10px; color: #D4B248;">Qualified Person</h4>
+        <p style="font-size: 14px;">
+          Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of the page.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- footer -->
  <footer class="site-footer">
@@ -941,24 +969,24 @@
           <p>
             <strong>Email:</strong><br/>
             <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
-          </p>
+          </p><br/>
           <p>
             <strong>Phone:</strong><br/>
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p>
+          </p><br/>
           <p>
-            <strong>Address:</strong><br />110 Yonge Street,
+            <strong>Address:</strong><br /> 110 Yonge Street,
           Suite 1601
           <br/> Toronto, Ontario M5C1T4</p>
-        </div>
+        </div><br/>
         <div class="quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="investors.html">Investors</a></li>
+            <li><a href="press-release.html">Press Release</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="disclaimers.html">Disclaimer</a></li>
           </ul>
         </div>
@@ -970,8 +998,8 @@
             <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-           <div class="subscribe-box">
+          </div><br>
+          <div class="subscribe-box">
   <h4>Subscribe to Our Newsletter</h4>
   <form class="subscribe-form" onsubmit="handleSubscribe(event)">
     <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
@@ -982,10 +1010,6 @@
       </div>
     </div>
   </div><br/>
-         
-          
-
-      </div><br/>
        <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
       </div> 

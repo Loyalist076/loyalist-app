@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Investors & Financials | Loyalist Exploration Limited</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
-    <link
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Loyalist Exploration's structure, share ownership, and capital framework driving value for investors." />
+  <title>Loyalist Exploration – Corporate & Capital Structure</title>
+<link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
-    <style>
-        *{
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+   
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,6 +35,7 @@
     background-color:white;
    
 }
+
 .logo img {
     height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
@@ -485,215 +491,175 @@
     margin-top: 10px;
   }
 }
- :root {
-      --gold: #d4af37;
-      --white: #ffffff;
-      --black: #111111;
-      --light-bg: #fef9e7;
-      --gray: #666;
-    }
 
+.section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #D4B248;
-      color: var(--black);
-    }
-
-    .container {
-      display: flex;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .left, .right {
-      flex: 1;
-      min-width: 300px;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #D4B248;
+      color: white;
     }
 
     .section {
-      margin-bottom: 2.5rem;
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-      border-left: 4px solid var(--gold);
+      padding: 60px 20px;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: auto;
     }
 
     h2 {
-      margin-bottom: 1.2rem;
-      color: var(--gold);
-      font-size: 1.8rem;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.5rem;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: black;
+      position: relative;
     }
 
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: black ;
+      display: block;
+      margin: 12px auto 0;
+      border-radius: 5px;
+    }
+
+    /* Capital Structure Cards */
     .cards {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
     }
 
     .card {
-      background: var(--white);
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-left: 4px solid var(--gold);
-      border-radius: 8px;
-      transition: 0.3s ease;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
     }
 
     .card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-6px);
     }
 
     .card-header {
-      font-weight: bold;
-      margin-bottom: 0.3rem;
+      font-size: 18px;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 10px;
     }
 
     .card-body {
-      color: var(--black);
-      font-size: 1.5rem;
+      font-size: 36px;
       font-weight: bold;
+      color: #D4B248;
     }
 
-    ul.ownership-list {
+    /* Share Ownership List */
+    .ownership-list {
+      max-width: 600px;
+      margin: 30px auto 0;
       list-style: none;
       padding: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
     }
 
     .ownership-list li {
+      background:white;
+      color: #D4B248;
+      border-bottom: 1px solid  #D4B248;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #eee;
-      padding: 0.8rem 0;
+      padding: 18px 24px;
+      font-size: 17px;
+      font-weight: 500;
     }
 
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+    .ownership-list li:last-child {
+      border-bottom: none;
     }
 
-    .filter-btn {
-      background: var(--gold);
-      border: none;
-      padding: 8px 14px;
-      color: var(--black);
-      font-weight: 600;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .filter-btn:hover {
-      background: #D4B248;
-    }
-
-    .report-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .report-grid .card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: var(--gold);
-      padding: 6px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: var(--black);
+    .ownership-list span:last-child {
+      color:    #D4B248;
       font-weight: bold;
     }
 
-    @media (min-width: 768px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 500px) {
+      .card-body {
+        font-size: 28px;
       }
 
-      .report-grid {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
-
-    @media (min-width: 992px) {
-      .report-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .ownership-list li {
+        font-size: 15px;
+        padding: 14px 18px;
       }
     }
+    /* .circle-section {
+      max-width: 1200px;
+      margin: 80px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-/* investor */
-/* Investor Section Styles */
-/* .investor-section {
-  background-color:  #D4B248;
-  padding: 60px 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #1a1a1a;
-}
+    .circle {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(#d4b248 0% 75%, #2d441d 75% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-.investor-container {
-  max-width: 1100px;
-  margin: auto;
-}
+    .circle-inner {
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #555;
+      font-size: 1rem;
+    }
 
-.investor-section h2 {
-  font-size: 32px;
-  color:black;
-  margin-bottom: 20px;
-  border-bottom: 2px solid black;
-  display: inline-block;
-  padding-bottom: 8px;
-}
+    .circle-label {
+      margin-top: 15px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+    }
 
-.investor-section p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
+    .circle-date {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #777;
+    } */
 
-.investor-block {
-  margin-bottom: 40px;
-}
-
-.investor-block h3 {
-  font-size: 22px;
-  color: black;
-  margin-bottom: 15px;
-}
-
-.investor-block ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.investor-block ul li {
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
-.investor-block a {
-  color: black;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.investor-block a:hover {
-  text-decoration: underline;
-}
-
-.investor-block p {
-  font-size: 16px;
-  line-height: 1.6;
-} */
-
-/* footer */
-.site-footer {
+   .site-footer {
   background-color: #000;
   color: #ddd;
   padding: 40px 20px 20px;
@@ -747,8 +713,7 @@
 .social-icons a:hover {
   color: #D4B248;
 }
-
-.subscribe-form input[type="email"] {
+    .subscribe-form input[type="email"] {
   padding: 10px;
   flex: 1;
   background-color: #111;
@@ -778,6 +743,7 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
@@ -796,14 +762,26 @@
     display: inline-block;
   }
 }
-</style>
+
+
+
+
+
+
+
+     
+
+    
+
+
+  </style>
 </head>
 <body>
 <header class="header">
     <div class="align-logo">
       <div class="logo">
-        <a href="index.html">
-          <img src="image/logo.png" alt="Logo" /></a>
+        <a href="../index.html">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
@@ -815,8 +793,8 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">About Us</a>
           <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="directors.html">Our Team</a></li>
+            <li><a href="../company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
 
           </ul>
         </li>
@@ -824,23 +802,23 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
           <ul class="dropdown">
-            <li><a href="tully.html">Tully Project </a></li>
-            <li><a href="loveland.html">Loveland Project</a></li>
-             <li><a href="gold.html">Gold Rush project</a></li>
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-            <li><a href="corporate.html">Corporate Structure</a></li>
-            <li><a href="statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting.html">Annual Meeting</a></li>
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="news.html">Press Release</a>
+          <a href="press-release.html">Press Release</a>
 
         </li>
 
@@ -858,7 +836,7 @@
     <div class="modal-content">
       <span class="close-btn" id="closeModalBtn">&times;</span>
       <form id="popupContactForm">
-        <img src="image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
 
         <input type="text" name="name" placeholder="Your Name" required /><br><br>
         <input type="email" name="email" placeholder="Your Email" required /><br><br>
@@ -870,208 +848,114 @@
 
     </div>
   </div>
-    </div>
 
-    <!-- investor -->
-     <!-- <section class="investor-section">
-  <div class="investor-container">
-    <h2>Investor Information</h2>
-    <p>Loyalist Exploration Limited is committed to maintaining transparency and providing timely updates to our shareholders and investors. Below you'll find access to our corporate documents, share structure, and contact information for investor relations.</p>
+ 
+<!-- Black title bar -->
+  <div class="section-title">Corporate Structure</div>
 
-    <div class="investor-block">
-      <h3>Share Structure</h3>
-      <ul>
-        <li><strong>Issued & Outstanding:</strong> 50,000,000</li>
-        <li><strong>Warrants:</strong> 10,000,000</li>
-        <li><strong>Options:</strong> 2,000,000</li>
-        <li><strong>Fully Diluted:</strong> 62,000,000</li>
-      </ul>
-    </div>
-
-    <div class="investor-block">
-      <h3>Corporate Filings</h3>
-      <ul>
-        <li><a href="image/a.pdf" target="_blank">Annual General Meeting Materials 2024</a></li>
-        <li><a href="statements.html" target="_blank">Investor Presentation 2024</a></li>
-        <li><a href="corporate.html" target="_blank">Corporate Fact Sheet</a></li>
-      </ul>
-    </div>
-
-    <div class="investor-block">
-      <h3>Investor Contact</h3>
-      <p>
-        <strong>Email:</strong> <a href="mailto:investors@loyalistexp.ca">investors@loyalistexp.ca</a><br>
-        <strong>Phone:</strong> +1 (416) 123‑4567<br>
-        <strong>Address:</strong> 123 Mining Lane, Timmins, ON, Canada
-      </p>
-    </div>
-  </div>
-</section> -->
- <div class="container">
-
-    <!-- Left: Corporate Info -->
-    <div class="left">
-
-      <!-- Capital Structure -->
-      <section class="section capital">
-        <h2>Capital Structure</h2>
-        <div class="cards">
-          <div class="card">
-            <div class="card-header">Common Shares Outstanding</div>
-            <div class="card-body">260.3M</div>
-          </div>
-          <div class="card">
-            <div class="card-header">Warrants</div>
-            <div class="card-body">124.4M</div>
-          </div>
-          <div class="card">
-            <div class="card-header">Options</div>
-            <div class="card-body">4.1M</div>
-          </div>
-          <div class="card">
-            <div class="card-header">Fully Diluted</div>
-            <div class="card-body">388.9M</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Share Ownership -->
-      <section class="section ownership">
-        <h2>Share Ownership</h2>
-        <ul class="ownership-list">
-          <li><span>Timmins Shareholders</span><span>18%</span></li>
-          <li><span>Significant Shareholders</span><span>41%</span></li>
-          <li><span>Float</span><span>41%</span></li>
-        </ul>
-      </section>
-
-    </div>
-
-    <!-- Right: Financial Reports -->
-    <div class="right">
-
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn" onclick="filterReports('all')">All</button>
-        <button class="filter-btn" onclick="filterReports('annual')">Annual Reports</button>
-        <button class="filter-btn" onclick="filterReports('quarterly')">Quarterly</button>
-        <button class="filter-btn" onclick="filterReports('mda')">MD&A</button>
-        <button class="filter-btn" onclick="filterReports('estma')">ESTMA</button>
+  <!-- <section class="circle-section">
+    <div>
+      <div class="circle">
+        <div class="circle-inner">216.831M</div>
       </div>
-
-      <!-- Reports -->
-      <section class="report-grid" id="reportGrid">
-        <div class="card quarterly">
-          <h3>Financial Statements - Sep 30, 2024</h3>
-          <p>Third quarter financial statements and disclosures.</p>
-          <a href="image/a.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card quarterly">
-          <h3>Financial Statements - Mar 31, 2024</h3>
-          <p>First quarter financial statements and disclosures.</p>
-          <a href="image/e.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card quarterly">
-          <h3>Financial Statements - Jun 30, 2024</h3>
-          <p>Second quarter financial statements and disclosures.</p>
-          <a href="image/c.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card mda">
-          <h3>MD&A - Jun 30, 2024</h3>
-          <p>Management discussion and analysis for Q2 2024.</p>
-          <a href="image/d.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card mda">
-          <h3>MD&A - Sep 30, 2024</h3>
-          <p>Management discussion and analysis for Q3 2024.</p>
-          <a href="image/b.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card mda">
-          <h3>MD&A - Mar 31, 2024</h3>
-          <p>Management discussion and analysis for Q1 2024.</p>
-          <a href="image/f.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card annual">
-          <h3>Financial Statements - Dec 31, 2023</h3>
-          <p>Audited year-end financial statements and MD&A.</p>
-          <a href="image/g.pdf" target="_blank">Download</a>
-        </div>
-        <div class="card estma">
-          <h3>2023 ESTMA Filing</h3>
-          <p>Extractive Sector Transparency Measures Act report.</p>
-          <a href="image/h.pdf" target="_blank">Download</a>
-        </div>
-      </section>
-
+      <div class="circle-label">SHARES OUTSTANDING</div>
+      <div class="circle-date">As of February 24, 2025.</div>
     </div>
 
-  </div>
+    <div>
+      <div class="circle">
+        <div class="circle-inner">4.150M</div>
+      </div>
+      <div class="circle-label">STOCK OPTIONS</div>
+    </div>
 
-<!-- footer -->
- <footer class="site-footer">
-      <div class="footer-container">
-        <div class="contact-column">
-          <h4>Contact Information</h4>
-          <p>
-            <strong>Email:</strong><br/>
-            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
-          </p>
-          <p>
-            <strong>Phone:</strong><br/>
-            <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p>
-          <p>
-            <strong>Address:</strong><br /> 110 Yonge Street,
+    <div>
+      <div class="circle">
+        <div class="circle-inner">99.695M</div>
+      </div>
+      <div class="circle-label">WARRANTS</div>
+    </div>
+  </section> -->
+  
+ <!-- Capital Structure -->
+<section class="section capital">
+  <div class="wrapper">
+    <h2>Capital Structure</h2>
+    <div class="cards">
+      <!-- Capital Structure cards will be injected here dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- Share Ownership -->
+<section class="section ownership">
+  <div class="wrapper">
+    <h2>Share Ownership</h2>
+    <ul class="ownership-list">
+      <!-- Share Ownership items will be injected here dynamically -->
+    </ul>
+  </div>
+</section>
+
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="contact-column">
+      <h4>Contact Information</h4>
+      <p><strong>Email:</strong><br/> <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a></p><br/>
+      <p><strong>Phone:</strong><br/> <a href="tel:+16472961270">+1 647‑296‑1270</a></p><br/>
+      <p><strong>Address:</strong><br>110 Yonge Street,
           Suite 1601
           <br/> Toronto, Ontario M5C1T4</p><br/>
-        </div>
-        <div class="quick-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="disclaimers.html">Disclaimer</a></li>
-          </ul>
-        </div>
-        <div class="social-column">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <div class="quick-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="press-release.html">Press Release</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="disclaimers.html">Disclaimer</a></li>
+      </ul>
+    </div>
+    <div class="social-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-           <div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-<form class="subscribe-form" onsubmit="handleInvestorSubscribe(event)">
+     
+      <br/><br/>
+        <h4>Subscribe to Our Newsletter</h4>
+<form class="subscribe-form" onsubmit="handleCorporateSubscribe(event)">
   <input
     type="email"
     placeholder="Enter your email"
-    id="investorSubscriberEmail"
+    id="corporateSubscriberEmail"
     required
   /><br /><br />
   <button type="submit">Subscribe</button>
 </form>
 <div
-  id="investor-subscribe-message"
+  id="corporate-subscribe-message"
   class="subscribe-message"
   style="display: none;"
 ></div>
 
 
+</div>
       </div>
     </div>
   </div><br/>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-      </div>
-    </footer>
-    <script>
-             // Toggle entire navbar menu on small screens
+   
+  <div class="footer-bottom">
+    <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
@@ -1109,38 +993,37 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
-  
- async function handleInvestorSubscribe(event) {
-    event.preventDefault();
 
-    const emailInput = document.getElementById('investorSubscriberEmail');
-    const messageDiv = document.getElementById('investor-subscribe-message');
-    const email = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ function handleCorporateSubscribe(event) {
+  event.preventDefault();
 
-    if (!email || !emailPattern.test(email)) {
+  const emailInput = document.getElementById('corporateSubscriberEmail');
+  const messageDiv = document.getElementById('corporate-subscribe-message');
+  const email = emailInput.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email || !emailPattern.test(email)) {
+    messageDiv.style.display = 'block';
+    messageDiv.style.color = 'red';
+    messageDiv.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
+  fetch('/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email })
+  })
+    .then(res => res.json().then(data => ({ status: res.status, body: data })))
+    .then(({ status, body }) => {
       messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Please enter a valid email address.';
-      return;
-    }
 
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }) // source removed per your instruction
-      });
-
-      const data = await res.json();
-      messageDiv.style.display = 'block';
-
-      if (res.ok) {
+      if (status === 200 || status === 201) {
         messageDiv.style.color = 'green';
-        messageDiv.textContent = data.message || 'Subscribed successfully!';
+        messageDiv.textContent = body.message || 'Subscribed successfully!';
         emailInput.value = '';
       } else {
-        const errorMsg = data?.error || data?.message;
+        const errorMsg = body?.error || body?.message;
         if (errorMsg?.includes('looks fake or invalid')) {
           messageDiv.style.color = 'orange';
           messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
@@ -1153,7 +1036,8 @@ function closePopup() {
       setTimeout(() => {
         messageDiv.style.display = 'none';
       }, 5000);
-    } catch (err) {
+    })
+    .catch(err => {
       console.error('❌ Subscription error:', err);
       messageDiv.style.display = 'block';
       messageDiv.style.color = 'red';
@@ -1161,21 +1045,52 @@ function closePopup() {
       setTimeout(() => {
         messageDiv.style.display = 'none';
       }, 5000);
+    });
+}
+
+// Fetch company structure (capital + ownership) from backend
+  async function fetchCompanyStructure() {
+    try {
+      const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+      const response = await fetchFunc('/api/company-structure');
+      if (!response.ok) throw new Error('Failed to fetch company structure');
+
+      const data = await response.json();
+
+      // ===== Render Capital Structure =====
+      const capitalContainer = document.querySelector('.cards');
+      if (data.capitalStructure && capitalContainer) {
+        capitalContainer.innerHTML = data.capitalStructure.map(item => `
+          <div class="card">
+            <div class="card-header">${item.type}</div>
+            <div class="card-body">${item.value}</div>
+          </div>
+        `).join('');
+      }
+
+      // ===== Render Share Ownership =====
+      const ownershipList = document.querySelector('.ownership-list');
+      if (data.shareOwnership && ownershipList) {
+        ownershipList.innerHTML = data.shareOwnership.map(item => `
+          <li>
+            <span>${item.shareholder}</span>
+            <span>${item.percentage}</span>
+          </li>
+        `).join('');
+      }
+
+    } catch (error) {
+      console.error('❌ Error fetching company structure:', error);
     }
   }
 
-  // Optional: Report filtering logic
-  function filterReports(category) {
-    const allCards = document.querySelectorAll(".report-grid .card");
-    allCards.forEach(card => {
-      if (category === "all") {
-        card.style.display = "block";
-      } else {
-        card.style.display = card.classList.contains(category) ? "block" : "none";
-      }
-    });
-  }
+  // Fetch on page load
+  window.addEventListener('DOMContentLoaded', fetchCompanyStructure);
+
 
 </script>
+
+<script src="../cache-utils.js"></script>
+
 </body>
 </html>
