@@ -433,6 +433,51 @@
   font-size: 40px;
   font-weight: bold;
 }
+
+/* Investor Sub-Navigation */
+.investor-subnav {
+  background: #f5f5f5;
+  padding: 15px 50px;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.investor-subnav a {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.investor-subnav a:hover {
+  color: #D4B248;
+  border-bottom-color: #D4B248;
+}
+
+.investor-subnav a.active {
+  color: #D4B248;
+  border-bottom-color: #D4B248;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .investor-subnav {
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .investor-subnav a {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+}
+
     /* header {
       background: linear-gradient(90deg, #1b1b1b, #3a3a3a);
       color: #fff;
@@ -889,6 +934,13 @@ function closeModal() {
 <!-- Black title bar -->
  <!-- Title -->
 <div class="section-title">Financial Statements</div>
+
+  <!-- Investor Sub-Navigation -->
+  <div class="investor-subnav">
+    <a href="corporate-structure.html">Corporate Structure</a>
+    <a href="financial-statements.html" class="active">Financial Statements</a>
+    <a href="annual-meeting-documents.html">Annual Meeting</a>
+  </div>
 
 <!-- Filter Buttons -->
 <div class="filter-bar">

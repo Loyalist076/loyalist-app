@@ -125,8 +125,11 @@ router.get('/view/:id', async (req, res) => {
       responseType: 'stream',
     });
 
+    // Sanitize filename to remove invalid characters
+    const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `inline; filename="${pdf.title}.pdf"`);
+    res.setHeader('Content-Disposition', `inline; filename="${sanitizedTitle}.pdf"`);
 
     pdfResponse.data.pipe(res);
   } catch (err) {
@@ -147,8 +150,11 @@ router.get('/download/:id', async (req, res) => {
       responseType: 'stream',
     });
 
+    // Sanitize filename to remove invalid characters
+    const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="${pdf.title}.pdf"`);
+    res.setHeader('Content-Disposition', `attachment; filename="${sanitizedTitle}.pdf"`);
 
     pdfResponse.data.pipe(res);
   } catch (err) {
