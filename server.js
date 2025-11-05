@@ -97,6 +97,7 @@ const companyStructureRoutes = require('./routes/companyStructure'); // ✅ New 
 const testRoutes = require('./routes/testRoutes');
 const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
 const annualMeetingRoutes = require('./routes/annualMeetingRoutes');
+const corporatePresentationRoutes = require('./routes/corporatePresentationRoutes');
 
 // Apply auth rate limiter to auth routes
 app.use('/api', authLimiter, authRoutes);
@@ -110,6 +111,7 @@ app.use('/api/upcoming-events', upcomingEventRoutes);
 app.use('/api/financials', financialRoutes);
 app.use('/api/company-structure', companyStructureRoutes); // ✅ Unified Capital & Ownership
 app.use('/api/annual-meeting-documents', annualMeetingRoutes); // ✅ Annual Meeting Documents
+app.use('/api/corporate-presentation', corporatePresentationRoutes); // ✅ Corporate Presentation Management
 
 
 // ✅ Mount only this to handle subscriptions via Mailchimp
