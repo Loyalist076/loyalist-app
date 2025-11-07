@@ -512,6 +512,38 @@
   margin-top: 20px;
 }
 
+.leadership-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.leadership-tab {
+  border: 2px solid #D4B248;
+  background: #fff;
+  color: #000;
+  border-radius: 30px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.leadership-tab.active {
+  background: #D4B248;
+  color: #000;
+  border-color: #000;
+}
+
+@media (max-width: 600px) {
+  .leadership-tab {
+    flex: 1 1 calc(50% - 10px);
+    text-align: center;
+  }
+}
+
 .team-member {
   background: white;
   border-radius: 10px;
@@ -892,19 +924,20 @@
   <div class="sidebar">
     <button class="active" onclick="showSection('about')">About Loyalist</button>
     <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('management')">Management</button>
-    <button onclick="showSection('advisors')">Advisors</button>
+    <button onclick="showSection('leadership')">Leadership</button>
     <button onclick="showSection('contact')">Contact</button>
   </div>
   <div class="content" id="contentArea">
     <h2>About Loyalist Exploration Limited</h2>
-    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company's projects include:</p>
+    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company’s projects include:</p>
     <br>
-    <p><strong>Tully</strong>, a gold deposit ready for production permitting.</p>
+    <ul>
+      <li><strong>Tully</strong> - A gold deposit ready for production permitting.</li>
+      <li><strong>Loveland</strong> - A large property with historic nickel/copper resources and high-grade gold drill intercepts and surface showings.</li>
+      <li><strong>Gold Rush</strong> - An early-stage gold/silver property with high-grade drill intercepts.</li>
+    </ul>
     <br>
-    <p><strong>Loveland</strong>, a large property with historic nickel/copper resources and high-grade gold drill intercepts and surface showings.</p>
-    <br>
-    <p><strong>Gold Rush</strong>, an early-stage gold/silver property with high-grade drill intercepts.</p>
+    <p>Loyalist is committed to responsible exploration practices and building strong relationships with local communities.</p>
   </div>
 </div>
 
@@ -1063,216 +1096,228 @@ function openBioModal(memberId) {
   const memberData = {
     errol: {
       name: "Errol Farr",
-      title: "President & CEO",
+      title: "President, CEO, Director",
       image: "image/errol.jpeg",
-      bio: " 35+ years in finance and mining strategy. Former CEO of Adex Mining and CFO of Anaconda Mining."
+      bio: "Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in financial management and reporting, operations, business optimization and strategy development. He is the former CFO of Anaconda Mining Inc., a gold producer in Newfoundland, former CEO of Adex Mining Inc., a polymetallic mineral project in New Brunswick, and former CFO of MagIndustries, a potash, magnesium, hydro, forestry and oil business in the Republic of Congo. He is CFO of Big Tree Carbon Inc., mining opportunities near Red Lake, Ontario, and Corporate Secretary of Homeland Nickel Inc., nickel projects in Oregon."
     },
     ashley: {
       name: "Ashley Nadon",
       title: "Chief Financial Officer",
       image: "image/ashley.png",
-      bio: "Ms. Nadon has been the CFO of the Company . She is a Chartered Professional Accountant with over 15 years of experience in public company financial reporting, audit, and corporate finance. She previously served as CFO of Talisker Resources Ltd. from 2019 to 2023, where she played a key role in raising over $100 million in equity and debt financing. Prior to that, she held senior financial positions at various public companies in the mining and technology sectors. Ms. Nadon began her career at KPMG LLP, where she specialized in public company audits and securities offerings. She holds a Bachelor of Commerce degree from the University of British Columbia and is a member of the Chartered Professional Accountants of British Columbia."
+      bio: "Ashley Nadon is a chartered professional accountant (CPA) and holds a BA (Economics) degree from the University of Toronto, and an MBA from McMaster University. Mrs. Nadon provides consulting and accounting services to private and public companies in her role as Managing Director of a firm of chartered professional accountants. Mrs. Nadon has experience as the CFO of several Reporting Issuers and is also the CFO of Homeland Nickel Inc."
     },
     steve: {
       name: "Steve Balch",
       title: "Independent Director",
       image: "image/steve.png",
-      bio: "Mr. Balch is a Professional Geoscientist with over 30 years of experience in mineral exploration and mining. He has extensive experience in project evaluation, resource estimation, and technical due diligence across various commodities including gold, base metals, and industrial minerals. Mr. Balch has worked on projects throughout North America, South America, and Africa. He previously served as Vice President of Exploration for several junior mining companies and has been involved in multiple resource discoveries. He is a qualified person under National Instrument 43-101 and has authored numerous technical reports. Mr. Balch holds a Bachelor of Science degree in Geology from the University of Toronto and is a registered Professional Geoscientist in Ontario."
+      bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve’s background includes nickel, copper and platinum group element exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin, and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EM system, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
     },
     robert: {
       name: "Robert Bresee",
       title: "Independent Director",
-      image: "image/robert.png",
-      bio: "Mr. Bresee is a seasoned mining executive with over 25 years of experience in mine operations, project development, and corporate management. He has held senior operational roles at several major mining companies, including positions as Mine General Manager and Regional Vice President. Mr. Bresee has extensive experience in underground and open-pit mining operations, with particular expertise in gold and base metal mines. He has overseen the development and operation of multiple mining projects throughout his career, with a strong focus on operational excellence and safety. Mr. Bresee holds a Bachelor of Science degree in Mining Engineering and has completed advanced management programs at leading business schools."
+      image: "image/user-placeholder.svg",
+      bio: "Bob Bresee, CET, is CEO of Voltage Metals Inc., a certified engineering technologist and graduate of the Haileybury School of Mines, and has 45 years in the mining business and is a long-time resident of Timmins, Ontario. Mr. Bresee's experience includes project operating and management, engineering (specializing in junior mining operations), project evaluation, project budgeting, mine planning and cost control. Experienced in narrow vein mining and the permitting process in Ontario, Mr. Bresee is the former project manager on the Company's prospective Tully project."
     },
     birks: {
       name: "Birks Bovaird",
-      title: "Strategic Advisor",
+      title: "Independent Advisor",
       image: "image/birks.png",
-      bio: "Mr. Bovaird is a highly experienced mining executive with over 40 years in the industry. He has held senior leadership positions at major mining companies, including serving as President and CEO of several publicly traded mining companies. Throughout his career, he has been involved in the development and operation of numerous mining projects across North America. Mr. Bovaird has extensive experience in corporate strategy, mergers and acquisitions, and capital markets. He has successfully raised hundreds of millions of dollars for mining projects and has overseen multiple mine construction and commissioning projects. His deep industry knowledge and network make him a valuable strategic advisor to the Company."
+      bio: "Birks Bovaird is the Chair of the board of Energy Fuels Inc., a leading U.S.-based critical minerals company primarily known for its uranium mining operations but also involved in rare earth elements and heavy mineral sands production. He is also a director of Noble Mineral Exploration Inc. The dominant focus of Mr. Bovaird’s career has been the provision of corporate financial consulting and strategic planning services. He has previously been involved with, and is currently involved with, public resource companies, both in management and as a director, and was formerly the Vice President of Corporate Finance for one of Canada’s major accounting firms. He holds an ICD.D designation and is a graduate of the Canadian Director Education Program."
     },
     jean: {
       name: "Jean Roy",
-      title: "Technical Advisor",
-      image: "image/jean.png",
-      bio: "Mr. Roy is a Professional Engineer with over 35 years of experience in mining engineering and project management. He has specialized expertise in underground mining operations, mine planning, and project development. Throughout his career, he has held senior technical and management positions at various mining companies, overseeing the development and operation of underground mines. Mr. Roy has extensive experience in feasibility studies, mine design, and production optimization. He has been involved in projects across multiple commodities including gold, copper, zinc, and nickel. His technical expertise and practical experience in underground mining operations provide valuable guidance to the Company's project development activities."
+      title: "Independent Advisor",
+      image: "image/user-placeholder.svg",
+      bio: "Jean Roy is a former business advisor to Pelangio Larder Mines in the acquisition and formation of the Detour Lake gold deposit, a multi-million-ounce gold producer in Ontario, Canada. He was also a former advisor to Richfield Ventures Inc. during the discovery of the Blackwater gold deposit in British Columbia, Canada. He is a native of Timmins, Ontario, Canada."
+    },
+    michael: {
+      name: "Michael Cachia",
+      title: "Independent Director & Audit Committee Chair",
+      image: "image/user-placeholder.svg",
+      bio: "Michael Cachia is a Chartered Professional Accountant with an extensive history of providing services to entities in the natural resource sector and he is a partner in a Toronto-based firm of Chartered Professional Accountants. Michael serves as Audit Committee Chairman at Loyalist, is a director and the audit chair of Enerev5 Metals Inc., and is also a director of Western Kidd Resources Inc., a private mineral exploration company located in the Timmins camp."
+    },
+    kevin: {
+      name: "Kevin Filo",
+      title: "Independent Advisor",
+      image: "image/user-placeholder.svg",
+      bio: "Kevin Filo is a founder, Director and the Corporate Secretary of Mink Ventures Corporation (TSXV: MINK), a Timmins-based nickel, copper and cobalt explorer. Mr. Filo obtained an Honours Bachelor of Science (HBSc, 1980) degree in geology from Laurentian University in Sudbury, Ontario, and has been a professional geologist for over 35 years. He is President of Filo Exploration Services Limited, a private geological consulting firm established in 1983, and has acted as President and Vice President of several private exploration project generator companies. From December 2018 until April 2022 Mr. Filo was VP Corporate Development for Pelangio Exploration and was part of the Pelangio Mines Inc. acquisition team that acquired the former Placer Dome Canada Detour Lake Mine, now an established Canadian gold producer operated by Agnico Eagle Mines."
     }
   };
 
   const member = memberData[memberId];
-  if (member) {
-    document.getElementById('modalName').textContent = member.name;
-    document.getElementById('modalTitle').textContent = member.title;
-    document.getElementById('modalImage').src = member.image;
-    document.getElementById('modalImage').alt = member.name;
-    document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
-    document.getElementById('bioModal').style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  if (!member) {
+    return;
   }
+
+  document.getElementById('modalName').textContent = member.name;
+  document.getElementById('modalTitle').textContent = member.title;
+  document.getElementById('modalImage').src = member.image;
+  document.getElementById('modalImage').alt = member.name;
+  document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
+  document.getElementById('bioModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
 
 function closeBioModal() {
   document.getElementById('bioModal').style.display = 'none';
-  document.body.style.overflow = 'auto'; // Re-enable scrolling
+  document.body.style.overflow = 'auto';
 }
 
 function toggleReadMore(memberId) {
   openBioModal(memberId);
 }
 
-function openBioModal(memberId) {
-  const memberData = {
-    errol: {
-      name: "Errol Farr",
-      title: "President & CEO",
-      image: "image/errol.jpeg",
-      bio: "Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in         financial management and reporting, operations, business optimization and strategy  development. He is the former CFO of Anaconda Mining Inc., a gold producer in Newfoundland. Former CEO of Adex Mining Inc., a polymetallic mineral project in New Brunswick and former CFO of MagIndustries, potash, magnesium, hydro, forestry and oil in         the Republic of Congo. He is CFO of Big Tree Carbon Inc., with bio-diversity and mining opportunities near Red Lake, Ontario, CFO and Corporate Secretary of AFR NuVenture Resources Inc., a mining projects in Timmins and Cape Breton and Corporate Secretary of  Homeland Nickel Inc., nickel projects in Oregon."
-    },
-    ashley: {
-      name: "Ashley Nadon",
-      title: "Chief Financial Officer",
-      image: "image/ashley.png",
-      bio: "Ashley Nadon is a chartered professional accountant (CPA) and holds a BA (Economics) degree from the University of Toronto, and an MBA from McMaster University. Mrs. Nadon provides consulting and accounting services to private and public companies in her role asManaging Director of a firm of chartered professional accountants. Mrs. Nadon hasexperience as the CFO of several Reporting Issuers and is also the CFO of Homeland Nickel Inc."
-    },
-    steve: {
-      name: "Steve Balch",
-      title: "Independent Director",
-      image: "image/steve.png",
-      bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve’s background includes nickel, copper and platinum group elementexploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin,and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EMsystem, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
-    },
-    robert: {
-      name: "Robert Bresee",
-      title: "Independent Director",
-      image: "image/robert.png",
-      bio: " Bob Bresee, CET, is CEO of Voltage Metals Inc., a certified engineering technologist and graduate of the Haileybury School of Mines, and has 45 years in the mining business and a long-time resident of Timmins, Ontario. Mr. Bresee's experience includes projectoperating/management, engineering -- specializing in junior mining operations, project evaluation, project budgeting/mine planning/cost control. Experienced in narrow vein mining and the permitting process in Ontario. Mr. Bresee is the former project manager on the company's prospective Tully project. "
-    },
-    birks: {
-      name: "Birks Bovaird",
-      title: "Independent Advisor",
-      image: "image/birks.png",
-      bio: "Birks Bovaird is the Chair of the board of Energy Fuels Inc., a leading U.S. based critical minerals company primarily known for its uranium mining operations, but it’s also involved in rare earth elements (REEs) and heavy mineral sands production. He is also a director of Noble Mineral Exploration Inc. The dominant focus of Mr. Bovaird’s career has been the provision of corporate financial consulting and strategic planning services. He has previously been involved with, and is currently involved with public resource companies, both in management and as a director, and was formerly the Vice President of Corporate Finance for one of Canada’s major accounting firms. He holds an ICD.D designation and is a graduate of the Canadian Director Education Program."
-    },
-    jean: {
-      name: "Jean Roy",
-      title: "Independent Advisor",
-      image: "image/jean.png",
-      bio: "Jean Roy is a former business advisor to “Pelangio Larder Mines” in the acquisition and formation of the Detour Lake gold deposit, a multi-million-ounce gold producer in Ontario, Canada. He was also a former advisor to Richfield Ventures Inc. during the discovery of the Blackwater gold deposit in British Columbia, Canada. He is a native of Timmins, Ontario, Canada"
-    }
-  };
-
-  const member = memberData[memberId];
-  if (member) {
-    document.getElementById('modalName').textContent = member.name;
-    document.getElementById('modalTitle').textContent = member.title;
-    document.getElementById('modalImage').src = member.image;
-    document.getElementById('modalImage').alt = member.name;
-    document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
-    document.getElementById('bioModal').style.display = 'block';
-  }
-}
-
-function closeBioModal() {
-  document.getElementById('bioModal').style.display = 'none';
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
   const bioModal = document.getElementById('bioModal');
-  if (event.target == bioModal) {
-    bioModal.style.display = 'none';
+  if (event.target === bioModal) {
+    closeBioModal();
   }
-}
+});
 
-const sections = {
-  about: `
-   <h2>About Loyalist Exploration Limited</h2>
-<p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company’s projects include;</p>
-
-<p><strong>Tully</strong>, a gold deposit ready for production permitting.</p>
-
-<p><strong>Loveland</strong>, a large property with historic nickel/copper resources and high-grade gold drill intercepts and surface showings.</p>
-
-<p><strong>Gold Rush</strong>, an early-stage gold/silver property with high-grade drill intercepts.</p>
-
-  `,
-  projects: `
-    <h2>Our Projects</h2>
-
-    <h3>Tully Project</h3>
-    <p>Loyalist owns 100% of the Tully Gold project and sits just 25 km northeast of Timmins, within the world-class Timmins-Porcupine Gold Camp. With a historic 144,000 ounces of gold and drill intercepts grading up to 452 g/t Au over 0.5 m, Tully showcases impressive high-grade mineralization from surface to depth. Strong step-out drilling has confirmed both extension and continuity. The Company is currently planning the production permitting process and additional resource expansion drilling along strike.</p>
-    
-    <h3>Loveland Project</h3>
-    <p>The Loveland project is located 45 kilometers northwest of Timmins, Ontario, covering 6,244 hectares in the Abitibi Greenstone Belt – one of the world's most productive mining districts. Historic drilling has defined nickel-copper sulfide zones at the Hollinger and Cominco deposits, with grades up to 0.73% Ni and 0.68% Cu, alongside high-grade gold intercepts of over 10 g/t Au. With 10 km of highly prospective strike length and open zones at depth, Loveland offers a rare dual-commodity opportunity.</p>
-     
-    <h3>Gold Rush Project</h3>
-    <p>The Gold Rush project, 30 km west of Timmins, spans 41 claims across 820 hectares and is positioned along a prospective gold trend. Early drilling and sampling have returned encouraging results, including grab samples up to 27.3 g/t Au and drill assays of 2.08 g/t Au over 1 m. With multiple target areas – including the North Shaft Zone, North Vein Area, and Mid Point Area – Gold Rush presents significant discovery potential in an underexplored part of a proven gold camp.</p>
-  `,
+const leadershipViews = {
   management: `
-    <h2>Management Team</h2>
+    <h3>Management</h3>
     <div class="team-grid">
       <div class="team-member">
         <img src="../image/errol.jpeg" alt="Errol Farr">
         <h3>Errol Farr</h3>
-        <p class="title">President & CEO</p>
+        <p class="title">President, CEO, Director</p>
         <div class="bio">
-          <p>35+ years in finance and mining strategy. Former CEO of Adex Mining and CFO of Anaconda Mining.</p>
+          <p>35+ years of mining finance leadership spanning Anaconda Mining, Adex Mining, MagIndustries, Big Tree Carbon and Homeland Nickel.</p>
           <button class="read-more-btn" onclick="toggleReadMore('errol')">Read More</button>
         </div>
       </div>
-
       <div class="team-member">
         <img src="../image/ashley.png" alt="Ashley Nadon">
         <h3>Ashley Nadon</h3>
         <p class="title">Chief Financial Officer</p>
         <div class="bio">
-          <p>CPA and Managing Director with CFO experience in public companies. Holds degrees in Economics and MBA.</p>
+          <p>CPA and Managing Director with CFO experience in public companies plus Economics and MBA degrees.</p>
           <button class="read-more-btn" onclick="toggleReadMore('ashley')">Read More</button>
         </div>
       </div>
-
+    </div>
+  `,
+  directors: `
+    <h3>Directors</h3>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="../image/errol.jpeg" alt="Errol Farr">
+        <h3>Errol Farr</h3>
+        <p class="title">President, CEO, Director</p>
+        <div class="bio">
+          <p>Provides disciplined capital markets oversight while guiding Loyalist’s corporate strategy and execution.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('errol')">Read More</button>
+        </div>
+      </div>
       <div class="team-member">
         <img src="../image/steve.png" alt="Steve Balch">
         <h3>Steve Balch</h3>
         <p class="title">Independent Director</p>
         <div class="bio">
-          <p>32 years of geophysics experience, VP at Canada Nickel Company, expert in magnetic and EM methods.</p>
+          <p>32 years of geophysics experience, VP at Canada Nickel Company and an expert in magnetic and EM methods.</p>
           <button class="read-more-btn" onclick="toggleReadMore('steve')">Read More</button>
         </div>
       </div>
-
       <div class="team-member">
-        <img src="../image/robert.png" alt="Robert Bresee">
+        <img src="../image/user-placeholder.svg" alt="Robert Bresee">
         <h3>Robert Bresee</h3>
         <p class="title">Independent Director</p>
         <div class="bio">
-          <p>Bob Bresee, CET, CEO of Voltage Metals Inc., is a Haileybury School of Mines graduate with 45 years of mining experience.</p>
+          <p>CEO of Voltage Metals Inc. and Haileybury School of Mines graduate with 45 years of mining experience.</p>
           <button class="read-more-btn" onclick="toggleReadMore('robert')">Read More</button>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="../image/user-placeholder.svg" alt="Michael Cachia">
+        <h3>Michael Cachia</h3>
+        <p class="title">Independent Director & Audit Committee Chair</p>
+        <div class="bio">
+          <p>CPA partner serving natural resource clients, Audit Committee Chair at Loyalist and director of multiple resource issuers.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('michael')">Read More</button>
         </div>
       </div>
     </div>
   `,
-  advisors: `
-    <h2>Advisory Team</h2>
+  advisory: `
+    <h3>Advisors</h3>
     <div class="team-grid">
       <div class="team-member">
         <img src="../image/birks.png" alt="Birks Bovaird">
         <h3>Birks Bovaird</h3>
         <p class="title">Independent Advisor</p>
         <div class="bio">
-          <p>Chair of Energy Fuels Inc., with deep experience in public resource companies and corporate finance.</p>
+          <p>Chair of Energy Fuels Inc. with deep experience in public resource companies and corporate finance.</p>
           <button class="read-more-btn" onclick="toggleReadMore('birks')">Read More</button>
         </div>
       </div>
-
       <div class="team-member">
-        <img src="../image/jean.png" alt="Jean Roy">
+        <img src="../image/user-placeholder.svg" alt="Jean Roy">
         <h3>Jean Roy</h3>
         <p class="title">Independent Advisor</p>
         <div class="bio">
-          <p>Jean Roy, a Timmins, Ontario native, advised on the acquisition of the Detour Lake gold deposit and the discovery of the Blackwater gold deposit in Canada.</p>
+          <p>Timmins-based advisor who helped secure Detour Lake and supported the discovery of the Blackwater gold deposit.</p>
           <button class="read-more-btn" onclick="toggleReadMore('jean')">Read More</button>
         </div>
       </div>
+      <div class="team-member">
+        <img src="../image/user-placeholder.svg" alt="Kevin Filo">
+        <h3>Kevin Filo</h3>
+        <p class="title">Independent Advisor</p>
+        <div class="bio">
+          <p>Founder of Mink Ventures and President of Filo Exploration Services with 35+ years of nickel, copper and gold experience.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('kevin')">Read More</button>
+        </div>
+      </div>
+    </div>
+  `
+};
+
+const sections = {
+  about: `
+   <h2>About Loyalist Exploration Limited</h2>
+   <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company’s projects include:</p>
+   <br>
+   <ul>
+     <li><strong>Tully</strong> - A gold deposit ready for production permitting.</li>
+     <li><strong>Loveland</strong> - A large property with historic nickel/copper resources and high-grade gold drill intercepts and surface showings.</li>
+     <li><strong>Gold Rush</strong> - An early-stage gold/silver property with high-grade drill intercepts.</li>
+   </ul>
+   <br>
+   <p>Loyalist is committed to responsible exploration practices and building strong relationships with local communities.</p>
+  `,
+  projects: `
+    <h2>Our Projects</h2>
+    <p>We are currently active at three key projects within the Timmins mining district:</p>
+    <br>
+    <h3>Tully Gold Project</h3>
+    <ul>
+      <li>High-grade gold resource located 30 km north of Timmins.</li>
+      <li>Strategically positioned near existing processing infrastructure.</li>
+    </ul>
+    <br>
+    <h3>Loveland Nickel Project</h3>
+    <ul>
+      <li>Nickel-copper PGE project with historical drilling and modern exploration upside.</li>
+      <li>Accessible year-round with excellent infrastructure.</li>
+    </ul>
+    <br>
+    <h3>Gold Rush Project</h3>
+    <ul>
+      <li>Early-stage gold-silver target with high-grade drill intercepts.</li>
+      <li>Exploration plan includes detailed mapping, geophysics, and follow-up drilling.</li>
+    </ul>
+  `,
+  leadership: `
+    <h2>Leadership</h2>
+    <p>Meet the Management, Directors and Advisory Committee guiding Loyalist Exploration’s growth.</p>
+    <div class="leadership-tabs">
+      <button class="leadership-tab active" data-view="management" onclick="showLeadershipView('management', event)">Management</button>
+      <button class="leadership-tab" data-view="directors" onclick="showLeadershipView('directors', event)">Directors</button>
+      <button class="leadership-tab" data-view="advisory" onclick="showLeadershipView('advisory', event)">Advisory Committee</button>
+    </div>
+    <div id="leadershipContent">
+      ${leadershipViews.management}
     </div>
   `,
   contact: `
@@ -1291,6 +1336,27 @@ function showSection(section) {
     document.getElementById('contentArea').innerHTML = sections[section];
     document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
+}
+
+function showLeadershipView(view, evt) {
+  const content = document.getElementById('leadershipContent');
+  if (!content || !leadershipViews[view]) {
+    return;
+  }
+
+  content.innerHTML = leadershipViews[view];
+  const tabs = document.querySelectorAll('#contentArea .leadership-tab');
+  tabs.forEach(tab => tab.classList.remove('active'));
+
+  if (evt && evt.target.classList.contains('leadership-tab')) {
+    evt.target.classList.add('active');
+  } else {
+    tabs.forEach(tab => {
+      if (tab.dataset.view === view) {
+        tab.classList.add('active');
+      }
+    });
+  }
 }
 </script>
 <script src="../corporate-presentation-loader.js"></script>

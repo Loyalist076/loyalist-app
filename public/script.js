@@ -147,30 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'index.html';
   });
 });
-
-
-
-  const modal = document.getElementById('contactModal');
-  const openBtn = document.getElementById('getInTouchBtn');
-  const closeBtn = document.getElementById('closeModalBtn');
-
-  // Open modal
-  openBtn.onclick = () => {
-    modal.style.display = 'block';
-  };
-
-  // Close modal
-  closeBtn.onclick = () => {
-    modal.style.display = 'none';
-  };
-
-  // Close if click outside modal content
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-
+  const getInTouchButtons = document.querySelectorAll('#getInTouchBtn, .get-in-touch-btn');
+  if (getInTouchButtons.length) {
+    const contactUrl = '/page/contact.html';
+    getInTouchButtons.forEach(btn => {
+      btn.addEventListener('click', (event) => {
+        event?.preventDefault();
+        window.location.href = contactUrl;
+      });
+    });
+  }
 
   // Handle "Get In Touch" popup contact form submission
   document.getElementById('popupContactForm')?.addEventListener('submit', async (e) => {

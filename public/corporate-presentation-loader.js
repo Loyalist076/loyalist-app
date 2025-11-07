@@ -32,10 +32,31 @@ async function loadCorporatePresentationLinks() {
   }
 }
 
-// Load the links when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadCorporatePresentationLinks);
-} else {
-  // DOM is already loaded
+function initGetInTouchRedirect() {
+  const triggerButtons = document.querySelectorAll('#getInTouchBtn, .get-in-touch-btn');
+
+  if (!triggerButtons.length) {
+    return;
+  }
+
+  const contactUrl = '/page/contact.html';
+
+  triggerButtons.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      event?.preventDefault();
+      window.location.href = contactUrl;
+    });
+  });
+}
+
+function initializeGlobalEnhancements() {
   loadCorporatePresentationLinks();
+  initGetInTouchRedirect();
+}
+
+// Load enhancements when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeGlobalEnhancements);
+} else {
+  initializeGlobalEnhancements();
 }

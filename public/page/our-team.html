@@ -866,13 +866,36 @@ body {
   padding: 0;
 }
 
+.leadership-groups {
+  max-width: 1260px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.leadership-group {
+  margin: 50px 0;
+  border-radius: 18px;
+  padding: 30px 25px;
+}
+
+.leadership-group h2 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .team-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+}
+
+@media (max-width: 900px) {
+  .team-section {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 .team-card {
@@ -1261,17 +1284,19 @@ body {
 
  
 <!-- Black title bar -->
-  <div class="section-title">Directors & Management</div>
+   <section class="banner">
+    <h1>Leadership Team</h1>
+  </section>
+  <section class="sub-banner">
+    Meet the experienced professionals driving our exploration success in Canada.
+  </section>
 
   <!-- Mission & Values Section -->
   <section class="content">
     <div class="left">
       <h2>Our Mission & Values</h2>
       <p>
-        Loyalist Exploration Limited is committed to responsible mineral exploration in Ontario,
-        focusing on sustainable development, innovation, and community engagement. Our mission is to discover
-        valuable mineral resources like gold, copper, and nickel, contributing to Canada’s mineral wealth while
-        maintaining high environmental and social standards.
+      Loyalist Exploration Limited is committed to enhancing shareholder value through focused property acquisition, and exploration and development activities, while being respectful to our people, the environment and the communities we work in. 
       </p>
     </div>
     <div class="right">
@@ -1280,79 +1305,110 @@ body {
   </section>
   
 
-  <section class="banner">
-    <h1>Leadership Team</h1>
-  </section>
-  <section class="sub-banner">
-    Meet the experienced professionals driving our exploration success in Canada.
-  </section>
-
-  <!-- team section  -->
-    <section class="team-section">
-    <!-- Errol Farr -->
-    <div class="team-card" onclick="openPopup('errol')">
-      <img src="../image/errol.jpeg" alt="Errol Farr">
-      <div class="team-info">
-        <h3>Errol Farr</h3>
-        <p class="title">President & CEO </p>
-        <p>35+ years in finance and mining strategy. Former CEO of Adex Mining and CFO of Anaconda Mining.</p>
-        <button class="read-more">Read more</button>
-      </div>
-    </div>
-      <!-- Ashley Nadon -->
-    <div class="team-card" onclick="openPopup('ashley')">
-      <img src="../image/ashley.png" alt="Ashley Nadon">
-      <div class="team-info">
-        <h3>Ashley Nadon</h3>
-        <p class="title">Chief Financial Officer</p>
-        <p>CPA and Managing Director with CFO experience in public companies. Holds degrees in Economics and MBA.</p>
-        <button class="read-more">Read more</button>
-      </div>
-    </div>
-   <!-- Steve Balch -->
-    <div class="team-card" onclick="openPopup('steve')">
-      <img src="../image/steve.png" alt="Steve Balch">
-      <div class="team-info">
-        <h3>Steve Balch</h3>
-        <p class="title"> Independent Director</p>
-        <p>32 years of geophysics experience, VP at Canada Nickel Company, expert in magnetic and EM methods.</p>
-        <button class="read-more">Read more</button>
-      </div>
-    </div>
-
-    <!-- Birks Bovaird -->
-    <div class="team-card" onclick="openPopup('birks')">
-      <img src="../image/birks.png" alt="Birks Bovaird">
-      <div class="team-info">
-        <h3>Birks Bovaird</h3>
-        <p class="title">Independent Advisior</p>
-        <p>Chair of Energy Fuels Inc., with deep experience in public resource companies and corporate finance.</p>
-        <button class="read-more">Read more</button>
-      </div>
-    </div>
-
  
 
-  
-    <!-- New Member 1 -->
-    <div class="team-card" onclick="openPopup('james')">
-      <!-- <img src="../image/james.png" alt="Robert Bresee"> -->
-      <div class="team-info">
-        <h3>Robert Bresee</h3>
-        <p class="title">Independent Director</p>
-        <p>Bob Bresee, CET, CEO of Voltage Metals Inc., is a Haileybury School of Mines graduate with 45 years of mining experience.</p>
-        <button class="read-more">Read more</button>
+  <!-- team section  -->
+  <section class="leadership-groups">
+    <div class="leadership-group">
+      <h2>Management</h2>
+      <div class="team-section">
+        <!-- Errol Farr -->
+        <div class="team-card" onclick="openPopup('errol')">
+          <img src="../image/errol.jpeg" alt="Errol Farr">
+          <div class="team-info">
+            <h3>Errol Farr</h3>
+            <p class="title">President, CEO, Director</p>
+            <p>35+ years of mining finance leadership spanning Anaconda Mining, Adex Mining, MagIndustries, Big Tree Carbon and Homeland Nickel.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <!-- Ashley Nadon -->
+        <div class="team-card" onclick="openPopup('ashley')">
+          <img src="../image/ashley.png" alt="Ashley Nadon">
+          <div class="team-info">
+            <h3>Ashley Nadon</h3>
+            <p class="title">Chief Financial Officer</p>
+            <p>CPA and Managing Director with CFO experience in public companies plus Economics and MBA degrees.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- New Member 2 -->
-    <div class="team-card" onclick="openPopup('lisa')">
-      <!-- <img src="../image/lisa.png" alt="Jean Roy"> -->
-      <div class="team-info">
-        <h3>Jean Roy</h3>
-        <p class="title">Independent Advisior</p>
-        <p>Jean Roy, a Timmins, Ontario native, advised on the acquisition of the Detour Lake gold deposit and the discovery of the Blackwater gold deposit in Canada.</p>
-        <button class="read-more">Read more</button>
+    <div class="leadership-group">
+      <h2>Directors</h2>
+      <div class="team-section">
+        <div class="team-card" onclick="openPopup('errol')">
+          <img src="../image/errol.jpeg" alt="Errol Farr">
+          <div class="team-info">
+            <h3>Errol Farr</h3>
+            <p class="title">President, CEO, Director</p>
+            <p>Brings disciplined capital markets oversight to Loyalist’s board while leading strategy and execution.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <!-- Steve Balch -->
+        <div class="team-card" onclick="openPopup('steve')">
+          <img src="../image/steve.png" alt="Steve Balch">
+          <div class="team-info">
+            <h3>Steve Balch</h3>
+            <p class="title">Independent Director</p>
+            <p>32 years of geophysics experience, VP at Canada Nickel Company and an expert in magnetic and EM methods.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <div class="team-card" onclick="openPopup('james')">
+          <img src="../image/user-placeholder.svg" alt="Robert Bresee">
+          <div class="team-info">
+            <h3>Robert Bresee</h3>
+            <p class="title">Independent Director</p>
+            <p>CEO of Voltage Metals Inc. and Haileybury School of Mines graduate with 45 years in the mining business.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <div class="team-card" onclick="openPopup('michael')">
+          <img src="../image/user-placeholder.svg" alt="Michael Cachia">
+          <div class="team-info">
+            <h3>Michael Cachia</h3>
+            <p class="title">Independent Director</p>
+            <p>Chartered Professional Accountant, partner in a Toronto firm, Audit Committee Chair and director of multiple resource issuers.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leadership-group">
+      <h2>Advisors</h2>
+      <div class="team-section">
+        <!-- Birks Bovaird -->
+        <div class="team-card" onclick="openPopup('birks')">
+          <img src="../image/birks.png" alt="Birks Bovaird">
+          <div class="team-info">
+            <h3>Birks Bovaird</h3>
+            <p class="title">Independent Advisor</p>
+            <p>Chair of Energy Fuels Inc. with deep experience in public resource companies and corporate finance.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <div class="team-card" onclick="openPopup('lisa')">
+          <img src="../image/user-placeholder.svg" alt="Jean Roy">
+          <div class="team-info">
+            <h3>Jean Roy</h3>
+            <p class="title">Independent Advisor</p>
+            <p>Timmins-based advisor who helped secure Detour Lake and supported the discovery of the Blackwater gold deposit.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
+        <div class="team-card" onclick="openPopup('kevin')">
+          <img src="../image/user-placeholder.svg" alt="Kevin Filo">
+          <div class="team-info">
+            <h3>Kevin Filo</h3>
+            <p class="title">Independent Advisor</p>
+            <p>Founder of Mink Ventures, President of Filo Exploration Services and veteran geologist focused on nickel, copper and gold projects.</p>
+            <button class="read-more">Read more</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1364,16 +1420,8 @@ body {
       <span class="close-btn" onclick="closePopup('errol')">&times;</span>
       <img src="../image/errol.jpeg" alt="Errol Farr">
       <h2>Errol Farr, CPA</h2>
-      <p class="popup-title">President and CEO</p>
-      <p>Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in
-        financial management and reporting, operations, business optimization and strategy
-        development. He is the former CFO of Anaconda Mining Inc., a gold producer in
-        Newfoundland. Former CEO of Adex Mining Inc., a polymetallic mineral project in New
-        Brunswick and former CFO of MagIndustries, potash, magnesium, hydro, forestry and oil in
-        the Republic of Congo. He is CFO of Big Tree Carbon Inc., with bio-diversity and mining
-        opportunities near Red Lake, Ontario, CFO and Corporate Secretary of AFR NuVenture
-        Resources Inc., a mining projects in Timmins and Cape Breton and Corporate Secretary of
-        Homeland Nickel Inc., nickel projects in Oregon.</p>
+      <p class="popup-title">President, CEO, Director</p>
+      <p>Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in financial management and reporting, operations, business optimization and strategy development. He is the former CFO of Anaconda Mining Inc., a gold producer in Newfoundland, former CEO of Adex Mining Inc., a polymetallic mineral project in New Brunswick, and former CFO of MagIndustries, a potash, magnesium, hydro, forestry and oil business in the Republic of Congo. He is CFO of Big Tree Carbon Inc., mining opportunities near Red Lake, Ontario, and Corporate Secretary of Homeland Nickel Inc., nickel projects in Oregon.</p>
     </div>
   </div>
 
@@ -1383,7 +1431,7 @@ body {
       <span class="close-btn" onclick="closePopup('birks')">&times;</span>
       <img src="../image/birks.png" alt="Birks Bovaird">
       <h2>Birks Bovaird</h2>
-      <p class="popup-title">Independent Advisior</p>
+      <p class="popup-title">Independent Advisor</p>
       <p>Birks Bovaird is the Chair of the board of Energy Fuels Inc., a leading U.S. based critical
 minerals company primarily known for its uranium mining operations, but it’s also involved
 in rare earth elements (REEs) and heavy mineral sands production. He is also a director of
@@ -1402,7 +1450,7 @@ a graduate of the Canadian Director Education Program.</p>
       <span class="close-btn" onclick="closePopup('steve')">&times;</span>
       <img src="../image/steve.png" alt="Steve Balch">
       <h2>Steve Balch</h2>
-      <p class="popup-title"> Independent Director</p>
+      <p class="popup-title">Independent Director</p>
       <p>Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a
 geophysicist. Steve’s background includes nickel, copper and platinum group element
 exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin,
@@ -1438,7 +1486,7 @@ Nickel Inc.</p></div>
   <div class="popup" id="popup-james">
     <div class="popup-content">
       <span class="close-btn" onclick="closePopup('james')">&times;</span>
-      <!-- <img src="../image/james.png" alt="Robert Bresee"> -->
+      <img src="../image/user-placeholder.svg" alt="Robert Bresee">
       <h2>Robert Bresee</h2>
       <p class="popup-title">Independent Director</p>
       <p>Bob Bresee, CET, is CEO of Voltage Metals Inc., a certified engineering technologist and
@@ -1455,14 +1503,36 @@ the company's prospective Tully project. </p>
   <div class="popup" id="popup-lisa">
     <div class="popup-content">
       <span class="close-btn" onclick="closePopup('lisa')">&times;</span>
-      <!-- <img src="../image/lisa.png" alt="Jean Roy"> -->
+      <img src="../image/user-placeholder.svg" alt="Jean Roy">
       <h2>Jean Roy</h2>
-      <p class="popup-title">Independent Advisior</p>
+      <p class="popup-title">Independent Advisor</p>
       <p>Jean Roy is a former business advisor to “Pelangio Larder Mines” in the acquisition and
 formation of the Detour Lake gold deposit, a multi-million-ounce gold producer in Ontario,
 Canada. He was also a former advisor to Richfield Ventures Inc. during the discovery of the
 Blackwater gold deposit in British Columbia, Canada. He is a native of Timmins, Ontario,
 Canada. </p>
+    </div>
+  </div>
+
+  <!-- Michael Popup -->
+  <div class="popup" id="popup-michael">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup('michael')">&times;</span>
+      <img src="../image/user-placeholder.svg" alt="Michael Cachia">
+      <h2>Michael Cachia</h2>
+      <p class="popup-title">Independent Director & Audit Committee Chair</p>
+      <p>Michael Cachia is a Chartered Professional Accountant with an extensive history of providing services to entities in the natural resource sector and he is a partner in a Toronto-based firm of Chartered Professional Accountants. Michael will serve as the Audit Committee Chairman. He is a director and the audit chair of Enerev5 Metals Inc. He is also a director of Western Kidd Resources Inc., a private mineral exploration company located in the Timmins camp.</p>
+    </div>
+  </div>
+
+  <!-- Kevin Popup -->
+  <div class="popup" id="popup-kevin">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup('kevin')">&times;</span>
+      <img src="../image/user-placeholder.svg" alt="Kevin Filo">
+      <h2>Kevin Filo</h2>
+      <p class="popup-title">Independent Advisor</p>
+      <p>Kevin Filo is a founder, Director and the Corporate Secretary of Mink Ventures Corporation (TSXV: MINK), a Timmins-based nickel, copper, cobalt explorer. Mr. Filo obtained an Honours Bachelor of Science (HBSc, 1980) degree in geology from Laurentian University in Sudbury, Ontario, and has been a professional geologist for over 35 years. Mr. Filo is President of Filo Exploration Services Limited, a private geological consulting firm established in 1983. Over the last fifteen years Mr. Filo also acted as President and Vice President of a number of successful private exploration project generator companies. From December 2018 until April 2022 Mr. Filo was VP Corporate Development for Pelangio Exploration and prior to this he was part of the Pelangio Mines Inc. acquisition team that acquired the former Placer Dome Canada Detour Lake Mine on Pelangio’s behalf. This project eventually became an established Canadian gold producer now operated by Agnico Eagle Mines.</p>
     </div>
   </div>
 
@@ -1639,5 +1709,3 @@ window.addEventListener('click', function(e) {
 <script src="../corporate-presentation-loader.js"></script>
 </body>
   </html>
-
-
