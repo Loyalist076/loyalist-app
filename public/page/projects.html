@@ -528,69 +528,87 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
+      align-items: stretch;
     }
     .loveland-card {
       background: #fff;
-      border-radius: 10px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      border: 1px solid #ececec;
+      box-shadow: 0 18px 45px rgba(15, 15, 15, 0.08);
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease-in-out;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
-      min-height: 378px;
-      cursor: pointer;
+      min-height: 460px;
     }
     .loveland-card:hover {
-      transform: scale(1.025);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(15, 15, 15, 0.12);
     }
     .loveland-card img,
     .potential-card img {
       width: 100%;
-      height: 180px;
+      height: 210px;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
     }
     .loveland-card:hover img,
     .potential-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     .project-content {
-      padding: 18px;
-      flex-grow: 1;
+      padding: 22px 24px 28px;
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
+      gap: 14px;
     }
+    .project-content h1,
     .project-content h3 {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #222;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+      color: #111;
+      line-height: 1.4;
     }
     .project-content p {
       font-size: 14px;
       line-height: 1.6;
       color: #555;
-      flex-grow: 1;
+      margin: 0;
+      flex: 1;
     }
-    .loveland-card a,
-    .potential-card a {
-      margin: 16px;
-      padding: 8px 16px;
+    .card-cta {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .project-link {
+      padding: 10px 18px;
       font-size: 13.5px;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      color: #111;
+      border: 1px solid #d4d4d4;
+      border-radius: 30px;
       text-decoration: none;
-      align-self: flex-start;
+      font-weight: 600;
+      letter-spacing: 0.3px;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
     }
-    .loveland-card a:hover,
-    .potential-card a:hover {
+    .project-link i {
+      transition: transform 0.3s ease;
+    }
+    .project-link:hover {
       background: #D4B248;
-      color: white;
+      color: #000;
       border-color: #D4B248;
+    }
+    .project-link:hover i {
+      transform: translateX(4px);
     }
     .potential-grid {
       display: flex;
@@ -1148,33 +1166,35 @@
     <!-- <h2 class="project-category-title">Loveland Project</h2> -->
     <div class="loveland-grid">
       <div class="loveland-card">
-        <img src="../image/abc.jpeg" alt="Loveland Project">
-        <div class="project-content">
-          <h1>Loveland Project</h1>
-          <p> Known volcanogenic massive sulfide (VMS) gold, copper and nickel exploration project located 45 kilometres by road, northwest from Timmins, Ontario, Canada, within the world-renowned Abitibi Greenstone Belt.</p>
-        </div>
-        <a href="loveland-project.html">Read More <i class="fas fa-angle-right"></i></a>
-      </div>
-
-      <div class="loveland-card">
         <img src="../image/SPGMI Map - 2025-10-3.png" alt="Tully">
         <div class="project-content">
-          <h1>Tully-High Grade Gold Exploration Project</h1>
-          <p> In spring 2025, Loyalist signed an LOI to acquire the Tully Gold Project subject to due diligence. Tully spans 458 hectares with one leased mining claim and 11 patented mining claims located approximately 25 kilometres north-northeast of Timmins.
-            
+          <h1>Tully – High-Grade Gold Exploration</h1>
+          <p>In spring 2025 Loyalist signed an LOI to acquire the Tully Gold Project during due diligence. The 458-hectare property includes one leased mining claim and 11 patented mining claims roughly 25 km north-northeast of Timmins.</p>
+          <div class="card-cta">
+            <a class="project-link" href="tully-project.html">Read More <i class="fas fa-angle-right"></i></a>
+          </div>
         </div>
-        <a href="tully-project.html">Read More <i class="fas fa-angle-right"></i></a>
+      </div>
+      <div class="loveland-card">
+        <img src="../image/abc.jpeg" alt="Loveland Project">
+        <div class="project-content">
+          <h1>Loveland Nickel-Copper Project</h1>
+          <p>A known volcanogenic massive sulfide (VMS) gold, copper and nickel system 45 km northwest of Timmins within the Abitibi Greenstone Belt, featuring historic drilling, surface showings and year-round road access.</p>
+          <div class="card-cta">
+            <a class="project-link" href="loveland-project.html">Read More <i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
       </div>
 
       <div class="loveland-card">
-        <img src="../image/def.jpeg" alt="Historic Work Highlights">
+        <img src="../image/def.jpeg" alt="Gold Rush Project">
         <div class="project-content">
-          <h1>Gold Rush Project</h1>
-          <p>Gold Rush is a known VMS exploration project for gold, copper, and nickel, located 30 km west of Timmins in the Abitibi Greenstone Belt. It hosts multiple high-grade gold zones identified through drilling and surface sampling.
-
-</p>
+          <h1>Gold Rush Multi-Metal Project</h1>
+          <p>Gold Rush spans 820 hectares west of Timmins and targets gold, copper and nickel VMS mineralization. Multiple high-grade zones have been defined through drilling, channel sampling and geophysics.</p>
+          <div class="card-cta">
+            <a class="project-link" href="gold-rush.html">Read More <i class="fas fa-angle-right"></i></a>
+          </div>
         </div>
-        <a href="gold-rush.html">Read More <i class="fas fa-angle-right"></i></a>
       </div>
 
     

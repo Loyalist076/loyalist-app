@@ -158,6 +158,14 @@
   }
 }
 
+.section-title {
+  background: #000;
+  color: #D4B248;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
 
 
 
@@ -487,23 +495,69 @@
   }
 }
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px 50px;
-      background: linear-gradient(135deg, #D4B248, #C59A2D);
-      color: #fff;
-    }
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  padding: 30px;
+}
 
-    .hero h1 {
-      font-size: 52px;
-      font-weight: bold;
-    }
+.project-image {
+  flex: 1 1 400px;
+  max-width: 100%;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-top: 10px;
-      opacity: 0.9;
-    }
+.project-image img {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.project-content {
+  flex: 2 1 500px;
+}
+
+.project-title {
+  font-size: 40px;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.project-description p {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .project-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-description p,
+  .project-description li {
+    font-size: 14px;
+  }
+}
 
     .news-grid {
       display: grid;
@@ -828,10 +882,8 @@
   </div>
 
 
-   <header class="hero">
-    <h1>Press Release</h1>
-    <!-- <p>Stay updated with our latest press release</p> -->
-  </header>
+  <div class="section-title">Press Releases</div>
+
 
   <section class="news-list" id="newsContainer">
     <!-- News will load here grouped by date -->
