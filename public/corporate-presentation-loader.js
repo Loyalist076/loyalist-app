@@ -32,6 +32,16 @@ async function loadCorporatePresentationLinks() {
   }
 }
 
+function resolveContactUrl() {
+  const navLink = document.querySelector('a[href$="contact.html"], a[href$="contact"]');
+  if (navLink) {
+    return navLink.getAttribute('href');
+  }
+
+  const isInPagesDir = window.location.pathname.includes('/page/');
+  return isInPagesDir ? 'contact.html' : 'page/contact.html';
+}
+
 function initGetInTouchRedirect() {
   const triggerButtons = document.querySelectorAll('#getInTouchBtn, .get-in-touch-btn');
 
@@ -39,7 +49,7 @@ function initGetInTouchRedirect() {
     return;
   }
 
-  const contactUrl = '/page/contact.html';
+  const contactUrl = resolveContactUrl();
 
   triggerButtons.forEach(btn => {
     btn.addEventListener('click', (event) => {

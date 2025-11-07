@@ -149,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
   const getInTouchButtons = document.querySelectorAll('#getInTouchBtn, .get-in-touch-btn');
   if (getInTouchButtons.length) {
-    const contactUrl = '/page/contact.html';
+    const navLink = document.querySelector('a[href$="contact.html"], a[href$="contact"]');
+    const contactUrl = navLink ? navLink.getAttribute('href') : (window.location.pathname.includes('/page/') ? 'contact.html' : 'page/contact.html');
     getInTouchButtons.forEach(btn => {
       btn.addEventListener('click', (event) => {
         event?.preventDefault();
