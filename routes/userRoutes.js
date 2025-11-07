@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
+const { authenticate, isAdmin } = require('../middleware/auth');
 
-// Get all users
-router.get('/users', async (req, res) => {
+// Get all users (admin only)
+router.get('/users', authenticate, isAdmin, async (req, res) => {
   try {
     const users = await User.find().select('-password'); // Exclude passwords
     res.json(users);
@@ -13,8 +14,8 @@ router.get('/users', async (req, res) => {
   }
 });
 
-// Create a new user
-router.post('/users', async (req, res) => {
+// Create a new user (admin only)
+router.post('/users', authenticate, isAdmin, async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
@@ -43,8 +44,8 @@ router.post('/users', async (req, res) => {
   }
 });
 
-// Update user
-router.put('/users/:id', async (req, res) => {
+// Update user (admin only)
+router.put('/users/:id', authenticate, isAdmin, async (req, res) => {
   try {
     const updated = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -55,8 +56,8 @@ router.put('/users/:id', async (req, res) => {
   }
 });
 
-// Delete user
-router.delete('/users/:id', async (req, res) => {
+// Delete user (admin only)
+router.delete('/users/:id', authenticate, isAdmin, async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
     res.json({ message: 'User deleted successfully' });

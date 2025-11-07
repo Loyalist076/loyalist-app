@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Loyalist Exploration – Timmins Mineral Experts</title>
+  <meta name="description" content="Get in touch with Loyalist Exploration Limited for feedback, partnership opportunities or supporting our mining projects." />
+  <title>Contact Loyalist Exploration | Timmins Mineral-Exploration</title>
   <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
     /* ... (your existing CSS stays the same) ... */
@@ -523,94 +524,110 @@
 
 
 
-    /* black */
-    .section-title {
-      background: #000;
-      color: #D4B248;
-      padding: 20px 50px;
-      font-size: 40px;
-      font-weight: bold;
+    .contact-header {
+      background: #D4B248;
+      color: black;
+      text-align: center;
+      padding: 60px 20px;
     }
 
-    /* Contact Section */
-    .contact-section {
-      max-width: 1200px;
-      margin: 40px auto;
-      background: #fff;
+    .contact-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-header p {
+      font-size: 1.1rem;
+    }
+
+    .contact-container {
       display: flex;
       flex-wrap: wrap;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+      padding: 40px 20px;
     }
 
-    .contact-image {
+    .contact-form,
+    .contact-info {
       flex: 1;
-      min-height: 300px;
-      background: url('./image/director.png') center/cover no-repeat;
-    }
-
-    .contact-form {
-      flex: 1;
-      padding: 40px 30px;
+      min-width: 300px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     .contact-form h2 {
+      font-size: 1.8rem;
       margin-bottom: 20px;
       color: #D4B248;
-      font-size: 26px;
     }
 
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      font-weight: bold;
     }
 
     .contact-form input,
     .contact-form textarea {
-      margin-bottom: 15px;
-      padding: 12px;
-      border: 1px solid #D4B248;
-      border-radius: 6px;
-      font-size: 16px;
-      resize: none;
-      outline: #D4B248;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
     .contact-form button {
-      background-color: #D4B248;
+      margin-top: 20px;
+      background: #D4B248;
       color: black;
-      padding: 12px;
       border: none;
-      font-size: 16px;
-      border-radius: 6px;
+      padding: 14px 25px;
+      font-size: 1rem;
+      border-radius: 4px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background .3s ease;
     }
 
     .contact-form button:hover {
-      background-color: black;
+      background: #D4B248;
+    }
+
+    .contact-info .info-block {
+      margin-bottom: 25px;
+    }
+
+    .contact-info .info-block h3 i {
+      font-size: 24px;
+      color: #D4B248;
+      margin-right: 10px;
+    }
+
+    .contact-info .info-block h3 {
+      margin-bottom: 8px;
       color: #D4B248;
     }
 
-    /* Toast Alert */
-    #toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #D4B248;
-      color: black;
-      padding: 12px 24px;
-      border-radius: 6px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      z-index: 999;
+    .contact-info .info-block a {
+      color: #D4B248;
+      text-decoration: none;
     }
 
-    #toast.show {
-      opacity: 1;
-      pointer-events: auto;
+    .map-placeholder iframe {
+      width: 100%;
+      height: 250px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
     }
 
     /* Footer */
@@ -776,112 +793,137 @@
   <header class="header">
     <div class="align-logo">
       <div class="logo">
-        <a href="index.html">
-          <img src="image/logo10.png" alt="Logo" /></a>
+        <a href="/">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
 
     <nav class="navbar" id="navbar">
       <ul>
-        
+
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">About Us</a>
           <ul class="dropdown">
             <li><a href="company.html">Company Profile</a></li>
-            <li><a href="directors.html">Our Team</a></li>
-            
+            <li><a href="our-team.html">Our Team</a></li>
+
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
           <ul class="dropdown">
-            <li><a href="loveland.html">Loveland Project</a></li>
-            <li><a href="tully.html">Tully Project</a></li>
-            <li><a href="gold.html">Gold Rush Project</a></li>
-       
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
           </ul>
-
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-            <li><a href="corporate.html">Corporate Structure</a></li>
-            <li><a href="statements.html">Financial Statements& MD&A</a></li>
-
-            <!-- <li><a href="#">Presentations</a></li> -->
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="news.html">Press Release</a>
-          <!-- <ul class="dropdown">
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="disclaimers.html">Disclaimer</a></li>
-          </ul> -->
+          <a href="press-release.html">Press Release</a>
+
         </li>
 
-        <li><a href="Contact.html"></a></li>
+
       </ul>
       <div class="header-buttons">
-        
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
       </div>
-    </nav>
   </header>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
+  <div id="contactModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
 
-      <div id="login-form" class="form">
-        <h2>Lets Get Connected</h2>
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
-        <button type="submit">Submit</button>
-      </div>
-
-      <div id="contact-form" class="form">
-        <h2>Get in Touch</h2>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Black title bar -->
-  <div class="section-title">Contact Us</div>
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="contact-image"></div>
-    <div class="contact-form">
-      <h2>Lets Get Connected</h2>
-      <form id="businessForm">
-        <input name="name" type="text" placeholder="Your Name" required />
-        <input name="email" type="email" placeholder="Your Email" required />
-        <input name="subject" type="text" placeholder="Subject" required />
-        <textarea name="message" placeholder="Type your message here..." required></textarea>
-        <button type="submit">Send</button>
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
       </form>
 
 
     </div>
+  </div>
+  </div>
+
+  <section class="contact-header">
+    <h1>Contact Us</h1>
+    <p>
+      Have questions? We're here to help. Reach out via the form or directly
+      using the details below.
+    </p>
   </section>
 
-  <!-- Toast Alert -->
-  <div id="toast"><strong>Message sent successfully!</strong></div>
+  <section class="contact-container">
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+      <form id="businessForm">
+        <label>Name*</label>
+        <input type="text" name="name" required />
+
+        <label>Email*</label>
+        <input type="email" name="email" required />
+
+        <label>Subject</label>
+        <input type="text" name="subject" />
+
+        <label>Message*</label>
+        <textarea name="message" rows="6" required></textarea>
+
+        <button type="submit"><strong>Send Message</strong></button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-block">
+        <h3><i class="fas fa-envelope icon"></i> Email Us</h3>
+        <p>For inquiries about projects or corporate info, email us at:</p>
+        <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
+      </div>
+      <div class="info-block">
+        <h3><i class="fa-solid fa-phone"></i> Call Us</h3>
+        <p>Reach our team during business hours:</p>
+        <a href="tel:+1-647-296-1270">+1-647-296-1270</a>
+      </div>
+      <div class="info-block">
+        <h3><i class="fas fa-map-marker-alt icon"></i> Visit Us</h3>
+        <p>Head Office:</p>
+        <p>
+          110 Yonge Street, Suite 1601<br/>Toronto, Ontario M5C1T4
+        </p>
+      </div>
+      <div class="map-placeholder">
+        <iframe src="https://maps.google.com/maps?q=110%20Yonge%20St,%20Toronto&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          aria-label="Company location map" allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="contact-column">
         <h4>Contact Information</h4>
-        <p><strong>Email:</strong><br /><a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a></p>
+        <p><strong>Email:</strong><br /><a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a></p>
         <p><strong>Phone:</strong><br /><a href="tel:+16472961270">+1 647‑296‑1270</a></p>
         <p><strong>Address:</strong><br> 110 Yonge Street,
           Suite 1601
@@ -890,11 +932,11 @@
       <div class="quick-links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="project.html">Projects</a></li>
-          <li><a href="investor.html">Investors</a></li>
-          <li><a href="news.html">Press Release</a></li>
-          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="corporate-structure.html">Investors</a></li>
+          <li><a href="press-release.html">Press Release</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="disclaimers.html">Disclaimer</a></li>
         </ul>
       </div>
@@ -1071,6 +1113,7 @@
   </script>
 
 
+<script src="../corporate-presentation-loader.js"></script>
 </body>
 
 </html>

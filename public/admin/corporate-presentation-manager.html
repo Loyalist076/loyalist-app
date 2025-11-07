@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Presentation Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      position: fixed;
+      height: 100vh;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      left: 0;
+      overflow-y: auto;
+    }
+
+    .sidebar.hidden {
+      left: -260px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding: 10px 0;
+    }
+
+    .logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 12px 16px;
+      color: #1f2937;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background: rgba(255, 255, 255, 0.3);
+      color: #111827;
+    }
+
+    .main {
+      margin-left: 240px;
+      flex: 1;
+      padding: 32px;
+      transition: margin-left 0.3s ease;
+      max-width: 100%;
+    }
+
+    .header {
+      height: 64px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      margin-bottom: 32px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .back-btn {
+      background-color: #6b7280;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background-color: #4b5563;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      margin-right: 16px;
+    }
+
+    .content-section {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #111827;
+      border-bottom: 2px solid #D4B248;
+      padding-bottom: 8px;
+    }
+
+    .info-box {
+      background: #fef3c7;
+      border-left: 4px solid #D4B248;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .info-box p {
+      color: #78350f;
+      line-height: 1.6;
+    }
+
+    .current-pdf-box {
+      background: #f3f4f6;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border: 2px solid #e5e7eb;
+    }
+
+    .current-pdf-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #374151;
+    }
+
+    .pdf-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .pdf-icon {
+      font-size: 48px;
+    }
+
+    .pdf-details {
+      flex: 1;
+    }
+
+    .pdf-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .pdf-path {
+      font-size: 14px;
+      color: #6b7280;
+      font-family: monospace;
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+
+    .pdf-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .view-btn {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .view-btn:hover {
+      background-color: #2563eb;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      border: 2px dashed #d1d5db;
+      border-radius: 8px;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    input[type="file"]:hover {
+      border-color: #D4B248;
+    }
+
+    .file-requirements {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .submit-btn {
+      background-color: #D4B248;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+      background-color: #bfa032;
+    }
+
+    .submit-btn:disabled {
+      background-color: #d1d5db;
+      cursor: not-allowed;
+    }
+
+    #loading {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .no-pdf-message {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        left: -260px;
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 16px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .content-section {
+        padding: 20px;
+      }
+
+      .pdf-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pdf-actions {
+        width: 100%;
+      }
+
+      .view-btn,
+      .submit-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <img src="../image/logo.png" alt="Logo" />
+      </div>
+      <nav>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="manage-users.html">Manage Users</a>
+        <a href="pdf-manager.html">Manage PDFs</a>
+        <a href="messages.html">Messages</a>
+        <a href="admin-news.html">News Manager</a>
+        <a href="manage-admins.html">Manage Admins</a>
+        <a href="subscribed-users.html">View Subscribers</a>
+        <a href="manage-events.html">Manage Events</a>
+        <a href="post-financial-statements.html">Post Financial Statements</a>
+        <a href="annual-meeting-documents.html">Annual Meeting Docs</a>
+        <a href="post-corporate.html">Post Corporate Structure</a>
+        <a href="corporate-presentation-manager.html" class="active">Corporate Presentation</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <div class="header">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="title">Corporate Presentation Manager</div>
+        <a href="admin-dashboard.html" class="back-btn">Back to Dashboard</a>
+      </div>
+
+      <div class="content-section">
+        <div class="section-title">Current Corporate Presentation</div>
+
+        <div class="info-box">
+          <p><strong>Note:</strong> This PDF will be displayed in the "Investors" dropdown menu and investor sub-navigation across all pages of the website. Make sure to upload a professional, up-to-date corporate presentation.</p>
+        </div>
+
+        <div id="currentPdfContainer">
+          <div class="current-pdf-box" id="currentPdfBox" style="display: none;">
+            <div class="current-pdf-title">📄 Current File</div>
+            <div class="pdf-info">
+              <div class="pdf-icon">📊</div>
+              <div class="pdf-details">
+                <div class="pdf-name" id="pdfName">loyalist.pdf</div>
+                <div class="pdf-path" id="pdfPath">/image/loyalist.pdf</div>
+              </div>
+            </div>
+            <div class="pdf-actions">
+              <a id="viewPdfBtn" href="../image/loyalist.pdf" target="_blank" class="view-btn">👁️ View Current PDF</a>
+            </div>
+          </div>
+          <div class="no-pdf-message" id="noPdfMessage" style="display: none;">
+            No corporate presentation uploaded yet.
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="section-title">Upload New Corporate Presentation</div>
+
+        <form id="uploadForm">
+          <div class="form-group">
+            <label for="pdfFile">Select PDF File</label>
+            <input
+              type="file"
+              id="pdfFile"
+              name="pdf"
+              accept="application/pdf"
+              required
+            />
+            <div class="file-requirements">
+              📋 Requirements: PDF format only, maximum file size 10MB
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            📤 Upload Corporate Presentation
+          </button>
+
+          <div id="loading"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Check if current PDF exists using API
+    async function checkCurrentPdf() {
+      try {
+        const response = await fetch('/api/corporate-presentation/check');
+        const data = await response.json();
+
+        if (data.exists) {
+          // Show PDF information
+          document.getElementById('currentPdfBox').style.display = 'block';
+          document.getElementById('noPdfMessage').style.display = 'none';
+
+          // Update PDF details
+          document.getElementById('pdfName').textContent = data.filename;
+          document.getElementById('pdfPath').textContent = data.path;
+          document.getElementById('viewPdfBtn').href = data.path;
+
+          // Add file size and last modified info if available
+          if (data.size) {
+            const sizeInMB = (data.size / (1024 * 1024)).toFixed(2);
+            const sizeInfo = document.createElement('div');
+            sizeInfo.style.fontSize = '14px';
+            sizeInfo.style.color = '#6b7280';
+            sizeInfo.style.marginTop = '4px';
+            sizeInfo.textContent = `File size: ${sizeInMB} MB`;
+
+            const pdfDetails = document.getElementById('pdfPath').parentElement;
+            if (!pdfDetails.querySelector('.size-info')) {
+              sizeInfo.classList.add('size-info');
+              pdfDetails.appendChild(sizeInfo);
+            }
+          }
+
+          if (data.modified) {
+            const modifiedDate = new Date(data.modified).toLocaleString();
+            const modifiedInfo = document.createElement('div');
+            modifiedInfo.style.fontSize = '14px';
+            modifiedInfo.style.color = '#6b7280';
+            modifiedInfo.style.marginTop = '4px';
+            modifiedInfo.textContent = `Last updated: ${modifiedDate}`;
+
+            const pdfDetails = document.getElementById('pdfPath').parentElement;
+            if (!pdfDetails.querySelector('.modified-info')) {
+              modifiedInfo.classList.add('modified-info');
+              pdfDetails.appendChild(modifiedInfo);
+            }
+          }
+        } else {
+          document.getElementById('currentPdfBox').style.display = 'none';
+          document.getElementById('noPdfMessage').style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Error checking PDF:', error);
+        document.getElementById('currentPdfBox').style.display = 'none';
+        document.getElementById('noPdfMessage').style.display = 'block';
+      }
+    }
+
+    // Handle form submission
+    const form = document.getElementById('uploadForm');
+    const loading = document.getElementById('loading');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('pdfFile');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert('❌ Please select a PDF file.');
+        return;
+      }
+
+      // Validate file type
+      if (file.type !== 'application/pdf') {
+        alert('❌ Please select a valid PDF file.');
+        return;
+      }
+
+      // Validate file size (10MB max)
+      if (file.size > 10 * 1024 * 1024) {
+        alert('❌ File size must be less than 10MB.');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('pdf', file);
+
+      // Get authentication token
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('❌ Authentication required. Please log in again.');
+        window.location.href = '../login.html';
+        return;
+      }
+
+      loading.textContent = '📤 Uploading corporate presentation...';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch('/api/corporate-presentation/upload', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('✅ Corporate presentation uploaded successfully!');
+          form.reset();
+          checkCurrentPdf();
+
+          // Reload the page after a short delay to show the new PDF
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        } else {
+          // Handle authentication errors
+          if (response.status === 401) {
+            alert('❌ Authentication failed. Please log in again.');
+            localStorage.removeItem('token');
+            window.location.href = '../login.html';
+          } else if (response.status === 403) {
+            alert('❌ Access denied. Admin privileges required.');
+          } else {
+            alert('❌ Upload failed: ' + (result.error || result.message || 'Something went wrong.'));
+          }
+        }
+      } catch (err) {
+        alert('❌ Network error: ' + err.message);
+        console.error(err);
+      } finally {
+        loading.textContent = '';
+        submitBtn.disabled = false;
+      }
+    });
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
+    }
+
+    // Auto-close sidebar on outside click
+    document.addEventListener('click', function (event) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.querySelector('.menu-toggle');
+      if (
+        !sidebar.contains(event.target) &&
+        !toggleBtn.contains(event.target) &&
+        sidebar.classList.contains('active')
+      ) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+    // Check authentication on page load
+    function checkAuthentication() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('❌ Please log in to access this page.');
+        window.location.href = '../login.html';
+        return false;
+      }
+      return true;
+    }
+
+    // Initialize page
+    if (checkAuthentication()) {
+      checkCurrentPdf();
+    }
+  </script>
+</body>
+
+</html>

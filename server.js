@@ -4,9 +4,34 @@ const path = require('path');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const socketIo = require('socket.io');
+const helmet = require('helmet');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 
 // Load environment variables
 dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = [
+  'MONGODB_URI',
+  'JWT_SECRET',
+  'CLOUDINARY_CLOUD_NAME',
+  'CLOUDINARY_API_KEY',
+  'CLOUDINARY_API_SECRET',
+  'MAILCHIMP_API_KEY',
+  'MAILCHIMP_SERVER_PREFIX',
+  'MAILCHIMP_AUDIENCE_ID',
+  'SENDGRID_API_KEY',
+  'GMAIL_USER',
+  'GMAIL_APP_PASSWORD',
+  'BASE_URL'
+];
+
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+if (missingEnvVars.length > 0) {
+  console.error('❌ Missing required environment variables:', missingEnvVars.join(', '));
+  process.exit(1);
+}
 
 // Initialize Express and HTTP server
 const app = express();
@@ -17,13 +42,45 @@ const io = socketIo(server); // Attach socket.io
 const User = require('./models/User');
 const Message = require('./models/Message');
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Security Middleware
+app.use(helmet({
+  contentSecurityPolicy: false, // Disable for now to allow inline scripts
+  crossOriginEmbedderPolicy: false
+}));
+
+// CORS Configuration
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : '*',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+// Rate Limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 1000, // Limit each IP to 1000 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false
+});
+app.use('/api/', limiter);
+
+// Stricter rate limit for auth endpoints
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 1000, // 10 requests per 15 minutes
+  message: 'Too many authentication attempts, please try again later.'
+});
+
+// Body Parser Middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+// Serve annual meeting documents from root uploads directory
+app.use('/uploads/annual-meeting-documents', express.static(path.join(__dirname, 'uploads/annual-meeting-documents')));
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
@@ -39,8 +96,11 @@ const companyStructureRoutes = require('./routes/companyStructure'); // ✅ New 
 
 const testRoutes = require('./routes/testRoutes');
 const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
+const annualMeetingRoutes = require('./routes/annualMeetingRoutes');
+const corporatePresentationRoutes = require('./routes/corporatePresentationRoutes');
 
-app.use('/api', authRoutes);
+// Apply auth rate limiter to auth routes
+app.use('/api', authLimiter, authRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api', userRoutes);
 app.use('/api/news', newsRoutes);
@@ -50,7 +110,8 @@ app.use('/api/test', testRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes);
 app.use('/api/financials', financialRoutes);
 app.use('/api/company-structure', companyStructureRoutes); // ✅ Unified Capital & Ownership
-app.use('/uploads', express.static('public/uploads'));
+app.use('/api/annual-meeting-documents', annualMeetingRoutes); // ✅ Annual Meeting Documents
+app.use('/api/corporate-presentation', corporatePresentationRoutes); // ✅ Corporate Presentation Management
 
 
 // ✅ Mount only this to handle subscriptions via Mailchimp
@@ -60,13 +121,11 @@ app.use('/api/subscribe', subscriptionRoutes);
 // app.use('/api/subscribe', subscriberRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log('✅ Connected to MongoDB');
 }).catch((err) => {
   console.error('❌ MongoDB connection error:', err);
+  process.exit(1);
 });
 
 // Socket.IO: Admin dashboard stats

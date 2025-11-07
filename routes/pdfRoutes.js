@@ -1,11 +1,12 @@
 const express = require('express');
-const multer = require('multer');
 const fs = require('fs');
 const axios = require('axios');
 const Pdf = require('../models/Pdf');
 const Subscription = require('../models/Subscription');
 const sgMail = require('@sendgrid/mail');
 const cloudinary = require('cloudinary').v2;
+const { authenticate, isAdmin } = require('../middleware/auth');
+const { tempUpload } = require('../middleware/upload');
 const router = express.Router();
 
 // ✅ Environment Base URL for production
@@ -20,9 +21,6 @@ cloudinary.config({
 
 // ✅ SendGrid configuration
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-// 📂 Multer temporary upload setup
-const upload = multer({ dest: 'uploads/' });
 
 // 📧 Newsletter sender function
 const sendNewsletterToAll = async (title, pdfViewUrl) => {
@@ -55,8 +53,8 @@ const sendNewsletterToAll = async (title, pdfViewUrl) => {
   }
 };
 
-// 📤 Upload PDF to Cloudinary and notify subscribers
-router.post('/upload', upload.single('pdf'), async (req, res) => {
+// 📤 Upload PDF to Cloudinary and notify subscribers (admin only)
+router.post('/upload', authenticate, isAdmin, tempUpload.single('pdf'), async (req, res) => {
   try {
     const { title, date } = req.body;
     if (!req.file || !title) {
@@ -127,8 +125,11 @@ router.get('/view/:id', async (req, res) => {
       responseType: 'stream',
     });
 
+    // Sanitize filename to remove invalid characters
+    const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `inline; filename="${pdf.title}.pdf"`);
+    res.setHeader('Content-Disposition', `inline; filename="${sanitizedTitle}.pdf"`);
 
     pdfResponse.data.pipe(res);
   } catch (err) {
@@ -149,8 +150,11 @@ router.get('/download/:id', async (req, res) => {
       responseType: 'stream',
     });
 
+    // Sanitize filename to remove invalid characters
+    const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="${pdf.title}.pdf"`);
+    res.setHeader('Content-Disposition', `attachment; filename="${sanitizedTitle}.pdf"`);
 
     pdfResponse.data.pipe(res);
   } catch (err) {
@@ -159,8 +163,8 @@ router.get('/download/:id', async (req, res) => {
   }
 });
 
-// 🗑 Delete PDF
-router.delete('/:id', async (req, res) => {
+// 🗑 Delete PDF (admin only)
+router.delete('/:id', authenticate, isAdmin, async (req, res) => {
   try {
     const pdf = await Pdf.findById(req.params.id);
     if (!pdf) return res.status(404).json({ error: 'PDF not found' });

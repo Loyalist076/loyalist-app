@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TULLY Gold Exploration | Loyalist Exploration Project</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <meta name="description" content="Loyalist Exploration's acquisition of the Tully Gold Project near Timmins opens a new frontier in mineral exploration in a historic gold-camp" />
+    <title>Tully High-Grade Gold Project – Loyalist Exploration</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
     <style>
         *{
       box-sizing: border-box;
@@ -159,7 +160,13 @@
     display: block;
   }
 }
-
+ .section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
+    }
 
 
 
@@ -488,13 +495,15 @@
 }
 
     .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
       gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      padding: 30px;
     }
 
     .project-image {
@@ -504,7 +513,9 @@
 
     .project-image img {
       width: 100%;
-      height:800px;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -545,6 +556,15 @@
 
       .project-description p {
         font-size: 14px;
+      }
+
+      .project-description table {
+        font-size: 11px;
+      }
+
+      .project-description th,
+      .project-description td {
+        padding: 6px !important;
       }
     }
 /* footer */
@@ -743,110 +763,182 @@
 </head>
 <body>
 <header class="header">
-      <div class="align-logo">
-        <div class="logo">
-            <a href="index.html">
-          <img src="image/logo10.png" alt="Logo" /></a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <div class="align-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
-
-      <nav class="navbar" id="navbar">
-        <ul>
-          <li><a href="#"></a></li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">About Us</a>
-            <ul class="dropdown">
-              <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Directors</a></li>
-          
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Projects</a>
-            <ul class="dropdown">
-              <li><a href="loveland.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-               <li><a href="gold.html">Gold Rush Project</a></li>
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Investors</a>
-            <ul class="dropdown">
-                  <li><a href="corporate.html">Corporate Structure</a></li>
-                 <li><a href="statements.html">Financial Statements & MD&A</a></li>
-
-              <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
-               <li><a href="news.html">Press Release</a></li>
-              <li><a href="disclaimers.html">Disclaimer</a></li>
-              <li><a href="#">Releases</a></li>
-            </ul> -->
-          </li>
-
-          
-        </ul>
-     
-      </nav>
-    </header>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-
-        <div id="login-form" class="form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Submit</button>
-        </div>
-
-        <div id="contact-form" class="form">
-          <h2>Get in Touch</h2>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </div>
-      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
-    <div class="container">
+
+    <nav class="navbar" id="navbar">
+      <ul>
+
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
+
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="press-release.html">Press Release</a>
+
+        </li>
+
+
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
+      </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
+
+
+    </div>
+  </div>
+    <!-- Black title bar -->
+  <div class="section-title">Tully Project</div>
+
+ <div class="container">
   <div class="project-image">
-    <img src="image/SPGMI Map - 2025-10-3.png" alt="TULLY Project">
+    <img src="../image/SPGMI Map - 2025-10-3.png" alt="TULLY Project">
   </div>
   
   <div class="project-content">
-    <h1 class="project-title">TULLY – High grade gold exploration</h1>
+    <h1 class="project-title">TULLY – High grade gold development</h1>
     <div class="project-description">
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>Defining production permitting schedule and cost</li>
+        <li>Planning 43-101 technical report with resource update and preliminary economic assessment</li>
+        <li>Planning 2026 exploration program</li>
+      </ul>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Tully Property Highlights:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>458 hectare mining lease</li>
+        <li>25 km northeast of Timmins</li>
+        <li><strong>Historical resource estimate of:</strong>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>Indicated: 358,000 tonnes grading 6.56 g/t gold for 76,000 ounces</li>
+            <li>Inferred: 184,000 tonnes 5.17 g/t gold for 31,000 ounces</li>
+            <li>Total: 107,000 ounces (uncapped 144,000 ounces)</li>
+          </ul>
+        </li>
+        <li>Potential for expansion</li>
+      </ul>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Historic Mineral Resource Estimate</h3>
+      <p style="font-size: 14px; margin-bottom: 10px;"><em>December 15, 2013 by Francis Minerals Ltd</em></p>
+
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+        <thead>
+          <tr style="background-color: #D4B248; color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Model</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Classification</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Tonnes (*1000)</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Grade (Au g/t)</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Grams Au (*1000)</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Ounces Au</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Capped</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Indicated</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">358</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">6.56</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">2,350</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">76,000</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Capped</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Inferred</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">184</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">5.17</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1,000</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">31,000</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Uncapped</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Indicated</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">362</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">8.70</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">3,150</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">101,000</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Uncapped</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Inferred</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">186</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">7.17</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1,337</td>
+            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">43,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">The Tully Project Overview</h3>
+      <h4 style="margin-top: 15px; margin-bottom: 10px;">The Tully Deposit</h4>
       <p>
-        In spring 2025, Loyalist signed an LOI to acquire the Tully Gold Project subject to due diligence. Tully spans 458 hectares with one leased mining claim and 11 patented mining claims located approximately 25 kilometres north-northeast of Timmins, within the Timmins-Porcupine Gold Camp and approximately two kilometres southwest of the Bradshaw Gold Project (Gowest Gold Ltd).
+        Tully is located approximately 25 kms northeast of Timmins and includes an historic indicated and inferred Mineral Resource Estimate (not published). The Project is located within the Timmins-Porcupine Gold Camp and is approximately 2 km southwest of the Bradshaw Gold Project of Gowest Gold Ltd. The Timmins-Porcupine Gold Camp, includes the Dome and Hollinger mines.
       </p>
       <p>
-        Hosting a historical, uncapped gold resource of 144,000 ounces at 2.5 grams per tonne gold cutoff, Tully has demonstrated high-grade gold mineralization from surface to depth. Notable intercepts include 14.1 metres grading 20.1 grams per tonne gold, including 452.0 grams per tonne over 0.5 metres.
+        Prospective structures splay off the Porcupine-Destor Fault through the Tully area. Mineralisation at Tully occurs within a 30 m wide mafic volcanic unit with an approximate west-southwest strike and steep northerly dip. The hanging wall consists of sedimentary rocks and the footwall consists of ultramafic rocks. As currently understood, the deposit comprises an array of shallowly inclined quartz-carbonate veins or lenses stacked 'ladder-style' within the volcanic rocks and constrained by its hanging wall and footwall contacts. The higher-grade core of the deposit extends over 600 m along strike and 400 m down dip, and plunges moderately toward the east-northeast. The mineralised veins/lenses host gold primarily within irregular pyrite clusters and also commonly as free visible gold.
       </p>
       <p>
-        Step out drilling in 2013 confirmed eastern extension and depth continuity, with grades of up to 36.7 grams per tonne gold over 6.3 metres. The shallow, near-surface nature of the deposit, coupled with a historic 43-101 report outlining the geological potential of up to 1 million ounces to a depth of 650 metres, positions Tully as a high-impact exploration and development in the heart of the Abitibi greenstone belt with close proximity to Timmins.
+        The Tully property occurs within a swampy area and is covered by blanket of glacial drift, averaging 30 m thickness which hid the deposit from early explorers; thus, the geology is entirely derived from drillhole and geophysical data. Exploration by a number of companies over several decades has resulted in the drilling of many holes - the historical resource estimate utilised data from an extensive database of 356 holes totalling 91,623 m, with 718 vein intercepts being interpreted and incorporated into the lens wireframes.
       </p>
-      <p>
-        Tully is located in the southwestern part of Tully Township, approximately 30 kilometres north-northeast of the City of Timmins, Ontario. Access is easily gained via Highway 655 and an all-weather gravel road that turns east off Highway 655, 11.5 kilometres north of the Kidd Creek Mine access road.
+      <p style="font-style: italic; color: #666; font-size: 14px; margin-top: 15px;">
+        A qualified person has not done sufficient work to classify the historical estimate as current mineral resources or mineral reserves. Loyalist is not treating the historical estimate as current mineral resources or mineral reserves.
       </p>
-      <p>
-        This road extends approximately 11 kilometres and terminates near the boundary between Prosser and Tully Townships, from which a 3-kilometre drill road leads south to the property. All-weather road access could be achieved by extending the gravel road network by approximately 3 kilometres.
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px;">Statement Regarding Historical Mineral Resource Estimates</h4>
+      <p style="font-size: 14px; color: #666;">
+        The Tully deposit historical Mineral Resource Estimate ("MRE") is unclassified and does not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The MRE was taken from a report titled "Tully Deposit Mineral Resource Estimate" authored by Francis Minerals Ltd. and dated December 15, 2014. Investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The MRE is being included herein to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical MRE as current mineral resources and the Company is not treating this historical MRE as a current estimate. It is uncertain whether following evaluation and/or further exploration, the historical MRE will ever be able to be reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring the MRE up to the CIM reporting standards.
       </p>
-      <p>
-        The property also benefits from direct access to the Bradshaw Gold Mine. Power is available from a nearby transmission line to the west, and the Buskegau River, located immediately east of the Property, offers a reliable source of process water. The City of Timmins provides commercial, social, and mining-related services, including skilled labour.
-      </p>
-      <p>
-        Loyalist Exploration has entered into a binding LOI with Fulcrum Metals to acquire the Tully Gold Project. More details on the LOI can be found here. <em><a href="image/PNGC-PR-Tully-4-9-2025-FINAL.pdf"  style="color:#D4B248;"   > <strong>Link to press release from April 9th, 2025.</a></strong></em>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px;">Qualified Person</h4>
+      <p style="font-size: 14px;">
+        Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of this page.
       </p>
     </div>
   </div>
@@ -859,7 +951,7 @@
           <h4>Contact Information</h4>
           <p>
             <strong>Email:</strong><br/>
-            <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
+            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
           </p>
           <p>
             <strong>Phone:</strong><br/>
@@ -873,11 +965,11 @@
         <div class="quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="corporate-structure.html">Investors</a></li>
+            <li><a href="press-release.html">Press Release</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="disclaimers.html">Disclaimer</a></li>
           </ul>
         </div>
@@ -949,5 +1041,6 @@ function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
 </script>
+<script src="../corporate-presentation-loader.js"></script>
 </body>
 </html>

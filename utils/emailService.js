@@ -5,12 +5,12 @@ const path = require('path');
 
 // ======= SMTP CONFIGURATION =======
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com', 
-  port: 587,              
-  secure: false,        
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
-    user: 'LoyalistExploration@gmail.com', 
-    pass: 'dqvypwviyhexvjeh'        
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD
   }
 });
 
@@ -50,10 +50,10 @@ async function sendWelcomeEmail(toEmail) {
 
     // Setup mail options
     const mailOptions = {
-      from: '"Loyalist Exploration" <LoyalistExploration@gmail.com>', 
-      to: toEmail,                                                    
-      subject: 'Welcome to Loyalist Exploration!',                   
-      html: htmlContent                                              
+      from: `"Loyalist Exploration" <${process.env.GMAIL_USER}>`,
+      to: toEmail,
+      subject: 'Welcome to Loyalist Exploration!',
+      html: htmlContent
     };
 
     // Send email

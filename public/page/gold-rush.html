@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loveland Project | Gold, Copper & Nickel Exploration</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <meta name="description" content="Loyalist Exploration advances the Gold Rush property west of Timmins—41 claims, strong gold & silver assays, full-ownership option." />
+    <title>Loyalist Exploration | Leading the Modern Gold Rush</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
     <style>
         *{
       box-sizing: border-box;
@@ -363,7 +364,7 @@
 }
 .icon {
   font-size: 28px;
-  color:#D4B248; /* Gold/Yellow */
+  color: #D4B248; /* Gold/Yellow */
   margin-bottom: 10px;
 }
 
@@ -486,20 +487,13 @@
     margin-top: 10px;
   }
 }
-
-    /* black */
-    .section-title {
-      background: #000;
-      color: #D4B248;
-      padding: 20px 50px;
-      font-size: 40px;
-      font-weight: bold;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  .section-title {
+  background: #000;
+  color: #D4B248;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: bold;
+}
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -525,8 +519,9 @@
 
     .project-image img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
       border-radius: 10px;
     }
 
@@ -538,7 +533,7 @@
     }
 
     .project-title {
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 700;
       color: #2d2d2d;
       margin-bottom: 10px;
@@ -573,13 +568,6 @@
         font-size: 15px;
       }
     }
-    .section-title {
-  background: #000;
-  color: #D4B248;
-  padding: 20px 50px;
-  font-size: 40px;
-  font-weight: bold;
-}
 /* footer */
 
 .site-footer {
@@ -776,200 +764,114 @@
 </head>
 <body>
 <header class="header">
-      <div class="align-logo">
-        <div class="logo">
-            <a href="index.html">
-          <img src="image/logo10.png" alt="Logo" /></a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <div class="align-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
-
-      <nav class="navbar" id="navbar">
-        <ul>
-          
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">About Us</a>
-            <ul class="dropdown">
-              <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Our Team</a></li>
-              
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Projects</a>
-            <ul class="dropdown">
-             <li><a href="loveland.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-               <li><a href="gold.html">Gold Rush Project</a></li>
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Investors</a>
-            <ul class="dropdown">
-              <li><a href="corporate.html">Corporate Structure</a></li>
-              <li><a href="statements.html">Financial Statements & MD&A</a></li>
-
-              <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
-               <li><a href="news.html">Press Release</a></li>
-              <li><a href="disclaimers.html">Disclaimer</a></li> -->
-              <!-- <li><a href="#">Releases</a></li> -->
-            <!-- </ul> -->
-          </li>
-
-        </ul>
-    
-      </nav>
-    </header>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-
-        <div id="login-form" class="form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Submit</button>
-        </div>
-
-        <div id="contact-form" class="form">
-          <h2>Get in Touch</h2>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-    <!-- Black title bar -->
-  <div class="section-title">Loveland Project</div>
-
- <div class="container">
-    <div class="project-image">
-      <img src="image/abc.jpeg" alt="Loveland Project">
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
 
-    <div class="project-content">
-      <h1 class="project-title">LOVELAND – High grade gold, copper, and nickel exploration</h1>
-      <p class="project-subtitle">Overview</p>
-      <div class="project-description">
-        <p>
-          The Loveland Property is a high-potential gold, copper and nickel exploration project located about 35 kilometres northwest of Timmins, Ontario and 25 kilometres due west of the Kidd Creek Mine, within the world-renowned Abitibi Greenstone Belt.
-        </p>
-        <p>
-          The property covers 6,244 hectares (62 square kilometres, 24 square miles) across 292 mining claims and is surrounded by past-producing and active mining operations, making it a compelling asset in the well-established mineral district of Timmins.
-        </p>
-        <p>
-          The property’s close proximity to Timmins allows Loyalist to benefit from the many exploration service providers the city offers, and there is no need for a camp on site. The property is an hour drive from Timmins via Highway 101, providing reliable seasonal access, with additional access via trails.
-        </p>
+    <nav class="navbar" id="navbar">
+      <ul>
+
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
+
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="press-release.html">Press Release</a>
+
+        </li>
+
+
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
       </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
+
+
     </div>
   </div>
- <div class="container">
-    <div class="project-image">
-      <img src="image/Geology.png" alt="Geological Setting">
-    </div>
-
-    <div class="project-content">
-      <h1 class="project-title">Geological Setting</h1>
-      <p class="project-subtitle">Overview</p>
-      <div class="project-description">
-        <p>
-          The Loveland property is underlain by volcanic rocks of the Kidd-Munro Assemblage, intruded by gabbroic and ultramafic bodies with limited surface exposure. Geology is interpreted from outcrop, drilling and geophysical surveys, highlighting a favourable setting for both magmatic nickel-copper and lode gold systems.
-        </p>
-        <p>
-          Nickel and copper mineralization occurs as semi-massive to massive sulfides—primarily pyrrhotite, chalcopyrite, and pentlandite—within gabbroic intrusions and along volcanic contacts. Two historical zones, the Hollinger Zone (422,350 tonnes at 0.71% Ni and 0.42% Cu) and Cominco Zone (130,000 tonnes at 0.73% Ni and 0.68% Cu), remain open for expansion.
-</p>
-
-        <p>
-         Gold mineralization was also intersected beneath the Cominco Zone in altered granodiorite, with notable intercepts including 10.39 grams per tonne gold over 3.1 metres and surface samples returning up to 11.48 grams per tonne gold. These results support Loveland’s potential as a dual-target property for both critical and precious metals.
-</p>
-
-        </p>
-      </div>
-    </div>
+       <!-- Black title bar -->
+  <div class="section-title">Gold Rush</div>
+     <div class="container">
+  <div class="project-image">
+    <img src="../image/def.jpeg" alt="Gold Rush Project">
   </div>
 
- <div class="container">
-    <div class="project-image">
-      <img src="image/loveland.png" alt="Historic">
-    </div>
+  <div class="project-content">
+    <h1 class="project-title">GOLD RUSH – Potential extension of known gold trend</h1>
+    <div class="project-description">
 
-    <div class="project-content">
-      <h1 class="project-title">Historic Work & Drill Highlights</h1>
-      <p class="project-subtitle">Overview</p>
-      <div class="project-description">
-        <p>
-           Both the Hollinger and Cominco zones have seen multiple campaigns of drilling since the 1970s, with strong nickel-copper sulfide intercepts including:
-        </p>
-          <ul>
-        <li>45.0 metres of 0.70% nickel and 0.75% copper (Hole AMDG07-3)</li>
-        <li>22.8 metres of 0.53% nickel and 0.88% copper, including 2.7 metres of 1.0% nickel and 1.92% copper (Hole LL08-05)</li>
-        <li>35.5 metres of 0.4% nickel and 0.55% copper (AMDG07-1)</li>
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>Planning 2026 exploration program</li>
       </ul>
-        <p>
-           In addition to base metals, several gold-rich intervals have been recorded:
-        </p>
-          <ul>
-        <li>6.37 grams per tonne gold over 8.55 metres in drill core at a drill core depth of 383.25 metres (Hole LL08-13)</li>
-        <li>6.17 grams per tonne gold over 3.0 metres in drill core at a drill core depth of 403.0 metres</li>
-        <li>10.39 grams per tonne gold over 3.1 metres from 410.3 metres to 413.4 metres</li>
-      </ul>
-        <p>
-         Surface grab samples returned assays of 8.98 grams per tonne gold and 11.48 grams per tonne gold.</p>
-          <p>
-        We estimate that approximately C$10,000,000 has been spent on drilling historically.
-        This encouraging mineralization underscores the polymetallic nature of the system and supports the potential for both bulk-tonnage and high-grade targets.
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Overview</h3>
+      <p>
+        The Gold Rush Property is located approximately 30 kilometres west of Timmins and consists of 41 claims totaling 820 hectares. Historical work has identified multiple target areas, including the North Shaft Zone, North Vein Area, and Mid-Point Area.
       </p>
-      </div>
+      <p>
+        A total of <strong>15 drill holes</strong> have been completed on the property, with the best reported intercept returning <strong>2.08 grams per tonne gold and 11.5 grams per tonne silver over 1 metre</strong>.
+      </p>
+      <p>
+        High-grade gold has also been encountered in surface grab samples, including values up to <strong>27.3 grams per tonne gold</strong> from the North Shaft Zone and <strong>11.2 grams per tonne gold</strong> from the North Vein Area, where seven samples exceeded 1 gram per tonne gold.
+      </p>
+      <p>
+        Loyalist Exploration has an option to acquire a 100% interest in the Gold Rush property.
+      </p>
+
+      <h4 style="margin-top: 25px; margin-bottom: 10px; color: #D4B248;">Qualified Person</h4>
+      <p style="font-size: 14px;">
+        Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of the page.
+      </p>
     </div>
   </div>
-
- <div class="container">
-    <div class="project-image">
-      <img src="image/STLLR_X_LE_resized (1).png" alt="Historic Work Highlights">
-    </div>
-
-    <div class="project-content">
-      <h1 class="project-title">Acquisition & Strategic Vision</h1>
-      <p class="project-subtitle">Overview</p>
-      <div class="project-description">
-        <p>
-           Loyalist Exploration acquired a 100% interest in the Loveland Property from STLLR Gold in 2025 through a transaction consisting of C$250,000 cash, 10 million Loyalist shares, and a 2% NSR, with a 1% buyback option for C$1,000,000.
-           
-        </p>
-        <p>
-         The Company plans to advance Loveland through holistic interpretation of historical data, modern geophysical surveys and geochemical targeting techniques, and drilling to further define the mineralized zones and test for extensions and new discoveries.
-        </p>
-        <p>
-          With increasing global demand for nickel and copper in battery and electrification markets, as well as a rising gold value environment, Loveland represents a cornerstone asset in Loyalist’s exploration portfolio.
-        </p>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
     <!-- footer -->
  <footer class="site-footer">
@@ -978,25 +880,25 @@
           <h4>Contact Information</h4>
           <p>
             <strong>Email:</strong><br/>
-            <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
-          </p><br/>
+            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
+          </p>
           <p>
             <strong>Phone:</strong><br/>
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p><br/>
+          </p>
           <p>
-            <strong>Address:</strong><br /> 110 Yonge Street,
+            <strong>Address:</strong><br />110 Yonge Street,
           Suite 1601
           <br/> Toronto, Ontario M5C1T4</p>
-        </div><br/>
+        </div>
         <div class="quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="corporate-structure.html">Investors</a></li>
+            <li><a href="press-release.html">Press Release</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="disclaimers.html">Disclaimer</a></li>
           </ul>
         </div>
@@ -1006,10 +908,10 @@
             <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+                      <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
-          </div><br>
-          <div class="subscribe-box">
+          </div>
+             <div class="subscribe-box">
   <h4>Subscribe to Our Newsletter</h4>
   <form class="subscribe-form" onsubmit="handleSubscribe(event)">
     <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
@@ -1020,6 +922,10 @@
       </div>
     </div>
   </div><br/>
+          
+          
+
+    
        <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
       </div> 
@@ -1064,5 +970,6 @@ function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
 </script>
+<script src="../corporate-presentation-loader.js"></script>
 </body>
 </html>

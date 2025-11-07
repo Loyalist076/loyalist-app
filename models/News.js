@@ -13,11 +13,12 @@ const newsSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
     default: '' // Optional field for separate featured image if needed
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
   }
+}, {
+  timestamps: true // Adds createdAt and updatedAt automatically
 });
+
+// Index for sorting by creation date (descending)
+newsSchema.index({ createdAt: -1 });
 
 module.exports = mongoose.model('News', newsSchema);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Message = require('../models/Message');
+const { authenticate, isAdmin } = require('../middleware/auth');
 
 // 📩 Handler for saving contact form messages
 async function handleContactForm(req, res, source) {
@@ -39,8 +40,8 @@ router.post('/contact/index', (req, res) => handleContactForm(req, res, 'index')
 router.post('/contact/page', (req, res) => handleContactForm(req, res, 'contact'));
 router.post('/contact/business', (req, res) => handleContactForm(req, res, 'business'));
 
-// ✅ GET route to fetch all messages
-router.get('/', async (req, res) => {
+// ✅ GET route to fetch all messages (admin only)
+router.get('/', authenticate, isAdmin, async (req, res) => {
   try {
     const messages = await Message.find().sort({ createdAt: -1 });
     res.status(200).json(messages);
@@ -50,8 +51,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 🗑️ DELETE route to delete a message by ID
-router.delete('/:id', async (req, res) => {
+// 🗑️ DELETE route to delete a message by ID (admin only)
+router.delete('/:id', authenticate, isAdmin, async (req, res) => {
   try {
     const message = await Message.findByIdAndDelete(req.params.id);
     if (!message) {

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore the Loveland Project's high-grade gold, copper & nickel potential in Ontario's Timmins district." />
+    <title>Loveland Gold, Copper & Nickel Project | Loyalist Exploration</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+    <style>
+        *{
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+     .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:white;
+   
+}
+
+.logo img {
+    height: 75px; /* Adjust logo size */
+     transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.navbar {
+     display: flex;
+     align-items: center;
+     padding-right: 1%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.navbar a {
+    display: block;
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #D4B248; /* Lighter blue */
+}
+
+.dropdown {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position the dropdown */
+    background-color: black; /* White background */
+    min-width: 160px; /* Set a minimum width */
+    z-index: 1; /* Sit on top */
+}
+
+.dropdown li {
+    float: none; /* Stack dropdown items vertically */
+}
+
+.dropdown a {
+    color: #D4B248; /* Navy blue text */
+    padding: 12px 16px; /* Padding for dropdown items */
+    text-decoration: none;
+    display: block; /* Make dropdown items block elements */
+}
+
+.dropdown a:hover {
+    background-color: black; /* Light gray on hover */
+}
+
+@media (min-width: 1025px) {
+  .navbar li:hover > .dropdown {
+    display: block;
+  }
+}
+/* Tablet & Mobile - Already Exists */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: #D4B248;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 12px 20px;
+    color: white;
+  }
+
+  .dropdown {
+    position: relative;
+    display: none;
+    background-color: black;
+    box-shadow: none;
+  }
+
+  .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Disable hover effect */
+  }
+
+  .header-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+    padding-right: 1rem;
+  }
+
+  .dropdown a {
+    color: #D4B248;
+  }
+}
+
+/* Desktop hover dropdown */
+@media (min-width: 1025px) {
+  .navbar li:hover > .dropdown {
+    display: block;
+  }
+}
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar li {
+        display: block; /* Stack items vertically on small screens */
+        text-align: left; /* Align text to the left */
+    }
+
+    .navbar {
+        text-align: left; /* Align navbar items to the left */
+        
+    }
+
+    
+}
+/* Mobile Navbar Toggle Button */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  padding-right: 1%;/* toggle */
+}
+
+
+
+
+
+/* Hide menu on small screens by default */
+@media (max-width: 768px) {
+
+  .align-logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navbar {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color:#D4B248;
+  }
+
+  .navbar ul {
+    width: 100%;
+  }
+
+  .navbar li {
+    display: block;
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 10px 20px;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+  }
+
+  .navbar li:hover .dropdown {
+    display: none; /* Disable hover dropdown on mobile */
+  }
+
+  .navbar li.active .dropdown {
+    display: block;
+  }
+}
+
+
+
+
+.header-buttons button {
+      background-color:  #D4B248;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .header-buttons button:hover {
+      background-color:  #D4B248;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color:  #D4B248;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-content button[type="submit"] {
+      background-color:  #D4B248;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      color:#D4B248 ;
+      cursor: pointer;
+    }
+
+    .form {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-buttons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .header-buttons button {
+        margin-left: 5px;
+      }
+
+      .dropdown {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown a {
+        padding-left: 30px;
+      }
+    }
+/* Desktop dropdown hover */
+.navbar li:hover > .dropdown {
+  display: block;
+}
+.icon {
+  font-size: 28px;
+  color:#D4B248; /* Gold/Yellow */
+  margin-bottom: 10px;
+}
+
+/* Default: hide dropdowns */
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color:black;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown li {
+  display: block;
+}
+
+.dropdown a {
+  color: #D4B248;
+  padding: 10px 15px;
+}
+
+/* Mobile-friendly override */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    box-shadow: none;
+  }
+
+  .navbar .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Prevent hover on touch devices */
+  }
+}
+/* Tablet & Kindle View */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .align-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  .navbar {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    background-color: #D4B248;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar li {
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 12px 20px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: none;
+    background-color: black;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .has-dropdown.active > .dropdown {
+    display: block;
+  }
+
+  .navbar li:hover > .dropdown {
+    display: none; /* Disable hover on tablet */
+  }
+
+  .header-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+}
+
+    /* black */
+    .section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      padding: 30px;
+    }
+
+    .project-image {
+      flex: 1 1 400px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .project-content {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-title {
+      font-size: 25px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+
+    .project-subtitle {
+      font-size: 17px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .project-description p {
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .project-title {
+        font-size: 22px;
+      }
+
+      .project-description p {
+        font-size: 15px;
+      }
+    }
+    .section-title {
+  background: #000;
+  color: #D4B248;
+  padding: 20px 50px;
+  font-size: 40px;
+  font-weight: bold;
+}
+/* footer */
+
+.site-footer {
+      background-color: #000;
+      color: #ddd;
+      padding: 40px 20px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 30px;
+    }
+
+    .footer-container h4 {
+      color: #D4B248;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-container a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-column,
+    .quick-links,
+    .social-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quick-links li {
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ddd;
+    }
+
+    .social-icons a:hover {
+      color: #D4B248;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      flex: 1;
+      background-color: #111;
+      color: #D4B248;
+      border: none;
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+    }
+
+    .subscribe-form button {
+      padding: 10px 16px;
+      background-color: #D4B248;
+      /* color: #000; */
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .subscribe-form button:hover {
+      background-color: #D4B248;
+    }
+
+    .subscribe-message {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #222;
+      color: #D4B248;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .quick-links ul {
+        display: inline-block;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
+
+      .contact-image {
+        width: 100%;
+        height: 220px;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 22px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        padding: 10px;
+        font-size: 15px;
+      }
+    }
+</style>
+</head>
+<body>
+<header class="header">
+    <div class="align-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="../image/logo.png" alt="Logo" /></a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
+
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="press-release.html">Press Release</a>
+
+        </li>
+
+
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
+      </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
+
+
+    </div>
+  </div>
+    <!-- Black title bar -->
+  <div class="section-title">Loveland Project</div>
+
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/abc.jpeg" alt="Loveland Project">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">LOVELAND – High grade gold, copper, and nickel exploration</h1>
+      <div class="project-description">
+
+        <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Engaged Caracle Creek to complete a 43-101 technical report</li>
+          <li>Planning 2026 exploration program</li>
+        </ul>
+
+        <h3 style="color: #D4B248; margin-bottom: 15px;">Project Highlights:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li>Gold assays from one drill hole include 6.37 g/t Au over 8.55 m from 383.25 m to 391.8 m down-hole, 6.17 g/t Au over 3.0 m from 403.0 m to 406.0 m and 10.39 g/t Au over 3.1 m from 410.30 m to 413.4 m.<sup>(3)</sup></li>
+          <li>Surface gold grab samples about 400 m southeast of the historical Cominco Zone contain 8.98 g/t Au and 11.48 g/t Au.<sup>(3)(7)</sup></li>
+          <li>292 contiguous mineral claims for a total area of 6,244 hectares (15,430 acres).</li>
+          <li>Hollinger Zone, historical estimate of 422,350 short tons grading 0.71% Ni and 0.42% Cu.<sup>(1)</sup></li>
+          <li>Cominco Zone, historical estimate of 130,000 short tons grading 0.73% Ni and 0.68% Cu.<sup>(2)</sup></li>
+          <li>Open along strike and at depth, forming an exploration corridor with a 10 km strike length.</li>
+        </ul>
+
+        <h3 style="color: #D4B248; margin-bottom: 15px; margin-top: 25px;">CEO Statement</h3>
+        <p style="font-style: italic; padding: 15px; background: #f9f9f9; border-left: 4px solid #D4B248;">
+          <strong>Errol Farr, Chief Executive Officer</strong> states: "We are very pleased to engage Caracle Creek to complete our first 43-101 Technical Report on Loveland. A requirement of the Canadian Securities Exchange, the Report will provide the foundation for future exploration activities on the property and continue the execution of the Company's Buy Timmins strategy".
+        </p>
+      </div>
+    </div>
+  </div>
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/Geology.png" alt="Geological Setting">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Loveland Property</h1>
+      <div class="project-description">
+        <p>
+          The Loveland Property is located in Byers, Loveland, Thorburn, and Moberly townships, in the Porcupine Mining Division. The Property lies within the southwest portion of the prolific Abitibi Greenstone Belt of the Archean Superior Province. The local geology consists of intercalated mafic to intermediate volcanic flows. These flows are locally intruded by feldspar porphyries and gabbro. The gabbroic rocks have similarities to the Kamiskotia gabbroic complex.
+        </p>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/loveland.png" alt="Gold Mineralization">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Gold Mineralization</h1>
+      <div class="project-description">
+        <p>
+          Gold mineralization was intersected in holes drilled by Amador Gold Corp. to a depth of 300 m below the historical Cominco Zone deposit in 2007-2009<sup>(4)</sup>. Gold-bearing arsenopyrite and pyrite mineralization was encountered in sections of silicified granodiorite. Amador's significant historical drill hole (LL08-13) intersected a mineralized interval that assayed <strong>6.37 g/t Au over 8.55 m</strong> (383.25 m to 391.8 m down-hole). Additional intervals from the hole included <strong>6.17 g/t over 3.0 m</strong> from 403.0 m to 406.0 m and <strong>10.39 g/t over 3.1 m</strong> from 410.30 m to 413.4 m.<sup>(4)</sup> The reported lengths of gold intersections are core lengths and not true lengths which are currently unknown.
+        </p>
+        <p>
+          Anomalous gold values ranging from 100 ppb to 3800 ppb were recorded from several other drill holes (including AMDG07-01, LL08-04, LL08-09, LL09-13W, LL08-14, LL08-21, LL08-22, and LL08-23) over a strike more than 500 m within the granodiorite. The anomalous gold values occur over various widths from less than a metre to several metres of core. True widths are unknown. Prospecting in 2008 led to the discovery of a surface gold showing about 400 m southeast of the historical Cominco Zone deposit. The showing returned grab samples containing <strong>8.98 g/t Au and 11.48 g/t Au</strong> collected from granodiorite containing quartz-stringers mineralized with disseminated sulphides<sup>(5)(6)</sup>.
+        </p>
+        <p>
+          The gold-bearing sulphide mineralization occurs with silicification that presents as silica flooding and quartz veining. The better values, such as those from hole LL08-13, occur in intervals with blue-grey quartz veining and strong silicification with 3-10% sulphides comprising arsenopyrite, pyrite and trace amounts of sphalerite, and possibly trace galena and chalcopyrite. Silicification with trace to 2% sulphides was observed marginal to joints and local quartz stringers in all holes where anomalous gold was recorded.
+        </p>
+        <p>
+          The results from Amador's drilling suggest the presence of a system of gold enrichment within the granodiorite. Additional exploration will be required to determine the orientation and extent of the gold-enriched zone.
+        </p>
+        <p>
+          For more information on Loveland's nickel/copper potential see the Company's press release dated June 30, 2025.
+        </p>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="project-image">
+      <img src="../image/STLLR_X_LE_resized (1).png" alt="Statements and Disclaimers">
+    </div>
+
+    <div class="project-content">
+      <h1 class="project-title">Statement Regarding Historical Mineral Resource Estimates</h1>
+      <div class="project-description">
+        <p style="font-size: 14px; color: #666;">
+          The Hollinger and Cominco zone historical mineral resource estimates are unclassified and do not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The Hollinger zone historical mineral resource estimate was taken from a report titled "Geological Report, Rousseau Loveland Property, Loveland Township" authored by W. C. Kerr and dated February 1992, citing data provided by Hollinger Mines Limited from 1974. The Cominco zone historical mineral resource estimate was taken from a report titled "Amador Gold Corp. – Annual Report 2009" dated May 26, 2009.
+        </p>
+        <p style="font-size: 14px; color: #666;">
+          Given the age of the information and the lack of underlying data, investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The historical mineral estimate is being included herein to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical mineral resource estimate as current mineral resources and the Company is not treating these historical mineral resource estimates as a current estimate. It is uncertain whether following evaluation and/or further exploration, the historical mineral resource estimate will ever be able to be reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring any or all of the historical resource estimates up to the CIM reporting standards.
+        </p>
+
+        <h4 style="margin-top: 20px; margin-bottom: 10px; color: #D4B248;">Qualified Person</h4>
+        <p style="font-size: 14px;">
+          Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of the page.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+ <footer class="site-footer">
+      <div class="footer-container">
+        <div class="contact-column">
+          <h4>Contact Information</h4>
+          <p>
+            <strong>Email:</strong><br/>
+            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
+          </p><br/>
+          <p>
+            <strong>Phone:</strong><br/>
+            <a href="tel:+16472961270">+1 647‑296‑1270</a>
+          </p><br/>
+          <p>
+            <strong>Address:</strong><br /> 110 Yonge Street,
+          Suite 1601
+          <br/> Toronto, Ontario M5C1T4</p>
+        </div><br/>
+        <div class="quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="corporate-structure.html">Investors</a></li>
+            <li><a href="press-release.html">Press Release</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="disclaimers.html">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="social-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
+          </div><br>
+          <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
+    <button type="submit">Subscribe</button>
+  </form>
+  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
+</div>
+      </div>
+    </div>
+  </div><br/>
+       <div class="footer-bottom">
+        <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+      </div> 
+    </footer>
+   <script>
+         // Toggle entire navbar menu on small screens
+function toggleMenu() {
+  document.getElementById('navbar').classList.toggle('active');
+}
+
+// Toggle dropdowns on click for mobile/tablet (<= 1024px)
+function toggleDropdown(e) {
+  if (window.innerWidth <= 1024) {
+    e.stopPropagation(); // Prevent click from bubbling
+    const current = e.currentTarget;
+
+    // Toggle only the clicked dropdown
+    current.classList.toggle('active');
+
+    // Close other open dropdowns
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+      if (item !== current) {
+        item.classList.remove('active');
+      }
+    });
+  }
+}
+
+// Modal handling (login / contact)
+function openModal(type) {
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+// Welcome popup close
+function closePopup() {
+  document.getElementById("welcomePopup").style.display = "none";
+}
+</script>
+<script src="../corporate-presentation-loader.js"></script>
+</body>
+</html>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loyalist Exploration Disclaimer | Legal Information</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
-     <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
-    <link
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stay up to date with Loyalist Exploration Limited's latest news, announcements and project updates in gold and silver exploration." />
+  <title>Loyalist Exploration - Latest News & Corporate Updates</title>
+  <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <style>
-        *{
+    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+     *{
       box-sizing: border-box;
     }
     body {
@@ -21,7 +21,6 @@
       background: #f5f5f5;
       color: #333;
     }
-
      .header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,6 @@
     background-color:white;
    
 }
-
 .logo img {
     height: 75px; /* Adjust logo size */
      transition: transform 0.3s ease-in-out;
@@ -173,6 +171,7 @@
     .navbar {
         text-align: left; /* Align navbar items to the left */
         
+        
     }
 
     
@@ -232,6 +231,7 @@
 
   .navbar.active {
     display: flex;
+    background-color:#D4B248;
   }
 
   .dropdown {
@@ -486,73 +486,120 @@
     margin-top: 10px;
   }
 }
-/* disclaimer */
-  .disclaimer-section {
-    background-color:#D4B248;
-    padding: 60px 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
 
-  .disclaimer-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .disclaimer-container h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #D4B248;
-    border-bottom: 3px solid #D4B248;
-    padding-bottom: 10px;
-  }
-
-  .disclaimer-container h3 {
-    font-size: 22px;
-    margin-top: 30px;
-    color:#D4B248;
-  }
-
-  .disclaimer-container p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-top: 10px;
-    color: #444;
-  }
-
-  .disclaimer-container ul {
-    margin: 15px 0;
-    padding-left: 20px;
-  }
-
-  .disclaimer-container ul li {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    list-style-type: disc;
-  }
-
-  @media (max-width: 768px) {
-    .disclaimer-container {
-      padding: 20px;
+    .hero {
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: linear-gradient(135deg, #D4B248, #C59A2D);
+      color: #fff;
     }
 
-    .disclaimer-container h2 {
-      font-size: 26px;
+    .hero h1 {
+      font-size: 52px;
+      font-weight: bold;
     }
 
-    .disclaimer-container h3 {
+    .hero p {
       font-size: 18px;
+      margin-top: 10px;
+      opacity: 0.9;
     }
-  }
 
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
+     .news-list {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-/* footer */
+    .news-group {
+      margin-bottom: 30px;
+    }
+
+    .news-date {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .news-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .news-card {
+      background: #fff;
+      padding: 20px;
+      border-left: 6px solid #D4B248;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      flex: 1 1 calc(33.333% - 30px);
+      min-width: 280px;
+    }
+
+    .news-card a {
+      color: #D4B248;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+    }
+
+    .news-card a:hover {
+      color: #D4B248;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .news-items {
+        flex-direction: column;
+      }
+
+      .news-card {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .news-card {
+        flex: 1 1 calc(50% - 30px);
+      }
+    }
+
+    .view-all-container {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .view-all-btn {
+      background: #D4B248;
+      color: white;
+      padding: 14px 30px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .view-all-btn:hover {
+      background: #D4B248;
+    }
+
+    
+/* Footer */
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -570,7 +617,7 @@
 }
 
 .footer-container h4 {
-  color:#D4B248;
+  color: #D4B248;
   margin-bottom: 15px;
   font-size: 18px;
 }
@@ -584,7 +631,9 @@
   text-decoration: underline;
 }
 
-.contact-column, .quick-links, .social-column {
+.contact-column,
+.quick-links,
+.social-column {
   flex: 1;
   min-width: 200px;
 }
@@ -607,15 +656,17 @@
 .social-icons a:hover {
   color: #D4B248;
 }
+
 .subscribe-form input[type="email"] {
   padding: 10px;
   flex: 1;
   background-color: #111;
-  color:#D4B248;
+  color: #D4B248;
   border: none;
-   border: 3px solid #D4B248;
+  border: 3px solid #D4B248;
   border-radius: 4px;
 }
+
 .subscribe-form button {
   padding: 10px 16px;
   background-color: #D4B248;
@@ -627,13 +678,14 @@
 }
 
 .subscribe-form button:hover {
-  background-color:#D4B248;
+  background-color: #D4B248;
 }
+
 .subscribe-message {
   margin-top: 10px;
   padding: 10px;
   background-color: #222;
-  color:  #D4B248;
+  color: #D4B248;
   border-radius: 4px;
   font-size: 14px;
 }
@@ -645,199 +697,194 @@
   font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .quick-links ul {
     display: inline-block;
   }
 }
-    </style>
-  </head>
-  <body>
-    <header class="header">
-      <div class="align-logo">
-        <div class="logo">
-          <a href="index.html">
-          <img src="image/logo10.png" alt="Logo" />
-          </a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+  }
+
+  .contact-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .contact-form {
+    padding: 25px 20px;
+  }
+
+  .contact-form h2 {
+    font-size: 22px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+  </style>
+</head>
+<body>
+  
+
+<header class="header">
+    <div class="align-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="../image/logo.png" alt="Logo" /></a>
       </div>
-
-      <nav class="navbar" id="navbar">
-        <ul>
-
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">About Us</a>
-            <ul class="dropdown">
-              <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Our Team</a></li>
-              
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Projects</a>
-            <ul class="dropdown">
-               <li><a href="loveland.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-               <li><a href="gold.html">Gold  Rush Project</a></li>
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Investors</a>
-            <ul class="dropdown">
-              <li><a href="corporate.html">Corporate Structure</a></li>
-          
-              <li><a href="statements.html">Financial Statements & MD&A</a></li>
-              
-              <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
-          </li>
-
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
-              <li><a href="news.html">Press Release</a></li>
-              <li><a href="disclaimers.html">Disclaimer</a></li>
-            </ul> -->
-          </li>
-
-          <li><a href="Contact.html"></a></li>
-        </ul>
-        <div class="header-buttons">
-        </div>
-      </nav>
-    </header>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-
-        <div id="login-form" class="form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Submit</button>
-        </div>
-
-        <div id="contact-form" class="form">
-          <h2>Get in Touch</h2>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </div>
-      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
 
-    <!-- disclaimer -->
-     <section class="disclaimer-section">
-  <div class="disclaimer-container">
-    <h2>Disclaimer</h2>
+    <nav class="navbar" id="navbar">
+      <ul>
 
-    <h3>PLEASE READ THESE TERMS CAREFULLY BEFORE USING THIS WEBSITE</h3>
-    <p>This website is owned and operated by Loyalist Exploration Limited...</p>
 
-    <h3>Cautionary Note Regarding Forward-Looking Information</h3>
-    <p>This website contains “forward-looking information” within the meaning of applicable Canadian securities legislation...</p>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
 
-    <h3>Disclaimer to United States Investors</h3>
-    <p>This website does not constitute an offer to sell or a solicitation of an offer to buy securities in the United States...</p>
-
-    <h3>No Incorporation by Reference</h3>
-    <p>No information included herein shall be deemed to be incorporated by reference...</p>
-
-    <h3>Website Protected by Copyright</h3>
-    <p>Certain materials (including graphics, icons, HTML, javascripts, color schemes, multimedia...)...</p>
-
-    <h3>Currency of Website</h3>
-    <p>Loyalist Exploration Limited updates the information on this website regularly...</p>
-
-    <h3>Exclusion of Liability</h3>
-    <ul>
-      <li>the use of or reliance on information contained in this website;</li>
-      <li>any inaccuracy or omission in such information or failure to keep the information current;</li>
-      <li>use of any third party websites linked to this website;</li>
-      <li>any Internet software used in connection with this website or computer viruses or other destructive programs encountered as a result of using this website;</li>
-      <li>any delays, inaccuracies or errors in, or in the transmission of, any stock price quotes or historical price data;</li>
-      <li>any other matter connected with this website;</li>
-    </ul>
-
-    <h3>Loyalist Exploration Limited is Not Responsible for Internet Software or Computer Viruses</h3>
-    <p>Due to technical difficulties inherent in the Internet, Internet software or transmission problems could produce inaccurate or incomplete copies...</p>
-
-    <h3>Loyalist Exploration Limited is Not Responsible for Linked Websites</h3>
-    <p>Loyalist Exploration Limited provides links to third party websites for your convenience only...</p>
-
-    <h3>Website is Provided as a Service Only</h3>
-    <p>This website is not intended as a solicitation or offering of securities in any jurisdiction...</p>
-
-    <h3>Privacy Statement</h3>
-    <p>Loyalist Exploration Limited’s website does not collect any personal information about visitors...</p>
-  </div>
-</section>
-    <!-- footer -->
-     <footer class="site-footer">
-      <div class="footer-container">
-        <div class="contact-column">
-          <h4>Contact Information</h4>
-          <p>
-            <strong>Email:</strong><br/>
-            <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
-          </p><br/>
-          <p>
-            <strong>Phone:</strong><br/>
-            <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p><br/>
-          <p>
-            <strong>Address:</strong><br />  
-          
-         110 Yonge Street,
-          Suite 1601
-          <br/> Toronto, Ontario M5C1T4</p><br/>
-        </div>
-        <div class="quick-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="disclaimers.html">Disclaimer</a></li>
           </ul>
-        </div>
-        <div class="social-column">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="press-release.html">Press Release</a>
+
+        </li>
+
+
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
+      </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="../image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
+
+
+    </div>
+  </div>
+
+
+   <header class="hero">
+    <h1>Press Release</h1>
+    <!-- <p>Stay updated with our latest press release</p> -->
+  </header>
+
+  <section class="news-list" id="newsContainer">
+    <!-- News will load here grouped by date -->
+  </section>
+
+  <div class="view-all-container">
+    <a href="all-news.html" class="view-all-btn">View All News</a>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p><strong>Email:</strong><br/> <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a></p>
+        <p><strong>Phone:</strong><br/> <a href="tel:+16472961270">+1 647‑296‑1270</a></p>
+        <p><strong>Address:</strong><br>110 Yonge Street,
+          Suite 1601
+          <br/> Toronto, Ontario M5C1T4</p>
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="corporate-structure.html">Investors</a></li>
+          <li><a href="#">Press Release</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimers.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
-          </div><br/>
-            <div class="subscribe-box">
- <h4>Subscribe to Our Newsletter</h4>
-<form class="subscribe-form" onsubmit="handleDisclaimersSubscribe(event)">
+        </div>
+  <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+<form class="subscribe-form" onsubmit="handleNewsSubscribe(event)">
   <input
     type="email"
     placeholder="Enter your email"
-    id="disclaimersSubscriberEmail"
+    id="newsSubscriberEmail"
     required
   /><br /><br />
   <button type="submit">Subscribe</button>
 </form>
 <div
-  id="disclaimers-subscribe-message"
+  id="news-subscribe-message"
   class="subscribe-message"
   style="display: none;"
 ></div>
@@ -846,14 +893,13 @@
       </div>
     </div>
   </div><br/>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
 
-       
-      <div class="footer-bottom">
-        <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-      </div>
-    </footer>
-<script>
-    // Toggle entire navbar menu on small screens
+  <script>
+              // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
 }
@@ -876,27 +922,83 @@ function toggleDropdown(e) {
   }
 }
 
-// Modal handling (login / contact)
-function openModal(type) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-}
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+  async function fetchNewsPDFs() {
+      try {
+        const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+        const res = await fetchFunc('/api/pdf');
+        const data = await res.json();
 
-// Welcome popup close
-function closePopup() {
-  document.getElementById("welcomePopup").style.display = "none";
-}
+        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const latestThree = sorted.slice(0, 3);
+        const groupedByDate = {};
 
-async function handleDisclaimersSubscribe(event) {
+        latestThree.forEach(item => {
+          const date = new Date(item.date);
+          const dateKey = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit'
+          }).toUpperCase();
+
+          if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
+          groupedByDate[dateKey].push(item);
+        });
+
+        const container = document.getElementById('newsContainer');
+        container.innerHTML = '';
+
+        for (let date in groupedByDate) {
+          const group = document.createElement('div');
+          group.className = 'news-group';
+
+          const dateHeader = document.createElement('h3');
+          dateHeader.className = 'news-date';
+          dateHeader.textContent = date;
+          group.appendChild(dateHeader);
+
+          const row = document.createElement('div');
+          row.className = 'news-items';
+
+          groupedByDate[date].forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+
+            const pdfViewUrl = `/api/pdf/view/${item._id}`;
+            const pdfDownloadUrl = `/api/pdf/download/${item._id}`;
+
+            card.innerHTML = `
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <a href="${pdfViewUrl}" target="_blank" class="news-title">
+                  ${item.title}
+                </a>
+                <a href="${pdfDownloadUrl}" download title="Download PDF" class="download-btn">
+                  Download
+                </a>
+              </div>
+            `;
+
+            row.appendChild(card);
+          });
+
+          group.appendChild(row);
+          container.appendChild(group);
+        }
+      } catch (err) {
+        console.error('Failed to load news:', err);
+        document.getElementById('newsContainer').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+      }
+    }
+
+    window.onload = fetchNewsPDFs;
+
+
+
+   async function handleNewsSubscribe(event) {
     event.preventDefault();
 
-    const emailInput = document.getElementById('disclaimersSubscriberEmail');
-    const messageDiv = document.getElementById('disclaimers-subscribe-message');
+    const emailInput = document.getElementById('newsSubscriberEmail');
+    const messageDiv = document.getElementById('news-subscribe-message');
     const email = emailInput.value.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -946,6 +1048,10 @@ async function handleDisclaimersSubscribe(event) {
     }
   }
 
-</script>
+    </script>
+
+<script src="../cache-utils.js"></script>
+
+<script src="../corporate-presentation-loader.js"></script>
 </body>
 </html>

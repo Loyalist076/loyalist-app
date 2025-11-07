@@ -762,79 +762,76 @@
 </head>
 <body>
 <header class="header">
-      <div class="align-logo">
-        <div class="logo">
-            <a href="index.html">
-          <img src="image/logo10.png" alt="Logo" /></a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <div class="align-logo">
+      <div class="logo">
+        <a href="/">
+          <img src="image/logo.png" alt="Logo" /></a>
       </div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
 
-      <nav class="navbar" id="navbar">
-        <ul>
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">About Us</a>
-            <ul class="dropdown">
-              <li><a href="company.html">Company Profile</a></li>
-              <li><a href="directors.html">Our Team</a></li>
-              
-            </ul>
-          </li>
+    <nav class="navbar" id="navbar">
+      <ul>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Projects</a>
-            <ul class="dropdown">
-               <li><a href="loveland.html">Loveland Project</a></li>
-              <li><a href="tully.html">Tully Project</a></li>
-               <li><a href="gold.html">Gold Project</a></li>
-            </ul>
-          </li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="#">Investors</a>
-            <ul class="dropdown">
-              <li><a href="corporate.html">Corporate Structure</a></li>
-              <li><a href="statements.html">Financial Statements & MD&A</a></li>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">About Us</a>
+          <ul class="dropdown">
+            <li><a href="page/company.html">Company Profile</a></li>
+            <li><a href="page/our-team.html">Our Team</a></li>
 
-              <!-- <li><a href="#">Presentations</a></li> -->
-            </ul>
-          </li>
+          </ul>
+        </li>
 
-          <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="news.html">Press Release</a>
-            <!-- <ul class="dropdown">
-               <li><a href="news.html">Press Release</a></li>
-              <li><a href="disclaimers.html">Disclaimer</a></li> -->
-              <!-- <li><a href="#">Releases</a></li> -->
-            <!-- </ul> -->
-          </li>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="page/tully-project.html">Tully Project </a></li>
+            <li><a href="page/loveland-project.html">Loveland Project</a></li>
+             <li><a href="page/gold-rush.html">Gold Rush project</a></li>
+          </ul>
+        </li>
 
-         
-        </ul>
-     
-      </nav>
-    </header>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="#">Investors</a>
+          <ul class="dropdown">
+            <li><a href="page/corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="page/financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="page/annual-meeting-documents.html">Annual Meeting</a></li>
+          </ul>
+        </li>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+        <li class="has-dropdown" onclick="toggleDropdown(event)">
+          <a href="page/press-release.html">Press Release</a>
 
-        <div id="login-form" class="form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Submit</button>
-        </div>
+        </li>
 
-        <div id="contact-form" class="form">
-          <h2>Get in Touch</h2>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </div>
+
+      </ul>
+      <div class="header-buttons">
+        <button id="getInTouchBtn">Get in Touch</button>
+
+
+
       </div>
+  </header>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <form id="popupContactForm">
+        <img src="image/logo.png" alt="Loyalist Logo" class="popup-logo2" />
+
+        <input type="text" name="name" placeholder="Your Name" required /><br><br>
+        <input type="email" name="email" placeholder="Your Email" required /><br><br>
+        <input type="text" name="subject" placeholder="Subject" required /><br><br>
+        <textarea name="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+      </form>
+
+
+    </div>
+  </div>
     </div>
        <!-- Black title bar -->
   <div class="section-title">Historic Work Highlights </div>
@@ -882,7 +879,7 @@
           <h4>Contact Information</h4>
           <p>
             <strong>Email:</strong><br/>
-            <a href="mailto:efarr001@icloud.com">efarr001@icloud.com</a>
+            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
           </p>
           <p>
             <strong>Phone:</strong><br/>
@@ -897,11 +894,11 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="investor.html">Investors</a></li>
-            <li><a href="news.html">Press Release</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="disclaimers.html">Disclaimer</a></li>
+            <li><a href="page/projects.html">Projects</a></li>
+            <li><a href="page/corporate-structure.html">Investors</a></li>
+            <li><a href="page/press-release.html">Press Release</a></li>
+            <li><a href="page/contact.html">Contact</a></li>
+            <li><a href="page/disclaimers.html">Disclaimer</a></li>
           </ul>
         </div>
         <div class="social-column">
@@ -971,5 +968,6 @@ function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
 </script>
+  <script src="corporate-presentation-loader.js"></script>
 </body>
 </html>

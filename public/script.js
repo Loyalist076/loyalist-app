@@ -19,11 +19,6 @@ function toggleMenu() {
 
 // Handle mobile dropdowns
 function toggleDropdown(e) {
-  if (window.innerWidth <= 768) {
-    e.currentTarget.classList.toggle('active');
-  }
-}
-function toggleDropdown(e) {
   if (window.innerWidth <= 1024) {
     e.stopPropagation(); // Prevent click from bubbling
     const current = e.currentTarget;
@@ -152,30 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'index.html';
   });
 });
-
-
-
-  const modal = document.getElementById('contactModal');
-  const openBtn = document.getElementById('getInTouchBtn');
-  const closeBtn = document.getElementById('closeModalBtn');
-
-  // Open modal
-  openBtn.onclick = () => {
-    modal.style.display = 'block';
-  };
-
-  // Close modal
-  closeBtn.onclick = () => {
-    modal.style.display = 'none';
-  };
-
-  // Close if click outside modal content
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-
+  const getInTouchButtons = document.querySelectorAll('#getInTouchBtn, .get-in-touch-btn');
+  if (getInTouchButtons.length) {
+    const contactUrl = '/page/contact.html';
+    getInTouchButtons.forEach(btn => {
+      btn.addEventListener('click', (event) => {
+        event?.preventDefault();
+        window.location.href = contactUrl;
+      });
+    });
+  }
 
   // Handle "Get In Touch" popup contact form submission
   document.getElementById('popupContactForm')?.addEventListener('submit', async (e) => {
@@ -247,45 +228,48 @@ document.addEventListener('DOMContentLoaded', () => {
 //   })
 //   .catch(err => console.error('hello i am an error:', err));
 
-// Script for Upcoming Events section
-fetch('/api/upcoming-events')
-  .then(res => res.json())
-  .then(events => {
-    const container = document.getElementById('upcomingEvents');
+// Script for Upcoming Events section with caching
+if (typeof CacheUtils !== 'undefined') {
+  CacheUtils.cachedFetch('/api/upcoming-events')
+    .then(res => res.json())
+    .then(events => {
+      const container = document.getElementById('upcomingEvents');
 
-    if (events.length > 0) {
-      // Only show section if there are events
-      container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
+      if (events.length > 0) {
+        // Only show section if there are events
+        container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
 
-      // Optional: limit to next 2 events
-      const upcoming = events.slice(0, 2);
+        // Optional: limit to next 2 events
+        const upcoming = events.slice(0, 2);
 
-      upcoming.forEach(event => {
-        const div = document.createElement('div');
-        div.className = 'news-card1';
-        div.innerHTML = `
-          <div class="hero-right"> 
+        upcoming.forEach(event => {
+          const div = document.createElement('div');
+          div.className = 'news-card1';
+          div.innerHTML = `
+            <div class="hero-right">
 <h3>Upcoming Events<h3>
-<h3 class="event-title">${event.title}</h3> 
-<span class="date">${new Date(event.date).toDateString()}</span> 
-<p>${event.description}</p> 
+<h3 class="event-title">${event.title}</h3>
+<span class="date">${new Date(event.date).toDateString()}</span>
+<p>${event.description}</p>
 </div>
-        `;
-        container.appendChild(div);
-      });
-    } else {
-      // Hide or clear the section if no events
-      container.style.display = 'none';
-    }
-  })
-  .catch(err => console.error('hello i am an error:', err));
+          `;
+          container.appendChild(div);
+        });
+      } else {
+        // Hide or clear the section if no events
+        container.style.display = 'none';
+      }
+    })
+    .catch(err => console.error('Error loading events:', err));
+}
 
 
-// for news 
+// for news with caching
 
    async function loadNews() {
   try {
-    const response = await fetch('/api/news');
+    const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
+    const response = await fetchFunc('/api/news');
     const newsList = await response.json();
 
     const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));

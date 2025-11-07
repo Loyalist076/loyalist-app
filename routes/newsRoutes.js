@@ -1,22 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const News = require('../models/News');
+const { authenticate, isAdmin } = require('../middleware/auth');
+const { body, validationResult } = require('express-validator');
 
-// CREATE news
-router.post('/', async (req, res) => {
+// CREATE news (admin only)
+router.post('/', authenticate, isAdmin, [
+  body('title').trim().notEmpty().withMessage('Title is required'),
+  body('content').trim().notEmpty().withMessage('Content is required'),
+  body('imageUrl').optional().isURL().withMessage('Image URL must be valid')
+], async (req, res) => {
+  // Check validation errors
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ message: 'Validation failed', errors: errors.array() });
+  }
   try {
     const { title, content, imageUrl } = req.body;
-
-    if (!title || !content) {
-      return res.status(400).json({ message: 'Title and content are required.' });
-    }
 
     const news = new News({ title, content, imageUrl });
     await news.save();
 
     res.status(201).json({ message: 'News created successfully', news });
   } catch (err) {
-    res.status(500).json({ message: 'Error creating news', error: err.message });
+    console.error('Error creating news:', err);
+    res.status(500).json({ message: 'Error creating news' });
   }
 });
 
@@ -35,7 +43,8 @@ router.get('/', async (req, res) => {
 
     res.json(formatted);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching news', error: err.message });
+    console.error('Error fetching news:', err);
+    res.status(500).json({ message: 'Error fetching news' });
   }
 });
 
@@ -56,12 +65,13 @@ router.get('/:id', async (req, res) => {
       date: news.createdAt
     });
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching news', error: err.message });
+    console.error('Error fetching news:', err);
+    res.status(500).json({ message: 'Error fetching news' });
   }
 });
 
-// UPDATE news by ID
-router.put('/:id', async (req, res) => {
+// UPDATE news by ID (admin only)
+router.put('/:id', authenticate, isAdmin, async (req, res) => {
   try {
     const { title, content, imageUrl } = req.body;
 
@@ -77,12 +87,13 @@ router.put('/:id', async (req, res) => {
 
     res.json({ message: 'News updated successfully', news: updatedNews });
   } catch (err) {
-    res.status(500).json({ message: 'Error updating news', error: err.message });
+    console.error('Error updating news:', err);
+    res.status(500).json({ message: 'Error updating news' });
   }
 });
 
-// DELETE news by ID
-router.delete('/:id', async (req, res) => {
+// DELETE news by ID (admin only)
+router.delete('/:id', authenticate, isAdmin, async (req, res) => {
   try {
     const deletedNews = await News.findByIdAndDelete(req.params.id);
 
@@ -92,7 +103,8 @@ router.delete('/:id', async (req, res) => {
 
     res.json({ message: 'News deleted successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Error deleting news', error: err.message });
+    console.error('Error deleting news:', err);
+    res.status(500).json({ message: 'Error deleting news' });
   }
 });
 
