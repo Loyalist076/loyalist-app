@@ -6,6 +6,7 @@ const Pdf = require('../models/Pdf');
 const Subscriber = require('../models/Subscriber');
 const sgMail = require('@sendgrid/mail');
 const cloudinary = require('../utils/cloudinary'); // ✅ Add this
+const { compressPdfBuffer } = require('../utils/pdfCompressor');
 const router = express.Router();
 
 // ✅ In-memory storage instead of disk
@@ -54,9 +55,10 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
       return res.status(400).json({ error: 'PDF title and file are required.' });
     }
 
-    // ✅ Upload to Cloudinary as raw file
+    // ✅ Compress PDF buffer before upload
+    const compressedBuffer = await compressPdfBuffer(req.file.buffer);
     const tempPath = path.join(__dirname, `../temp/${Date.now()}-${req.file.originalname}`);
-    fs.writeFileSync(tempPath, req.file.buffer);
+    fs.writeFileSync(tempPath, compressedBuffer);
 
     const cloudinaryResult = await cloudinary.uploader.upload(tempPath, {
       resource_type: 'raw',

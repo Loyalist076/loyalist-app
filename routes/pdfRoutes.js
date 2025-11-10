@@ -7,6 +7,7 @@ const sgMail = require('@sendgrid/mail');
 const cloudinary = require('cloudinary').v2;
 const { authenticate, isAdmin } = require('../middleware/auth');
 const { tempUpload } = require('../middleware/upload');
+const { compressPdfBuffer } = require('../utils/pdfCompressor');
 const router = express.Router();
 
 // ✅ Environment Base URL for production
@@ -62,6 +63,15 @@ router.post('/upload', authenticate, isAdmin, tempUpload.single('pdf'), async (r
     }
 
     const tempFilePath = req.file.path;
+
+    // 🔽 Compress PDF before uploading to Cloudinary
+    try {
+      const originalBuffer = fs.readFileSync(tempFilePath);
+      const compressedBuffer = await compressPdfBuffer(originalBuffer);
+      fs.writeFileSync(tempFilePath, compressedBuffer);
+    } catch (compressionErr) {
+      console.error('❌ Compression error (continuing with original file):', compressionErr.message);
+    }
 
     // 🔼 Upload to Cloudinary
     const uploaded = await cloudinary.uploader.upload(tempFilePath, {
