@@ -38,19 +38,17 @@ module.exports = {
   // For financial statements (local storage)
   financialUpload: multer({
     storage: financialStorage,
-    fileFilter: pdfFileFilter,
-    limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
+    fileFilter: pdfFileFilter
   }),
 
   // For temporary PDF uploads (to Cloudinary)
   tempUpload: multer({
     storage: tempStorage,
-    fileFilter: pdfFileFilter,
-    limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
+    fileFilter: pdfFileFilter
   }),
 
   // Generic PDF upload with custom destination
-  createPdfUpload: (destination, maxSize = 5 * 1024 * 1024) => {
+  createPdfUpload: (destination, maxSize) => {
     const customStorage = multer.diskStorage({
       destination: function (req, file, cb) {
         cb(null, destination);
@@ -61,10 +59,15 @@ module.exports = {
       }
     });
 
-    return multer({
+    const config = {
       storage: customStorage,
-      fileFilter: pdfFileFilter,
-      limits: { fileSize: maxSize }
-    });
+      fileFilter: pdfFileFilter
+    };
+
+    if (maxSize) {
+      config.limits = { fileSize: maxSize };
+    }
+
+    return multer(config);
   }
 };
