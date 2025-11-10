@@ -129,6 +129,28 @@
     const form = document.getElementById('uploadForm');
     const pdfList = document.getElementById('pdfList');
     const loading = document.getElementById('loading');
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('❌ Authentication required. Please log in again.');
+      window.location.href = '../login.html';
+    }
+
+    const handleAuthError = (status) => {
+      if (status === 401) {
+        alert('❌ Authentication failed. Please log in again.');
+        localStorage.removeItem('token');
+        window.location.href = '../login.html';
+        return true;
+      }
+
+      if (status === 403) {
+        alert('❌ Access denied. Admin privileges required.');
+        return true;
+      }
+
+      return false;
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -138,6 +160,9 @@
       try {
         const response = await fetch('/api/pdf/upload', {
           method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
           body: formData
         });
 
@@ -148,7 +173,9 @@
           form.reset();
           fetchPDFs();
         } else {
-          alert('❌ Upload failed: ' + (result.error || 'Something went wrong.'));
+          if (!handleAuthError(response.status)) {
+            alert('❌ Upload failed: ' + (result.error || 'Something went wrong.'));
+          }
         }
       } catch (err) {
         alert('❌ Network error: ' + err.message);
@@ -193,14 +220,19 @@
 
       try {
         const res = await fetch(`/api/pdf/${id}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
 
         if (res.ok) {
           alert('✅ PDF deleted successfully.');
           fetchPDFs();
         } else {
-          alert('❌ Failed to delete PDF.');
+          if (!handleAuthError(res.status)) {
+            alert('❌ Failed to delete PDF.');
+          }
         }
       } catch (err) {
         alert('❌ Error deleting PDF.');
