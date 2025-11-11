@@ -110,6 +110,23 @@
       font-size: 14px;
       color: #555;
     }
+
+    .warning-message {
+      background-color: #fff3cd;
+      border: 2px solid #ffc107;
+      border-left: 5px solid #ff9800;
+      color: #856404;
+      padding: 15px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .warning-message strong {
+      color: #d97706;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -121,6 +138,10 @@
     <button type="submit">Upload</button>
     <div id="loading"></div>
   </form>
+
+  <div class="warning-message">
+    <strong>⚠️ Important Notice:</strong> Only PDFs up to 2MB are approved. Larger files can cause performance issues and may fail to upload. Please ensure your PDF file size is within the limit before uploading.
+  </div>
 
   <h3>Uploaded PDFs</h3>
   <div class="pdf-list" id="pdfList"></div>
