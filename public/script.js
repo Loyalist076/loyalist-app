@@ -246,13 +246,12 @@ if (typeof CacheUtils !== 'undefined') {
         upcoming.forEach(event => {
           const div = document.createElement('div');
           div.className = 'news-card1';
+          // Convert line breaks to <br> tags for proper display
+          const formattedDescription = event.description.replace(/\n/g, '<br>');
           div.innerHTML = `
-            <div class="hero-right">
-<h3>Upcoming Events<h3>
-<h3 class="event-title">${event.title}</h3>
-<span class="date">${new Date(event.date).toDateString()}</span>
-<p>${event.description}</p>
-</div>
+            <h3 class="event-title">${event.title}</h3>
+            <span class="date">${new Date(event.date).toDateString()}</span>
+            <p style="white-space: pre-line;">${formattedDescription}</p>
           `;
           container.appendChild(div);
         });

@@ -239,6 +239,10 @@
         })
         .then(() => {
           alert('Event added successfully!');
+          // Clear cache so public page shows updated events
+          if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('api_cache_/api/upcoming-events');
+          }
           eventForm.reset();
           loadEvents();
         })
@@ -269,6 +273,10 @@
         })
         .then(() => {
           alert('Event updated successfully!');
+          // Clear cache so public page shows updated events
+          if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('api_cache_/api/upcoming-events');
+          }
           editMode = false;
           editId = null;
           eventForm.reset();
@@ -314,6 +322,10 @@
         })
         .then(data => {
           alert(data.message || 'Event deleted successfully!');
+          // Clear cache so public page shows updated events
+          if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('api_cache_/api/upcoming-events');
+          }
           loadEvents();
         })
         .catch(err => alert('Error: ' + err.message));
