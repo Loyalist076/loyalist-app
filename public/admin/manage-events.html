@@ -230,15 +230,19 @@
           },
           body: JSON.stringify(payload)
         })
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to add event');
+        .then(async res => {
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.message || errorData.error || 'Failed to add event');
+          }
           return res.json();
         })
         .then(() => {
+          alert('Event added successfully!');
           eventForm.reset();
           loadEvents();
         })
-        .catch(err => alert(err.message));
+        .catch(err => alert('Error: ' + err.message));
       } else {
         // Update existing event
         const token = localStorage.getItem('token');
@@ -256,18 +260,22 @@
           },
           body: JSON.stringify(payload)
         })
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to update event');
+        .then(async res => {
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.message || errorData.error || 'Failed to update event');
+          }
           return res.json();
         })
         .then(() => {
+          alert('Event updated successfully!');
           editMode = false;
           editId = null;
           eventForm.reset();
           eventForm.querySelector('button').innerText = 'Add Event';
           loadEvents();
         })
-        .catch(err => alert(err.message));
+        .catch(err => alert('Error: ' + err.message));
       }
     });
 
@@ -297,15 +305,18 @@
             'Authorization': `Bearer ${token}`
           }
         })
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to delete event');
+        .then(async res => {
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.message || errorData.error || 'Failed to delete event');
+          }
           return res.json();
         })
         .then(data => {
-          alert(data.message);
+          alert(data.message || 'Event deleted successfully!');
           loadEvents();
         })
-        .catch(err => alert(err.message));
+        .catch(err => alert('Error: ' + err.message));
       }
     }
 
