@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "npm install"
+    "build": "npm install",
+    "update-css-version": "node update-css-version.js",
+    "predeploy": "node update-css-version.js",
+    "deploy": "echo 'Ready to deploy - CSS version updated!'"
   },
   "keywords": [],
   "author": "",
