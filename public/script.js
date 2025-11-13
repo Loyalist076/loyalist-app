@@ -247,11 +247,15 @@ if (typeof CacheUtils !== 'undefined') {
           const div = document.createElement('div');
           div.className = 'news-card1';
           // Convert line breaks to <br> tags for proper display
-          const formattedDescription = event.description.replace(/\n/g, '<br>');
+          // Handle both \n and \r\n line breaks
+          const formattedDescription = event.description
+            .replace(/\r\n/g, '<br>')
+            .replace(/\n/g, '<br>')
+            .replace(/\r/g, '<br>');
           div.innerHTML = `
             <h3 class="event-title">${event.title}</h3>
             <span class="date">${new Date(event.date).toDateString()}</span>
-            <p style="white-space: pre-line;">${formattedDescription}</p>
+            <p>${formattedDescription}</p>
           `;
           container.appendChild(div);
         });
