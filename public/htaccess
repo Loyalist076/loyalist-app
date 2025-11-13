@@ -17,17 +17,17 @@ DirectoryIndex index.html
   RewriteRule ^ - [L]
 
   # Redirect requests that explicitly include .html to the extensionless URL
-  # Example: /about.html -> /about  (301 permanent redirect)
+  # Example: /./page/company.html -> /about  (301 permanent redirect)
   RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html(\s|\?)
   RewriteRule ^ %1 [R=301,L]
 
   # Internally rewrite extensionless requests to their .html counterparts
-  # Example: /about -> /about.html
+  # Example: /about -> /./page/company.html
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^ %{REQUEST_URI}.html [L]
 
   # Support "directory style" URLs mapping to file.html
-  # Example: /about/ -> /about.html
+  # Example: /about/ -> /./page/company.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !/$

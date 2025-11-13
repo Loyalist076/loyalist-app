@@ -345,8 +345,19 @@
     async function loadDocuments() {
       const container = document.getElementById('documentsList');
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const response = await fetch('/api/annual-meeting-documents/by-year');
+        const response = await fetch('/api/annual-meeting-documents/by-year', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const documentsByYear = await response.json();
 
         if (Object.keys(documentsByYear).length === 0) {

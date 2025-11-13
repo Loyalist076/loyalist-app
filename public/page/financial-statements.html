@@ -822,7 +822,7 @@ function closeModal() {
 
       card.innerHTML = `
         <h3>${statement.title || `Financial Statement - ${formattedDate}`}</h3>
-        <p>${statement.description || 'No description provided.'}</p>
+        <p>${statement.description || ''}</p>
         <a href="${statement.fileUrl}" target="_blank">Download</a>
       `;
 
@@ -982,7 +982,7 @@ function closeModal() {
     <div class="quick-links">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="../about.html">About Us</a></li>
+        <li><a href="company.html">About Us</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="corporate-structure.html">Investors</a></li>
         <li><a href="press-release.html">Press Release</a></li>

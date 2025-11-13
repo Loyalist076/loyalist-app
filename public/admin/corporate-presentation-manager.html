@@ -431,8 +431,19 @@
   <script>
     // Check if current PDF exists using API
     async function checkCurrentPdf() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const response = await fetch('/api/corporate-presentation/check');
+        const response = await fetch('/api/corporate-presentation/check', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const data = await response.json();
 
         if (data.exists) {

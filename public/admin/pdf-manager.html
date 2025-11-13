@@ -208,8 +208,19 @@
 
     async function fetchPDFs() {
       loading.textContent = '📥 Loading PDFs...';
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch('/api/pdf');
+        const res = await fetch('/api/pdf', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const pdfs = await res.json();
         pdfList.innerHTML = '';
 
