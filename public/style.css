@@ -129,7 +129,7 @@ body {
   /* White background */
   min-width: 160px;
   /* Set a minimum width */
-  z-index: 1;
+  z-index: 1000;
   /* Sit on top */
 }
 
@@ -466,7 +466,7 @@ body {
   position: absolute;
   background-color: black;
   min-width: 160px;
-  z-index: 1;
+  z-index: 1000;
   border-radius: 4px;
   top: 100%;
   left: 0;

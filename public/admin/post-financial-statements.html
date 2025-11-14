@@ -185,11 +185,19 @@
         data.forEach(statement => {
           const item = document.createElement('div');
           item.className = 'statement-item';
+          // Format date in Canadian Eastern Time
+          const stmtDate = new Date(statement.date);
+          const formattedDate = stmtDate.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
 
           item.innerHTML = `
             <div class="statement-details">
               <strong>${statement.title}</strong> (${statement.category.toUpperCase()})<br>
-              <small>${new Date(statement.date).toLocaleDateString()}</small><br>
+              <small>${formattedDate}</small><br>
               <p>${statement.description || ''}</p>
             </div>
             <div class="statement-actions">

@@ -225,8 +225,14 @@
         pdfList.innerHTML = '';
 
         pdfs.forEach(pdf => {
+          // Format date in Canadian Eastern Time
           const dateFormatted = pdf.date
-            ? new Date(pdf.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            ? new Date(pdf.date).toLocaleDateString('en-CA', {
+                timeZone: 'America/Toronto',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })
             : 'Date not available';
 
           const card = document.createElement('div');

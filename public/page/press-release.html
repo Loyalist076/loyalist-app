@@ -991,7 +991,8 @@ function toggleDropdown(e) {
 
         latestThree.forEach(item => {
           const date = new Date(item.date);
-          const dateKey = date.toLocaleDateString('en-US', {
+          const dateKey = date.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
             year: 'numeric',
             month: 'long',
             day: '2-digit'

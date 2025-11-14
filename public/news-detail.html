@@ -903,9 +903,18 @@ function toggleDropdown(e) {
           .replace(/<table([^>]*)>/g, '<div class="table-wrapper"><table$1>')
           .replace(/<\/table>/g, '</table></div>');
 
+        // Format date in Canadian Eastern Time
+        const newsDate = new Date(news.date);
+        const formattedDate = newsDate.toLocaleDateString('en-CA', {
+          timeZone: 'America/Toronto',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
         container.innerHTML = `
           <h1>${news.title}</h1>
-          <div class="date">${new Date(news.date).toLocaleDateString()}</div>
+          <div class="date">${formattedDate}</div>
           ${news.imageUrl ? `<img src="${news.imageUrl}" alt="News Image">` : ''}
           <div class="content">${contentWithWrappedTables}</div>
         `;

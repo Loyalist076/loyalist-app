@@ -817,8 +817,13 @@ function toggleDropdown(e) {
 
     function formatDate(dateStr) {
       const date = new Date(dateStr);
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return date.toLocaleDateString('en-US', options);
+      const options = {
+        timeZone: 'America/Toronto',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      return date.toLocaleDateString('en-CA', options);
     }
 
     function extractYear(dateStr) {

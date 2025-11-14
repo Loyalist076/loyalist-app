@@ -384,6 +384,14 @@
               ? '<span class="badge badge-active">Active</span>'
               : '<span class="badge badge-inactive">Inactive</span>';
 
+            // Format date in Canadian Eastern Time
+            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-CA', {
+              timeZone: 'America/Toronto',
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            });
+
             html += `
               <div class="document-item">
                 <div class="document-info">
@@ -393,7 +401,7 @@
                   </div>
                   ${doc.description ? `<div class="document-desc">${doc.description}</div>` : ''}
                   <div class="document-meta">
-                    Order: ${doc.displayOrder} | Size: ${fileSize} MB | Uploaded: ${new Date(doc.createdAt).toLocaleDateString()}
+                    Order: ${doc.displayOrder} | Size: ${fileSize} MB | Uploaded: ${uploadDate}
                   </div>
                   <div class="file-info">
                     <a href="${doc.fileUrl}" target="_blank" rel="noopener">View Document →</a>

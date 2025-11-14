@@ -179,8 +179,17 @@
           events.forEach(event => {
             const card = document.createElement('div');
             card.className = 'event-card';
+            // Format date in Canadian Eastern Time
+            const eventDate = new Date(event.date);
+            const formattedDate = eventDate.toLocaleDateString('en-CA', {
+              timeZone: 'America/Toronto',
+              weekday: 'short',
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            });
             card.innerHTML = `
-              <span class="date">${new Date(event.date).toLocaleDateString()}</span>
+              <span class="date">${formattedDate}</span>
               <h3>${event.title}</h3>
               <p>${event.description}</p>
               <div class="actions">

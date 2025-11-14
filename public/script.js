@@ -252,9 +252,20 @@ if (typeof CacheUtils !== 'undefined') {
             .replace(/\r\n/g, '<br>')
             .replace(/\n/g, '<br>')
             .replace(/\r/g, '<br>');
+
+          // Format date in Canadian Eastern Time
+          const eventDate = new Date(event.date);
+          const formattedDate = eventDate.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+
           div.innerHTML = `
             <h3 class="event-title">${event.title}</h3>
-            <span class="date">${new Date(event.date).toDateString()}</span>
+            <span class="date">${formattedDate}</span>
             <p>${formattedDescription}</p>
           `;
           container.appendChild(div);
@@ -283,9 +294,17 @@ if (typeof CacheUtils !== 'undefined') {
     sortedNews.forEach(news => {
       const card = document.createElement('div');
       card.className = 'news-card';
+      // Format date in Canadian Eastern Time
+      const newsDate = new Date(news.date);
+      const formattedDate = newsDate.toLocaleDateString('en-CA', {
+        timeZone: 'America/Toronto',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
       card.innerHTML = `
         <h3><a href="/news-detail.html?id=${news.id}">${news.title}</a></h3>
-        <p>${new Date(news.date).toLocaleDateString()}</p>
+        <p>${formattedDate}</p>
       `;
       newsCarousel.appendChild(card);
     });

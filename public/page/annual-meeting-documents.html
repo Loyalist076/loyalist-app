@@ -1246,7 +1246,9 @@ function closeModal() {
 
           // Render documents as cards
           docs.forEach(doc => {
-            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-US', {
+            // Format date in Canadian Eastern Time
+            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-CA', {
+              timeZone: 'America/Toronto',
               year: 'numeric',
               month: 'long',
               day: 'numeric'
