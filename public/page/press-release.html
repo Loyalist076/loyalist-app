@@ -979,6 +979,22 @@ function toggleDropdown(e) {
 }
 
 
+  const parsePdfDate = (value, fallback) => {
+      if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+        const localDate = new Date(`${value.trim()}T00:00:00`);
+        if (!isNaN(localDate)) return localDate;
+      }
+      if (value) {
+        const parsed = new Date(value);
+        if (!isNaN(parsed)) return parsed;
+      }
+      if (fallback) {
+        const fallbackDate = new Date(fallback);
+        if (!isNaN(fallbackDate)) return fallbackDate;
+      }
+      return null;
+    };
+
   async function fetchNewsPDFs() {
       try {
         // Always fetch fresh data, bypass cache
@@ -992,18 +1008,27 @@ function toggleDropdown(e) {
         });
         const data = await res.json();
 
-        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const parseForSort = (item) => {
+          const parsed = parsePdfDate(item.date, item.createdAt);
+          return parsed ? parsed.getTime() : 0;
+        };
+
+        const sorted = data
+          .slice()
+          .sort((a, b) => parseForSort(b) - parseForSort(a));
         const latestThree = sorted.slice(0, 3);
         const groupedByDate = {};
 
         latestThree.forEach(item => {
-          const date = new Date(item.date);
-          const dateKey = date.toLocaleDateString('en-CA', {
-            timeZone: 'America/Toronto',
-            year: 'numeric',
-            month: 'long',
-            day: '2-digit'
-          }).toUpperCase();
+          const parsed = parsePdfDate(item.date, item.createdAt);
+          const dateKey = parsed
+            ? parsed.toLocaleDateString('en-CA', {
+                timeZone: 'America/Toronto',
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit'
+              }).toUpperCase()
+            : 'DATE NOT AVAILABLE';
 
           if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
           groupedByDate[dateKey].push(item);

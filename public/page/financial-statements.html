@@ -786,6 +786,18 @@ function closeModal() {
 // for fetching finanicial statemnents
   let allStatements = [];
 
+  const parseStatementDate = (value) => {
+    if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+      const localDate = new Date(`${value.trim()}T00:00:00`);
+      if (!isNaN(localDate)) return localDate;
+    }
+    if (value) {
+      const parsed = new Date(value);
+      if (!isNaN(parsed)) return parsed;
+    }
+    return null;
+  };
+
   // Fetch financial statements from backend with caching
   async function loadFinancialStatements() {
     try {
@@ -813,13 +825,15 @@ function closeModal() {
       const card = document.createElement('div');
       card.className = `card ${statement.category}`;
 
-      const date = new Date(statement.date);
-      const formattedDate = date.toLocaleDateString('en-CA', {
-        timeZone: 'America/Toronto',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+      const date = parseStatementDate(statement.date);
+      const formattedDate = date
+        ? date.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        : 'Date not available';
 
       card.innerHTML = `
         <h3>${statement.title || `Financial Statement - ${formattedDate}`}</h3>

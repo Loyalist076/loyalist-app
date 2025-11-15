@@ -815,8 +815,25 @@ function toggleDropdown(e) {
 }
     let allNews = [];
 
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
+    const parsePdfDate = (value, fallback) => {
+      if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+        const localDate = new Date(`${value.trim()}T00:00:00`);
+        if (!isNaN(localDate)) return localDate;
+      }
+      if (value) {
+        const parsed = new Date(value);
+        if (!isNaN(parsed)) return parsed;
+      }
+      if (fallback) {
+        const fallbackDate = new Date(fallback);
+        if (!isNaN(fallbackDate)) return fallbackDate;
+      }
+      return null;
+    };
+
+    function formatDate(dateStr, fallback) {
+      const date = parsePdfDate(dateStr, fallback);
+      if (!date) return 'Date not available';
       const options = {
         timeZone: 'America/Toronto',
         year: 'numeric',
@@ -826,12 +843,17 @@ function toggleDropdown(e) {
       return date.toLocaleDateString('en-CA', options);
     }
 
-    function extractYear(dateStr) {
-      return new Date(dateStr).getFullYear();
+    function extractYear(dateStr, fallback) {
+      const date = parsePdfDate(dateStr, fallback);
+      return date ? date.getFullYear() : null;
     }
 
     function generateYearButtons(newsArray) {
-      const years = [...new Set(newsArray.map(item => extractYear(item.date)))].sort((a, b) => b - a);
+      const years = [...new Set(
+        newsArray
+          .map(item => extractYear(item.date, item.createdAt))
+          .filter(year => year !== null)
+      )].sort((a, b) => b - a);
       const container = document.getElementById('yearButtons');
 
       years.forEach(year => {
@@ -864,7 +886,7 @@ function toggleDropdown(e) {
         const pdfDownloadUrlWithCache = `${pdfDownloadUrl}?t=${timestamp}`;
 
         li.innerHTML = `
-          <span class="news-date">${formatDate(news.date)}:</span>
+          <span class="news-date">${formatDate(news.date, news.createdAt)}:</span>
           <a href="${pdfViewUrlWithCache}" target="_blank">${news.title}</a>
           <a href="${pdfDownloadUrlWithCache}" title="Download PDF" style="margin-left: 10px; color: #d4b248; text-decoration: underline; font-size: 14px;">Download</a>
         `;
@@ -880,7 +902,7 @@ function toggleDropdown(e) {
       if (year === 'all') {
         renderNews(allNews);
       } else {
-        const filtered = allNews.filter(item => extractYear(item.date) == year);
+        const filtered = allNews.filter(item => extractYear(item.date, item.createdAt) == year);
         renderNews(filtered);
       }
     }
@@ -897,9 +919,14 @@ function toggleDropdown(e) {
           }
         });
         const data = await res.json();
+        const sortValue = (item) => {
+          const parsed = parsePdfDate(item.date, item.createdAt);
+          return parsed ? parsed.getTime() : 0;
+        };
+
         allNews = data
-          .filter(item => item.date)
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
+          .filter(item => item.date || item.createdAt)
+          .sort((a, b) => sortValue(b) - sortValue(a));
         generateYearButtons(allNews);
         renderNews(allNews);
 

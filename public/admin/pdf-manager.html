@@ -173,6 +173,22 @@
       return false;
     };
 
+    const parsePdfDate = (value, fallback) => {
+      if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+        const localDate = new Date(`${value.trim()}T00:00:00`);
+        if (!isNaN(localDate)) return localDate;
+      }
+      if (value) {
+        const parsed = new Date(value);
+        if (!isNaN(parsed)) return parsed;
+      }
+      if (fallback) {
+        const fallbackDate = new Date(fallback);
+        if (!isNaN(fallbackDate)) return fallbackDate;
+      }
+      return null;
+    };
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
@@ -225,9 +241,10 @@
         pdfList.innerHTML = '';
 
         pdfs.forEach(pdf => {
-          // Format date in Canadian Eastern Time
-          const dateFormatted = pdf.date
-            ? new Date(pdf.date).toLocaleDateString('en-CA', {
+          // Format date in Canadian Eastern Time, treating stored value as a date-only string
+          const parsedDate = parsePdfDate(pdf.date, pdf.createdAt);
+          const dateFormatted = parsedDate
+            ? parsedDate.toLocaleDateString('en-CA', {
                 timeZone: 'America/Toronto',
                 year: 'numeric',
                 month: 'long',
