@@ -99,6 +99,8 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 // Serve annual meeting documents from root uploads directory
 app.use('/uploads/annual-meeting-documents', express.static(path.join(__dirname, 'uploads/annual-meeting-documents')));
+// Serve press release PDFs from uploads directory
+app.use('/uploads/press-releases', express.static(path.join(__dirname, 'public/uploads/press-releases')));
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
