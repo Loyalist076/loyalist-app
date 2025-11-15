@@ -157,6 +157,11 @@
       window.location.href = '../login.html';
     }
 
+    const MONTH_NAMES = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
     const handleAuthError = (status) => {
       if (status === 401) {
         alert('❌ Authentication failed. Please log in again.');
@@ -175,18 +180,56 @@
 
     const parsePdfDate = (value, fallback) => {
       if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
-        const localDate = new Date(`${value.trim()}T00:00:00`);
-        if (!isNaN(localDate)) return localDate;
+        const [yearStr, monthStr, dayStr] = value.trim().split('-');
+        const year = parseInt(yearStr, 10);
+        const monthIndex = parseInt(monthStr, 10) - 1;
+        const day = parseInt(dayStr, 10);
+
+        if (!Number.isNaN(year) && monthIndex >= 0 && !Number.isNaN(day)) {
+          return {
+            year,
+            monthIndex,
+            day,
+            timestamp: Date.UTC(year, monthIndex, day),
+            source: 'explicit'
+          };
+        }
       }
-      if (value) {
-        const parsed = new Date(value);
-        if (!isNaN(parsed)) return parsed;
+
+      const fallbackSource = value || fallback;
+      if (fallbackSource) {
+        const dateObj = new Date(fallbackSource);
+        if (!isNaN(dateObj)) {
+          return {
+            year: dateObj.getFullYear(),
+            monthIndex: dateObj.getMonth(),
+            day: dateObj.getDate(),
+            dateObj,
+            timestamp: dateObj.getTime(),
+            source: fallbackSource === fallback ? 'fallback' : 'parsed'
+          };
+        }
       }
-      if (fallback) {
-        const fallbackDate = new Date(fallback);
-        if (!isNaN(fallbackDate)) return fallbackDate;
-      }
+
       return null;
+    };
+
+    const formatPdfDate = (value, fallback) => {
+      const parsed = parsePdfDate(value, fallback);
+      if (!parsed) return 'Date not available';
+
+      if (parsed.source === 'explicit') {
+        const monthName = MONTH_NAMES[parsed.monthIndex] || '';
+        const day = parsed.day.toString().padStart(2, '0');
+        return `${monthName} ${day}, ${parsed.year}`;
+      }
+
+      return parsed.dateObj.toLocaleDateString('en-CA', {
+        timeZone: 'America/Toronto',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
     };
 
     form.addEventListener('submit', async (e) => {
@@ -242,15 +285,7 @@
 
         pdfs.forEach(pdf => {
           // Format date in Canadian Eastern Time, treating stored value as a date-only string
-          const parsedDate = parsePdfDate(pdf.date, pdf.createdAt);
-          const dateFormatted = parsedDate
-            ? parsedDate.toLocaleDateString('en-CA', {
-                timeZone: 'America/Toronto',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })
-            : 'Date not available';
+          const dateFormatted = formatPdfDate(pdf.date, pdf.createdAt);
 
           const card = document.createElement('div');
           card.classList.add('pdf-card');
