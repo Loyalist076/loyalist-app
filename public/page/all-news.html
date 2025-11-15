@@ -858,10 +858,15 @@ function toggleDropdown(e) {
         const pdfViewUrl = `/api/pdf/view/${news._id}`;
         const pdfDownloadUrl = `/api/pdf/download/${news._id}`;
 
+        // Add cache-busting timestamp
+        const timestamp = new Date().getTime();
+        const pdfViewUrlWithCache = `${pdfViewUrl}?t=${timestamp}`;
+        const pdfDownloadUrlWithCache = `${pdfDownloadUrl}?t=${timestamp}`;
+
         li.innerHTML = `
           <span class="news-date">${formatDate(news.date)}:</span>
-          <a href="${pdfViewUrl}" target="_blank">${news.title}</a>
-          <a href="${pdfDownloadUrl}" download title="Download PDF" style="margin-left: 10px; color: #d4b248; text-decoration: underline; font-size: 14px;">Download</a>
+          <a href="${pdfViewUrlWithCache}" target="_blank">${news.title}</a>
+          <a href="${pdfDownloadUrlWithCache}" title="Download PDF" style="margin-left: 10px; color: #d4b248; text-decoration: underline; font-size: 14px;">Download</a>
         `;
         list.appendChild(li);
       });
@@ -882,7 +887,15 @@ function toggleDropdown(e) {
 
     async function fetchNews() {
       try {
-        const res = await fetch('/api/pdf');
+        // Bypass cache with timestamp and no-cache headers
+        const timestamp = new Date().getTime();
+        const res = await fetch(`/api/pdf?t=${timestamp}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+          }
+        });
         const data = await res.json();
         allNews = data
           .filter(item => item.date)

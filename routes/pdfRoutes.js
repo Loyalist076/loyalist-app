@@ -12,11 +12,72 @@ const router = express.Router();
 
 // ✅ Environment Base URL for production
 const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
+const normalizedBaseUrl = BASE_URL.replace(/\/$/, '');
 
 // ✅ Cloudinary configuration (optional - only if credentials are provided)
 const isCloudinaryConfigured = process.env.CLOUDINARY_CLOUD_NAME &&
                                 process.env.CLOUDINARY_API_KEY &&
                                 process.env.CLOUDINARY_API_SECRET;
+
+const buildAbsoluteUrl = (url) => {
+  if (!url) return null;
+  if (/^https?:\/\//i.test(url)) return url;
+  if (!normalizedBaseUrl) return null;
+  const sanitizedPath = url.startsWith('/') ? url : `/${url}`;
+  return `${normalizedBaseUrl}${sanitizedPath}`;
+};
+
+const streamPdfFromUrl = async (url, res, context = 'Direct URL') => {
+  const absoluteUrl = buildAbsoluteUrl(url);
+  if (!absoluteUrl) return false;
+
+  try {
+    console.log(`🌐 ${context}: ${absoluteUrl}`);
+    const pdfResponse = await axios({
+      method: 'GET',
+      url: absoluteUrl,
+      responseType: 'arraybuffer',
+      timeout: 30000,
+    });
+    res.send(Buffer.from(pdfResponse.data));
+    return true;
+  } catch (err) {
+    console.error(`❌ ${context} fetch failed:`, err.message);
+    return false;
+  }
+};
+
+const trySignedCloudinaryStream = async (pdf, res, attachment) => {
+  if (!pdf.public_id || !isCloudinaryConfigured) return false;
+
+  const typeVariants = ['upload', 'authenticated'];
+
+  for (const type of typeVariants) {
+    try {
+      const signedUrl = cloudinary.utils.private_download_url(pdf.public_id, 'pdf', {
+        resource_type: 'raw',
+        attachment,
+        type,
+      });
+
+      console.log(`🔐 Fetching PDF using signed URL from Cloudinary (type=${type})`);
+
+      const pdfResponse = await axios({
+        method: 'GET',
+        url: signedUrl,
+        responseType: 'arraybuffer',
+        timeout: 30000,
+      });
+
+      res.send(Buffer.from(pdfResponse.data));
+      return true;
+    } catch (err) {
+      console.error(`❌ Signed URL fetch failed (type=${type}):`, err.message);
+    }
+  }
+
+  return false;
+};
 
 if (isCloudinaryConfigured) {
   cloudinary.config({
@@ -187,6 +248,11 @@ router.post('/upload', authenticate, isAdmin, tempUpload.single('pdf'), async (r
 // 📥 Get all PDFs
 router.get('/', async (req, res) => {
   try {
+    // Set no-cache headers to always get fresh data
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+
     const pdfs = await Pdf.find().sort({ createdAt: -1 });
     res.json(pdfs);
   } catch (err) {
@@ -204,8 +270,12 @@ router.get('/view/:id', async (req, res) => {
     // Sanitize filename to remove invalid characters
     const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
 
+    // Set headers to prevent caching
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `inline; filename="${sanitizedTitle}.pdf"`);
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 
     // Handle local files
     if (pdf.storageType === 'local' && pdf.filePath) {
@@ -219,32 +289,24 @@ router.get('/view/:id', async (req, res) => {
       return res.sendFile(fullPath);
     }
 
-    // Handle Cloudinary files
-    let pdfUrl = pdf.url;
-
-    // If the PDF has a public_id, generate a signed URL to avoid 401 errors
-    if (pdf.public_id && isCloudinaryConfigured) {
-      try {
-        // Generate a signed URL that's valid for 1 hour
-        pdfUrl = cloudinary.url(pdf.public_id, {
-          resource_type: 'raw',
-          type: 'upload',
-          sign_url: true,
-          secure: true,
-        });
-        console.log('🔐 Using signed URL for PDF access');
-      } catch (signError) {
-        console.warn('⚠️ Failed to generate signed URL, using original URL:', signError.message);
+    // Handle Cloudinary-hosted files or remote URLs
+    if (pdf.storageType === 'cloudinary' || pdf.public_id) {
+      if (await streamPdfFromUrl(pdf.url, res, 'Direct Cloudinary URL')) {
+        return;
       }
+
+      const served = await trySignedCloudinaryStream(pdf, res, false);
+      if (served) return;
+
+      return res.status(404).send('Unable to fetch PDF from Cloudinary. Please re-upload the file.');
     }
 
-    const pdfResponse = await axios({
-      method: 'GET',
-      url: pdfUrl,
-      responseType: 'stream',
-    });
+    // Generic remote URL fallback (non-Cloudinary)
+    if (await streamPdfFromUrl(pdf.url, res, 'Direct URL')) {
+      return;
+    }
 
-    pdfResponse.data.pipe(res);
+    return res.status(404).send('PDF source unavailable.');
   } catch (err) {
     console.error('❌ View PDF error:', err);
     if (err.response && err.response.status === 401) {
@@ -264,8 +326,12 @@ router.get('/download/:id', async (req, res) => {
     // Sanitize filename to remove invalid characters
     const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
 
+    // Set headers to prevent caching
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${sanitizedTitle}.pdf"`);
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 
     // Handle local files
     if (pdf.storageType === 'local' && pdf.filePath) {
@@ -279,32 +345,24 @@ router.get('/download/:id', async (req, res) => {
       return res.sendFile(fullPath);
     }
 
-    // Handle Cloudinary files
-    let pdfUrl = pdf.url;
-
-    // If the PDF has a public_id, generate a signed URL to avoid 401 errors
-    if (pdf.public_id && isCloudinaryConfigured) {
-      try {
-        // Generate a signed URL that's valid for 1 hour
-        pdfUrl = cloudinary.url(pdf.public_id, {
-          resource_type: 'raw',
-          type: 'upload',
-          sign_url: true,
-          secure: true,
-        });
-        console.log('🔐 Using signed URL for PDF download');
-      } catch (signError) {
-        console.warn('⚠️ Failed to generate signed URL, using original URL:', signError.message);
+    // Handle Cloudinary-hosted files or remote URLs
+    if (pdf.storageType === 'cloudinary' || pdf.public_id) {
+      if (await streamPdfFromUrl(pdf.url, res, 'Direct Cloudinary URL')) {
+        return;
       }
+
+      const served = await trySignedCloudinaryStream(pdf, res, true);
+      if (served) return;
+
+      return res.status(404).send('Unable to fetch PDF from Cloudinary. Please re-upload the file.');
     }
 
-    const pdfResponse = await axios({
-      method: 'GET',
-      url: pdfUrl,
-      responseType: 'stream',
-    });
+    // Generic remote URL fallback (non-Cloudinary)
+    if (await streamPdfFromUrl(pdf.url, res, 'Direct URL')) {
+      return;
+    }
 
-    pdfResponse.data.pipe(res);
+    return res.status(404).send('PDF source unavailable.');
   } catch (err) {
     console.error('❌ Download PDF error:', err);
     if (err.response && err.response.status === 401) {

@@ -981,8 +981,15 @@ function toggleDropdown(e) {
 
   async function fetchNewsPDFs() {
       try {
-        const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
-        const res = await fetchFunc('/api/pdf');
+        // Always fetch fresh data, bypass cache
+        const timestamp = new Date().getTime();
+        const res = await fetch(`/api/pdf?t=${timestamp}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+          }
+        });
         const data = await res.json();
 
         const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -1021,15 +1028,17 @@ function toggleDropdown(e) {
             const card = document.createElement('div');
             card.className = 'news-card';
 
-            const pdfViewUrl = `/api/pdf/view/${item._id}`;
-            const pdfDownloadUrl = `/api/pdf/download/${item._id}`;
+            // Add cache-busting timestamp to URLs
+            const timestamp = new Date().getTime();
+            const pdfViewUrl = `/api/pdf/view/${item._id}?t=${timestamp}`;
+            const pdfDownloadUrl = `/api/pdf/download/${item._id}?t=${timestamp}`;
 
             card.innerHTML = `
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
                 <a href="${pdfViewUrl}" target="_blank" class="news-title">
                   ${item.title}
                 </a>
-                <a href="${pdfDownloadUrl}" download title="Download PDF" class="download-btn">
+                <a href="${pdfDownloadUrl}" title="Download PDF" class="download-btn">
                   Download
                 </a>
               </div>
