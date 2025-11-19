@@ -676,13 +676,13 @@ body {
   flex: 1;
   height: 80%;
   overflow-y: auto;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: transparent; /* removed semi-transparent panel */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   padding: 30px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 20px; /* keep corner radius for layout spacing */
+  border: none;
+  box-shadow: none;
   animation: fadeInRight 1.8s ease;
 }
 
@@ -694,6 +694,100 @@ body {
   overflow-y: auto;
   padding-right: 10px;
   box-sizing: border-box;
+}
+
+/* Additional responsive rules for upcoming events */
+/* Large desktops: keep hero-left dominant and cap the events column */
+@media (min-width: 1200px) {
+  .hero-overlay {
+    align-items: flex-start;
+    padding: 0 5%;
+  }
+
+  .hero-left {
+    flex: 0 0 62%;
+    max-width: 1020px;
+  }
+
+  .hero-right {
+    flex: 0 0 34%;
+    max-width: 460px;
+    align-self: center;
+  }
+
+  .news-box1 {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* Medium desktops / laptops: balanced columns */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-left {
+    flex: 0 0 60%;
+  }
+
+  .hero-right {
+    flex: 0 0 36%;
+    max-width: 420px;
+  }
+}
+
+/* Very small phones: compress the events box for better readability */
+@media (max-width: 420px) {
+  .news-box1 {
+    width: 100%;
+    padding: 6px 8px;
+    max-height: 320px;
+  }
+
+  .news-card1 {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .news-card1 .event-title {
+    font-size: 1rem;
+  }
+
+  .news-card1 p {
+    font-size: 0.92rem;
+    max-height: 160px;
+  }
+}
+
+/* Restore previous desktop/laptop sizing while keeping responsiveness */
+@media (min-width: 992px) and (max-width: 1600px) {
+  /* make left content dominant and keep right column a consistent width */
+  .hero-left {
+    flex: 0 0 66%;
+    max-width: calc(100% - 480px);
+  }
+
+  .hero-right {
+    flex: 0 0 34%;
+    max-width: 480px;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .news-box1 {
+    max-width: 440px;
+    margin: 0 auto;
+    padding-right: 8px;
+  }
+}
+
+/* Very large displays: keep the events column capped so it doesn't become too wide */
+@media (min-width: 1601px) {
+  .hero-left {
+    flex: 0 0 68%;
+  }
+
+  .hero-right {
+    flex: 0 0 32%;
+    max-width: 520px;
+  }
 }
 
 /* Custom scrollbar for events section */
