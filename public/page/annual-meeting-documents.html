@@ -7,7 +7,7 @@
   <title>Annual Meeting Documents | Loyalist Exploration</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+  <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -590,7 +590,11 @@
       border: none;
       border: 3px solid #D4B248;
       border-radius: 4px;
-    }
+      width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
 
     .subscribe-form button {
       padding: 10px 16px;
@@ -1057,7 +1061,10 @@ function closeModal() {
 <div class="main-content-wrapper">
 <!-- Black title bar -->
  <!-- Title -->
-<div class="section-title">Annual Meeting Documents</div>
+<div >
+  <h1 class="section-title">
+    Annual Meeting Documents</h1>
+</div>
 
   <!-- Investor Sub-Navigation -->
   <div class="investor-subnav">
@@ -1096,7 +1103,7 @@ function closeModal() {
     <div class="quick-links">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="../about.html">About Us</a></li>
+        <li><a href="company.html">About Us</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="corporate-structure.html">Investors</a></li>
         <li><a href="press-release.html">Press Release</a></li>
@@ -1235,14 +1242,16 @@ function closeModal() {
             <div class="year-section">
               <div class="year-header">
                 <i class="fas fa-calendar-alt"></i>
-                <span>${year} Annual Meeting</span>
+                <span>${year} Annual Meeting${year === '2025' ? ' - to be held on December 10, 2025' : ''}</span>
               </div>
               <section class="report-grid">
           `;
 
           // Render documents as cards
           docs.forEach(doc => {
-            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-US', {
+            // Format date in Canadian Eastern Time
+            const uploadDate = new Date(doc.createdAt).toLocaleDateString('en-CA', {
+              timeZone: 'America/Toronto',
               year: 'numeric',
               month: 'long',
               day: 'numeric'
@@ -1251,7 +1260,7 @@ function closeModal() {
             html += `
               <div class="card">
                 <h3>${doc.title || `Annual Meeting Document - ${year}`}</h3>
-                <p>${doc.description || 'No description provided.'}</p>
+                <p>${doc.description || ''}</p>
                 <p style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">
                   <i class="fas fa-calendar"></i> ${uploadDate}
                 </p>

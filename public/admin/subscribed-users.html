@@ -48,8 +48,19 @@
 
   <script>
     async function fetchSubscribers() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch('/api/subscribe');
+        const res = await fetch('/api/subscribe', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const data = await res.json();
 
         const filter = document.getElementById('sourceFilter').value;
@@ -60,10 +71,20 @@
 
         filtered.forEach(sub => {
           const row = document.createElement('tr');
+          // Format date in Canadian Eastern Time
+          const subDate = new Date(sub.createdAt);
+          const formattedDate = subDate.toLocaleString('en-CA', {
+            timeZone: 'America/Toronto',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
           row.innerHTML = `
             <td>${sub.email}</td>
             <td>${sub.source || 'popup'}</td>
-            <td>${new Date(sub.createdAt).toLocaleString()}</td>
+            <td>${formattedDate}</td>
             <td><button onclick="deleteSubscriber('${sub._id}')">Delete</button></td>
           `;
           tbody.appendChild(row);
@@ -76,9 +97,19 @@
     async function deleteSubscriber(id) {
       if (!confirm('Are you sure you want to delete this subscriber?')) return;
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
         const res = await fetch(`/api/subscribe/${id}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
         const result = await res.json();
 

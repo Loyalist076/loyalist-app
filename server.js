@@ -73,14 +73,34 @@ const authLimiter = rateLimit({
   message: 'Too many authentication attempts, please try again later.'
 });
 
-// Body Parser Middleware
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Body Parser Middleware — allow large payloads for big PDF uploads
+app.use(express.json({ limit: '200mb' }));
+app.use(express.urlencoded({ extended: true, limit: '200mb' }));
+
+// Cache control middleware for static files
+app.use((req, res, next) => {
+  // Set cache control headers based on file type
+  if (req.url.match(/\.(css|js)$/)) {
+    // CSS and JS files: short cache with must-revalidate
+    res.setHeader('Cache-Control', 'public, max-age=300, must-revalidate'); // 5 minutes
+  } else if (req.url.match(/\.(jpg|jpeg|png|gif|ico|svg|webp)$/)) {
+    // Images: longer cache
+    res.setHeader('Cache-Control', 'public, max-age=86400'); // 24 hours
+  } else if (req.url.match(/\.html$/)) {
+    // HTML files: no cache
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+  next();
+});
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 // Serve annual meeting documents from root uploads directory
 app.use('/uploads/annual-meeting-documents', express.static(path.join(__dirname, 'uploads/annual-meeting-documents')));
+// Serve press release PDFs from uploads directory
+app.use('/uploads/press-releases', express.static(path.join(__dirname, 'public/uploads/press-releases')));
 
 // Routes
 const authRoutes = require('./routes/authRoutes');

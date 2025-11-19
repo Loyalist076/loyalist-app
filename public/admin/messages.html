@@ -174,8 +174,20 @@
       loading.style.display = 'block';
       errorBox.innerText = '';
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        errorBox.innerText = 'Authentication required. Please log in.';
+        loading.style.display = 'none';
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch('/api/messages');
+        const res = await fetch('/api/messages', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!res.ok) throw new Error('Failed to fetch messages');
         allMessages = await res.json();
         displayMessages(allMessages);
@@ -198,13 +210,23 @@
 
       messages.forEach(msg => {
         const row = document.createElement('tr');
+        // Format date in Canadian Eastern Time
+        const msgDate = new Date(msg.createdAt);
+        const formattedDate = msgDate.toLocaleString('en-CA', {
+          timeZone: 'America/Toronto',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
         row.innerHTML = `
           <td data-label="Name">${msg.name}</td>
           <td data-label="Email">${msg.email}</td>
           <td data-label="Subject">${msg.subject}</td>
           <td data-label="Message">${msg.message}</td>
           <td data-label="Source">${msg.source || 'N/A'}</td>
-          <td data-label="Date">${new Date(msg.createdAt).toLocaleString()}</td>
+          <td data-label="Date">${formattedDate}</td>
           <td data-label="Actions">
             <button class="delete-btn" onclick="deleteMessage('${msg._id}', this)">Delete</button>
           </td>
@@ -227,8 +249,20 @@
       btn.disabled = true;
       btn.innerText = 'Deleting...';
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch(`/api/messages/${id}`, { method: 'DELETE' });
+        const res = await fetch(`/api/messages/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!res.ok) throw new Error('Delete failed');
         allMessages = allMessages.filter(msg => msg._id !== id);
         filterMessages();

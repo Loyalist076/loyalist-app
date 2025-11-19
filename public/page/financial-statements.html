@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -613,7 +613,11 @@
       border: none;
       border: 3px solid #D4B248;
       border-radius: 4px;
-    }
+      width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
 
     .subscribe-form button {
       padding: 10px 16px;
@@ -782,6 +786,18 @@ function closeModal() {
 // for fetching finanicial statemnents
   let allStatements = [];
 
+  const parseStatementDate = (value) => {
+    if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+      const localDate = new Date(`${value.trim()}T00:00:00`);
+      if (!isNaN(localDate)) return localDate;
+    }
+    if (value) {
+      const parsed = new Date(value);
+      if (!isNaN(parsed)) return parsed;
+    }
+    return null;
+  };
+
   // Fetch financial statements from backend with caching
   async function loadFinancialStatements() {
     try {
@@ -809,16 +825,19 @@ function closeModal() {
       const card = document.createElement('div');
       card.className = `card ${statement.category}`;
 
-      const date = new Date(statement.date);
-      const formattedDate = date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+      const date = parseStatementDate(statement.date);
+      const formattedDate = date
+        ? date.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        : 'Date not available';
 
       card.innerHTML = `
         <h3>${statement.title || `Financial Statement - ${formattedDate}`}</h3>
-        <p>${statement.description || 'No description provided.'}</p>
+        <p>${statement.description || ''}</p>
         <a href="${statement.fileUrl}" target="_blank">Download</a>
       `;
 
@@ -934,7 +953,9 @@ function closeModal() {
  
 <!-- Black title bar -->
  <!-- Title -->
-<div class="section-title">Financial Statements</div>
+<div>
+  <h1 class="section-title">Financial Statements</h1>
+</div>
 
   <!-- Investor Sub-Navigation -->
   <div class="investor-subnav">
@@ -978,7 +999,7 @@ function closeModal() {
     <div class="quick-links">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="../about.html">About Us</a></li>
+        <li><a href="company.html">About Us</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="corporate-structure.html">Investors</a></li>
         <li><a href="press-release.html">Press Release</a></li>

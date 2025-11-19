@@ -431,8 +431,19 @@
   <script>
     // Check if current PDF exists using API
     async function checkCurrentPdf() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const response = await fetch('/api/corporate-presentation/check');
+        const response = await fetch('/api/corporate-presentation/check', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const data = await response.json();
 
         if (data.exists) {
@@ -462,7 +473,15 @@
           }
 
           if (data.modified) {
-            const modifiedDate = new Date(data.modified).toLocaleString();
+            // Format date in Canadian Eastern Time
+            const modifiedDate = new Date(data.modified).toLocaleString('en-CA', {
+              timeZone: 'America/Toronto',
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
             const modifiedInfo = document.createElement('div');
             modifiedInfo.style.fontSize = '14px';
             modifiedInfo.style.color = '#6b7280';

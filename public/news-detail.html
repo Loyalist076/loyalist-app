@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="image/loyalist black.png" />
   <style>
     * {
       box-sizing: border-box;
@@ -679,6 +679,10 @@
   color: #D4B248;
   border: 3px solid #D4B248;
   border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 
 .subscribe-form button {
@@ -822,7 +826,7 @@
         <div class="quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="about.html">About</a></li>
+            <li><a href="./page/company.html">About</a></li>
             <li><a href="page/projects.html">Projects</a></li>
             <li><a href="page/corporate-structure.html">Investors</a></li>
             <li><a href="page/press-release.html">Press Release</a></li>
@@ -899,9 +903,18 @@ function toggleDropdown(e) {
           .replace(/<table([^>]*)>/g, '<div class="table-wrapper"><table$1>')
           .replace(/<\/table>/g, '</table></div>');
 
+        // Format date in Canadian Eastern Time
+        const newsDate = new Date(news.date);
+        const formattedDate = newsDate.toLocaleDateString('en-CA', {
+          timeZone: 'America/Toronto',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
         container.innerHTML = `
           <h1>${news.title}</h1>
-          <div class="date">${new Date(news.date).toLocaleDateString()}</div>
+          <div class="date">${formattedDate}</div>
           ${news.imageUrl ? `<img src="${news.imageUrl}" alt="News Image">` : ''}
           <div class="content">${contentWithWrappedTables}</div>
         `;

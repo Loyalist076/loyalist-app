@@ -87,10 +87,20 @@
       const capitalStructure = capitalTypes.map((type, i) => ({ type, value: capitalValues[i] }));
       const shareOwnership = shareHolders.map((shareholder, i) => ({ shareholder, percentage: percentages[i] }));
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
         const response = await fetch('/api/company-structure', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
           body: JSON.stringify({ capitalStructure, shareOwnership })
         });
 
@@ -105,8 +115,18 @@
 
     // Optionally, load existing data when admin opens page
     async function loadExistingCorporate() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const response = await fetch('/api/company-structure');
+        const response = await fetch('/api/company-structure', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!response.ok) return;
         const data = await response.json();
         if (!data) return;

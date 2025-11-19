@@ -126,8 +126,19 @@
 
   <script>
     async function fetchPendingAdmins() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch('/api/admin/pending-admins');
+        const res = await fetch('/api/admin/pending-admins', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const data = await res.json();
 
         const container = document.getElementById('admin-table-container');
@@ -170,9 +181,19 @@
     async function approveAdmin(adminId) {
       if (!confirm('Are you sure you want to approve this admin?')) return;
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
         const res = await fetch(`/api/admin/approve-admin/${adminId}`, {
-          method: 'PUT'
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
 
         const data = await res.json();

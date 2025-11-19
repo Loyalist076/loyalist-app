@@ -110,6 +110,23 @@
       font-size: 14px;
       color: #555;
     }
+
+    .warning-message {
+      background-color: #fff3cd;
+      border: 2px solid #ffc107;
+      border-left: 5px solid #ff9800;
+      color: #856404;
+      padding: 15px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .warning-message strong {
+      color: #d97706;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -122,6 +139,10 @@
     <div id="loading"></div>
   </form>
 
+  <div class="warning-message">
+    <strong>⚠️ Important Notice:</strong> Only PDFs up to 2MB are approved. Larger files can cause performance issues and may fail to upload. Please ensure your PDF file size is within the limit before uploading.
+  </div>
+
   <h3>Uploaded PDFs</h3>
   <div class="pdf-list" id="pdfList"></div>
 
@@ -129,6 +150,87 @@
     const form = document.getElementById('uploadForm');
     const pdfList = document.getElementById('pdfList');
     const loading = document.getElementById('loading');
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('❌ Authentication required. Please log in again.');
+      window.location.href = '../login.html';
+    }
+
+    const MONTH_NAMES = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const handleAuthError = (status) => {
+      if (status === 401) {
+        alert('❌ Authentication failed. Please log in again.');
+        localStorage.removeItem('token');
+        window.location.href = '../login.html';
+        return true;
+      }
+
+      if (status === 403) {
+        alert('❌ Access denied. Admin privileges required.');
+        return true;
+      }
+
+      return false;
+    };
+
+    const parsePdfDate = (value, fallback) => {
+      if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+        const [yearStr, monthStr, dayStr] = value.trim().split('-');
+        const year = parseInt(yearStr, 10);
+        const monthIndex = parseInt(monthStr, 10) - 1;
+        const day = parseInt(dayStr, 10);
+
+        if (!Number.isNaN(year) && monthIndex >= 0 && !Number.isNaN(day)) {
+          return {
+            year,
+            monthIndex,
+            day,
+            timestamp: Date.UTC(year, monthIndex, day),
+            source: 'explicit'
+          };
+        }
+      }
+
+      const fallbackSource = value || fallback;
+      if (fallbackSource) {
+        const dateObj = new Date(fallbackSource);
+        if (!isNaN(dateObj)) {
+          return {
+            year: dateObj.getFullYear(),
+            monthIndex: dateObj.getMonth(),
+            day: dateObj.getDate(),
+            dateObj,
+            timestamp: dateObj.getTime(),
+            source: fallbackSource === fallback ? 'fallback' : 'parsed'
+          };
+        }
+      }
+
+      return null;
+    };
+
+    const formatPdfDate = (value, fallback) => {
+      const parsed = parsePdfDate(value, fallback);
+      if (!parsed) return 'Date not available';
+
+      if (parsed.source === 'explicit') {
+        const monthName = MONTH_NAMES[parsed.monthIndex] || '';
+        const day = parsed.day.toString().padStart(2, '0');
+        return `${monthName} ${day}, ${parsed.year}`;
+      }
+
+      return parsed.dateObj.toLocaleDateString('en-CA', {
+        timeZone: 'America/Toronto',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -138,6 +240,9 @@
       try {
         const response = await fetch('/api/pdf/upload', {
           method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
           body: formData
         });
 
@@ -148,7 +253,9 @@
           form.reset();
           fetchPDFs();
         } else {
-          alert('❌ Upload failed: ' + (result.error || 'Something went wrong.'));
+          if (!handleAuthError(response.status)) {
+            alert('❌ Upload failed: ' + (result.error || 'Something went wrong.'));
+          }
         }
       } catch (err) {
         alert('❌ Network error: ' + err.message);
@@ -160,22 +267,41 @@
 
     async function fetchPDFs() {
       loading.textContent = '📥 Loading PDFs...';
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
       try {
-        const res = await fetch('/api/pdf');
+        const res = await fetch('/api/pdf', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         const pdfs = await res.json();
         pdfList.innerHTML = '';
 
         pdfs.forEach(pdf => {
-          const dateFormatted = pdf.date
-            ? new Date(pdf.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-            : 'Date not available';
+          // Format date in Canadian Eastern Time, treating stored value as a date-only string
+          const dateFormatted = formatPdfDate(pdf.date, pdf.createdAt);
 
           const card = document.createElement('div');
           card.classList.add('pdf-card');
+
+          // Use backend view/download endpoints to ensure consistent access
+          const timestamp = Date.now();
+          const pdfViewUrl = `/api/pdf/view/${pdf._id}?t=${timestamp}`;
+          const pdfDownloadUrl = `/api/pdf/download/${pdf._id}?t=${timestamp}`;
+
           card.innerHTML = `
             <div class="pdf-title">📄 ${pdf.title}</div>
             <div class="pdf-date">📅 ${dateFormatted}</div>
-            <a class="pdf-link" href="${pdf.url}" target="_blank" rel="noopener noreferrer">View / Download</a>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="pdf-link" href="${pdfViewUrl}" target="_blank" rel="noopener noreferrer">View</a>
+              <a class="pdf-link" href="${pdfDownloadUrl}" rel="noopener noreferrer">Download</a>
+            </div>
             <button class="delete-btn" onclick="deletePDF('${pdf._id}')">🗑️ Delete</button>
           `;
           pdfList.appendChild(card);
@@ -193,14 +319,19 @@
 
       try {
         const res = await fetch(`/api/pdf/${id}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
 
         if (res.ok) {
           alert('✅ PDF deleted successfully.');
           fetchPDFs();
         } else {
-          alert('❌ Failed to delete PDF.');
+          if (!handleAuthError(res.status)) {
+            alert('❌ Failed to delete PDF.');
+          }
         }
       } catch (err) {
         alert('❌ Error deleting PDF.');

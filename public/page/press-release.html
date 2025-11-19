@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="../image/loyalist 2-03 .png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
      *{
@@ -652,7 +652,7 @@
       background: #D4B248;
     }
 
-    
+
 /* Footer */
 .site-footer {
   background-color: #000;
@@ -719,6 +719,10 @@
   border: none;
   border: 3px solid #D4B248;
   border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 
 .subscribe-form button {
@@ -882,7 +886,8 @@
   </div>
 
 
-  <div class="section-title">Press Releases</div>
+  <div >
+    <h1 class="section-title">Press Releases</h1></div>
 
 
   <section class="news-list" id="newsContainer">
@@ -907,7 +912,7 @@
       <div class="quick-links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="../about.html">About Us</a></li>
+          <li><a href="company.html">About Us</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="corporate-structure.html">Investors</a></li>
           <li><a href="#">Press Release</a></li>
@@ -974,27 +979,94 @@ function toggleDropdown(e) {
   }
 }
 
+  const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const parsePdfDate = (value, fallback) => {
+    if (value && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
+      const [yearStr, monthStr, dayStr] = value.trim().split('-');
+      const year = parseInt(yearStr, 10);
+      const monthIndex = parseInt(monthStr, 10) - 1;
+      const day = parseInt(dayStr, 10);
+
+      if (!Number.isNaN(year) && monthIndex >= 0 && !Number.isNaN(day)) {
+        return {
+          year,
+          monthIndex,
+          day,
+          timestamp: Date.UTC(year, monthIndex, day),
+          source: 'explicit'
+        };
+      }
+    }
+
+    const fallbackSource = value || fallback;
+    if (fallbackSource) {
+      const dateObj = new Date(fallbackSource);
+      if (!isNaN(dateObj)) {
+        return {
+          year: dateObj.getFullYear(),
+          monthIndex: dateObj.getMonth(),
+          day: dateObj.getDate(),
+          dateObj,
+          timestamp: dateObj.getTime(),
+          source: fallbackSource === fallback ? 'fallback' : 'parsed'
+        };
+      }
+    }
+
+    return null;
+  };
+
+  const formatPdfDateLabel = (value, fallback) => {
+    const parsed = parsePdfDate(value, fallback);
+    if (!parsed) return 'DATE NOT AVAILABLE';
+
+    if (parsed.source === 'explicit') {
+      const monthName = MONTH_NAMES[parsed.monthIndex] || '';
+      const day = parsed.day.toString().padStart(2, '0');
+      return `${monthName} ${day}, ${parsed.year}`;
+    }
+
+    return parsed.dateObj.toLocaleDateString('en-CA', {
+      timeZone: 'America/Toronto',
+      year: 'numeric',
+      month: 'long',
+      day: '2-digit'
+    });
+  };
 
   async function fetchNewsPDFs() {
       try {
-        const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
-        const res = await fetchFunc('/api/pdf');
+        // Always fetch fresh data, bypass cache
+        const timestamp = new Date().getTime();
+        const res = await fetch(`/api/pdf?t=${timestamp}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+          }
+        });
         const data = await res.json();
 
-        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const parseForSort = (item) => {
+          const parsed = parsePdfDate(item.date, item.createdAt);
+          return parsed ? parsed.timestamp : 0;
+        };
+
+        const sorted = data
+          .slice()
+          .sort((a, b) => parseForSort(b) - parseForSort(a));
         const latestThree = sorted.slice(0, 3);
         const groupedByDate = {};
 
         latestThree.forEach(item => {
-          const date = new Date(item.date);
-          const dateKey = date.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: '2-digit'
-          }).toUpperCase();
+          const label = formatPdfDateLabel(item.date, item.createdAt).toUpperCase();
 
-          if (!groupedByDate[dateKey]) groupedByDate[dateKey] = [];
-          groupedByDate[dateKey].push(item);
+          if (!groupedByDate[label]) groupedByDate[label] = [];
+          groupedByDate[label].push(item);
         });
 
         const container = document.getElementById('newsContainer');
@@ -1016,15 +1088,17 @@ function toggleDropdown(e) {
             const card = document.createElement('div');
             card.className = 'news-card';
 
-            const pdfViewUrl = `/api/pdf/view/${item._id}`;
-            const pdfDownloadUrl = `/api/pdf/download/${item._id}`;
+            // Add cache-busting timestamp to URLs
+            const timestamp = new Date().getTime();
+            const pdfViewUrl = `/api/pdf/view/${item._id}?t=${timestamp}`;
+            const pdfDownloadUrl = `/api/pdf/download/${item._id}?t=${timestamp}`;
 
             card.innerHTML = `
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
                 <a href="${pdfViewUrl}" target="_blank" class="news-title">
                   ${item.title}
                 </a>
-                <a href="${pdfDownloadUrl}" download title="Download PDF" class="download-btn">
+                <a href="${pdfDownloadUrl}" title="Download PDF" class="download-btn">
                   Download
                 </a>
               </div>

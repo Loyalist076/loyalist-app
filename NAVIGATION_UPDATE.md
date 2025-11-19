@@ -118,7 +118,7 @@ The navigation follows the existing site patterns:
 
 ### Additional Pages to Update (if they exist)
 If you have other pages with the Investors dropdown, consider updating:
-- `about.html`
+- `./page/company.html`
 - `directors.html`
 - `contact.html`
 - `news.html`

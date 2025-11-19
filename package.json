@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "npm install"
+    "build": "npm install",
+    "update-css-version": "node update-css-version.js",
+    "predeploy": "node update-css-version.js",
+    "deploy": "echo 'Ready to deploy - CSS version updated!'"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +32,8 @@
     "mongoose": "^8.16.1",
     "multer": "^2.0.1",
     "nodemailer": "^7.0.5",
-    "nodemon": "^3.1.10",
+    "nodemon": "^3.1.11",
+    "pdf-lib": "^1.17.1",
     "socket.io": "^4.8.1"
   }
 }
