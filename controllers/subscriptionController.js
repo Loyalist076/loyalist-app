@@ -11,6 +11,9 @@ const getEmailHash = (email) =>
 
 exports.subscribe = async (req, res) => {
   const { email, name, source = 'website' } = req.body;
+  const sanitizedSource = (typeof source === 'string' && source.trim())
+    ? source.trim().toLowerCase()
+    : 'website';
 
   if (!email) return res.status(400).json({ message: 'Email is required' });
 
@@ -18,7 +21,7 @@ exports.subscribe = async (req, res) => {
     let subscriber = await Subscription.findOne({ email });
 
     if (!subscriber) {
-      subscriber = new Subscription({ email, name, source });
+      subscriber = new Subscription({ email, name, source: sanitizedSource });
       await subscriber.save();
     }
 

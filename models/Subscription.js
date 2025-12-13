@@ -12,8 +12,9 @@ const subscriptionSchema = new mongoose.Schema({
   name: String,
   source: {
     type: String,
-    enum: ['website', 'admin'],
-    default: 'website'
+    default: 'website',
+    trim: true,
+    lowercase: true
   }
 }, { timestamps: true });
 
