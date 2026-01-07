@@ -240,10 +240,7 @@ if (typeof CacheUtils !== 'undefined') {
         // Only show section if there are events
         container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
 
-        // Optional: limit to next 2 events
-        const upcoming = events.slice(0, 2);
-
-        upcoming.forEach(event => {
+        events.forEach(event => {
           const div = document.createElement('div');
           div.className = 'news-card1';
           // Convert line breaks to <br> tags for proper display
