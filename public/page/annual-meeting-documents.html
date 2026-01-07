@@ -1204,16 +1204,14 @@ function closeModal() {
   }
 </script>
 
-  <script src="../cache-utils.js"></script>
   <script src="../script.js"></script>
   <script>
-    // Load annual meeting documents with caching
+    // Load annual meeting documents
     async function loadAnnualMeetingDocuments() {
       const container = document.getElementById('documentsContainer');
 
       try {
-        const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
-        const response = await fetchFunc('/api/annual-meeting-documents/by-year?active=true');
+        const response = await fetch('/api/annual-meeting-documents/by-year?active=true');
         const documentsByYear = await response.json();
 
         const years = Object.keys(documentsByYear).sort((a, b) => b - a);

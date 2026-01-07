@@ -798,11 +798,10 @@ function closeModal() {
     return null;
   };
 
-  // Fetch financial statements from backend with caching
+  // Fetch financial statements from backend
   async function loadFinancialStatements() {
     try {
-      const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
-      const res = await fetchFunc('/api/financials');
+      const res = await fetch('/api/financials');
       const data = await res.json();
       allStatements = data;
       renderStatements(data); // Initially show all
@@ -1099,8 +1098,6 @@ function closeModal() {
     }
   }
 </script>
-
-<script src="../cache-utils.js"></script>
 
 <script src="../corporate-presentation-loader.js"></script>
 </body>

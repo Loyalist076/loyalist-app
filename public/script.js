@@ -229,59 +229,56 @@ document.addEventListener('DOMContentLoaded', () => {
 //   })
 //   .catch(err => console.error('hello i am an error:', err));
 
-// Script for Upcoming Events section with caching
-if (typeof CacheUtils !== 'undefined') {
-  CacheUtils.cachedFetch('/api/upcoming-events')
-    .then(res => res.json())
-    .then(events => {
-      const container = document.getElementById('upcomingEvents');
+// Script for Upcoming Events section
+fetch('/api/upcoming-events')
+  .then(res => res.json())
+  .then(events => {
+    const container = document.getElementById('upcomingEvents');
 
-      if (events.length > 0) {
-        // Only show section if there are events
-        container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
+    if (events.length > 0) {
+      // Only show section if there are events
+      container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
 
-        events.forEach(event => {
-          const div = document.createElement('div');
-          div.className = 'news-card1';
-          // Convert line breaks to <br> tags for proper display
-          // Handle both \n and \r\n line breaks
-          const formattedDescription = event.description
-            .replace(/\r\n/g, '<br>')
-            .replace(/\n/g, '<br>')
-            .replace(/\r/g, '<br>');
+      events.forEach(event => {
+        const div = document.createElement('div');
+        div.className = 'news-card1';
+        // Convert line breaks to <br> tags for proper display
+        // Handle both \n and \r\n line breaks
+        const formattedDescription = event.description
+          .replace(/\r\n/g, '<br>')
+          .replace(/\n/g, '<br>')
+          .replace(/\r/g, '<br>');
 
-          // Format date in Canadian Eastern Time
-          const eventDate = new Date(event.date);
-          const formattedDate = eventDate.toLocaleDateString('en-CA', {
-            timeZone: 'America/Toronto',
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-          });
-
-          div.innerHTML = `
-            <h3 class="event-title">${event.title}</h3>
-            <span class="date">${formattedDate}</span>
-            <p>${formattedDescription}</p>
-          `;
-          container.appendChild(div);
+        // Format date in Canadian Eastern Time
+        const eventDate = new Date(event.date);
+        const formattedDate = eventDate.toLocaleDateString('en-CA', {
+          timeZone: 'America/Toronto',
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
         });
-      } else {
-        // Hide or clear the section if no events
-        container.style.display = 'none';
-      }
-    })
-    .catch(err => console.error('Error loading events:', err));
-}
+
+        div.innerHTML = `
+          <h3 class="event-title">${event.title}</h3>
+          <span class="date">${formattedDate}</span>
+          <p>${formattedDescription}</p>
+        `;
+        container.appendChild(div);
+      });
+    } else {
+      // Hide or clear the section if no events
+      container.style.display = 'none';
+    }
+  })
+  .catch(err => console.error('Error loading events:', err));
 
 
-// for news with caching
+// for news
 
    async function loadNews() {
   try {
-    const fetchFunc = typeof CacheUtils !== 'undefined' ? CacheUtils.cachedFetch.bind(CacheUtils) : fetch;
-    const response = await fetchFunc('/api/news');
+    const response = await fetch('/api/news');
     const newsList = await response.json();
 
     const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
