@@ -127,6 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerBtn = document.getElementById('registerBtn');
   const logoutBtn = document.getElementById('logoutBtn');
 
+  if (!loginBtn || !registerBtn || !logoutBtn) return;
+
   const user = localStorage.getItem('user');
 
   if (user) {
@@ -230,59 +232,62 @@ document.addEventListener('DOMContentLoaded', () => {
 //   .catch(err => console.error('hello i am an error:', err));
 
 // Script for Upcoming Events section
-fetch('/api/upcoming-events')
-  .then(res => res.json())
-  .then(events => {
-    const container = document.getElementById('upcomingEvents');
+const upcomingEventsContainer = document.getElementById('upcomingEvents');
+if (upcomingEventsContainer) {
+  fetch('/api/upcoming-events')
+    .then(res => res.json())
+    .then(events => {
+      if (events.length > 0) {
+        // Only show section if there are events
+        upcomingEventsContainer.innerHTML = '<h2>UPCOMING EVENTS</h2>';
 
-    if (events.length > 0) {
-      // Only show section if there are events
-      container.innerHTML = '<h2>UPCOMING EVENTS</h2>';
+        events.forEach(event => {
+          const div = document.createElement('div');
+          div.className = 'news-card1';
+          // Convert line breaks to <br> tags for proper display
+          // Handle both \n and \r\n line breaks
+          const formattedDescription = event.description
+            .replace(/\r\n/g, '<br>')
+            .replace(/\n/g, '<br>')
+            .replace(/\r/g, '<br>');
 
-      events.forEach(event => {
-        const div = document.createElement('div');
-        div.className = 'news-card1';
-        // Convert line breaks to <br> tags for proper display
-        // Handle both \n and \r\n line breaks
-        const formattedDescription = event.description
-          .replace(/\r\n/g, '<br>')
-          .replace(/\n/g, '<br>')
-          .replace(/\r/g, '<br>');
+          // Format date in Canadian Eastern Time
+          const eventDate = new Date(event.date);
+          const formattedDate = eventDate.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
 
-        // Format date in Canadian Eastern Time
-        const eventDate = new Date(event.date);
-        const formattedDate = eventDate.toLocaleDateString('en-CA', {
-          timeZone: 'America/Toronto',
-          weekday: 'short',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
+          div.innerHTML = `
+            <h3 class="event-title">${event.title}</h3>
+            <span class="date">${formattedDate}</span>
+            <p>${formattedDescription}</p>
+          `;
+          upcomingEventsContainer.appendChild(div);
         });
-
-        div.innerHTML = `
-          <h3 class="event-title">${event.title}</h3>
-          <span class="date">${formattedDate}</span>
-          <p>${formattedDescription}</p>
-        `;
-        container.appendChild(div);
-      });
-    } else {
-      // Hide or clear the section if no events
-      container.style.display = 'none';
-    }
-  })
-  .catch(err => console.error('Error loading events:', err));
+      } else {
+        // Hide or clear the section if no events
+        upcomingEventsContainer.style.display = 'none';
+      }
+    })
+    .catch(err => console.error('Error loading events:', err));
+}
 
 
 // for news
 
-   async function loadNews() {
+async function loadNews() {
+  const newsCarousel = document.getElementById('latestNewsCarousel');
+  if (!newsCarousel) return;
+
   try {
     const response = await fetch('/api/news');
     const newsList = await response.json();
 
     const sortedNews = newsList.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const newsCarousel = document.getElementById('latestNewsCarousel');
     newsCarousel.innerHTML = '';
 
     sortedNews.forEach(news => {
@@ -334,7 +339,9 @@ fetch('/api/upcoming-events')
     window.addEventListener('resize', updateCarousel);
   } catch (err) {
     console.error('Error fetching news:', err);
-    document.getElementById('latestNewsCarousel').innerHTML = '<p style="color:red;">Failed to load news.</p>';
+    if (newsCarousel) {
+      newsCarousel.innerHTML = '<p style="color:red;">Failed to load news.</p>';
+    }
   }
 }
 
