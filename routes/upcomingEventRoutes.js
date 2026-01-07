@@ -6,7 +6,7 @@ const { authenticate, isAdmin } = require('../middleware/auth');
 // ================================
 // Upcoming Events API Routes
 // ================================
-
+   
 // @route   GET /api/upcoming-events
 // @desc    Get all upcoming events (public)
 router.get('/', upcomingEventController.getAllEvents);
