@@ -119,6 +119,70 @@
     a.view-link:hover {
       text-decoration: underline;
     }
+
+    /* Upload Dialog Styles */
+    .upload-dialog-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .upload-dialog-overlay.active {
+      display: flex;
+    }
+
+    .upload-dialog {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .upload-dialog h3 {
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+
+    .upload-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .upload-file-name {
+      background: #f5f7fa;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #555;
+      word-break: break-all;
+      margin-top: 15px;
+      border-left: 4px solid #007bff;
+    }
+
+    .upload-file-name span {
+      font-weight: bold;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -158,11 +222,36 @@
     </div>
   </div>
 
+  <!-- Upload Dialog -->
+  <div class="upload-dialog-overlay" id="uploadDialog">
+    <div class="upload-dialog">
+      <h3>Uploading Statement</h3>
+      <div class="upload-spinner"></div>
+      <p>Please wait while your file is being uploaded...</p>
+      <div class="upload-file-name">
+        <span id="uploadFileName"></span>
+      </div>
+    </div>
+  </div>
+
   <script>
     const form = document.getElementById('financialForm');
     const successMsg = document.getElementById('successMessage');
     const errorMsg = document.getElementById('errorMessage');
     const statementList = document.getElementById('statementList');
+    const uploadDialog = document.getElementById('uploadDialog');
+    const uploadFileNameEl = document.getElementById('uploadFileName');
+
+    function showUploadDialog(fileName) {
+      uploadFileNameEl.textContent = fileName;
+      uploadDialog.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideUploadDialog() {
+      uploadDialog.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
 
     // Fetch all statements
     async function fetchStatements() {
@@ -228,7 +317,11 @@
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
 
+      const fileInput = document.getElementById('pdfFile');
+      const fileName = fileInput.files[0]?.name || 'Unknown file';
       const formData = new FormData(form);
+
+      showUploadDialog(fileName);
 
       try {
         const res = await fetch('/api/financials/upload', {
@@ -241,6 +334,8 @@
 
         const result = await res.json();
 
+        hideUploadDialog();
+
         if (res.ok) {
           successMsg.textContent = result.message || 'Statement posted successfully!';
           successMsg.style.display = 'block';
@@ -250,6 +345,7 @@
           throw new Error(result.error || 'Failed to post financial statement.');
         }
       } catch (err) {
+        hideUploadDialog();
         errorMsg.textContent = err.message;
         errorMsg.style.display = 'block';
       }

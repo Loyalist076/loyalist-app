@@ -1111,10 +1111,16 @@ function openBioModal(memberId) {
       bio: "Ashley Nadon is a chartered professional accountant (CPA) and holds a BA (Economics) degree from the University of Toronto, and an MBA from McMaster University. Mrs. Nadon provides consulting and accounting services to private and public companies in her role as Managing Director of a firm of chartered professional accountants. Mrs. Nadon has experience as the CFO of several Reporting Issuers and is also the CFO of Homeland Nickel Inc."
     },
     steve: {
-      name: "Steve Balch",
-      title: "Independent Director",
+      name: "Stephen Balch",
+      title: "Advisory Committee Member",
       image: "image/steve.png",
-      bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve’s background includes nickel, copper and platinum group element exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin, and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EM system, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
+      bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve's background includes nickel, copper and platinum group element exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin, and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EM system, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
+    },
+    david: {
+      name: "David Drinkwater",
+      title: "Independent Director",
+      image: "image/user-placeholder.svg",
+      bio: "David Drinkwater has extensive business and legal experience across many industries with a broad focus including corporate finance and mergers and acquisitions and acting as a board member of various public companies. He was Chairman of Loyalist from June 2019 to December 2023. His Blue-Chip resume and connections to the town of Timmins make him an ideal asset for Loyalist's continued growth and strategic direction."
     },
     robert: {
       name: "Robert Bresee",
@@ -1210,17 +1216,17 @@ const leadershipViews = {
         <h3>Errol Farr</h3>
         <p class="title">President, CEO, Director</p>
         <div class="bio">
-          <p>Provides disciplined capital markets oversight while guiding Loyalist’s corporate strategy and execution.</p>
+          <p>Provides disciplined capital markets oversight while guiding Loyalist's corporate strategy and execution.</p>
           <button class="read-more-btn" onclick="toggleReadMore('errol')">Read More</button>
         </div>
       </div>
       <div class="team-member">
-        <img src="../image/steve.png" alt="Steve Balch">
-        <h3>Steve Balch</h3>
+        <img src="../image/user-placeholder.svg" alt="David Drinkwater">
+        <h3>David Drinkwater</h3>
         <p class="title">Independent Director</p>
         <div class="bio">
-          <p>32 years of geophysics experience, VP at Canada Nickel Company and an expert in magnetic and EM methods.</p>
-          <button class="read-more-btn" onclick="toggleReadMore('steve')">Read More</button>
+          <p>Extensive business and legal experience in corporate finance, M&A, and board governance. Former Chairman of Loyalist (2019-2023).</p>
+          <button class="read-more-btn" onclick="toggleReadMore('david')">Read More</button>
         </div>
       </div>
       <div class="team-member">
@@ -1271,6 +1277,15 @@ const leadershipViews = {
         <div class="bio">
           <p>Founder of Mink Ventures and President of Filo Exploration Services with 35+ years of nickel, copper and gold experience.</p>
           <button class="read-more-btn" onclick="toggleReadMore('kevin')">Read More</button>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="../image/steve.png" alt="Stephen Balch">
+        <h3>Stephen Balch</h3>
+        <p class="title">Advisory Committee Member</p>
+        <div class="bio">
+          <p>38+ years as a geophysicist, VP Exploration at Canada Nickel Company, and valued contributor to Loyalist's strategic direction.</p>
+          <button class="read-more-btn" onclick="toggleReadMore('steve')">Read More</button>
         </div>
       </div>
     </div>
