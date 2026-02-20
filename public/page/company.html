@@ -1,236 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Loyalist Exploration is a Canadian mineral-exploration company focused on acquiring, exploring and developing high-quality gold, silver and base-metal properties." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Loyalist Exploration is a Canadian mineral-exploration company focused on acquiring, exploring and developing high-quality gold, silver and base-metal properties." />
   <title>About Loyalist Exploration – Canada Mineral Properties</title>
- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-        <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-.header {
-    display: flex;
-    justify-content: space-between;          
-    align-items: center;
-    padding: 10px 20px;
-    background-color:white;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
+    }
 
-.logo img {
-    height: 75px;
-     transition: transform 0.3s ease-in-out;
-}
-.logo img:hover {
-  transform: scale(1.05);
-}
+    .logo img {
+      height: 75px;
+      transition: transform 0.3s ease-in-out;
+    }
 
-.navbar {
-     display: flex;
-     align-items: center;
-     padding-right: 1%;
-}
-
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navbar li {
-    display: inline-block;
-    position: relative;
-}
-
-.navbar a {
-    display: block;
-    color: black;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #c4a12e;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    z-index: 1;
-}
-
-.dropdown li {
-    float: none;
-}
-
-.dropdown a {
-    color: #D4B248;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {
-    background-color: black;
-}
-
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-
-@media (max-width: 1024px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-    background-color: #D4B248;
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-
-  .navbar li {
-    width: 100%;
-  }
-
-  .navbar a {
-    padding: 12px 20px;
-    color: white;
-  }
-
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    box-shadow: none;
-  }
-
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
-
-  .navbar li:hover > .dropdown {
-    display: none;
-  }
-
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-    padding-right: 1rem;
-  }
-
-  .dropdown a {
-    color: #D4B248;
-  }
-}
-
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
-    .navbar li {
-        display: block;
-        text-align: left;
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
     .navbar {
-        text-align: left;
+      display: flex;
+      align-items: center;
+      padding-right: 1%;
     }
-}
 
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-  padding-right: 1%;
-}
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-@media (max-width: 768px) {
+    .navbar li {
+      display: inline-block;
+      position: relative;
+    }
 
-  .align-logo{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
+    .navbar a {
+      display: block;
+      color: black;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .navbar a:hover {
+      background-color: #c4a12e;
+    }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+    }
 
-  .navbar {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    background-color:#D4B248;
-  }
+    .dropdown li {
+      float: none;
+    }
 
-  .navbar ul {
-    width: 100%;
-  }
+    .dropdown a {
+      color: #D4B248;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-  .navbar li {
-    display: block;
-    width: 100%;
-  }
+    .dropdown a:hover {
+      background-color: black;
+    }
 
-  .navbar a {
-    padding: 10px 20px;
-  }
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
 
-  .navbar.active {
-    display: flex;
-  }
+    @media (max-width: 1024px) {
+      .menu-toggle {
+        display: block;
+      }
 
-  .dropdown {
-    position: static;
-  }
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #D4B248;
+      }
 
-  .navbar li:hover .dropdown {
-    display: none;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .navbar li.active .dropdown {
-    display: block;
-  }
-}
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
 
-.header-buttons button {
-      background-color:  #D4B248;
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+        color: white;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+        padding-right: 1rem;
+      }
+
+      .dropdown a {
+        color: #D4B248;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar li {
+        display: block;
+        text-align: left;
+      }
+
+      .navbar {
+        text-align: left;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: black;
+      cursor: pointer;
+      padding-right: 1%;
+    }
+
+    @media (max-width: 768px) {
+
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .navbar {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        background-color: #D4B248;
+      }
+
+      .navbar ul {
+        width: 100%;
+      }
+
+      .navbar li {
+        display: block;
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 10px 20px;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .dropdown {
+        position: static;
+      }
+
+      .navbar li:hover .dropdown {
+        display: none;
+      }
+
+      .navbar li.active .dropdown {
+        display: block;
+      }
+    }
+
+    .header-buttons button {
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -241,7 +241,7 @@
     }
 
     .header-buttons button:hover {
-      background-color:  #D4B248;
+      background-color: #D4B248;
     }
 
     .modal {
@@ -253,7 +253,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .modal-content {
@@ -268,7 +268,7 @@
 
     .modal-content h2 {
       margin-bottom: 15px;
-      color:  #D4B248;
+      color: #D4B248;
     }
 
     .modal-content input,
@@ -281,7 +281,7 @@
     }
 
     .modal-content button[type="submit"] {
-      background-color:  #D4B248;
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px;
@@ -294,7 +294,7 @@
       top: 8px;
       right: 12px;
       font-size: 24px;
-      color:#D4B248 ;
+      color: #D4B248;
       cursor: pointer;
     }
 
@@ -335,523 +335,543 @@
       }
     }
 
-.navbar li:hover > .dropdown {
-  display: block;
-}
-.icon {
-  font-size: 28px;
-  color: #ffc107;
-  margin-bottom: 10px;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color:black;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 4px;
-  top: 100%;
-  left: 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.dropdown li {
-  display: block;
-}
-
-.dropdown a {
-  color: #D4B248;
-  padding: 10px 15px;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .navbar li {
-    width: 100%;
-  }
-
-  .dropdown {
-    position: relative;
-    box-shadow: none;
-  }
-
-  .navbar .has-dropdown.active > .dropdown {
-    display: block;
-  }
-
-  .navbar li:hover > .dropdown {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .align-logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    font-size: 28px;
-    padding: 10px;
-  }
-
-  .navbar {
-    width: 100%;
-    flex-direction: column;
-    display: none;
-    background-color: #D4B248;
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-
-  .navbar li {
-    width: 100%;
-  }
-
-  .navbar a {
-    padding: 12px 20px;
-  }
-
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
-
-  .navbar li:hover > .dropdown {
-    display: none;
-  }
-
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-}
-
-    .main-container {
-      display: flex;
-      max-width: 100vw;
-      padding: 110px;
-      background:  #D4B248;
-    }
-    .sidebar {
-      width: 300px;
-      max-height: calc(100vh - 150px);
-      overflow-y: auto;
-      position: sticky;
-      top: 100px;
-    }
-    .sidebar button {
+    .navbar li:hover>.dropdown {
       display: block;
-      width: 100%;
-      padding: 15px;
-      border: none;
-      background: black;
-      color: white;
+    }
+
+    .icon {
+      font-size: 28px;
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown li {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #D4B248;
+      padding: 10px 15px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+        box-shadow: none;
+      }
+
+      .navbar .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+        padding: 10px;
+      }
+
+      .navbar {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        background-color: #D4B248;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+      }
+    }
+
+    .section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
       text-align: left;
+    }
+
+    .about-subnav {
+      background: #f5f5f5;
+      padding: 15px 50px;
+      border-bottom: 2px solid #e0e0e0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about-subnav a {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 20px;
       font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
       cursor: pointer;
-      border-bottom: 2px solid #fff;
-      transition: background 0.3s;
     }
-    .sidebar button:hover:not(.active) { background: #999; }
-    .sidebar button.active { background:white; color: black; }
-    .content {
-      flex: 1;
-      padding: 13px 75px;
-      max-height: calc(100vh - 150px);
-      overflow-y: auto;
+
+    .about-subnav a:hover,
+    .about-subnav a.active {
+      color: #D4B248;
+      border-bottom-color: #D4B248;
     }
-    .content h2 { color: #222; font-size: 30px; }
-    .content p, .content li {
+
+    .about-subnav a.active {
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .about-subnav {
+        padding: 15px 20px;
+        gap: 15px;
+      }
+
+      .about-subnav a {
+        font-size: 14px;
+        padding: 6px 15px;
+      }
+    }
+
+    .section {
+      padding: 60px 20px;
+      background-color: #fff;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .wrapper h2,
+    .wrapper h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: black;
+      position: relative;
+    }
+
+    .wrapper h2::after,
+    .wrapper h1::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: black;
+      display: block;
+      margin: 12px auto 0;
+      border-radius: 5px;
+    }
+
+    .wrapper p,
+    .wrapper li {
       line-height: 1.6;
       font-size: 18px;
       color: #333;
     }
-    ul { padding-left: 20px; }
 
-/* Team member styles */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
-}
+    .wrapper ul {
+      padding-left: 20px;
+    }
 
-.leadership-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
+    /* Team member styles */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
 
-.leadership-tab {
-  border: 2px solid #D4B248;
-  background: #fff;
-  color: #000;
-  border-radius: 30px;
-  padding: 8px 18px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease, color 0.2s ease;
-}
+    .leadership-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
 
-.leadership-tab.active {
-  background: #D4B248;
-  color: #000;
-  border-color: #000;
-}
+    .leadership-tab {
+      border: 2px solid #D4B248;
+      background: #fff;
+      color: #000;
+      border-radius: 30px;
+      padding: 8px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
 
-@media (max-width: 600px) {
-  .leadership-tab {
-    flex: 1 1 calc(50% - 10px);
-    text-align: center;
-  }
-}
+    .leadership-tab.active {
+      background: #D4B248;
+      color: #000;
+      border-color: #000;
+    }
 
-.team-member {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
+    @media (max-width: 600px) {
+      .leadership-tab {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+      }
+    }
 
-.team-member:hover {
-  transform: translateY(-5px);
-}
+    .team-member {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
 
-.team-member img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 15px;
-  display: block;
-}
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
 
-.team-member h3 {
-  color: #D4B248;
-  margin-bottom: 5px;
-  text-align: center;
-}
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 15px;
+      display: block;
+    }
 
-.team-member .title {
-  color: #666;
-  font-style: italic;
-  margin-bottom: 15px;
-  text-align: center;
-}
+    .team-member h3 {
+      color: #D4B248;
+      margin-bottom: 5px;
+      text-align: center;
+    }
 
-.team-member .bio {
-  color: #333;
-  line-height: 1.6;
-  text-align: center;
-}
+    .team-member .title {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 15px;
+      text-align: center;
+    }
 
-.read-more-btn {
-  background: #D4B248;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.3s;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+    .team-member .bio {
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-.read-more-btn:hover {
-  background: #B8932C;
-}
+    .read-more-btn {
+      background: #D4B248;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* Bio popup modal styles */
-.bio-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
-}
+    .read-more-btn:hover {
+      background: #B8932C;
+    }
 
-.bio-modal-content {
-  background-color: white;
-  margin: 5% auto;
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
+    /* Bio popup modal styles */
+    .bio-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
 
-.bio-modal-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #D4B248;
-  padding-bottom: 15px;
-}
+    .bio-modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
 
-.bio-modal-header img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 20px;
-}
+    .bio-modal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #D4B248;
+      padding-bottom: 15px;
+    }
 
-.bio-modal-header h3 {
-  color: #D4B248;
-  font-size: 24px;
-  margin: 0;
-}
+    .bio-modal-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+    }
 
-.bio-modal-header .title {
-  color: #666;
-  font-style: italic;
-  margin: 5px 0 0 0;
-}
+    .bio-modal-header h3 {
+      color: #D4B248;
+      font-size: 24px;
+      margin: 0;
+    }
 
-.bio-modal-body {
-  color: #333;
-  line-height: 1.6;
-  font-size: 16px;
-}
+    .bio-modal-header .title {
+      color: #666;
+      font-style: italic;
+      margin: 5px 0 0 0;
+    }
 
-.bio-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #D4B248;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+    .bio-modal-body {
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-.bio-close:hover {
-  color: #B8932C;
-}
+    .bio-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #D4B248;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-@media (max-width: 1024px) {
-  .main-container {
-    flex-direction: row;
-    padding: 0 5px;
-  }
+    .bio-close:hover {
+      color: #B8932C;
+    }
 
-  .sidebar {
-    width: 220px;
-  }
+    @media (max-width: 1024px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-  .content {
-    padding: 0 15px;
-  }
+    @media (max-width: 768px) {
+      .team-member img {
+        width: 120px;
+        height: 120px;
+      }
+    }
 
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 480px) {
 
-@media (max-width: 768px) {
-  .main-container {
-    flex-direction: column;
-  }
+      .wrapper p,
+      .wrapper li {
+        font-size: 14px;
+        line-height: 1.4;
+      }
 
-  .sidebar {
-    width: 100%;
-    max-height: none;
-    position: relative;
-    top: 0;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
+      .wrapper ul {
+        padding-left: 15px;
+      }
+    }
 
-  .content {
-    max-height: none;
-    padding: 10px 0;
-  }
+    .site-footer {
+      background-color: #000;
+      color: #ddd;
+      padding: 40px 20px 0;
+      font-family: Arial, sans-serif;
+    }
 
-  .team-member img {
-    width: 120px;
-    height: 120px;
-  }
-}
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
 
-@media (max-width: 480px) {
-  .sidebar button {
-    padding: 12px;
-    font-size: 14px;
-  }
+    .footer-container h4 {
+      color: #D4B248;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
 
-  .content p,
-  .content li {
-    font-size: 14px;
-    line-height: 1.4;
-  }
+    .footer-container a {
+      color: #ddd;
+      text-decoration: none;
+    }
 
-  ul {
-    padding-left: 15px;
-  }
-}
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
 
-.site-footer {
-  background-color: #000;
-  color: #ddd;
-  padding: 40px 20px 0;
-  font-family: Arial, sans-serif;
-}
+    .contact-column,
+    .quick-links,
+    .social-column {
+      flex: 1;
+      min-width: 200px;
+    }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  gap: 30px;
-  padding-bottom: 30px;
-}
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+    }
 
-.footer-container h4 {
-  color: #D4B248;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
+    .quick-links li {
+      margin-bottom: 10px;
+    }
 
-.footer-container a {
-  color: #ddd;
-  text-decoration: none;
-}
+    .social-icons a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ddd;
+    }
 
-.footer-container a:hover {
-  text-decoration: underline;
-}
+    .social-icons a:hover {
+      color: #D4B248;
+    }
 
-.contact-column, .quick-links, .social-column {
-  flex: 1;
-  min-width: 200px;
-}
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      flex: 1;
+      background-color: #111;
+      color: #D4B248;
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
 
-.quick-links ul {
-  list-style: none;
-  padding: 0;
-}
+    .subscribe-form button {
+      padding: 10px 16px;
+      background-color: #D4B248;
+      border: 3px solid #D4B248;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.quick-links li {
-  margin-bottom: 10px;
-}
+    .subscribe-form button:hover {
+      background-color: #D4B248;
+    }
 
-.social-icons a {
-  margin-right: 15px;
-  font-size: 20px;
-  color: #ddd;
-}
+    .subscribe-message {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #222;
+      color: #D4B248;
+      border-radius: 4px;
+      font-size: 14px;
+    }
 
-.social-icons a:hover {
-  color: #D4B248;
-}
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: #000;
+      border-top: 1px solid #333;
+      font-size: 14px;
+      color: #aaa;
+    }
 
-.subscribe-form input[type="email"] {
-  padding: 10px;
-  flex: 1;
-  background-color: #111;
-  color: #D4B248;
-  border: 3px solid #D4B248;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  box-sizing: border-box;
-}
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-.subscribe-form button {
-  padding: 10px 16px;
-  background-color: #D4B248;
-  border: 3px solid #D4B248;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.subscribe-form button:hover {
-  background-color: #D4B248;
-}
-
-.subscribe-message {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #222;
-  color: #D4B248;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding: 20px 10px;
-  background-color: #000;
-  border-top: 1px solid #333;
-  font-size: 14px;
-  color: #aaa;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .quick-links ul {
-    display: inline-block;
-  }
-}
-</style>
+      .quick-links ul {
+        display: inline-block;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="header">
+  <header class="header">
     <div class="align-logo">
       <div class="logo">
         <a href="/">
@@ -878,7 +898,7 @@
           <ul class="dropdown">
             <li><a href="tully-project.html">Tully Project </a></li>
             <li><a href="loveland-project.html">Loveland Project</a></li>
-             <li><a href="gold-rush.html">Gold Rush project</a></li>
+            <li><a href="gold-rush.html">Gold Rush project</a></li>
           </ul>
         </li>
 
@@ -888,7 +908,8 @@
             <li><a href="corporate-structure.html">Corporate Structure</a></li>
             <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
             <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
-            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate
+                Presentation</a></li>
           </ul>
         </li>
 
@@ -924,268 +945,275 @@
     </div>
   </div>
 
-<div class="main-container">
-  <div class="sidebar">
-    <button class="active" onclick="showSection('about')">About Loyalist</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('leadership')">Leadership</button>
-    <button onclick="showSection('contact')">Contact</button>
+  <div>
+    <h1 class="section-title">Company Profile</h1>
   </div>
-  <div class="content" id="contentArea">
-    <h1>About Loyalist Exploration Limited</h1>
-    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company’s projects include:</p>
-    <br>
-    <ul>
-      <li><strong>Tully</strong> - A gold deposit ready for production permitting.</li>
-      <li><strong>Loveland</strong> - A large property with historic nickel/copper resources and high-grade gold drill intercepts and surface showings.</li>
-      <li><strong>Gold Rush</strong> - An early-stage gold/silver property with high-grade drill intercepts.</li>
-    </ul>
-    <br>
-    <p>Loyalist is committed to responsible exploration practices and building strong relationships with local communities.</p>
+
+  <div class="about-subnav">
+    <a class="active" onclick="showSection('about')">About Loyalist</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('leadership')">Leadership</a>
+    <a onclick="showSection('contact')">Contact</a>
   </div>
-</div>
 
-<!-- Bio Modal -->
-<div id="bioModal" class="bio-modal">
-  <div class="bio-modal-content">
-    <span class="bio-close" onclick="closeBioModal()">&times;</span>
-    <div class="bio-modal-header">
-      <img id="modalImage" src="" alt="">
-      <div>
-        <h3 id="modalName"></h3>
-        <p id="modalTitle" class="title"></p>
-      </div>
-    </div>
-    <div class="bio-modal-body" id="modalBio"></div>
-  </div>
-</div>
-
-
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="contact-column">
-      <h4>Contact Information</h4>
-      <p><strong>Email:</strong><br /> 
-        <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
-      </p><br/>
-      <p><strong>Phone:</strong><br />
-        <a href="tel:+16472961270">+1 647‑296‑1270</a>
-      </p><br/>
-      <p><strong>Address:</strong><br />
-       110 Yonge Street,
-          Suite 1601
-          <br/> Toronto, Ontario M5C1T4</p>
-    </div>
-
-    <div class="quick-links">
-      <h4>Quick Links</h4>
+  <section class="section">
+    <div class="wrapper" id="contentArea">
+      <h2>About Loyalist Exploration Limited</h2>
+      <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy
+        by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining
+        Camp. The Company’s projects include:</p>
+      <br>
       <ul>
-        <li><a href="company.html">About Us</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="corporate-structure.html">Investors</a></li>
-        <li><a href="press-release.html">Press Release</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="disclaimers.html">Disclaimer</a></li>
+        <li><strong>Tully</strong> - A gold deposit ready for production permitting.</li>
+        <li><strong>Loveland</strong> - A large property with historic nickel/copper resources and high-grade gold drill
+          intercepts and surface showings.</li>
+        <li><strong>Gold Rush</strong> - An early-stage gold/silver property with high-grade drill intercepts.</li>
       </ul>
+      <br>
+      <p>Loyalist is committed to responsible exploration practices and building strong relationships with local
+        communities.</p>
     </div>
+  </section>
 
-    <div class="social-column">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
+  <!-- Bio Modal -->
+  <div id="bioModal" class="bio-modal">
+    <div class="bio-modal-content">
+      <span class="bio-close" onclick="closeBioModal()">&times;</span>
+      <div class="bio-modal-header">
+        <img id="modalImage" src="" alt="">
+        <div>
+          <h3 id="modalName"></h3>
+          <p id="modalTitle" class="title"></p>
+        </div>
       </div>
-      <br />
-      <div class="subscribe-box">
-        <h4>Subscribe to Our Newsletter</h4>
-        <form class="subscribe-form" onsubmit="handleCompanySubscribe(event)">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            id="companySubscriberEmail"
-            required
-          /><br /><br />
-          <button type="submit">Subscribe</button>
-        </form>
-        <div id="company-subscribe-message" class="subscribe-message" style="display: none;">
+      <div class="bio-modal-body" id="modalBio"></div>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p><strong>Email:</strong><br />
+          <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
+        </p><br />
+        <p><strong>Phone:</strong><br />
+          <a href="tel:+16472961270">+1 647‑296‑1270</a>
+        </p><br />
+        <p><strong>Address:</strong><br />
+          110 Yonge Street,
+          Suite 1601
+          <br /> Toronto, Ontario M5C1T4
+        </p>
+      </div>
+
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="company.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="corporate-structure.html">Investors</a></li>
+          <li><a href="press-release.html">Press Release</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimers.html">Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <br />
+        <div class="subscribe-box">
+          <h4>Subscribe to Our Newsletter</h4>
+          <form class="subscribe-form" onsubmit="handleCompanySubscribe(event)">
+            <input type="email" placeholder="Enter your email" id="companySubscriberEmail" required /><br /><br />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div id="company-subscribe-message" class="subscribe-message" style="display: none;">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
+    </div>
+  </footer>
 
-<script>
-function toggleMenu() {
-  document.getElementById('navbar').classList.toggle('active');
-}
-
-function toggleDropdown(e) {
-  if (window.innerWidth <= 1024) {
-    e.stopPropagation();
-    const current = e.currentTarget;
-    current.classList.toggle('active');
-    document.querySelectorAll('.has-dropdown').forEach(item => {
-      if (item !== current) {
-        item.classList.remove('active');
-      }
-    });
-  }
-}
-
-function openModal(type) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-function closePopup() {
-  document.getElementById("welcomePopup").style.display = "none";
-}
-
-async function handleCompanySubscribe(event) {
-    event.preventDefault();
-    const emailInput = document.getElementById('companySubscriberEmail');
-    const messageDiv = document.getElementById('company-subscribe-message');
-    const email = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!email || !emailPattern.test(email)) {
-      messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Please enter a valid email address.';
-      return;
+  <script>
+    function toggleMenu() {
+      document.getElementById('navbar').classList.toggle('active');
     }
 
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'company' }),
-      });
+    function toggleDropdown(e) {
+      if (window.innerWidth <= 1024) {
+        e.stopPropagation();
+        const current = e.currentTarget;
+        current.classList.toggle('active');
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+          if (item !== current) {
+            item.classList.remove('active');
+          }
+        });
+      }
+    }
 
-      const data = await res.json();
-      messageDiv.style.display = 'block';
-      if (res.ok) {
-        messageDiv.style.color = 'green';
-        messageDiv.textContent = data.message || 'Subscribed successfully!';
-        emailInput.value = '';
-        setTimeout(() => (messageDiv.style.display = 'none'), 4000);
-      } else {
+    function openModal(type) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+      document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
+    }
+
+    async function handleCompanySubscribe(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('companySubscriberEmail');
+      const messageDiv = document.getElementById('company-subscribe-message');
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!email || !emailPattern.test(email)) {
+        messageDiv.style.display = 'block';
         messageDiv.style.color = 'red';
-        messageDiv.textContent = data.message || 'Something went wrong.';
+        messageDiv.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'company' }),
+        });
+
+        const data = await res.json();
+        messageDiv.style.display = 'block';
+        if (res.ok) {
+          messageDiv.style.color = 'green';
+          messageDiv.textContent = data.message || 'Subscribed successfully!';
+          emailInput.value = '';
+          setTimeout(() => (messageDiv.style.display = 'none'), 4000);
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = data.message || 'Something went wrong.';
+          setTimeout(() => (messageDiv.style.display = 'none'), 5000);
+        }
+      } catch (err) {
+        console.error('Subscription error:', err);
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Server error. Please try again later.';
         setTimeout(() => (messageDiv.style.display = 'none'), 5000);
       }
-    } catch (err) {
-      console.error('Subscription error:', err);
-      messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Server error. Please try again later.';
-      setTimeout(() => (messageDiv.style.display = 'none'), 5000);
     }
-}
 
-// Bio Modal Functions
-function openBioModal(memberId) {
-  const memberData = {
-    errol: {
-      name: "Errol Farr",
-      title: "President, CEO, Director",
-      image: "image/errol.jpeg",
-      bio: "Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in financial management and reporting, operations, business optimization and strategy development. He is the former CFO of Anaconda Mining Inc., a gold producer in Newfoundland, former CEO of Adex Mining Inc., a polymetallic mineral project in New Brunswick, and former CFO of MagIndustries, a potash, magnesium, hydro, forestry and oil business in the Republic of Congo. He is CFO of Big Tree Carbon Inc., mining opportunities near Red Lake, Ontario, and Corporate Secretary of Homeland Nickel Inc., nickel projects in Oregon."
-    },
-    ashley: {
-      name: "Ashley Nadon",
-      title: "Chief Financial Officer",
-      image: "image/ashley.png",
-      bio: "Ashley Nadon is a chartered professional accountant (CPA) and holds a BA (Economics) degree from the University of Toronto, and an MBA from McMaster University. Mrs. Nadon provides consulting and accounting services to private and public companies in her role as Managing Director of a firm of chartered professional accountants. Mrs. Nadon has experience as the CFO of several Reporting Issuers and is also the CFO of Homeland Nickel Inc."
-    },
-    steve: {
-      name: "Stephen Balch",
-      title: "Advisory Committee Member",
-      image: "image/steve.png",
-      bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve's background includes nickel, copper and platinum group element exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin, and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EM system, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
-    },
-    david: {
-      name: "David Drinkwater",
-      title: "Independent Director",
-      image: "image/user-placeholder.svg",
-      bio: "David Drinkwater has extensive business and legal experience across many industries with a broad focus including corporate finance and mergers and acquisitions and acting as a board member of various public companies. He was Chairman of Loyalist from June 2019 to December 2023. His Blue-Chip resume and connections to the town of Timmins make him an ideal asset for Loyalist's continued growth and strategic direction."
-    },
-    robert: {
-      name: "Robert Bresee",
-      title: "Independent Director",
-      image: "image/user-placeholder.svg",
-      bio: "Bob Bresee, CET, is CEO of Voltage Metals Inc., a certified engineering technologist and graduate of the Haileybury School of Mines, and has 45 years in the mining business and is a long-time resident of Timmins, Ontario. Mr. Bresee's experience includes project operating and management, engineering (specializing in junior mining operations), project evaluation, project budgeting, mine planning and cost control. Experienced in narrow vein mining and the permitting process in Ontario, Mr. Bresee is the former project manager on the Company's prospective Tully project."
-    },
-    birks: {
-      name: "Birks Bovaird",
-      title: "Independent Advisor",
-      image: "image/birks.png",
-      bio: "Birks Bovaird is the Chair of the board of Energy Fuels Inc., a leading U.S.-based critical minerals company primarily known for its uranium mining operations but also involved in rare earth elements and heavy mineral sands production. He is also a director of Noble Mineral Exploration Inc. The dominant focus of Mr. Bovaird’s career has been the provision of corporate financial consulting and strategic planning services. He has previously been involved with, and is currently involved with, public resource companies, both in management and as a director, and was formerly the Vice President of Corporate Finance for one of Canada’s major accounting firms. He holds an ICD.D designation and is a graduate of the Canadian Director Education Program."
-    },
-    jean: {
-      name: "Jean Roy",
-      title: "Independent Advisor",
-      image: "image/user-placeholder.svg",
-      bio: "Jean Roy is a former business advisor to Pelangio Larder Mines in the acquisition and formation of the Detour Lake gold deposit, a multi-million-ounce gold producer in Ontario, Canada. He was also a former advisor to Richfield Ventures Inc. during the discovery of the Blackwater gold deposit in British Columbia, Canada. He is a native of Timmins, Ontario, Canada."
-    },
-    michael: {
-      name: "Michael Cachia",
-      title: "Independent Director & Audit Committee Chair",
-      image: "image/user-placeholder.svg",
-      bio: "Michael Cachia is a Chartered Professional Accountant with an extensive history of providing services to entities in the natural resource sector and he is a partner in a Toronto-based firm of Chartered Professional Accountants. Michael serves as Audit Committee Chairman at Loyalist, is a director and the audit chair of Enerev5 Metals Inc., and is also a director of Western Kidd Resources Inc., a private mineral exploration company located in the Timmins camp."
-    },
-    kevin: {
-      name: "Kevin Filo",
-      title: "Independent Advisor",
-      image: "image/user-placeholder.svg",
-      bio: "Kevin Filo is a founder, Director and the Corporate Secretary of Mink Ventures Corporation (TSXV: MINK), a Timmins-based nickel, copper and cobalt explorer. Mr. Filo obtained an Honours Bachelor of Science (HBSc, 1980) degree in geology from Laurentian University in Sudbury, Ontario, and has been a professional geologist for over 35 years. He is President of Filo Exploration Services Limited, a private geological consulting firm established in 1983, and has acted as President and Vice President of several private exploration project generator companies. From December 2018 until April 2022 Mr. Filo was VP Corporate Development for Pelangio Exploration and was part of the Pelangio Mines Inc. acquisition team that acquired the former Placer Dome Canada Detour Lake Mine, now an established Canadian gold producer operated by Agnico Eagle Mines."
+    // Bio Modal Functions
+    function openBioModal(memberId) {
+      const memberData = {
+        errol: {
+          name: "Errol Farr",
+          title: "President, CEO, Director",
+          image: "image/errol.jpeg",
+          bio: "Mr. Farr is a seasoned mining and financial professional with over 35 years of experience in financial management and reporting, operations, business optimization and strategy development. He is the former CFO of Anaconda Mining Inc., a gold producer in Newfoundland, former CEO of Adex Mining Inc., a polymetallic mineral project in New Brunswick, and former CFO of MagIndustries, a potash, magnesium, hydro, forestry and oil business in the Republic of Congo. He is CFO of Big Tree Carbon Inc., mining opportunities near Red Lake, Ontario, and Corporate Secretary of Homeland Nickel Inc., nickel projects in Oregon."
+        },
+        ashley: {
+          name: "Ashley Nadon",
+          title: "Chief Financial Officer",
+          image: "image/ashley.png",
+          bio: "Ashley Nadon is a chartered professional accountant (CPA) and holds a BA (Economics) degree from the University of Toronto, and an MBA from McMaster University. Mrs. Nadon provides consulting and accounting services to private and public companies in her role as Managing Director of a firm of chartered professional accountants. Mrs. Nadon has experience as the CFO of several Reporting Issuers and is also the CFO of Homeland Nickel Inc."
+        },
+        steve: {
+          name: "Stephen Balch",
+          title: "Advisory Committee Member",
+          image: "image/steve.png",
+          bio: "Stephen Balch is an Ontario registered geoscientist with over 38 years' experience as a geophysicist. Steve's background includes nickel, copper and platinum group element exploration where he has worked with Inco Limited and FNX Mining in the Sudbury Basin, and Voiseys Bay Nickel in Labrador. Steve has over 20 years' experience with public company management and has served as President, CEO, technical consultant and director of various exploration companies. In 2001 Steve joined Aeroquest Limited and helped develop the AeroTEM system, the first commercial helicopter time domain EM system, helping take the company public in 2004. In 2019 Steve co-founded Canada Nickel Company Inc. and is currently VP Exploration. Steve is also President and CEO of Homeland Nickel Inc."
+        },
+        david: {
+          name: "David Drinkwater",
+          title: "Independent Director",
+          image: "image/user-placeholder.svg",
+          bio: "David Drinkwater has extensive business and legal experience across many industries with a broad focus including corporate finance and mergers and acquisitions and acting as a board member of various public companies. He was Chairman of Loyalist from June 2019 to December 2023. His Blue-Chip resume and connections to the town of Timmins make him an ideal asset for Loyalist's continued growth and strategic direction."
+        },
+        robert: {
+          name: "Robert Bresee",
+          title: "Independent Director",
+          image: "image/user-placeholder.svg",
+          bio: "Bob Bresee, CET, is CEO of Voltage Metals Inc., a certified engineering technologist and graduate of the Haileybury School of Mines, and has 45 years in the mining business and is a long-time resident of Timmins, Ontario. Mr. Bresee's experience includes project operating and management, engineering (specializing in junior mining operations), project evaluation, project budgeting, mine planning and cost control. Experienced in narrow vein mining and the permitting process in Ontario, Mr. Bresee is the former project manager on the Company's prospective Tully project."
+        },
+        birks: {
+          name: "Birks Bovaird",
+          title: "Independent Advisor",
+          image: "image/birks.png",
+          bio: "Birks Bovaird is the Chair of the board of Energy Fuels Inc., a leading U.S.-based critical minerals company primarily known for its uranium mining operations but also involved in rare earth elements and heavy mineral sands production. He is also a director of Noble Mineral Exploration Inc. The dominant focus of Mr. Bovaird’s career has been the provision of corporate financial consulting and strategic planning services. He has previously been involved with, and is currently involved with, public resource companies, both in management and as a director, and was formerly the Vice President of Corporate Finance for one of Canada’s major accounting firms. He holds an ICD.D designation and is a graduate of the Canadian Director Education Program."
+        },
+        jean: {
+          name: "Jean Roy",
+          title: "Independent Advisor",
+          image: "image/user-placeholder.svg",
+          bio: "Jean Roy is a former business advisor to Pelangio Larder Mines in the acquisition and formation of the Detour Lake gold deposit, a multi-million-ounce gold producer in Ontario, Canada. He was also a former advisor to Richfield Ventures Inc. during the discovery of the Blackwater gold deposit in British Columbia, Canada. He is a native of Timmins, Ontario, Canada."
+        },
+        michael: {
+          name: "Michael Cachia",
+          title: "Independent Director & Audit Committee Chair",
+          image: "image/user-placeholder.svg",
+          bio: "Michael Cachia is a Chartered Professional Accountant with an extensive history of providing services to entities in the natural resource sector and he is a partner in a Toronto-based firm of Chartered Professional Accountants. Michael serves as Audit Committee Chairman at Loyalist, is a director and the audit chair of Enerev5 Metals Inc., and is also a director of Western Kidd Resources Inc., a private mineral exploration company located in the Timmins camp."
+        },
+        kevin: {
+          name: "Kevin Filo",
+          title: "Independent Advisor",
+          image: "image/user-placeholder.svg",
+          bio: "Kevin Filo is a founder, Director and the Corporate Secretary of Mink Ventures Corporation (TSXV: MINK), a Timmins-based nickel, copper and cobalt explorer. Mr. Filo obtained an Honours Bachelor of Science (HBSc, 1980) degree in geology from Laurentian University in Sudbury, Ontario, and has been a professional geologist for over 35 years. He is President of Filo Exploration Services Limited, a private geological consulting firm established in 1983, and has acted as President and Vice President of several private exploration project generator companies. From December 2018 until April 2022 Mr. Filo was VP Corporate Development for Pelangio Exploration and was part of the Pelangio Mines Inc. acquisition team that acquired the former Placer Dome Canada Detour Lake Mine, now an established Canadian gold producer operated by Agnico Eagle Mines."
+        }
+      };
+
+      const member = memberData[memberId];
+      if (!member) {
+        return;
+      }
+
+      document.getElementById('modalName').textContent = member.name;
+      document.getElementById('modalTitle').textContent = member.title;
+      document.getElementById('modalImage').src = member.image;
+      document.getElementById('modalImage').alt = member.name;
+      document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
+      document.getElementById('bioModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
     }
-  };
 
-  const member = memberData[memberId];
-  if (!member) {
-    return;
-  }
+    function closeBioModal() {
+      document.getElementById('bioModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
 
-  document.getElementById('modalName').textContent = member.name;
-  document.getElementById('modalTitle').textContent = member.title;
-  document.getElementById('modalImage').src = member.image;
-  document.getElementById('modalImage').alt = member.name;
-  document.getElementById('modalBio').innerHTML = `<p>${member.bio}</p>`;
-  document.getElementById('bioModal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
+    function toggleReadMore(memberId) {
+      openBioModal(memberId);
+    }
 
-function closeBioModal() {
-  document.getElementById('bioModal').style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
+    window.addEventListener('click', function (event) {
+      const bioModal = document.getElementById('bioModal');
+      if (event.target === bioModal) {
+        closeBioModal();
+      }
+    });
 
-function toggleReadMore(memberId) {
-  openBioModal(memberId);
-}
-
-window.addEventListener('click', function(event) {
-  const bioModal = document.getElementById('bioModal');
-  if (event.target === bioModal) {
-    closeBioModal();
-  }
-});
-
-const leadershipViews = {
-  management: `
+    const leadershipViews = {
+      management: `
     <h3>Management</h3>
     <div class="team-grid">
       <div class="team-member">
@@ -1208,7 +1236,7 @@ const leadershipViews = {
       </div>
     </div>
   `,
-  directors: `
+      directors: `
     <h3>Directors</h3>
     <div class="team-grid">
       <div class="team-member">
@@ -1249,7 +1277,7 @@ const leadershipViews = {
       </div>
     </div>
   `,
-  advisory: `
+      advisory: `
     <h3>Advisors</h3>
     <div class="team-grid">
       <div class="team-member">
@@ -1290,10 +1318,10 @@ const leadershipViews = {
       </div>
     </div>
   `
-};
+    };
 
-const sections = {
-  about: `
+    const sections = {
+      about: `
    <h2>About Loyalist Exploration Limited</h2>
    <p>Loyalist Exploration Limited (CSE: PNGC) is a mineral exploration company focused on a "buy Timmins" strategy by acquiring and advancing high-potential gold and strategic metals projects in the prolific Timmins Mining Camp. The Company’s projects include:</p>
    <br>
@@ -1305,7 +1333,7 @@ const sections = {
    <br>
    <p>Loyalist is committed to responsible exploration practices and building strong relationships with local communities.</p>
   `,
-  projects: `
+      projects: `
     <h2>Our Projects</h2>
     <p>We are currently active at three key projects within the Timmins mining district:</p>
     <br>
@@ -1327,7 +1355,7 @@ const sections = {
       <li>Exploration plan includes detailed mapping, geophysics, and follow-up drilling.</li>
     </ul>
   `,
-  leadership: `
+      leadership: `
     <h2>Leadership</h2>
     <p>Meet the Management, Directors and Advisory Committee guiding Loyalist Exploration’s growth.</p>
     <div class="leadership-tabs">
@@ -1339,7 +1367,7 @@ const sections = {
       ${leadershipViews.management}
     </div>
   `,
-  contact: `
+      contact: `
     <h2>Contact Information</h2>
     <p>For further information, please contact:</p>
     <br>
@@ -1349,35 +1377,38 @@ const sections = {
     <br>
     <p><strong>Tel:</strong> <a href="tel:647-296-1270" style="color: black;">647-296-1270</a></p>
   `
-};
+    };
 
-function showSection(section) {
-    document.getElementById('contentArea').innerHTML = sections[section];
-    document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-}
-
-function showLeadershipView(view, evt) {
-  const content = document.getElementById('leadershipContent');
-  if (!content || !leadershipViews[view]) {
-    return;
-  }
-
-  content.innerHTML = leadershipViews[view];
-  const tabs = document.querySelectorAll('#contentArea .leadership-tab');
-  tabs.forEach(tab => tab.classList.remove('active'));
-
-  if (evt && evt.target.classList.contains('leadership-tab')) {
-    evt.target.classList.add('active');
-  } else {
-    tabs.forEach(tab => {
-      if (tab.dataset.view === view) {
-        tab.classList.add('active');
+    function showSection(section) {
+      document.getElementById('contentArea').innerHTML = sections[section];
+      document.querySelectorAll('.about-subnav a').forEach(btn => btn.classList.remove('active'));
+      if (event && event.target) {
+        event.target.classList.add('active');
       }
-    });
-  }
-}
-</script>
-<script src="../corporate-presentation-loader.js"></script>
+    }
+
+    function showLeadershipView(view, evt) {
+      const content = document.getElementById('leadershipContent');
+      if (!content || !leadershipViews[view]) {
+        return;
+      }
+
+      content.innerHTML = leadershipViews[view];
+      const tabs = document.querySelectorAll('#contentArea .leadership-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      if (evt && evt.target.classList.contains('leadership-tab')) {
+        evt.target.classList.add('active');
+      } else {
+        tabs.forEach(tab => {
+          if (tab.dataset.view === view) {
+            tab.classList.add('active');
+          }
+        });
+      }
+    }
+  </script>
+  <script src="../corporate-presentation-loader.js"></script>
 </body>
+
 </html>
