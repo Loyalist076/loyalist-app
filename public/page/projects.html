@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn about Loyalist Exploration's active exploration projects and ongoing work to advance discovery and shareholder value." />
-    <title>Loyalist Exploration Projects | Gold & Mineral Exploration</title>
-    <!-- <link rel="stylesheet" href="../style.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
-    <style>
-        *{
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Learn about Loyalist Exploration's active exploration projects and ongoing work to advance discovery and shareholder value." />
+  <title>Loyalist Exploration Projects | Gold & Mineral Exploration</title>
+  <!-- <link rel="stylesheet" href="../style.css" /> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
+  <style>
+    * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,236 +23,259 @@
       color: #333;
     }
 
-     .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color:white;
-   
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
 
-.logo img {
-    height: 75px; /* Adjust logo size */
-     transition: transform 0.3s ease-in-out;
-}
-.logo img:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-}
+    }
 
-.navbar {
-     display: flex;
-     align-items: center;
-     padding-right: 1%;
-}
+    .logo img {
+      height: 75px;
+      /* Adjust logo size */
+      transition: transform 0.3s ease-in-out;
+    }
 
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navbar li {
-    display: inline-block;
-    position: relative; /* Needed for dropdown positioning */
-}
-
-.navbar a {
-    display: block;
-    color: black;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #D4B248; /* Lighter blue */
-}
-
-.dropdown {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position the dropdown */
-    background-color: black; /* White background */
-    min-width: 160px; /* Set a minimum width */
-    z-index: 1; /* Sit on top */
-}
-
-.dropdown li {
-    float: none; /* Stack dropdown items vertically */
-}
-
-.dropdown a {
-    color: #D4B248; /* Navy blue text */
-    padding: 12px 16px; /* Padding for dropdown items */
-    text-decoration: none;
-    display: block; /* Make dropdown items block elements */
-}
-
-.dropdown a:hover {
-    background-color: black; /* Light gray on hover */
-}
-
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-/* Tablet & Mobile - Already Exists */
-@media (max-width: 1024px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-    background-color: #D4B248;
-  }
-
-  .navbar.active {
-    display: flex;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-
-  .navbar li {
-    width: 100%;
-  }
-
-  .navbar a {
-    padding: 12px 20px;
-    color: white;
-  }
-
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    box-shadow: none;
-  }
-
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
-
-  .navbar li:hover > .dropdown {
-    display: none; /* Disable hover effect */
-  }
-
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-    padding-right: 1rem;
-  }
-
-  .dropdown a {
-    color: #D4B248;
-  }
-}
-
-/* Desktop hover dropdown */
-@media (min-width: 1025px) {
-  .navbar li:hover > .dropdown {
-    display: block;
-  }
-}
-
-
-
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar li {
-        display: block; /* Stack items vertically on small screens */
-        text-align: left; /* Align text to the left */
+    .logo img:hover {
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
     }
 
     .navbar {
-        text-align: left; /* Align navbar items to the left */
-        
+      display: flex;
+      align-items: center;
+      padding-right: 1%;
     }
 
-    
-}
-/* Mobile Navbar Toggle Button */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-  padding-right: 1%;/* toggle */
-}
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      position: relative;
+      /* Needed for dropdown positioning */
+    }
+
+    .navbar a {
+      display: block;
+      color: black;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #D4B248;
+      /* Lighter blue */
+    }
+
+    .dropdown {
+      display: none;
+      /* Hidden by default */
+      position: absolute;
+      /* Position the dropdown */
+      background-color: black;
+      /* White background */
+      min-width: 160px;
+      /* Set a minimum width */
+      z-index: 1;
+      /* Sit on top */
+    }
+
+    .dropdown li {
+      float: none;
+      /* Stack dropdown items vertically */
+    }
+
+    .dropdown a {
+      color: #D4B248;
+      /* Navy blue text */
+      padding: 12px 16px;
+      /* Padding for dropdown items */
+      text-decoration: none;
+      display: block;
+      /* Make dropdown items block elements */
+    }
+
+    .dropdown a:hover {
+      background-color: black;
+      /* Light gray on hover */
+    }
+
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+    /* Tablet & Mobile - Already Exists */
+    @media (max-width: 1024px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #D4B248;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .navbar li {
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+        color: white;
+      }
+
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        box-shadow: none;
+      }
+
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover effect */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+        padding-right: 1rem;
+      }
+
+      .dropdown a {
+        color: #D4B248;
+      }
+    }
+
+    /* Desktop hover dropdown */
+    @media (min-width: 1025px) {
+      .navbar li:hover>.dropdown {
+        display: block;
+      }
+    }
+
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar li {
+        display: block;
+        /* Stack items vertically on small screens */
+        text-align: left;
+        /* Align text to the left */
+      }
+
+      .navbar {
+        text-align: left;
+        /* Align navbar items to the left */
+
+      }
+
+
+    }
+
+    /* Mobile Navbar Toggle Button */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: black;
+      cursor: pointer;
+      padding-right: 1%;
+      /* toggle */
+    }
 
 
 
 
 
-/* Hide menu on small screens by default */
-@media (max-width: 768px) {
+    /* Hide menu on small screens by default */
+    @media (max-width: 768px) {
 
-  .align-logo{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
 
-  .navbar {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    background-color:#D4B248;
-  }
+      .navbar {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        background-color: #D4B248;
+      }
 
-  .navbar ul {
-    width: 100%;
-  }
+      .navbar ul {
+        width: 100%;
+      }
 
-  .navbar li {
-    display: block;
-    width: 100%;
-  }
+      .navbar li {
+        display: block;
+        width: 100%;
+      }
 
-  .navbar a {
-    padding: 10px 20px;
-  }
+      .navbar a {
+        padding: 10px 20px;
+      }
 
-  .navbar.active {
-    display: flex;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .dropdown {
-    position: static;
-  }
+      .dropdown {
+        position: static;
+      }
 
-  .navbar li:hover .dropdown {
-    display: none; /* Disable hover dropdown on mobile */
-  }
+      .navbar li:hover .dropdown {
+        display: none;
+        /* Disable hover dropdown on mobile */
+      }
 
-  .navbar li.active .dropdown {
-    display: block;
-  }
-}
+      .navbar li.active .dropdown {
+        display: block;
+      }
+    }
 
 
 
 
-.header-buttons button {
-      background-color:  #D4B248;
+    .header-buttons button {
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -263,7 +286,7 @@
     }
 
     .header-buttons button:hover {
-      background-color:  #D4B248;
+      background-color: #D4B248;
     }
 
     /* Modal Styles */
@@ -276,7 +299,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .modal-content {
@@ -291,7 +314,7 @@
 
     .modal-content h2 {
       margin-bottom: 15px;
-      color:  #D4B248;
+      color: #D4B248;
     }
 
     .modal-content input,
@@ -304,7 +327,7 @@
     }
 
     .modal-content button[type="submit"] {
-      background-color:  #D4B248;
+      background-color: #D4B248;
       color: white;
       border: none;
       padding: 10px;
@@ -317,7 +340,7 @@
       top: 8px;
       right: 12px;
       font-size: 24px;
-      color:#D4B248 ;
+      color: #D4B248;
       cursor: pointer;
     }
 
@@ -358,164 +381,175 @@
         padding-left: 30px;
       }
     }
-/* Desktop dropdown hover */
-.navbar li:hover > .dropdown {
-  display: block;
-}
-.icon {
-  font-size: 28px;
-  color: #D4B248; /* Gold/Yellow */
-  margin-bottom: 10px;
-}
 
-/* Default: hide dropdowns */
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color:black;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 4px;
-  top: 100%;
-  left: 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    /* Desktop dropdown hover */
+    .navbar li:hover>.dropdown {
+      display: block;
+    }
 
-.dropdown li {
-  display: block;
-}
+    .icon {
+      font-size: 28px;
+      color: #D4B248;
+      /* Gold/Yellow */
+      margin-bottom: 10px;
+    }
 
-.dropdown a {
-  color: #D4B248;
-  padding: 10px 15px;
-}
+    /* Default: hide dropdowns */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-/* Mobile-friendly override */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-  }
+    .dropdown li {
+      display: block;
+    }
 
-  .navbar.active {
-    display: flex;
-  }
+    .dropdown a {
+      color: #D4B248;
+      padding: 10px 15px;
+    }
 
-  .navbar li {
-    width: 100%;
-  }
+    /* Mobile-friendly override */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
 
-  .dropdown {
-    position: relative;
-    box-shadow: none;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .navbar .has-dropdown.active > .dropdown {
-    display: block;
-  }
+      .navbar li {
+        width: 100%;
+      }
 
-  .navbar li:hover > .dropdown {
-    display: none; /* Prevent hover on touch devices */
-  }
-}
-/* Tablet & Kindle View */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .align-logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
+      .dropdown {
+        position: relative;
+        box-shadow: none;
+      }
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .navbar .has-dropdown.active>.dropdown {
+        display: block;
+      }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    font-size: 28px;
-    padding: 10px;
-  }
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Prevent hover on touch devices */
+      }
+    }
 
-  .navbar {
-    width: 100%;
-    flex-direction: column;
-    display: none;
-    background-color: #D4B248;
-  }
+    /* Tablet & Kindle View */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .align-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
 
-  .navbar.active {
-    display: flex;
-  }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+        padding: 10px;
+      }
 
-  .navbar li {
-    width: 100%;
-  }
+      .navbar {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        background-color: #D4B248;
+      }
 
-  .navbar a {
-    padding: 12px 20px;
-  }
+      .navbar.active {
+        display: flex;
+      }
 
-  .dropdown {
-    position: relative;
-    display: none;
-    background-color: black;
-    border-radius: 0;
-    box-shadow: none;
-  }
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
 
-  .has-dropdown.active > .dropdown {
-    display: block;
-  }
+      .navbar li {
+        width: 100%;
+      }
 
-  .navbar li:hover > .dropdown {
-    display: none; /* Disable hover on tablet */
-  }
+      .navbar a {
+        padding: 12px 20px;
+      }
 
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-}
-.section-title {
-  background: #000;
-  color: #D4B248;
-  padding: 20px 50px;
-  font-size: 40px;
-  font-weight: bold;
-}
+      .dropdown {
+        position: relative;
+        display: none;
+        background-color: black;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
- body {
+      .has-dropdown.active>.dropdown {
+        display: block;
+      }
+
+      .navbar li:hover>.dropdown {
+        display: none;
+        /* Disable hover on tablet */
+      }
+
+      .header-buttons {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+      }
+    }
+
+    .section-title {
+      background: #000;
+      color: #D4B248;
+      padding: 20px 50px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f9f9f9;
     }
- .section-title {
+
+    .section-title {
       background: #000;
       color: #D4B248;
       padding: 20px 5vw;
       font-size: 40px;
       font-weight: bold;
     }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f9f9f9;
     }
+
     .projects-section {
       background-color: white;
       padding: 50px 5vw;
     }
+
     .project-category-title {
       font-size: 28px;
       font-weight: 700;
@@ -524,12 +558,14 @@
       border-bottom: 3px solid #D4B248;
       padding-bottom: 10px;
     }
+
     .loveland-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
       align-items: stretch;
     }
+
     .loveland-card {
       background: #fff;
       border-radius: 16px;
@@ -541,10 +577,12 @@
       overflow: hidden;
       min-height: 460px;
     }
+
     .loveland-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 24px 55px rgba(15, 15, 15, 0.12);
     }
+
     .loveland-card img,
     .potential-card img {
       width: 100%;
@@ -552,10 +590,12 @@
       object-fit: cover;
       transition: transform 0.5s ease;
     }
+
     .loveland-card:hover img,
     .potential-card:hover img {
       transform: scale(1.1);
     }
+
     .project-content {
       padding: 22px 24px 28px;
       flex: 1 1 auto;
@@ -563,6 +603,7 @@
       flex-direction: column;
       gap: 14px;
     }
+
     .project-content h1,
     .project-content h3 {
       font-size: 20px;
@@ -571,6 +612,7 @@
       color: #111;
       line-height: 1.4;
     }
+
     .project-content p {
       font-size: 14px;
       line-height: 1.6;
@@ -578,12 +620,14 @@
       margin: 0;
       flex: 1;
     }
+
     .card-cta {
       margin-top: auto;
       display: flex;
       gap: 12px;
       align-items: center;
     }
+
     .project-link {
       padding: 10px 18px;
       font-size: 13.5px;
@@ -599,23 +643,28 @@
       gap: 6px;
       text-transform: uppercase;
     }
+
     .project-link i {
       transition: transform 0.3s ease;
     }
+
     .project-link:hover {
       background: #D4B248;
       color: #000;
       border-color: #D4B248;
     }
+
     .project-link:hover i {
       transform: translateX(4px);
     }
+
     .potential-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 28px;
       justify-content: center;
     }
+
     .potential-card {
       background: #fff;
       border-radius: 10px;
@@ -629,10 +678,12 @@
       max-width: 420px;
       cursor: pointer;
     }
+
     @media (max-width: 768px) {
       .projects-section {
         padding: 30px 20px;
       }
+
       .loveland-grid,
       .potential-grid {
         grid-template-columns: 1fr;
@@ -640,117 +691,139 @@
         justify-items: center;
       }
     }
-.overview-section {
-  display: flex;
-  padding: 60px;
-  gap: 40px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.overview-text {
-  flex: 1;
-  min-width: 300px;
-}
-.overview-text h2 {
-  font-size: 34px;
-  font-weight: 800;
-  line-height: 1.3;
-}
-.overview-text span {
-  color: #D4B248;
-}
-.overview-text p {
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 1.6;
-}
-.stats {
-  margin-top: 20px;
-  display: flex;
-  gap: 80px;
-  flex-wrap: wrap;
-}
-.stats div {
-  font-weight: bold;
-  font-size: 16px;
-  max-width: 160px;
-}
-.stats-desc {
-  font-size: 5px;
-  color: #333;
-  margin-top: 4px;
-}
-.overview-image {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-.overview-image img {
-  width: 100%;
-  max-width: 440px;
-  height: auto;
-  border-radius: 6px;
-}
-@media (max-width: 1024px) {
-  .overview-section {
-    flex-direction: column;
-    padding: 40px 30px;
-  }
-  .overview-text {
-    text-align: center;
-  }
-  .overview-text h2 {
-    font-size: 28px;
-  }
-  .overview-text p {
-    font-size: 14.5px;
-  }
-  .stats {
-    justify-content: center;
-    gap: 40px;
-  }
-  .stats div {
-    font-size: 15px;
-  }
-}
-@media (max-width: 600px) {
-  .overview-section {
-    padding: 30px 20px;
-  }
-  .overview-text h2 {
-    font-size: 24px;
-  }
-  .overview-text p {
-    font-size: 14px;
-  }
-  .stats div {
-    font-size: 14px;
-    max-width: 100%;
-    text-align: center;
-  }
-  .overview-image img {
-    max-width: 100%;
-  }
-}
-.projects-map {
-  background: #fff;
-  padding: 30px 5vw;
-  text-align: center;
-}
 
-.projects-map img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+    .overview-section {
+      display: flex;
+      padding: 60px;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .overview-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .overview-text h2 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .overview-text span {
+      color: #D4B248;
+    }
+
+    .overview-text p {
+      margin-top: 15px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .stats {
+      margin-top: 20px;
+      display: flex;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stats div {
+      font-weight: bold;
+      font-size: 16px;
+      max-width: 160px;
+    }
+
+    .stats-desc {
+      font-size: 5px;
+      color: #333;
+      margin-top: 4px;
+    }
+
+    .overview-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .overview-image img {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 1024px) {
+      .overview-section {
+        flex-direction: column;
+        padding: 40px 30px;
+      }
+
+      .overview-text {
+        text-align: center;
+      }
+
+      .overview-text h2 {
+        font-size: 28px;
+      }
+
+      .overview-text p {
+        font-size: 14.5px;
+      }
+
+      .stats {
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .stats div {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .overview-section {
+        padding: 30px 20px;
+      }
+
+      .overview-text h2 {
+        font-size: 24px;
+      }
+
+      .overview-text p {
+        font-size: 14px;
+      }
+
+      .stats div {
+        font-size: 14px;
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .overview-image img {
+        max-width: 100%;
+      }
+    }
+
+    .projects-map {
+      background: #fff;
+      padding: 30px 5vw;
+      text-align: center;
+    }
+
+    .projects-map img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
 
-/* footer */
+    /* footer */
 
 
-.site-footer {
+    .site-footer {
       background-color: #000;
       color: #ddd;
       padding: 40px 20px 20px;
@@ -816,10 +889,10 @@
       border: 3px solid #D4B248;
       border-radius: 4px;
       width: 100%;
-  max-width: 100%;
-  display: block;
-  box-sizing: border-box;
-}
+      max-width: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
 
     .subscribe-form button {
       padding: 10px 16px;
@@ -862,104 +935,106 @@
         display: inline-block;
       }
     }
+
     .projects-map {
-            background: #fff;
-            padding: 30px 5vw;
-            text-align: center;
-            position: relative;
-        }
+      background: #fff;
+      padding: 30px 5vw;
+      text-align: center;
+      position: relative;
+    }
 
-        .map-container {
-            position: relative;
-            display: inline-block;
-            max-width: 100%;
-        }
+    .map-container {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
 
-        .projects-map img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            display: block;
-        }
+    .projects-map img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
 
-        /* Clickable area indicators */
-        .project-marker {
-            position: absolute;
-            width: 35px;
-            height: 35px;
-            background: rgba(212, 178, 72, 0.8);
-            border: 3px solid #D4B248;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            z-index: 10;
-        }
+    /* Clickable area indicators */
+    .project-marker {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      background: rgba(212, 178, 72, 0.8);
+      border: 3px solid #D4B248;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      z-index: 10;
+    }
 
-        .project-marker:hover {
-            transform: scale(1.2);
-            background: rgba(212, 178, 72, 1);
-            box-shadow: 0 0 20px rgba(212, 178, 72, 0.6);
-        }
+    .project-marker:hover {
+      transform: scale(1.2);
+      background: rgba(212, 178, 72, 1);
+      box-shadow: 0 0 20px rgba(212, 178, 72, 0.6);
+    }
 
-        .project-marker::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(212, 178, 72, 0.3);
-            animation: pulse 2s infinite;
-        }
+    .project-marker::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(212, 178, 72, 0.3);
+      animation: pulse 2s infinite;
+    }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
 
-        /* Tooltip */
-        .tooltip {
-            position: absolute;
-            background:#D4B248;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-            white-space: nowrap;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 20;
-        }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
 
-        .tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid transparent;
-            border-top-color: #333;
-        }
+    /* Tooltip */
+    .tooltip {
+      position: absolute;
+      background: #D4B248;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 20;
+    }
 
-        .project-marker:hover .tooltip {
-            opacity: 1;
-        }
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #333;
+    }
+
+    .project-marker:hover .tooltip {
+      opacity: 1;
+    }
 
 
 
@@ -1043,10 +1118,11 @@
         font-size: 15px;
       }
     }
-</style>
+  </style>
 </head>
+
 <body>
-<header class="header">
+  <header class="header">
     <div class="align-logo">
       <div class="logo">
         <a href="/">
@@ -1072,8 +1148,9 @@
           <a href="#">Projects</a>
           <ul class="dropdown">
             <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="desantis-project.html">Desantis Project</a></li>
             <li><a href="loveland-project.html">Loveland Project</a></li>
-             <li><a href="gold-rush.html">Gold Rush project</a></li>
+            <li><a href="gold-rush.html">Gold Rush project</a></li>
           </ul>
         </li>
 
@@ -1083,7 +1160,8 @@
             <li><a href="corporate-structure.html">Corporate Structure</a></li>
             <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
             <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
-            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
+            <li><a href="../page/presentations.html" class="corporate-presentation-link">Corporate Presentations</a>
+            </li>
           </ul>
         </li>
 
@@ -1118,55 +1196,52 @@
 
     </div>
   </div>
+  </div>
+
+
+  <div>
+    <h1 class="section-title">Projects</h1>
+  </div>
+
+
+
+  <section class="projects-map">
+    <div class="map-container" id="mapContainer">
+      <!-- Using a sample map image - replace with your actual map -->
+      <img src="../image/SPGMI-Map.jpeg" alt="Projects Map" id="projectsMapImage">
+
+      <!-- Interactive Markers -->
+      <div class="project-marker" id="lovelandMarker" onclick="navigateToProject('loveland')"
+        style="top: 38%; left: 7%;">
+        <span>L</span>
+        <div class="tooltip">Loveland Project</div>
+      </div>
+
+      <div class="project-marker" id="tullyMarker" onclick="navigateToProject('tully')" style="top: 33%; left: 57%;">
+        <span>T</span>
+        <div class="tooltip">Tully Project</div>
+      </div>
+
+      <div class="project-marker" id="desantisMarker" onclick="navigateToProject('desantis')"
+        style="top: 55%; left: 45%;">
+        <span>D</span>
+        <div class="tooltip">Desantis Project</div>
+      </div>
+
+      <div class="project-marker" id="goldMarker" onclick="navigateToProject('gold')" style="top: 83%; left: 11%;">
+        <span>G</span>
+        <div class="tooltip">Gold Rush Project</div>
+      </div>
     </div>
 
+    <p style="margin-top: 20px; color: #666; font-style: italic;">
+      Click on the markers to explore each project in detail
+    </p>
+  </section>
 
-<div >
-  <h1 class="section-title">Projects</h1></div>
-
-
-
-    <section class="projects-map">
-        <div class="map-container" id="mapContainer">
-            <!-- Using a sample map image - replace with your actual map -->
-            <img src="../image/SPGMI-Map.jpeg" 
-                 alt="Projects Map" 
-                 id="projectsMapImage">
-            
-            <!-- Interactive Markers -->
-            <div class="project-marker" 
-                 id="lovelandMarker" 
-                 onclick="navigateToProject('loveland')"
-                 style="top: 38%; left: 7%;">
-                <span>L</span>
-                <div class="tooltip">Loveland Project</div>
-            </div>
-            
-            <div class="project-marker" 
-                 id="tullyMarker" 
-                 onclick="navigateToProject('tully')"
-                 style="top: 33%; left: 57%;">
-                <span>T</span>
-                <div class="tooltip">Tully Project</div>
-            </div>
-            
-            <div class="project-marker" 
-                 id="goldMarker" 
-                 onclick="navigateToProject('gold')"
-                 style="top: 83%; left: 11%;">
-                <span>G</span>
-                <div class="tooltip">Gold Rush Project</div>
-            </div>
-        </div>
-        
-        <p style="margin-top: 20px; color: #666; font-style: italic;">
-            Click on the markers to explore each project in detail
-        </p>
-    </section>
-
-    <!-- project -->
-     <!-- Loveland Projects -->
-<!-- Loveland Projects -->
+  <!-- project -->
+  <!-- Loveland Projects -->
+  <!-- Loveland Projects -->
   <section class="projects-section">
     <!-- <h2 class="project-category-title">Loveland Project</h2> -->
     <div class="loveland-grid">
@@ -1174,7 +1249,9 @@
         <img src="../image/SPGMI Map - 2025-10-3.png" alt="Tully">
         <div class="project-content">
           <h2>Tully – High-Grade Gold Exploration</h2>
-          <p>In spring 2025 Loyalist signed an LOI to acquire the Tully Gold Project during due diligence. The 458-hectare property includes one leased mining claim and 11 patented mining claims roughly 25 km north-northeast of Timmins.</p>
+          <p>In spring 2025 Loyalist signed an LOI to acquire the Tully Gold Project during due diligence. The
+            458-hectare property includes one leased mining claim and 11 patented mining claims roughly 25 km
+            north-northeast of Timmins.</p>
           <div class="card-cta">
             <a class="project-link" href="tully-project.html">Read More <i class="fas fa-angle-right"></i></a>
           </div>
@@ -1184,9 +1261,21 @@
         <img src="../image/abc.jpeg" alt="Loveland Project">
         <div class="project-content">
           <h2>Loveland Nickel-Copper Project</h2>
-          <p>A known volcanogenic massive sulfide (VMS) gold, copper and nickel system 45 km northwest of Timmins within the Abitibi Greenstone Belt, featuring historic drilling, surface showings and year-round road access.</p>
+          <p>A known volcanogenic massive sulfide (VMS) gold, copper and nickel system 45 km northwest of Timmins within
+            the Abitibi Greenstone Belt, featuring historic drilling, surface showings and year-round road access.</p>
           <div class="card-cta">
             <a class="project-link" href="loveland-project.html">Read More <i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="loveland-card">
+        <img src="../image/logo.webp" alt="Desantis Project">
+        <div class="project-content">
+          <h2>Desantis Project</h2>
+          <p>Multiple gold deposits, close to Timmins and along the prolific Destor-Porcupine Deformation Zone.</p>
+          <div class="card-cta">
+            <a class="project-link" href="desantis-project.html">Read More <i class="fas fa-angle-right"></i></a>
           </div>
         </div>
       </div>
@@ -1195,20 +1284,21 @@
         <img src="../image/def.jpeg" alt="Gold Rush Project">
         <div class="project-content">
           <h2>Gold Rush Multi-Metal Project</h2>
-          <p>Gold Rush spans 820 hectares west of Timmins and targets gold, copper and nickel VMS mineralization. Multiple high-grade zones have been defined through drilling, channel sampling and geophysics.</p>
+          <p>Gold Rush spans 820 hectares west of Timmins and targets gold, copper and nickel VMS mineralization.
+            Multiple high-grade zones have been defined through drilling, channel sampling and geophysics.</p>
           <div class="card-cta">
             <a class="project-link" href="gold-rush.html">Read More <i class="fas fa-angle-right"></i></a>
           </div>
         </div>
       </div>
 
-    
+
   </section>
 
   <!-- Potential Projects -->
   <!-- <section class="projects-section"> -->
-    <!-- <h2 class="project-category-title">Potential Projects</h2> -->
-    <!-- <div class="potential-grid">
+  <!-- <h2 class="project-category-title">Potential Projects</h2> -->
+  <!-- <div class="potential-grid">
       <div class="potential-card">
         <img src="../image/tully.webp" alt="Tully Gold Project">
         <div class="project-content">
@@ -1218,7 +1308,7 @@
         <a href="tully-project.html">Read More <i class="fas fa-angle-right"></i></a>
       </div> -->
 
-      <!-- <div class="potential-card">
+  <!-- <div class="potential-card">
         <img src="../image/goldrush.png" alt="Gold Rush Project">
         <div class="project-content">
           <h3>GOLD RUSH</h3>
@@ -1230,10 +1320,10 @@
   </section> -->
 
 
-<!-- Black title bar -->
+  <!-- Black title bar -->
   <!-- <div class="section-title">Projects</div> -->
   <!-- project section -->
-   
+
   <!-- overview section -->
   <!-- <section class="overview-section">
     <div class="overview-text">
@@ -1250,267 +1340,266 @@
         </div>
       </div>
     </div> -->
-    <!-- <div class="overview-image">
+  <!-- <div class="overview-image">
       <img src="../image/6.png" alt="Exploration Map">
     </div>
   </section> -->
-    <!-- footer -->
- <footer class="site-footer">
-      <div class="footer-container">
-        <div class="contact-column">
-          <h4>Contact Information</h4>
-          <p>
-            <strong>Email:</strong><br/>
-            <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
-          </p>
-          <p>
-            <strong>Phone:</strong><br/>
-            <a href="tel:+16472961270">+1 647‑296‑1270</a>
-          </p>
-          <p>
-            <strong>Address:</strong><br />110 Yonge Street,
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="contact-column">
+        <h4>Contact Information</h4>
+        <p>
+          <strong>Email:</strong><br />
+          <a href="mailto:efarr@loyalistexploration.com">efarr@loyalistexploration.com</a>
+        </p>
+        <p>
+          <strong>Phone:</strong><br />
+          <a href="tel:+16472961270">+1 647‑296‑1270</a>
+        </p>
+        <p>
+          <strong>Address:</strong><br />110 Yonge Street,
           Suite 1601
-          <br/> Toronto, Ontario M5C1T4</p>
-        </div>
-        <div class="quick-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="company.html">About Us</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="corporate-structure.html">Investors</a></li>
-            <li><a href="press-release.html">Press Release</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="disclaimers.html">Disclaimer</a></li>
-          </ul>
-        </div>
-        <div class="social-column">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-         <div class="subscribe-box">
-  <h4>Subscribe to Our Newsletter</h4>
-<form class="subscribe-form" onsubmit="handleProjectsSubscribe(event)">
-  <input
-    type="email"
-    placeholder="Enter your email"
-    id="projectsSubscriberEmail"
-    required
-  /><br /><br />
-  <button type="submit">Subscribe</button>
-</form>
-<div
-  id="projects-subscribe-message"
-  class="subscribe-message"
-  style="display: none;"
-></div>
-
-
+          <br /> Toronto, Ontario M5C1T4
+        </p>
       </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="company.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="corporate-structure.html">Investors</a></li>
+          <li><a href="press-release.html">Press Release</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="disclaimers.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="social-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/loyalist-exploration-limited/"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/LoyalistExp"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/people/Loyalist-Exploration/61575711082978/"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="subscribe-box">
+          <h4>Subscribe to Our Newsletter</h4>
+          <form class="subscribe-form" onsubmit="handleProjectsSubscribe(event)">
+            <input type="email" placeholder="Enter your email" id="projectsSubscriberEmail" required /><br /><br />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div id="projects-subscribe-message" class="subscribe-message" style="display: none;"></div>
+
+
+        </div>
+      </div>
+    </div><br />
+    <div class="footer-bottom">
+      <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
     </div>
-  </div><br/>
-       <div class="footer-bottom">
-        <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
-      </div> 
-    </footer>
-  
-    <script>
-         // Toggle entire navbar menu on small screens
-function toggleMenu() {
-  document.getElementById('navbar').classList.toggle('active');
-}
+  </footer>
 
-// Toggle dropdowns on click for mobile/tablet (<= 1024px)
-function toggleDropdown(e) {
-  if (window.innerWidth <= 1024) {
-    e.stopPropagation(); // Prevent click from bubbling
-    const current = e.currentTarget;
+  <script>
+    // Toggle entire navbar menu on small screens
+    function toggleMenu() {
+      document.getElementById('navbar').classList.toggle('active');
+    }
 
-    // Toggle only the clicked dropdown
-    current.classList.toggle('active');
+    // Toggle dropdowns on click for mobile/tablet (<= 1024px)
+    function toggleDropdown(e) {
+      if (window.innerWidth <= 1024) {
+        e.stopPropagation(); // Prevent click from bubbling
+        const current = e.currentTarget;
 
-    // Close other open dropdowns
-    document.querySelectorAll('.has-dropdown').forEach(item => {
-      if (item !== current) {
-        item.classList.remove('active');
+        // Toggle only the clicked dropdown
+        current.classList.toggle('active');
+
+        // Close other open dropdowns
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+          if (item !== current) {
+            item.classList.remove('active');
+          }
+        });
       }
+    }
+
+    // Modal handling (login / contact)
+    function openModal(type) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
+      document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Welcome popup close
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
+    }
+    const slider = document.querySelector('.projects-slider');
+    const leftArrow = document.querySelector('.slider-arrow.left');
+    const rightArrow = document.querySelector('.slider-arrow.right');
+
+    leftArrow.addEventListener('click', () => {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
     });
-  }
-}
 
-// Modal handling (login / contact)
-function openModal(type) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-  document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-// Welcome popup close
-function closePopup() {
-  document.getElementById("welcomePopup").style.display = "none";
-}
-  const slider = document.querySelector('.projects-slider');
-  const leftArrow = document.querySelector('.slider-arrow.left');
-  const rightArrow = document.querySelector('.slider-arrow.right');
-
-  leftArrow.addEventListener('click', () => {
-    slider.scrollBy({ left: -300, behavior: 'smooth' });
-  });
-
-  rightArrow.addEventListener('click', () => {
-    slider.scrollBy({ left: 300, behavior: 'smooth' });
-  });
+    rightArrow.addEventListener('click', () => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
 
 
-  async function handleProjectsSubscribe(event) {
-    event.preventDefault();
+    async function handleProjectsSubscribe(event) {
+      event.preventDefault();
 
-    const emailInput = document.getElementById('projectsSubscriberEmail');
-    const messageDiv = document.getElementById('projects-subscribe-message');
-    const email = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailInput = document.getElementById('projectsSubscriberEmail');
+      const messageDiv = document.getElementById('projects-subscribe-message');
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!email || !emailPattern.test(email)) {
-      messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Please enter a valid email address.';
-      return;
-    }
-
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-
-      const data = await res.json();
-      messageDiv.style.display = 'block';
-
-      if (res.ok) {
-        messageDiv.style.color = 'green';
-        messageDiv.textContent = data.message || 'Subscribed successfully!';
-        emailInput.value = '';
-      } else {
-        const errorMsg = data?.error || data?.message;
-        if (errorMsg?.includes('looks fake or invalid')) {
-          messageDiv.style.color = 'orange';
-          messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
-        } else {
-          messageDiv.style.color = 'red';
-          messageDiv.textContent = errorMsg || 'Something went wrong.';
-        }
+      if (!email || !emailPattern.test(email)) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Please enter a valid email address.';
+        return;
       }
 
-      setTimeout(() => {
-        messageDiv.style.display = 'none';
-      }, 5000);
-    } catch (err) {
-      console.error('❌ Subscription error:', err);
-      messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Server error. Please try again later.';
-      setTimeout(() => {
-        messageDiv.style.display = 'none';
-      }, 5000);
-    }
-  }
- // Navigation function for projects
-        function navigateToProject(projectType) {
-            let targetPage;
-            
-            switch(projectType) {
-                case 'loveland':
-                    targetPage = 'loveland.html';
-                    break;
-                case 'tully':
-                    targetPage = 'tully.html';
-                    break;
-                case 'gold':
-                    targetPage = 'gold.html';
-                    break;
-                default:
-                    console.error('Unknown project type:', projectType);
-                    return;
-            }
-            
-            // Add a visual feedback before navigation
-            const marker = document.getElementById(projectType + 'Marker');
-            if (marker) {
-                marker.style.transform = 'scale(1.3)';
-                marker.style.background = 'rgba(212, 178, 72, 1)';
-                
-                setTimeout(() => {
-                    window.location.href = targetPage;
-                }, 200);
-            } else {
-                window.location.href = targetPage;
-            }
-        }
-
-        // Responsive marker positioning
-        function adjustMarkersForMobile() {
-            const isMobile = window.innerWidth <= 768;
-            const markers = document.querySelectorAll('.project-marker');
-            
-            markers.forEach(marker => {
-                if (isMobile) {
-                    marker.style.width = '35px';
-                    marker.style.height = '35px';
-                    marker.style.fontSize = '10px';
-                } else {
-                    marker.style.width = '40px';
-                    marker.style.height = '40px';
-                    marker.style.fontSize = '12px';
-                }
-            });
-        }
-
-        // Initialize on load and resize
-        window.addEventListener('load', adjustMarkersForMobile);
-        window.addEventListener('resize', adjustMarkersForMobile);
-
-        // Add hover effects to project cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const projectCards = document.querySelectorAll('.loveland-card');
-            
-            projectCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.02) translateY(-5px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) translateY(0)';
-                });
-            });
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
         });
 
-        // Optional: Add click animation to markers
-        function addMarkerAnimation(markerId) {
-            const marker = document.getElementById(markerId);
-            if (marker) {
-                marker.addEventListener('click', function() {
-                    this.style.animation = 'none';
-                    setTimeout(() => {
-                        this.style.animation = 'pulse 0.5s ease-out';
-                    }, 10);
-                });
-            }
+        const data = await res.json();
+        messageDiv.style.display = 'block';
+
+        if (res.ok) {
+          messageDiv.style.color = 'green';
+          messageDiv.textContent = data.message || 'Subscribed successfully!';
+          emailInput.value = '';
+        } else {
+          const errorMsg = data?.error || data?.message;
+          if (errorMsg?.includes('looks fake or invalid')) {
+            messageDiv.style.color = 'orange';
+            messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
+          } else {
+            messageDiv.style.color = 'red';
+            messageDiv.textContent = errorMsg || 'Something went wrong.';
+          }
         }
 
-        // Initialize marker animations
-        addMarkerAnimation('lovelandMarker');
-        addMarkerAnimation('tullyMarker');
-        addMarkerAnimation('goldMarker');
-</script>
-<script src="../corporate-presentation-loader.js"></script>
+        setTimeout(() => {
+          messageDiv.style.display = 'none';
+        }, 5000);
+      } catch (err) {
+        console.error('❌ Subscription error:', err);
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Server error. Please try again later.';
+        setTimeout(() => {
+          messageDiv.style.display = 'none';
+        }, 5000);
+      }
+    }
+    // Navigation function for projects
+    function navigateToProject(projectType) {
+      let targetPage;
+
+      switch (projectType) {
+        case 'loveland':
+          targetPage = 'loveland.html';
+          break;
+        case 'tully':
+          targetPage = 'tully.html';
+          break;
+        case 'gold':
+          targetPage = 'gold-rush.html';
+          break;
+        case 'desantis':
+          targetPage = 'desantis-project.html';
+          break;
+        default:
+          console.error('Unknown project type:', projectType);
+          return;
+      }
+
+      // Add a visual feedback before navigation
+      const marker = document.getElementById(projectType + 'Marker');
+      if (marker) {
+        marker.style.transform = 'scale(1.3)';
+        marker.style.background = 'rgba(212, 178, 72, 1)';
+
+        setTimeout(() => {
+          window.location.href = targetPage;
+        }, 200);
+      } else {
+        window.location.href = targetPage;
+      }
+    }
+
+    // Responsive marker positioning
+    function adjustMarkersForMobile() {
+      const isMobile = window.innerWidth <= 768;
+      const markers = document.querySelectorAll('.project-marker');
+
+      markers.forEach(marker => {
+        if (isMobile) {
+          marker.style.width = '35px';
+          marker.style.height = '35px';
+          marker.style.fontSize = '10px';
+        } else {
+          marker.style.width = '40px';
+          marker.style.height = '40px';
+          marker.style.fontSize = '12px';
+        }
+      });
+    }
+
+    // Initialize on load and resize
+    window.addEventListener('load', adjustMarkersForMobile);
+    window.addEventListener('resize', adjustMarkersForMobile);
+
+    // Add hover effects to project cards
+    document.addEventListener('DOMContentLoaded', function () {
+      const projectCards = document.querySelectorAll('.loveland-card');
+
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+          this.style.transform = 'scale(1.02) translateY(-5px)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.transform = 'scale(1) translateY(0)';
+        });
+      });
+    });
+
+    // Optional: Add click animation to markers
+    function addMarkerAnimation(markerId) {
+      const marker = document.getElementById(markerId);
+      if (marker) {
+        marker.addEventListener('click', function () {
+          this.style.animation = 'none';
+          setTimeout(() => {
+            this.style.animation = 'pulse 0.5s ease-out';
+          }, 10);
+        });
+      }
+    }
+
+    // Initialize marker animations
+    addMarkerAnimation('lovelandMarker');
+    addMarkerAnimation('tullyMarker');
+    addMarkerAnimation('goldMarker');
+    addMarkerAnimation('desantisMarker');
+  </script>
+  <script src="../corporate-presentation-loader.js"></script>
 </body>
+
 </html>

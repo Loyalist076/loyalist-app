@@ -7,24 +7,37 @@
 async function loadCorporatePresentationLinks() {
   try {
     const response = await fetch('/api/corporate-presentation/check');
+    if (!response.ok) {
+      return;
+    }
     const data = await response.json();
 
-    // Update all links with the corporate presentation class or ID
+    // Update all links with the corporate presentation class or ID.
+    // By default, keep authored href values so navigation to presentations page stays intact.
+    // Use `data-use-latest-presentation="true"` for links that should point directly to the latest PDF.
     const links = document.querySelectorAll('.corporate-presentation-link, #corporatePresentationLink');
 
     links.forEach(link => {
-      if (data.exists) {
-        link.href = data.path;
-        link.style.opacity = '1';
-        link.style.pointerEvents = 'auto';
-        link.removeAttribute('title');
-      } else {
-        // If PDF doesn't exist, disable the link
-        link.href = '#';
-        link.style.opacity = '0.5';
-        link.style.pointerEvents = 'none';
-        link.title = 'Corporate presentation not available';
+      if (!link.dataset.defaultHref) {
+        link.dataset.defaultHref = link.getAttribute('href') || '';
       }
+
+      const defaultHref = link.dataset.defaultHref;
+      const useLatestPresentation = link.dataset.useLatestPresentation === 'true';
+
+      if (data.exists && useLatestPresentation && data.path) {
+        link.href = data.path;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      } else {
+        link.href = defaultHref;
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+
+      link.style.opacity = '';
+      link.style.pointerEvents = '';
+      link.removeAttribute('title');
     });
   } catch (error) {
     console.error('Error loading corporate presentation links:', error);

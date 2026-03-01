@@ -348,8 +348,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .upload-file-name {
@@ -441,53 +446,50 @@
         <div class="section-title">Current Corporate Presentation</div>
 
         <div class="info-box">
-          <p><strong>Note:</strong> This PDF will be displayed in the "Investors" dropdown menu and investor sub-navigation across all pages of the website. Make sure to upload a professional, up-to-date corporate presentation.</p>
+          <p><strong>Note:</strong> This PDF will be displayed in the "Investors" dropdown menu and investor
+            sub-navigation across all pages of the website. Make sure to upload a professional, up-to-date corporate
+            presentation.</p>
         </div>
 
+
         <div id="currentPdfContainer">
-          <div class="current-pdf-box" id="currentPdfBox" style="display: none;">
-            <div class="current-pdf-title">📄 Current File</div>
-            <div class="pdf-info">
-              <div class="pdf-icon">📊</div>
-              <div class="pdf-details">
-                <div class="pdf-name" id="pdfName">loyalist.pdf</div>
-                <div class="pdf-path" id="pdfPath">/image/loyalist.pdf</div>
-              </div>
-            </div>
-            <div class="pdf-actions">
-              <a id="viewPdfBtn" href="../image/loyalist.pdf" target="_blank" class="view-btn">👁️ View Current PDF</a>
-            </div>
-          </div>
-          <div class="no-pdf-message" id="noPdfMessage" style="display: none;">
-            No corporate presentation uploaded yet.
-          </div>
+          <table style="width:100%; text-align:left; border-collapse:collapse;;">
+            <thead>
+              <tr style="border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">
+                <th style="padding: 10px;">Title</th>
+                <th style="padding: 10px;">Date</th>
+                <th style="padding: 10px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="presentationList">
+              <tr>
+                <td colspan="3" class="no-pdf-message">No presentations found.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
       </div>
 
       <div class="content-section">
         <div class="section-title">Upload New Corporate Presentation</div>
 
+
         <form id="uploadForm">
           <div class="form-group">
-            <label for="pdfFile">Select PDF File</label>
-            <input
-              type="file"
-              id="pdfFile"
-              name="pdf"
-              accept="application/pdf"
-              required
-            />
-            <div class="file-requirements">
-              📋 Requirements: PDF format only, maximum file size 10MB
-            </div>
+            <label for="pdfTitle">Presentation Title</label>
+            <input type="text" id="pdfTitle" name="title" placeholder="e.g., Short Presentation 2024" required
+              style="padding: 12px; border: 2px solid #d1d5db; border-radius: 8px;" />
           </div>
-
-          <button type="submit" class="submit-btn" id="submitBtn">
-            📤 Upload Corporate Presentation
-          </button>
-
+          <div class="form-group">
+            <label for="pdfFile">Select PDF File</label>
+            <input type="file" id="pdfFile" name="pdf" accept="application/pdf" required />
+            <div class="file-requirements">📋 Requirements: PDF format only, maximum file size 50MB</div>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">📤 Upload Presentation</button>
           <div id="loading"></div>
         </form>
+
       </div>
     </div>
   </div>
@@ -504,6 +506,7 @@
     </div>
   </div>
 
+
   <script>
     const uploadDialog = document.getElementById('uploadDialog');
     const uploadFileName = document.getElementById('uploadFileName');
@@ -519,8 +522,8 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Check if current PDF exists using API
-    async function checkCurrentPdf() {
+    // Load presentations
+    async function fetchPresentations() {
       const token = localStorage.getItem('token');
       if (!token) {
         alert('Authentication required. Please log in.');
@@ -529,71 +532,84 @@
       }
 
       try {
-        const response = await fetch('/api/corporate-presentation/check', {
+        const response = await fetch('/api/corporate-presentation/all', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         });
         const data = await response.json();
+        const tbody = document.getElementById('presentationList');
+        if (data.length > 0) {
+          tbody.innerHTML = data.map(item => {
+            const statusBadge = item.isActive !== false
+              ? '<span class="badge badge-active">Active</span>'
+              : '<span class="badge badge-inactive">Inactive</span>';
+            const isActiveBool = item.isActive !== false;
 
-        if (data.exists) {
-          // Show PDF information
-          document.getElementById('currentPdfBox').style.display = 'block';
-          document.getElementById('noPdfMessage').style.display = 'none';
-
-          // Update PDF details
-          document.getElementById('pdfName').textContent = data.filename;
-          document.getElementById('pdfPath').textContent = data.path;
-          document.getElementById('viewPdfBtn').href = data.path;
-
-          // Add file size and last modified info if available
-          if (data.size) {
-            const sizeInMB = (data.size / (1024 * 1024)).toFixed(2);
-            const sizeInfo = document.createElement('div');
-            sizeInfo.style.fontSize = '14px';
-            sizeInfo.style.color = '#6b7280';
-            sizeInfo.style.marginTop = '4px';
-            sizeInfo.textContent = `File size: ${sizeInMB} MB`;
-
-            const pdfDetails = document.getElementById('pdfPath').parentElement;
-            if (!pdfDetails.querySelector('.size-info')) {
-              sizeInfo.classList.add('size-info');
-              pdfDetails.appendChild(sizeInfo);
-            }
-          }
-
-          if (data.modified) {
-            // Format date in Canadian Eastern Time
-            const modifiedDate = new Date(data.modified).toLocaleString('en-CA', {
-              timeZone: 'America/Toronto',
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit'
-            });
-            const modifiedInfo = document.createElement('div');
-            modifiedInfo.style.fontSize = '14px';
-            modifiedInfo.style.color = '#6b7280';
-            modifiedInfo.style.marginTop = '4px';
-            modifiedInfo.textContent = `Last updated: ${modifiedDate}`;
-
-            const pdfDetails = document.getElementById('pdfPath').parentElement;
-            if (!pdfDetails.querySelector('.modified-info')) {
-              modifiedInfo.classList.add('modified-info');
-              pdfDetails.appendChild(modifiedInfo);
-            }
-          }
+            return `
+              <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 12px;">${item.title} ${statusBadge}</td>
+                <td style="padding: 12px;">${new Date(item.uploadedAt).toLocaleDateString()}</td>
+                <td style="padding: 12px;">
+                  <button onclick="toggleActive('${item._id}', ${isActiveBool})" class="btn-edit" style="background-color: ${isActiveBool ? '#6c757d' : '#28a745'}">${isActiveBool ? 'Deactivate' : 'Activate'}</button>
+                  <a href="${item.url}" target="_blank" class="btn-edit" style="background-color: #007bff; text-decoration: none; display: inline-block;">View Document →</a>
+                  <button onclick="deletePresentation('${item._id}')" class="btn-delete">Delete</button>
+                </td>
+              </tr>
+            `;
+          }).join('');
         } else {
-          document.getElementById('currentPdfBox').style.display = 'none';
-          document.getElementById('noPdfMessage').style.display = 'block';
+          tbody.innerHTML = '<tr><td colspan="3" class="no-pdf-message">No corporate presentations uploaded yet.</td></tr>';
         }
       } catch (error) {
-        console.error('Error checking PDF:', error);
-        document.getElementById('currentPdfBox').style.display = 'none';
-        document.getElementById('noPdfMessage').style.display = 'block';
+        console.error('Error fetching PDF:', error);
       }
     }
+
+    window.toggleActive = async (id, currentStatus) => {
+      const newStatus = !currentStatus;
+      if (!confirm(`${newStatus ? 'Activate' : 'Deactivate'} this presentation ? `)) return;
+
+      const token = localStorage.getItem('token');
+      try {
+        const response = await fetch('/api/corporate-presentation/' + id, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ isActive: newStatus })
+        });
+
+        if (response.ok) {
+          fetchPresentations();
+        } else {
+          const data = await response.json();
+          alert(data.message || 'Failed to update status');
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    };
+
+    window.deletePresentation = async (id) => {
+      if (!confirm('Are you sure you want to delete this presentation?')) return;
+
+      const token = localStorage.getItem('token');
+      try {
+        const response = await fetch('/api/corporate-presentation/' + id, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (response.ok) {
+           fetchPresentations();
+        } else {
+          alert('Delete failed.');
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    };
 
     // Handle form submission
     const form = document.getElementById('uploadForm');
@@ -603,36 +619,31 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const titleInput = document.getElementById('pdfTitle').value;
       const fileInput = document.getElementById('pdfFile');
       const file = fileInput.files[0];
 
-      if (!file) {
-        alert('❌ Please select a PDF file.');
+      if (!file || !titleInput) {
+        alert('❌ Please provide title and select a PDF file.');
         return;
       }
 
-      // Validate file type
       if (file.type !== 'application/pdf') {
         alert('❌ Please select a valid PDF file.');
         return;
       }
 
-      // Validate file size (10MB max)
-      if (file.size > 10 * 1024 * 1024) {
-        alert('❌ File size must be less than 10MB.');
+      if (file.size > 50 * 1024 * 1024) {
+        alert('❌ File size must be less than 50MB.');
         return;
       }
 
       const formData = new FormData();
       formData.append('pdf', file);
+      formData.append('title', titleInput);
 
-      // Get authentication token
       const token = localStorage.getItem('token');
-      if (!token) {
-        alert('❌ Authentication required. Please log in again.');
-        window.location.href = '../login.html';
-        return;
-      }
+      if (!token) return;
 
       showUploadDialog(file.name);
       submitBtn.disabled = true;
@@ -640,9 +651,7 @@
       try {
         const response = await fetch('/api/corporate-presentation/upload', {
           method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          },
+          headers: { 'Authorization': `Bearer ${ token }` },
           body: formData
         });
 
@@ -652,31 +661,15 @@
           hideUploadDialog();
           alert('✅ Corporate presentation uploaded successfully!');
           form.reset();
-          checkCurrentPdf();
-
-          // Reload the page after a short delay to show the new PDF
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
+          fetchPresentations();
         } else {
           hideUploadDialog();
-          // Handle authentication errors
-          if (response.status === 401) {
-            alert('❌ Authentication failed. Please log in again.');
-            localStorage.removeItem('token');
-            window.location.href = '../login.html';
-          } else if (response.status === 403) {
-            alert('❌ Access denied. Admin privileges required.');
-          } else {
-            alert('❌ Upload failed: ' + (result.error || result.message || 'Something went wrong.'));
-          }
+          alert('❌ Upload failed: ' + (result.error || result.message || 'Something went wrong.'));
         }
       } catch (err) {
         hideUploadDialog();
         alert('❌ Network error: ' + err.message);
-        console.error(err);
       } finally {
-        loading.textContent = '';
         submitBtn.disabled = false;
       }
     });
@@ -691,6 +684,7 @@
       const sidebar = document.getElementById('sidebar');
       const toggleBtn = document.querySelector('.menu-toggle');
       if (
+        sidebar && toggleBtn &&
         !sidebar.contains(event.target) &&
         !toggleBtn.contains(event.target) &&
         sidebar.classList.contains('active')
@@ -712,7 +706,7 @@
 
     // Initialize page
     if (checkAuthentication()) {
-      checkCurrentPdf();
+      fetchPresentations();
     }
   </script>
 </body>
