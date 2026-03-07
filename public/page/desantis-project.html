@@ -539,6 +539,13 @@
         .project-image {
             flex: 1 1 400px;
             max-width: 100%;
+            display: grid;
+            gap: 20px;
+            align-content: start;
+        }
+
+        .project-figure {
+            margin: 0;
         }
 
         .project-image img {
@@ -548,6 +555,13 @@
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-figure figcaption {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
         }
 
         .project-content {
@@ -911,8 +925,14 @@
 
     <div class="container">
         <div class="project-image">
-            <!-- Place holder image source since no specific image was given, using logo for now or similar to index page -->
-            <img src="../image/logo.webp" alt="Desantis Project">
+            <figure class="project-figure">
+                <img src="../image/download (2).png" alt="DeSantis Mine Property map">
+                <figcaption>Regional map showing the DeSantis Mine Property near Timmins and the Destor-Porcupine Deformation Zone.</figcaption>
+            </figure>
+            <figure class="project-figure">
+                <img src="../image/download (3).png" alt="DeSantis Project section showing hydrothermal and albitite zones">
+                <figcaption>Historical section view highlighting the hydrothermal, albitite and sedimentary contact zones with open potential.</figcaption>
+            </figure>
         </div>
 
         <div class="project-content">
