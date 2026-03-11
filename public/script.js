@@ -444,3 +444,33 @@ window.addEventListener('DOMContentLoaded', loadNews);
       }, 5000);
     }
   }
+
+// =========================================
+// Magazine Feature – Lazy load Issuu iframe
+// =========================================
+(function () {
+  const iframe = document.getElementById('issuuEmbed');
+  if (!iframe) return;
+
+  const realSrc = iframe.getAttribute('data-src');
+  if (!realSrc) return;
+
+  // Use IntersectionObserver for performant lazy loading
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            iframe.setAttribute('src', realSrc);
+            observer.unobserve(iframe);
+          }
+        });
+      },
+      { rootMargin: '200px' } // Start loading 200px before it's in view
+    );
+    observer.observe(iframe);
+  } else {
+    // Fallback for older browsers – load immediately
+    iframe.setAttribute('src', realSrc);
+  }
+})();

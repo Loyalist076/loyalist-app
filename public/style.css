@@ -2083,3 +2083,320 @@ body {
 .read-more-btn1:hover {
   background: #D4B248;
 }
+
+/* =========================================
+   Magazine Feature Section
+   ========================================= */
+.magazine-feature {
+  padding: 90px 20px;
+  background: linear-gradient(175deg, #0a0a0a 0%, #1a1a1a 60%, #0d0d0d 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative background glow */
+.magazine-feature::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 178, 72, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.magazine-feature::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 178, 72, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.magazine-feature__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge */
+.magazine-feature__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212, 178, 72, 0.12);
+  border: 1px solid rgba(212, 178, 72, 0.3);
+  padding: 10px 24px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.8s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.magazine-feature__badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 178, 72, 0.15), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.magazine-feature__badge i {
+  color: #D4B248;
+  font-size: 18px;
+}
+
+.magazine-feature__badge span {
+  color: #D4B248;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Title */
+.magazine-feature__title {
+  font-size: clamp(28px, 4vw, 40px);
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  animation: fadeInUp 1s ease forwards;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Description */
+.magazine-feature__description {
+  font-size: 17px;
+  color: #b0b0b0;
+  line-height: 1.75;
+  max-width: 720px;
+  margin: 0 auto 45px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.magazine-feature__description strong {
+  color: #D4B248;
+}
+
+.magazine-feature__description em {
+  color: #d0d0d0;
+  font-style: italic;
+}
+
+/* Embed Card */
+.magazine-feature__embed-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 178, 72, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(212, 178, 72, 0.08);
+  margin-bottom: 40px;
+  animation: fadeInUp 1.4s ease forwards;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.magazine-feature__embed-card:hover {
+  border-color: rgba(212, 178, 72, 0.4);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(212, 178, 72, 0.08);
+}
+
+/* Responsive iframe wrapper using padding-bottom trick */
+.magazine-feature__embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 65%; /* ~16:10 aspect ratio */
+  background: #111;
+  overflow: hidden;
+}
+
+.magazine-feature__embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Caption bar below the iframe */
+.magazine-feature__embed-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(212, 178, 72, 0.06);
+  border-top: 1px solid rgba(212, 178, 72, 0.15);
+}
+
+.magazine-feature__embed-caption i {
+  color: #D4B248;
+  font-size: 14px;
+}
+
+.magazine-feature__embed-caption span {
+  color: #999;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* CTA Button */
+.magazine-feature__cta-wrapper {
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+.magazine-feature__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #D4B248, #a68830);
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  transition: all 0.35s ease;
+  box-shadow:
+    0 4px 20px rgba(212, 178, 72, 0.3),
+    0 0 0 0 rgba(212, 178, 72, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.magazine-feature__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.magazine-feature__cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 8px 30px rgba(212, 178, 72, 0.45),
+    0 0 0 4px rgba(212, 178, 72, 0.15);
+  background: linear-gradient(135deg, #e0c050, #D4B248);
+}
+
+.magazine-feature__cta:hover::before {
+  left: 100%;
+}
+
+.magazine-feature__cta i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.magazine-feature__cta:hover i {
+  transform: translateX(3px) translateY(-2px);
+}
+
+/* Responsive – Tablet */
+@media (max-width: 1024px) {
+  .magazine-feature {
+    padding: 70px 20px;
+  }
+
+  .magazine-feature__embed-wrapper {
+    padding-bottom: 70%;
+  }
+}
+
+/* Responsive – Mobile */
+@media (max-width: 768px) {
+  .magazine-feature {
+    padding: 60px 16px;
+  }
+
+  .magazine-feature__title {
+    font-size: 26px;
+  }
+
+  .magazine-feature__description {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .magazine-feature__badge {
+    padding: 8px 18px;
+  }
+
+  .magazine-feature__badge span {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .magazine-feature__embed-wrapper {
+    padding-bottom: 80%;
+  }
+
+  .magazine-feature__embed-caption {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 16px;
+  }
+
+  .magazine-feature__embed-caption span {
+    font-size: 12px;
+  }
+
+  .magazine-feature__cta {
+    padding: 14px 32px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Responsive – Small phones */
+@media (max-width: 480px) {
+  .magazine-feature {
+    padding: 50px 14px;
+  }
+
+  .magazine-feature__title {
+    font-size: 22px;
+  }
+
+  .magazine-feature__description {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .magazine-feature__embed-wrapper {
+    padding-bottom: 90%;
+  }
+
+  .magazine-feature__cta {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}
