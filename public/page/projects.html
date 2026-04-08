@@ -11,6 +11,7 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
+  <link rel="stylesheet" href="../components/header.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -178,9 +179,6 @@
       }
     }
 
-
-
-
     /* Responsive Styles */
     @media (max-width: 768px) {
       .navbar li {
@@ -196,7 +194,6 @@
 
       }
 
-
     }
 
     /* Mobile Navbar Toggle Button */
@@ -208,10 +205,6 @@
       padding-right: 1%;
       /* toggle */
     }
-
-
-
-
 
     /* Hide menu on small screens by default */
     @media (max-width: 768px) {
@@ -270,9 +263,6 @@
         display: block;
       }
     }
-
-
-
 
     .header-buttons button {
       background-color: #D4B248;
@@ -819,9 +809,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-
     /* footer */
-
 
     .site-footer {
       background-color: #000;
@@ -1036,50 +1024,6 @@
       opacity: 1;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /* Responsive */
     @media (max-width: 768px) {
       .contact-section {
@@ -1122,88 +1066,18 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="align-logo">
-      <div class="logo">
-        <a href="/">
-          <img src="../image/logo.webp" alt="Logo" /></a>
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    </div>
+  <!-- Header Component -->
+  <div id="header-container"></div>
+  <script src="../components/header.js"></script>
 
-    <nav class="navbar" id="navbar">
-      <ul>
+  
 
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">About Us</a>
-          <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="our-team.html">Our Team</a></li>
-
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Projects</a>
-          <ul class="dropdown">
-            <li><a href="tully-project.html">Tully Project </a></li>
-            <li><a href="desantis-project.html">Desantis Project</a></li>
-            <li><a href="loveland-project.html">Loveland Project</a></li>
-            <li><a href="gold-rush.html">Gold Rush project</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Investors</a>
-          <ul class="dropdown">
-            <li><a href="corporate-structure.html">Corporate Structure</a></li>
-            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
-            <li><a href="../page/presentations.html" class="corporate-presentation-link">Corporate Presentations</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="press-release.html">Press Release</a>
-
-        </li>
-
-
-      </ul>
-      <div class="header-buttons">
-        <button id="getInTouchBtn">Get in Touch</button>
-
-
-
-      </div>
-  </header>
-
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModalBtn">&times;</span>
-      <form id="popupContactForm">
-        <img src="../image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
-
-        <input type="text" name="name" placeholder="Your Name" required /><br><br>
-        <input type="email" name="email" placeholder="Your Email" required /><br><br>
-        <input type="text" name="subject" placeholder="Subject" required /><br><br>
-        <textarea name="message" placeholder="Message" required></textarea><br><br>
-        <button type="submit">Send Message</button>
-      </form>
-
-
-    </div>
+  
   </div>
-  </div>
-
 
   <div>
     <h1 class="section-title">Projects</h1>
   </div>
-
-
 
   <section class="projects-map">
     <div class="map-container" id="mapContainer">
@@ -1292,7 +1166,6 @@
         </div>
       </div>
 
-
   </section>
 
   <!-- Potential Projects -->
@@ -1318,7 +1191,6 @@
       </div>
     </div>
   </section> -->
-
 
   <!-- Black title bar -->
   <!-- <div class="section-title">Projects</div> -->
@@ -1393,7 +1265,6 @@
           </form>
           <div id="projects-subscribe-message" class="subscribe-message" style="display: none;"></div>
 
-
         </div>
       </div>
     </div><br />
@@ -1452,7 +1323,6 @@
     rightArrow.addEventListener('click', () => {
       slider.scrollBy({ left: 300, behavior: 'smooth' });
     });
-
 
     async function handleProjectsSubscribe(event) {
       event.preventDefault();

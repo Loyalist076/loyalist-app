@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Upcoming Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background-color: #f4f6f9;
-      color: #333;
-    }
 
     header {
       background-color: #4a90e2;
@@ -135,7 +131,11 @@
   </style>
 </head>
 <body>
-  <header>Manage Upcoming Events</header>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">📅 Manage Upcoming Events</h1>
+      </div>
 
   <div class="container">
     <h2>Add / Edit Event</h2>
@@ -354,5 +354,8 @@
       return str.replace(/`/g, '\\`');
     }
   </script>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

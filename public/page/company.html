@@ -9,6 +9,7 @@
   <title>About Loyalist Exploration – Canada Mineral Properties</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
+  <link rel="stylesheet" href="../components/header.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -871,80 +872,9 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="align-logo">
-      <div class="logo">
-        <a href="/">
-          <img src="../image/logo.webp" alt="Logo" /></a>
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    </div>
-
-    <nav class="navbar" id="navbar">
-      <ul>
-
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">About Us</a>
-          <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="our-team.html">Our Team</a></li>
-
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Projects</a>
-          <ul class="dropdown">
-            <li><a href="tully-project.html">Tully Project </a></li>
-            <li><a href="desantis-project.html">Desantis Project</a></li>
-            <li><a href="loveland-project.html">Loveland Project</a></li>
-            <li><a href="gold-rush.html">Gold Rush project</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Investors</a>
-          <ul class="dropdown">
-            <li><a href="corporate-structure.html">Corporate Structure</a></li>
-            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
-            <li><a href="../page/presentations.html" class="corporate-presentation-link">Corporate
-                Presentations</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="press-release.html">Press Release</a>
-
-        </li>
-
-
-      </ul>
-      <div class="header-buttons">
-        <button id="getInTouchBtn">Get in Touch</button>
-
-
-
-      </div>
-  </header>
-
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModalBtn">&times;</span>
-      <form id="popupContactForm">
-        <img src="../image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
-
-        <input type="text" name="name" placeholder="Your Name" required /><br><br>
-        <input type="email" name="email" placeholder="Your Email" required /><br><br>
-        <input type="text" name="subject" placeholder="Subject" required /><br><br>
-        <textarea name="message" placeholder="Message" required></textarea><br><br>
-        <button type="submit">Send Message</button>
-      </form>
-
-
-    </div>
-  </div>
+  <!-- Header Component -->
+  <div id="header-container"></div>
+  <script src="../components/header.js"></script>
 
   <div>
     <h1 class="section-title">Company Profile</h1>
@@ -1053,37 +983,6 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('navbar').classList.toggle('active');
-    }
-
-    function toggleDropdown(e) {
-      if (window.innerWidth <= 1024) {
-        e.stopPropagation();
-        const current = e.currentTarget;
-        current.classList.toggle('active');
-        document.querySelectorAll('.has-dropdown').forEach(item => {
-          if (item !== current) {
-            item.classList.remove('active');
-          }
-        });
-      }
-    }
-
-    function openModal(type) {
-      document.getElementById("modal").style.display = "block";
-      document.getElementById("login-form").style.display = type === "login" ? "block" : "none";
-      document.getElementById("contact-form").style.display = type === "contact" ? "block" : "none";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    function closePopup() {
-      document.getElementById("welcomePopup").style.display = "none";
-    }
-
     async function handleCompanySubscribe(event) {
       event.preventDefault();
       const emailInput = document.getElementById('companySubscriberEmail');

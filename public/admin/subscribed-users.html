@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Subscribed Users</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
     table {
       width: 100%;
@@ -24,8 +27,13 @@
   </style>
 </head>
 <body>
-  <h2>Subscribed Users</h2>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">📧 Subscribed Users</h1>
+      </div>
 
+  <div class="admin-card">
   <label for="sourceFilter">Filter by Source:</label>
   <select id="sourceFilter" onchange="fetchSubscribers()">
     <option value="all">All</option>
@@ -126,5 +134,9 @@
 
     fetchSubscribers();
   </script>
+  </div>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

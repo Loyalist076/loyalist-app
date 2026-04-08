@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Corporate Structure</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
     h2 { margin-top: 30px; }
     .section { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
     label { display: block; margin-top: 10px; font-weight: bold; }
@@ -18,8 +18,11 @@
   </style>
 </head>
 <body>
-
-  <h1>Post Corporate Structure</h1>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">🏢 Post Corporate Structure</h1>
+      </div>
 
   <!-- Capital Structure Section -->
   <section class="section">
@@ -147,6 +150,8 @@
 
     window.addEventListener('DOMContentLoaded', loadExistingCorporate);
   </script>
-
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

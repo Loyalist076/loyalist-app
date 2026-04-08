@@ -8,6 +8,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
         <link rel="icon" type="image/x-icon" href="image/loyalist black.png" />
+  <link rel="stylesheet" href="components/header.css" />
 <style>
 * {
   box-sizing: border-box;
@@ -15,7 +16,6 @@
   padding: 0;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .header {
     display: flex;
@@ -155,9 +155,6 @@
   }
 }
 
-
-
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar li {
@@ -180,10 +177,6 @@
   cursor: pointer;
   padding-right: 1%;/* toggle */
 }
-
-
-
-
 
 /* Hide menu on small screens by default */
 @media (max-width: 768px) {
@@ -241,9 +234,6 @@
     display: block;
   }
 }
-
-
-
 
 .header-buttons button {
       background-color:  #D4B248;
@@ -561,7 +551,6 @@
   }
 }
 
-
   */
 .company-profile {
   background: #D4B248;
@@ -647,7 +636,6 @@
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 
 .site-footer {
   background-color: #000;
@@ -762,11 +750,6 @@
   }
 }
 
-
-
-
-
-
      
 
     
@@ -774,77 +757,11 @@
 </style>
 </head>
 <body>
-<header class="header">
-    <div class="align-logo">
-      <div class="logo">
-        <a href="/">
-          <img src="image/logo.webp" alt="Logo" /></a>
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    </div>
+  <!-- Header Component -->
+  <div id="header-container"></div>
+  <script src="components/header.js"></script>
 
-    <nav class="navbar" id="navbar">
-      <ul>
-
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">About Us</a>
-          <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="directors.html">Our Team</a></li>
-
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Projects</a>
-          <ul class="dropdown">
-            <li><a href="tully.html">Tully Project </a></li>
-            <li><a href="loveland.html">Loveland Project</a></li>
-             <li><a href="gold.html">Gold Rush project</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Investors</a>
-          <ul class="dropdown">
-            <li><a href="corporate.html">Corporate Structure</a></li>
-            <li><a href="statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting.html">Annual Meeting</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="news.html">Press Release</a>
-
-        </li>
-
-
-      </ul>
-      <div class="header-buttons">
-        <button id="getInTouchBtn">Get in Touch</button>
-
-
-
-      </div>
-  </header>
-
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModalBtn">&times;</span>
-      <form id="popupContactForm">
-        <img src="image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
-
-        <input type="text" name="name" placeholder="Your Name" required /><br><br>
-        <input type="email" name="email" placeholder="Your Email" required /><br><br>
-        <input type="text" name="subject" placeholder="Subject" required /><br><br>
-        <textarea name="message" placeholder="Message" required></textarea><br><br>
-        <button type="submit">Send Message</button>
-      </form>
-
-
-    </div>
-  </div>
+  
     </div>
     <!-- company -->
 <!-- <section class="company-profile">
@@ -948,7 +865,6 @@
   </div>
 </section>
 
-
  <!-- Footer HTML -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -1013,7 +929,6 @@
     <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
   </div>
 </footer>
-
 
   
 
@@ -1122,5 +1037,4 @@ function closePopup() {
 </body>
     </html>
     
-
 

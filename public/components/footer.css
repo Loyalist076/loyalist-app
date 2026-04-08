@@ -1,0 +1,163 @@
+/**
+ * Footer Component Styles
+ * Using CSS variables for consistency
+ */
+
+@import url('../css/variables.css');
+
+/* Footer Block */
+.site-footer {
+  background-color: var(--color-black);
+  color: var(--color-gray-300);
+  padding: var(--space-10) var(--space-5) var(--space-5);
+  font-family: var(--font-primary);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: var(--container-xl);
+  margin: auto;
+  gap: var(--space-8);
+}
+
+.footer-container h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+}
+
+.footer-container a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-container a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Footer Columns */
+.contact-column,
+.quick-links,
+.social-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact-column p {
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-relaxed);
+}
+
+/* Quick Links */
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links li {
+  margin-bottom: var(--space-3);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.social-icons a {
+  font-size: var(--text-xl);
+  color: var(--color-gray-300);
+  transition: color var(--transition-fast);
+}
+
+.social-icons a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Subscribe Form */
+.subscribe-box {
+  margin-top: var(--space-4);
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.subscribe-form input[type="email"] {
+  padding: var(--space-3);
+  background-color: var(--color-gray-900);
+  color: var(--color-primary);
+  border: var(--border-width-3) solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+  color: var(--color-gray-500);
+}
+
+.subscribe-form button {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  border: var(--border-width-3) solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.subscribe-form button:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.subscribe-message {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-gray-900);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--space-5);
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--color-gray-800);
+  font-size: var(--text-sm);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .quick-links ul {
+    display: inline-block;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .subscribe-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

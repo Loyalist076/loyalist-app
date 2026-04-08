@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PDF Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f5f7fa;
-    }
 
     h2, h3 {
       color: #333;
@@ -194,6 +192,11 @@
   </style>
 </head>
 <body>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">📄 PDF Manager</h1>
+      </div>
   <h2>Upload a New PDF</h2>
   <form id="uploadForm">
     <input type="date" name="date" required />
@@ -434,5 +437,8 @@
 
     fetchPDFs();
   </script>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

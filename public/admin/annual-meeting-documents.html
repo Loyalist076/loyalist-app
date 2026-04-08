@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Manage Annual Meeting Documents - Loyalist Exploration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      padding: 30px;
-    }
 
     .container {
       max-width: 1000px;
@@ -291,8 +288,13 @@
   </style>
 </head>
 <body>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">📋 Annual Meeting Documents</h1>
+      </div>
+
   <div class="container">
-    <a href="admin-dashboard.html" class="back-link">← Back to Dashboard</a>
 
     <h2>Annual Meeting Documents Management</h2>
 
@@ -584,5 +586,9 @@
     // Set current year as default
     document.getElementById('year').value = new Date().getFullYear();
   </script>
+  </div>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

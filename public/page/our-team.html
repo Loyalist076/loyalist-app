@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
+  <link rel="stylesheet" href="../components/header.css" />
   <style>
 * {
     box-sizing: border-box;
@@ -166,9 +167,6 @@ body {
   }
 }
 
-
-
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar li {
@@ -191,10 +189,6 @@ body {
   cursor: pointer;
   padding-right: 1%;/* toggle */
 }
-
-
-
-
 
 /* Hide menu on small screens by default */
 @media (max-width: 768px) {
@@ -252,9 +246,6 @@ body {
     display: block;
   }
 }
-
-
-
 
 .header-buttons button {
       background-color:  #D4B248;
@@ -492,7 +483,6 @@ body {
     margin-top: 10px;
   }
 }
-
 
   
     * {
@@ -746,7 +736,6 @@ body {
   margin-bottom: 5px;
 }
 
-
  .right {
   flex: 1;
   min-width: 0;
@@ -779,7 +768,6 @@ body {
   }
 }
 
-
 @media (max-width: 768px) {
   .right img {
     max-width: 400px;
@@ -791,7 +779,6 @@ body {
     max-width: 300px;
   }
 }
-
 
     body.no-scroll {
       overflow: hidden;
@@ -1043,7 +1030,6 @@ body {
   }
 }
 
-
 .site-footer {
   background-color: #000;
   color: #ddd;
@@ -1189,18 +1175,17 @@ body {
       }
     }
 
-
-
-
-
-
      
 
     
 
 </style>
 </head>
-<body> 
+<body>
+  <!-- Header Component -->
+  <div id="header-container"></div>
+  <script src="../components/header.js"></script>
+ 
   
 <!-- Promo Modal -->
 <!-- <div id="promo-modal" class="promo-modal">
@@ -1213,79 +1198,7 @@ body {
   </div>
 </div> -->
 
-<header class="header">
-    <div class="align-logo">
-      <div class="logo">
-        <a href="/">
-          <img src="../image/logo.webp" alt="Logo" /></a>
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    </div>
-
-    <nav class="navbar" id="navbar">
-      <ul>
-
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">About Us</a>
-          <ul class="dropdown">
-            <li><a href="company.html">Company Profile</a></li>
-            <li><a href="our-team.html">Our Team</a></li>
-
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Projects</a>
-          <ul class="dropdown">
-            <li><a href="tully-project.html">Tully Project </a></li>
-            <li><a href="desantis-project.html">Desantis Project</a></li>
-            <li><a href="loveland-project.html">Loveland Project</a></li>
-             <li><a href="gold-rush.html">Gold Rush project</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="#">Investors</a>
-          <ul class="dropdown">
-            <li><a href="corporate-structure.html">Corporate Structure</a></li>
-            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
-            <li><a href="../page/presentations.html" class="corporate-presentation-link">Corporate Presentations</a></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="press-release.html">Press Release</a>
-
-        </li>
-
-
-      </ul>
-      <div class="header-buttons">
-        <button id="getInTouchBtn">Get in Touch</button>
-
-
-
-      </div>
-  </header>
-
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModalBtn">&times;</span>
-      <form id="popupContactForm">
-        <img src="../image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
-
-        <input type="text" name="name" placeholder="Your Name" required /><br><br>
-        <input type="email" name="email" placeholder="Your Email" required /><br><br>
-        <input type="text" name="subject" placeholder="Subject" required /><br><br>
-        <textarea name="message" placeholder="Message" required></textarea><br><br>
-        <button type="submit">Send Message</button>
-      </form>
-
-
-    </div>
-  </div>
+  
 
  
 <!-- Black title bar -->
@@ -1612,7 +1525,6 @@ Canada. </p>
 
 </div>
 
-
     </div>
   </div><br/>
   <div class="footer-bottom">
@@ -1620,7 +1532,6 @@ Canada. </p>
   </div>
 </footer>
 <script>
-
 
  // Toggle entire navbar menu on small screens
 function toggleMenu() {

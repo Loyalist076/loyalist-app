@@ -6,30 +6,22 @@ const dotenv = require('dotenv');
 const socketIo = require('socket.io');
 const helmet = require('helmet');
 const cors = require('cors');
+const compression = require('compression');
+const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 
-// Load environment variables
+// Load environment variables FIRST
 dotenv.config();
 
-// Validate required environment variables
-const requiredEnvVars = [
-  'MONGODB_URI',
-  'JWT_SECRET',
-  'CLOUDINARY_CLOUD_NAME',
-  'CLOUDINARY_API_KEY',
-  'CLOUDINARY_API_SECRET',
-  'MAILCHIMP_API_KEY',
-  'MAILCHIMP_SERVER_PREFIX',
-  'MAILCHIMP_AUDIENCE_ID',
-  'SENDGRID_API_KEY',
-  'GMAIL_USER',
-  'GMAIL_APP_PASSWORD',
-  'BASE_URL'
-];
+// Import centralized config and logger
+const { config, validateEnv } = require('./src/config');
+const logger = require('./src/utils/logger');
+const { errorHandler, notFoundHandler } = require('./src/middleware/errorHandler');
 
-const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+// Validate required environment variables
+const missingEnvVars = validateEnv();
 if (missingEnvVars.length > 0) {
-  console.error('❌ Missing required environment variables:', missingEnvVars.join(', '));
+  logger.error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
   process.exit(1);
 }
 
@@ -50,11 +42,17 @@ app.use(helmet({
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : '*',
+  origin: config.allowedOrigins,
   credentials: true,
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
+
+// Compression middleware for all responses
+app.use(compression());
+
+// HTTP request logging with Morgan
+app.use(morgan('combined', { stream: logger.stream }));
 
 // Rate Limiting
 const limiter = rateLimit({
@@ -118,6 +116,7 @@ const testRoutes = require('./routes/testRoutes');
 const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
 const annualMeetingRoutes = require('./routes/annualMeetingRoutes');
 const corporatePresentationRoutes = require('./routes/corporatePresentationRoutes');
+const technicalReportRoutes = require('./routes/technicalReportRoutes');
 
 // Apply auth rate limiter to auth routes
 app.use('/api', authLimiter, authRoutes);
@@ -132,6 +131,7 @@ app.use('/api/financials', financialRoutes);
 app.use('/api/company-structure', companyStructureRoutes); // ✅ Unified Capital & Ownership
 app.use('/api/annual-meeting-documents', annualMeetingRoutes); // ✅ Annual Meeting Documents
 app.use('/api/corporate-presentation', corporatePresentationRoutes); // ✅ Corporate Presentation Management
+app.use('/api/technical-reports', technicalReportRoutes); // ✅ Technical Reports Management
 
 
 // ✅ Mount only this to handle subscriptions via Mailchimp
@@ -141,16 +141,16 @@ app.use('/api/subscribe', subscriptionRoutes);
 // app.use('/api/subscribe', subscriberRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-  console.log('✅ Connected to MongoDB');
+mongoose.connect(config.mongodbUri).then(() => {
+  logger.info('Connected to MongoDB');
 }).catch((err) => {
-  console.error('❌ MongoDB connection error:', err);
+  logger.error('MongoDB connection error:', err);
   process.exit(1);
 });
 
 // Socket.IO: Admin dashboard stats
 io.on('connection', async (socket) => {
-  console.log('📡 New admin connected to dashboard');
+  logger.info('New admin connected to dashboard');
 
   try {
     const totalUsers = await User.countDocuments();
@@ -161,8 +161,35 @@ io.on('connection', async (socket) => {
       totalMessages
     });
   } catch (err) {
-    console.error('❌ Error fetching dashboard stats:', err);
+    logger.error('Error fetching dashboard stats:', err);
   }
+});
+
+// Redirect routes for pages that should be in /page/ directory
+const pageRedirects = [
+  'presentations.html',
+  'press-release.html',
+  'technical-reports.html',
+  'company.html',
+  'our-team.html',
+  'tully-project.html',
+  'desantis-project.html',
+  'loveland-project.html',
+  'gold-rush.html',
+  'corporate-structure.html',
+  'financial-statements.html',
+  'annual-meeting-documents.html',
+  'contact.html',
+  'disclaimers.html',
+  'projects.html',
+  'all-news.html',
+  'investors.html'
+];
+
+pageRedirects.forEach(page => {
+  app.get(`/${page}`, (req, res) => {
+    res.redirect(301, `/page/${page}`);
+  });
 });
 
 // Fallback route for homepage
@@ -170,8 +197,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// 404 handler - must be after all routes
+app.use(notFoundHandler);
+
+// Global error handler - must be last middleware
+app.use(errorHandler);
+
 // Start server
-const PORT = process.env.PORT || 5050;       
-server.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+server.listen(config.port, () => {
+  logger.info(`Server running at http://localhost:${config.port}`);
 });

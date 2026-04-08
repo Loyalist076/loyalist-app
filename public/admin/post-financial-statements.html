@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Post Financial Statement</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      padding: 30px;
-    }
 
     .container {
       max-width: 800px;
@@ -186,9 +183,13 @@
   </style>
 </head>
 <body>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">💰 Post Financial Statement</h1>
+      </div>
 
   <div class="container">
-    <h2>Post Financial Statement</h2>
 
     <form id="financialForm" enctype="multipart/form-data">
       <label for="title">Title</label>
@@ -384,5 +385,9 @@
     // Initial load
     fetchStatements();
   </script>
+  </div>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

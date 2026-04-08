@@ -4,14 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin News Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f9f9f9;
-      margin: 0;
-    }
 
     form {
       max-width: 800px;
@@ -128,8 +124,11 @@
   </style>
 </head>
 <body>
-
-  <h2 style="text-align:center;">Post News from Email</h2>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">📰 News Manager</h1>
+      </div>
 
   <form id="newsForm">
     <input type="text" name="title" placeholder="News Title" required style="width:100%; padding:10px; margin-bottom:10px;" />
@@ -292,5 +291,8 @@
 
     fetchNews();
   </script>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>

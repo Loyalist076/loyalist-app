@@ -4,18 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Messages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-common.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
-      margin: 0;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
 
     .source-filter {
       margin-bottom: 20px;
@@ -133,7 +124,11 @@
   </style>
 </head>
 <body>
-  <h2>Messages from Get In Touch Popup</h2>
+  <div class="admin-layout">
+    <div class="admin-main">
+      <div class="admin-header">
+        <h1 class="admin-header__title">💬 Contact Messages</h1>
+      </div>
 
   <div class="source-filter">
     <label for="filterSource"><strong>Filter by Source:</strong></label>
@@ -274,5 +269,8 @@
 
     fetchMessages();
   </script>
+  <script src="admin-sidebar.js"></script>
+    </div>
+  </div>
 </body>
 </html>
