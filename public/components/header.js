@@ -9,8 +9,8 @@
     <header class="header">
       <div class="align-logo">
         <div class="logo">
-          <a href="${basePath}index.html">
-            <img src="${basePath}image/logo.webp" alt="Logo" />
+          <a href="/">
+            <img src="/image/logo.webp" alt="Logo" />
           </a>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
@@ -21,34 +21,34 @@
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">About Us</a>
             <ul class="dropdown">
-              <li><a href="${basePath}${pagePath}company.html">Company Profile</a></li>
-              <li><a href="${basePath}${pagePath}our-team.html">Our Team</a></li>
+              <li><a href="/page/company">Company Profile</a></li>
+              <li><a href="/page/our-team">Our Team</a></li>
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Projects</a>
             <ul class="dropdown">
-              <li><a href="${basePath}${pagePath}tully-project.html">Tully Project</a></li>
-              <li><a href="${basePath}${pagePath}desantis-project.html">Desantis Project</a></li>
-              <li><a href="${basePath}${pagePath}loveland-project.html">Loveland Project</a></li>
-              <li><a href="${basePath}${pagePath}gold-rush.html">Gold Rush Project</a></li>
+              <li><a href="/page/tully-project">Tully Project</a></li>
+              <li><a href="/page/desantis-project">Desantis Project</a></li>
+              <li><a href="/page/loveland-project">Loveland Project</a></li>
+              <li><a href="/page/gold-rush">Gold Rush Project</a></li>
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
             <a href="#">Investors</a>
             <ul class="dropdown">
-              <li><a href="${basePath}${pagePath}corporate-structure.html">Corporate Structure</a></li>
-              <li><a href="${basePath}${pagePath}financial-statements.html">Financial Statements & MD&A</a></li>
-              <li><a href="${basePath}${pagePath}annual-meeting-documents.html">Annual Meeting</a></li>
-              <li><a href="${basePath}${pagePath}presentations.html" id="corporatePresentationLink">Corporate Presentations</a></li>
-              <li><a href="${basePath}${pagePath}technical-reports.html">Technical Reports</a></li>
+              <li><a href="/page/corporate-structure">Corporate Structure</a></li>
+              <li><a href="/page/financial-statements">Financial Statements & MD&A</a></li>
+              <li><a href="/page/annual-meeting-documents">Annual Meeting</a></li>
+              <li><a href="/page/presentations" id="corporatePresentationLink">Corporate Presentations</a></li>
+              <li><a href="/page/technical-reports">Technical Reports</a></li>
             </ul>
           </li>
 
           <li class="has-dropdown" onclick="toggleDropdown(event)">
-            <a href="${basePath}${pagePath}press-release.html">Press Release</a>
+            <a href="/page/press-release">Press Release</a>
           </li>
         </ul>
         <div class="header-buttons">
@@ -61,7 +61,7 @@
       <div class="modal-content">
         <span class="close-btn" id="closeModalBtn">&times;</span>
         <form id="popupContactForm">
-          <img src="${basePath}image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
+          <img src="/image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
           <input type="text" name="name" placeholder="Your Name" required /><br><br>
           <input type="email" name="email" placeholder="Your Email" required /><br><br>
           <input type="text" name="subject" placeholder="Subject" required /><br><br>

@@ -94,7 +94,7 @@ app.use((req, res, next) => {
 });
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 // Serve annual meeting documents from root uploads directory
 app.use('/uploads/annual-meeting-documents', express.static(path.join(__dirname, 'uploads/annual-meeting-documents')));
 // Serve press release PDFs from uploads directory
@@ -166,28 +166,31 @@ io.on('connection', async (socket) => {
 });
 
 // Redirect routes for pages that should be in /page/ directory
-const pageRedirects = [
-  'presentations.html',
-  'press-release.html',
-  'technical-reports.html',
-  'company.html',
-  'our-team.html',
-  'tully-project.html',
-  'desantis-project.html',
-  'loveland-project.html',
-  'gold-rush.html',
-  'corporate-structure.html',
-  'financial-statements.html',
-  'annual-meeting-documents.html',
-  'contact.html',
-  'disclaimers.html',
-  'projects.html',
-  'all-news.html',
-  'investors.html'
+const pages = [
+  'presentations',
+  'press-release',
+  'technical-reports',
+  'company',
+  'our-team',
+  'tully-project',
+  'desantis-project',
+  'loveland-project',
+  'gold-rush',
+  'corporate-structure',
+  'financial-statements',
+  'annual-meeting-documents',
+  'contact',
+  'disclaimers',
+  'projects',
+  'all-news',
+  'investors'
 ];
 
-pageRedirects.forEach(page => {
+pages.forEach(page => {
   app.get(`/${page}`, (req, res) => {
+    res.redirect(301, `/page/${page}`);
+  });
+  app.get(`/${page}.html`, (req, res) => {
     res.redirect(301, `/page/${page}`);
   });
 });
