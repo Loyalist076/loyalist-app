@@ -12,3 +12,4 @@ cache/
 # Ignore all uploaded financial statements (PDFs)
 public/uploads/financials/*
 !public/uploads/financials/.gitkeep
+.DS_Store
