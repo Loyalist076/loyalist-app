@@ -3,7 +3,6 @@ const fs = require('fs');
 const axios = require('axios');
 const Pdf = require('../models/Pdf');
 const Subscription = require('../models/Subscription');
-const sgMail = require('@sendgrid/mail');
 const cloudinary = require('cloudinary').v2;
 const { authenticate, isAdmin } = require('../middleware/auth');
 const { tempUpload } = require('../middleware/upload');
@@ -90,48 +89,43 @@ if (isCloudinaryConfigured) {
   console.log('⚠️ Cloudinary not configured - PDF uploads will fail');
 }
 
-// ✅ SendGrid configuration (optional)
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  console.log('✅ SendGrid configured successfully');
-} else {
-  console.log('⚠️ SendGrid not configured - newsletters will be skipped');
-}
+// 📧 Mailchimp campaign sender — creates + sends a campaign to the whole audience
+const sendMailchimpCampaign = async (title, pdfViewUrl) => {
+  const apiKey = process.env.MAILCHIMP_API_KEY;
+  const serverPrefix = process.env.MAILCHIMP_SERVER_PREFIX;
+  const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
 
-// 📧 Newsletter sender function
-const sendNewsletterToAll = async (title, pdfViewUrl) => {
+  if (!apiKey || !serverPrefix || !audienceId) {
+    console.log('⚠️ Mailchimp not configured - skipping campaign send.');
+    return;
+  }
+
+  const base = `https://${serverPrefix}.api.mailchimp.com/3.0`;
+  const headers = { Authorization: `apikey ${apiKey}`, 'Content-Type': 'application/json' };
+
   try {
-    // Skip if SendGrid is not configured
-    if (!process.env.SENDGRID_API_KEY) {
-      console.log('⚠️ SendGrid not configured - skipping newsletter send.');
-      return;
-    }
-
-    const subscribers = await Subscription.find();
-    console.log(`🔍 Found ${subscribers.length} subscriber(s).`);
-
-    if (!subscribers.length) {
-      console.log('📭 No subscribers found. Skipping newsletter send.');
-      return;
-    }
-
-    const emails = subscribers.map(sub => sub.email);
-    console.log(`📬 Sending to: ${emails.join(', ')}`);
-
-    const msg = {
-      to: emails,
-      from: 'loyalistexploration@gmail.com', // ✅ Verified sender
-      templateId: 'd-969c67452b8b49c3b61d369980cad588', // ✅ Dynamic template ID
-      dynamic_template_data: {
-        title,
-        link: pdfViewUrl,
+    // 1) Create the campaign targeting the audience
+    const { data: campaign } = await axios.post(`${base}/campaigns`, {
+      type: 'regular',
+      recipients: { list_id: audienceId },
+      settings: {
+        subject_line: title,
+        title: `Press Release: ${title}`,
+        from_name: process.env.MAILCHIMP_FROM_NAME || 'Loyalist Exploration',
+        reply_to: process.env.MAILCHIMP_REPLY_TO || 'loyalistexploration@gmail.com',
       },
-    };
+    }, { headers });
 
-    await sgMail.sendMultiple(msg);
-    console.log(`✅ Newsletter sent to ${emails.length} subscriber(s).`);
+    // 2) Set the HTML content
+    const html = `<p>New press release: <strong>${title}</strong></p>` +
+                 `<p><a href="${pdfViewUrl}">Read it here</a></p>`;
+    await axios.put(`${base}/campaigns/${campaign.id}/content`, { html }, { headers });
+
+    // 3) Send it
+    await axios.post(`${base}/campaigns/${campaign.id}/actions/send`, {}, { headers });
+    console.log(`✅ Mailchimp campaign sent for "${title}".`);
   } catch (error) {
-    console.error('❌ Newsletter error:', error.response?.body || error.message);
+    console.error('❌ Mailchimp campaign error:', error.response?.data || error.message);
   }
 };
 
@@ -226,8 +220,8 @@ router.post('/upload', authenticate, isAdmin, tempUpload.single('pdf'), async (r
     // 👁️ Generate view link
     const pdfViewUrl = `${BASE_URL}/api/pdf/view/${newPdf._id}`;
 
-    // 📧 Notify subscribers
-    await sendNewsletterToAll(title, pdfViewUrl);
+    // 📧 Notify subscribers via Mailchimp campaign
+    await sendMailchimpCampaign(title, pdfViewUrl);
 
     // ✅ Respond
     res.status(201).json({
@@ -406,3 +400,4 @@ router.delete('/:id', authenticate, isAdmin, async (req, res) => {
 });
 
 module.exports = router;
+module.exports.sendMailchimpCampaign = sendMailchimpCampaign; // exported for tests
