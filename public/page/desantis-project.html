@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loyalist Exploration Limited</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <meta name="description" content="Loyalist Exploration's DeSantis Gold Project—850 hectares on the Destor-Porcupine Deformation Zone, 4.5 km southwest of Timmins, with historical production and high-grade historical resource estimates." />
+    <title>Loyalist Exploration | DeSantis Gold Project</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="image/loyalist black.png" />
+    <link rel="icon" type="image/x-icon" href="../image/loyalist black.png" />
     <style>
         *{
       box-sizing: border-box;
@@ -63,7 +64,7 @@
 }
 
 .navbar a:hover {
-    background-color:#D4B248; /* Lighter blue */
+    background-color: #D4B248; /* Lighter blue */
 }
 
 .dropdown {
@@ -486,236 +487,87 @@
     margin-top: 10px;
   }
 }
-.section-title {
+  .section-title {
   background: #000;
   color: #D4B248;
   padding: 20px 50px;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
 }
 
- body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-    }
- .section-title {
-      background: #000;
-      color: #D4B248;
-      padding: 20px 5vw;
-      font-size: 24px;
-      font-weight: bold;
-    }
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-    }
-    .projects-section {
-      background-color: white;
-      padding: 50px 5vw;
-    }
-    .project-category-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: #D4B248;
-      margin-bottom: 25px;
-      border-bottom: 3px solid #D4B248;
-      padding-bottom: 10px;
-    }
-    .loveland-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-    .loveland-card {
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease-in-out;
-      overflow: hidden;
-      min-height: 480px;
-      cursor: pointer;
-    }
-    .loveland-card:hover {
-      transform: scale(1.025);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .loveland-card img,
-    .potential-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .loveland-card:hover img,
-    .potential-card:hover img {
-      transform: scale(1.05);
-    }
-    .project-content {
-      padding: 18px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-content h3 {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 10px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
       color: #222;
     }
-    .project-content p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #555;
-      flex-grow: 1;
-    }
-    .loveland-card a,
-    .potential-card a {
-      margin: 16px;
-      padding: 8px 16px;
-      font-size: 13.5px;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      text-decoration: none;
-      align-self: flex-start;
-      transition: all 0.3s ease;
-    }
-    .loveland-card a:hover,
-    .potential-card a:hover {
-      background: #D4B248;
-      color: white;
-      border-color: #D4B248;
-    }
-    .potential-grid {
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
       display: flex;
       flex-wrap: wrap;
-      gap: 28px;
-      justify-content: center;
+      gap: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      padding: 30px;
     }
-    .potential-card {
-      background: #fff;
+
+    .project-image {
+      flex: 1 1 400px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
       border-radius: 10px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-content {
+      flex: 1 1 500px;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease-in-out;
-      overflow: hidden;
-      min-height: 480px;
-      max-width: 420px;
-      cursor: pointer;
+      justify-content: center;
     }
+
+    .project-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+
+    .project-subtitle {
+      font-size: 17px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .project-description p {
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
     @media (max-width: 768px) {
-      .projects-section {
-        padding: 30px 20px;
+      .container {
+        flex-direction: column;
+        padding: 20px;
       }
-      .loveland-grid,
-      .potential-grid {
-        grid-template-columns: 1fr;
-        display: grid;
-        justify-items: center;
+
+      .project-title {
+        font-size: 22px;
+      }
+
+      .project-description p {
+        font-size: 15px;
       }
     }
-.overview-section {
-  display: flex;
-  padding: 60px;
-  gap: 40px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.overview-text {
-  flex: 1;
-  min-width: 300px;
-}
-.overview-text h2 {
-  font-size: 34px;
-  font-weight: 800;
-  line-height: 1.3;
-}
-.overview-text span {
-  color: #D4B248;
-}
-.overview-text p {
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 1.6;
-}
-.stats {
-  margin-top: 20px;
-  display: flex;
-  gap: 80px;
-  flex-wrap: wrap;
-}
-.stats div {
-  font-weight: bold;
-  font-size: 16px;
-  max-width: 160px;
-}
-.stats-desc {
-  font-size: 5px;
-  color: #333;
-  margin-top: 4px;
-}
-.overview-image {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-.overview-image img {
-  width: 100%;
-  max-width: 440px;
-  height: auto;
-  border-radius: 6px;
-}
-@media (max-width: 1024px) {
-  .overview-section {
-    flex-direction: column;
-    padding: 40px 30px;
-  }
-  .overview-text {
-    text-align: center;
-  }
-  .overview-text h2 {
-    font-size: 28px;
-  }
-  .overview-text p {
-    font-size: 14.5px;
-  }
-  .stats {
-    justify-content: center;
-    gap: 40px;
-  }
-  .stats div {
-    font-size: 15px;
-  }
-}
-@media (max-width: 600px) {
-  .overview-section {
-    padding: 30px 20px;
-  }
-  .overview-text h2 {
-    font-size: 24px;
-  }
-  .overview-text p {
-    font-size: 14px;
-  }
-  .stats div {
-    font-size: 14px;
-    max-width: 100%;
-    text-align: center;
-  }
-  .overview-image img {
-    max-width: 100%;
-  }
-}
-
-
 /* footer */
 
 .site-footer {
@@ -919,7 +771,7 @@
     <div class="align-logo">
       <div class="logo">
         <a href="/">
-          <img src="image/logo.webp" alt="Logo" /></a>
+          <img src="../image/logo.webp" alt="Logo" /></a>
       </div>
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </div>
@@ -931,8 +783,8 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">About Us</a>
           <ul class="dropdown">
-            <li><a href="page/company.html">Company Profile</a></li>
-            <li><a href="page/our-team.html">Our Team</a></li>
+            <li><a href="company.html">Company Profile</a></li>
+            <li><a href="our-team.html">Our Team</a></li>
 
           </ul>
         </li>
@@ -940,24 +792,25 @@
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Projects</a>
           <ul class="dropdown">
-            <li><a href="page/tully-project.html">Tully Project </a></li>
-            <li><a href="page/loveland-project.html">Loveland Project</a></li>
-             <li><a href="page/gold-rush.html">Gold Rush project</a></li>
-             <li><a href="page/desantis-project.html">DeSantis Project</a></li>
+            <li><a href="tully-project.html">Tully Project </a></li>
+            <li><a href="loveland-project.html">Loveland Project</a></li>
+             <li><a href="gold-rush.html">Gold Rush project</a></li>
+             <li><a href="desantis-project.html">DeSantis Project</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
           <a href="#">Investors</a>
           <ul class="dropdown">
-            <li><a href="page/corporate-structure.html">Corporate Structure</a></li>
-            <li><a href="page/financial-statements.html">Financial Statements & MD&A</a></li>
-            <li><a href="page/annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="corporate-structure.html">Corporate Structure</a></li>
+            <li><a href="financial-statements.html">Financial Statements & MD&A</a></li>
+            <li><a href="annual-meeting-documents.html">Annual Meeting</a></li>
+            <li><a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate Presentation</a></li>
           </ul>
         </li>
 
         <li class="has-dropdown" onclick="toggleDropdown(event)">
-          <a href="page/press-release.html">Press Release</a>
+          <a href="press-release.html">Press Release</a>
 
         </li>
 
@@ -975,7 +828,7 @@
     <div class="modal-content">
       <span class="close-btn" id="closeModalBtn">&times;</span>
       <form id="popupContactForm">
-        <img src="image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
+        <img src="../image/logo.webp" alt="Loyalist Logo" class="popup-logo2" />
 
         <input type="text" name="name" placeholder="Your Name" required /><br><br>
         <input type="email" name="email" placeholder="Your Email" required /><br><br>
@@ -987,60 +840,126 @@
 
     </div>
   </div>
-    </div>
- <div class="section-title">Projects</div>
-    <!-- project -->
-     <!-- Loveland Projects -->
+       <!-- Black title bar -->
+  <div >
+    <h1 class="section-title">DeSantis</h1></div>
+     <div class="container">
+  <div class="project-image">
+    <img src="../image/DeSantis Map.png" alt="DeSantis Mine Property Map">
+  </div>
 
-  <!-- Potential Projects -->
-  <section class="projects-section">
-    <h2 class="project-category-title">Potential Projects</h2>
-    <div class="potential-grid">
-      <div class="potential-card">
-        <img src="image/tully.webp" alt="Tully Gold Project">
-        <div class="project-content">
-          <h3>TULLY – High Grade Gold Exploration</h3>
-          <p>In Spring 2025, Loyalist signed an LOI for the Tully Gold Project, located 25 km northeast of Timmins, near the Bradshaw Gold Project.</p>
-        </div>
-        <a href="page/tully-project.html">Read More <i class="fas fa-angle-right"></i></a>
-      </div>
+  <div class="project-content">
+    <h2 class="project-title">DeSANTIS – Past-producing gold mine on the Destor-Porcupine Deformation Zone</h2>
+    <div class="project-description">
 
-      <div class="potential-card">
-        <img src="image/goldrush.png" alt="Gold Rush Project">
-        <div class="project-content">
-          <h3>GOLD RUSH</h3>
-          <p>Located 30 km west of Timmins, Gold Rush hosts 41 claims across 820 hectares with multiple zones of interest like the North Shaft Zone.</p>
-        </div>
-        <a href="page/gold-rush.html">Read More <i class="fas fa-angle-right"></i></a>
-      </div>
-    </div>
-  </section>
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>Compiling and reviewing historical exploration data to support the planning of the next diamond drill program.</li>
+      </ul>
 
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Project Highlights</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>Covers 850 hectares along the northern margin of the highly prospective Destor-Porcupine Deformation Zone (DPDZ).</li>
+        <li>Located 4.5 km southwest of Timmins, Ontario, in one of Canada's premier gold mining districts.</li>
+        <li>Significant exploration upside within the prolific Timmins-Porcupine Gold Camp.</li>
+        <li>Historical production (1926–1943) of <strong>35,784 ounces of gold</strong> from 196,928 tons grading 0.19 oz/t Au (6.2 g/t Au).</li>
+        <li>Historical (non-NI 43-101 compliant) resource estimates include:
+          <ul style="margin-left: 20px; margin-top: 8px;">
+            <li>Albitite Zone: 65,505 tonnes grading 7.85 g/t Au</li>
+            <li>Hydrothermal Alteration Zone: 117,000 tonnes grading 9.09 g/t Au</li>
+            <li>Combined: 182,505 tonnes grading 8.64 g/t Au</li>
+            <li>A separate historical estimate reports 735,500 tonnes, including 600,000 tonnes grading 6.25 g/t Au (the remaining 135,500 tonnes are of unspecified grade).</li>
+          </ul>
+        </li>
+        <li>Contiguous with Galleon Gold's West Cache Gold Project.</li>
+        <li>Located near producers including Discovery Mining's Dome Mine (11 km west) and Pan American Silver's Timmins West Mine (14 km east).</li>
+      </ul>
 
-<!-- Black title bar -->
-  <!-- <div class="section-title">Projects</div> -->
-  <!-- project section -->
-   
-  <!-- overview section -->
-  <!-- <section class="overview-section">
-    <div class="overview-text">
-      <h2>Unveiling the Potential<br>of Our <br><span>Exploration Projects</span></h2>
-      <p>At Loyalist Exploration Limited, we are dedicated to uncovering valuable mineral resources. Our projects in Ontario and Newfoundland showcase our commitment to exploration and development. Explore the details of each project and discover the potential that lies beneath the surface. We focus on gold, copper, and nickel.</p>
-      <div class="stats">
-        <div>
-          <h1>35000</h1>
-          <div class="stats-desc">Meters of drilling completed across all our active exploration sites.</div>
-        </div>
-        <div>
-          <h1>98%</h1>
-          <div class="stats-desc"><h4>Increase in identified mineral resources since project inception.</h4></div>
-        </div>
-      </div>
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Location and Setting</h3>
+      <p>
+        The DeSantis Gold Project is located approximately 4.5 km southwest of Timmins, Ontario, within the world-class Timmins-Porcupine Gold Camp. The property encompasses approximately 850 hectares and covers nearly 5 km of strike length along the northern side of the Destor-Porcupine Deformation Zone (DPDZ)—one of Canada's most significant gold-bearing structural corridors. The project is contiguous with Galleon Gold's West Cache Gold Project and is surrounded by several producing and past-producing gold mines.
+      </p>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Geology and Mineralization</h3>
+      <p>
+        The property is underlain by Archean volcanic and sedimentary rocks of the Abitibi Greenstone Belt, including mafic volcanic flows, intermediate pillowed volcanic rocks, quartz-feldspar porphyry dikes, and sedimentary rocks of the Porcupine Group comprising greywacke and slate.
+      </p>
+      <p>
+        Gold mineralization is associated with broad hydrothermal alteration zones reaching widths of up to 46 metres, characterized by silicification, pyritization, tourmalinization, chlorite, sericite, carbonate, albite, and iron-oxide alteration. Mesothermal gold and silver mineralization occurs within quartz veins containing pyrite, galena, sphalerite, chalcopyrite, and scheelite.
+      </p>
+      <p>Notable historical drill intersections include:</p>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li>Hydrothermal Alteration Zone
+          <ul style="margin-left: 20px; margin-top: 8px;">
+            <li><strong>7.90 g/t Au over 5.2 m</strong></li>
+            <li><strong>3.63 g/t Au over 23.17 m</strong></li>
+          </ul>
+        </li>
+        <li>Albitite Zone
+          <ul style="margin-left: 20px; margin-top: 8px;">
+            <li><strong>1.74 g/t Au over 12.0 m</strong></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Exploration Potential</h3>
+      <p>
+        In April 2026 the Company completed a preliminary review of a historical database comprising 488 drill holes totaling 101,945.4 m and 21,158 gold assays, together with wireframes of the historical underground workings and of the Hydrothermal and Albitite Zones. Six priority targets were identified in and around the historical DeSantis Mine workings, plus an additional target on the McEnaney claims to the east. Priority targets include the shallow up-dip extension of the Albitite Zone from surface to the 800-foot level, the depth extension of the Albitite Zone, a possible parallel zone above the Albitite Zone, and the western extension of the Hydrothermal Zone. Full target descriptions, supporting historical drill intercepts and collar information are set out in the Company's news release dated April 23, 2026.
+      </p>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Historical Production</h3>
+      <p>
+        The DeSantis Mine operated intermittently between 1926 and 1943, producing 35,784 ounces of gold, 3,142 ounces of silver, and 193 pounds of scheelite from 196,928 tons of ore grading an average 0.19 oz/t Au (6.2 g/t Au).
+      </p>
+      <p>
+        Mining was conducted at approximately 160 tons per day, with reported gold recoveries exceeding 90%, highlighting the robust metallurgy of the deposit.
+      </p>
+
+      <h3 style="color: #D4B248; margin-bottom: 15px;">Historical Resource Estimate</h3>
+      <p>
+        Following a 44-hole drilling program completed in 1986, Stan West Mining Corp. prepared historical resource estimates for the principal mineralized zones:
+      </p>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <tr style="background: #000; color: #D4B248;">
+          <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Zone</th>
+          <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Historical Estimate</th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">Albitite Zone</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">65,505 tonnes @ 7.85 g/t Au</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">Hydrothermal Alteration Zone</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">117,000 tonnes @ 9.09 g/t Au</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ccc;">Combined</td>
+          <td style="padding: 10px; border: 1px solid #ccc;">182,505 tonnes @ 8.64 g/t Au</td>
+        </tr>
+      </table>
+      <p>
+        A separate historical estimate reports 735,500 tonnes, including 600,000 tonnes grading 6.25 g/t Au.
+      </p>
+      <p style="font-size: 14px; font-style: italic;">
+        A Qualified Person has not completed sufficient work to classify the historical estimate as current mineral resources or mineral reserves. Accordingly, Loyalist Exploration Limited is not treating the historical estimate as current mineral resources or mineral reserves. The historical estimate is provided solely to illustrate the exploration potential of the property. It remains uncertain whether further exploration and evaluation will confirm or upgrade these estimates to current mineral resources in accordance with NI 43-101.
+      </p>
+
+      <h4 style="margin-top: 25px; margin-bottom: 10px; color: #D4B248;">Statement Regarding Historical Mineral Resource Estimates</h4>
+      <p style="font-size: 14px;">
+        The historical Mineral Resource Estimate ("MRE") on the DeSantis Property is unclassified and does not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The MRE was taken from a report titled "Technical Report on the DeSantis Property, Porcupine Mining Division, Ogden Township, Ontario, Canada," authored by Minorex Consulting Ltd. and dated May 30, 2011. Investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The MRE is included here to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical MRE as current mineral resources, and the Company is not treating this historical MRE as a current estimate. It is uncertain whether, following evaluation and/or further exploration, the historical MRE will ever be reportable in accordance with NI 43-101. The Company has no current plans to undertake the work needed to bring the MRE up to CIM reporting standards.
+      </p>
+      <p style="font-size: 14px;">
+        Readers are cautioned that Loyalist does not have an interest in the West Cache gold project. Mineralization on adjacent or nearby properties is not indicative of mineralization on the Company's properties, and there is no guarantee that the DeSantis Property will yield comparable results.
+      </p>
+
+      <h4 style="margin-top: 25px; margin-bottom: 10px; color: #D4B248;">Qualified Person</h4>
+      <p style="font-size: 14px;">
+        Curtis Ferron, P.Geo. (ON), principal geology consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of this page.
+      </p>
     </div>
-    <div class="overview-image">
-      <img src="image/6.png" alt="Exploration Map">
-    </div>
-  </section> -->
+  </div>
+</div>
+
     <!-- footer -->
  <footer class="site-footer">
       <div class="footer-container">
@@ -1055,19 +974,19 @@
             <a href="tel:+16472961270">+1 647‑296‑1270</a>
           </p>
           <p>
-            <strong>Address:</strong><br /> 110 Yonge Street,
+            <strong>Address:</strong><br />110 Yonge Street,
           Suite 1601
           <br/> Toronto, Ontario M5C1T4</p>
         </div>
         <div class="quick-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="./page/company.html">About</a></li>
-            <li><a href="page/projects.html">Projects</a></li>
-            <li><a href="page/corporate-structure.html">Investors</a></li>
-            <li><a href="page/press-release.html">Press Release</a></li>
-            <li><a href="page/contact.html">Contact</a></li>
-            <li><a href="page/disclaimers.html">Disclaimer</a></li>
+            <li><a href="company.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="corporate-structure.html">Investors</a></li>
+            <li><a href="press-release.html">Press Release</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="disclaimers.html">Disclaimer</a></li>
           </ul>
         </div>
         <div class="social-column">
@@ -1079,32 +998,26 @@
                       <a href="https://www.youtube.com/@LoyalistExploration"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/loyalistexploration/"><i class="fa-brands fa-instagram"></i></a>
           </div>
-         <div class="subscribe-box">
- <h4>Subscribe to Our Newsletter</h4>
-<form class="subscribe-form" onsubmit="handlePotentialSubscribe(event)">
-  <input
-    type="email"
-    placeholder="Enter your email"
-    id="potentialSubscriberEmail"
-    required
-  /><br /><br />
-  <button type="submit">Subscribe</button>
-</form>
-<div
-  id="potential-subscribe-message"
-  class="subscribe-message"
-  style="display: none;"
-></div>
-
+             <div class="subscribe-box">
+  <h4>Subscribe to Our Newsletter</h4>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" placeholder="Enter your email" id="subscriberEmail" required /><br/><br/>
+    <button type="submit">Subscribe</button>
+  </form>
+  <div id="subscribe-message" class="subscribe-message" style="display: none;"></div>
 </div>
-        </div>
+      </div>
+    </div>
   </div><br/>
+          
+          
+
+    
        <div class="footer-bottom">
         <p>&copy; 2025 Loyalist Exploration Limited. All rights reserved.</p>
       </div> 
     </footer>
-  
-    <script>
+   <script>
          // Toggle entire navbar menu on small screens
 function toggleMenu() {
   document.getElementById('navbar').classList.toggle('active');
@@ -1143,73 +1056,7 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
-  const slider = document.querySelector('.projects-slider');
-  const leftArrow = document.querySelector('.slider-arrow.left');
-  const rightArrow = document.querySelector('.slider-arrow.right');
-
-  leftArrow.addEventListener('click', () => {
-    slider.scrollBy({ left: -300, behavior: 'smooth' });
-  });
-
-  rightArrow.addEventListener('click', () => {
-    slider.scrollBy({ left: 300, behavior: 'smooth' });
-  });
-
- function handlePotentialSubscribe(event) {
-  event.preventDefault();
-
-  const emailInput = document.getElementById('potentialSubscriberEmail');
-  const messageDiv = document.getElementById('potential-subscribe-message');
-  const email = emailInput.value.trim();
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!email || !emailPattern.test(email)) {
-    messageDiv.style.display = 'block';
-    messageDiv.style.color = 'red';
-    messageDiv.textContent = 'Please enter a valid email address.';
-    return;
-  }
-
-  fetch('/api/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email })
-  })
-    .then(res => res.json().then(data => ({ status: res.status, body: data })))
-    .then(({ status, body }) => {
-      messageDiv.style.display = 'block';
-
-      if (status === 200 || status === 201) {
-        messageDiv.style.color = 'green';
-        messageDiv.textContent = body.message || 'Subscribed successfully!';
-        emailInput.value = '';
-      } else {
-        const errorMsg = body?.error || body?.message;
-        if (errorMsg?.includes('looks fake or invalid')) {
-          messageDiv.style.color = 'orange';
-          messageDiv.textContent = 'Email saved, but Mailchimp rejected it as invalid.';
-        } else {
-          messageDiv.style.color = 'red';
-          messageDiv.textContent = errorMsg || 'Something went wrong.';
-        }
-      }
-
-      setTimeout(() => {
-        messageDiv.style.display = 'none';
-      }, 5000);
-    })
-    .catch(err => {
-      console.error('❌ Subscription error:', err);
-      messageDiv.style.display = 'block';
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Server error. Please try again later.';
-      setTimeout(() => {
-        messageDiv.style.display = 'none';
-      }, 5000);
-    });
-}
-
 </script>
-  <script src="corporate-presentation-loader.js"></script>
+<script src="../corporate-presentation-loader.js"></script>
 </body>
 </html>
