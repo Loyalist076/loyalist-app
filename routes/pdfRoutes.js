@@ -117,8 +117,21 @@ const sendMailchimpCampaign = async (title, pdfViewUrl) => {
     }, { headers });
 
     // 2) Set the HTML content
-    const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    const html = `<!DOCTYPE html>
+    const html = buildCampaignHtml(title, pdfViewUrl);
+    await axios.put(`${base}/campaigns/${campaign.id}/content`, { html }, { headers });
+
+    // 3) Send it
+    await axios.post(`${base}/campaigns/${campaign.id}/actions/send`, {}, { headers });
+    console.log(`✅ Mailchimp campaign sent for "${title}".`);
+  } catch (error) {
+    console.error('❌ Mailchimp campaign error:', error.response?.data || error.message);
+  }
+};
+
+// Builds the campaign HTML. Split out so a test send can render the exact same markup.
+const buildCampaignHtml = (title, pdfViewUrl) => {
+  const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  return `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="utf-8"> 
@@ -302,7 +315,7 @@ const sendMailchimpCampaign = async (title, pdfViewUrl) => {
 
                             <!-- GOLD RUSH -->
                             <tr>
-                                <td style="padding: 20px;">
+                                <td style="padding: 20px; border-bottom: 1px solid #000000;">
                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                         <tr>
                                             <th class="stack-column" width="50%" valign="top" style="font-weight: normal; text-align: left; padding-right: 15px;">
@@ -314,6 +327,28 @@ const sendMailchimpCampaign = async (title, pdfViewUrl) => {
                                             </th>
                                             <th class="stack-column" width="50%" valign="top" style="font-weight: normal;">
                                                 <img src="https://loyalistexploration.com/image/def.jpeg" alt="Gold Rush Map" width="100%" style="max-width: 250px; display: block; border: 1px solid #dddddd;">
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <!-- DESANTIS -->
+                            <tr>
+                                <td style="padding: 20px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tr>
+                                            <th class="stack-column" width="50%" valign="top" style="font-weight: normal; padding-right: 15px;">
+                                                <img src="https://loyalistexploration.com/image/DeSantis%20Map.png" alt="DeSantis Map" width="100%" style="max-width: 250px; display: block; border: 1px solid #dddddd;">
+                                            </th>
+                                            <th class="stack-column" width="50%" valign="top" style="font-weight: normal; text-align: right;">
+                                                <h4 style="margin: 0 0 10px 0; font-family: Arial, sans-serif; font-size: 18px; color: #000000; text-align: right;">DeSantis Gold Project</h4>
+                                                <p style="margin: 0 0 20px 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #444444; text-align: right;">
+                                                    A past-producing gold mine covering 850 hectares along the Destor-Porcupine Deformation Zone, 4.5 km southwest of Timmins, with historical production of 35,784 oz Au and high-grade historical resource estimates.
+                                                </p>
+                                                <div style="text-align: right;">
+                                                    <a href="https://loyalistexploration.com/page/desantis-project.html" class="btn" style="color:#ffffff;">Learn More</a>
+                                                </div>
                                             </th>
                                         </tr>
                                     </table>
@@ -400,14 +435,6 @@ const sendMailchimpCampaign = async (title, pdfViewUrl) => {
     </center>
 </body>
 </html>`;
-    await axios.put(`${base}/campaigns/${campaign.id}/content`, { html }, { headers });
-
-    // 3) Send it
-    await axios.post(`${base}/campaigns/${campaign.id}/actions/send`, {}, { headers });
-    console.log(`✅ Mailchimp campaign sent for "${title}".`);
-  } catch (error) {
-    console.error('❌ Mailchimp campaign error:', error.response?.data || error.message);
-  }
 };
 
 // 📤 Upload PDF to Cloudinary and notify subscribers (admin only)
@@ -682,3 +709,4 @@ router.delete('/:id', authenticate, isAdmin, async (req, res) => {
 
 module.exports = router;
 module.exports.sendMailchimpCampaign = sendMailchimpCampaign; // exported for tests
+module.exports.buildCampaignHtml = buildCampaignHtml; // exported for tests + test sends
