@@ -528,7 +528,7 @@ router.post('/upload', authenticate, isAdmin, tempUpload.single('pdf'), async (r
     // 👁️ Generate view link
     const pdfViewUrl = `${BASE_URL}/api/pdf/view/${newPdf._id}`;
 
-    // 📧 Notify subscribers via Mailchimp campaign
+  
     await sendMailchimpCampaign(title, pdfViewUrl);
 
     // ✅ Respond
@@ -567,7 +567,8 @@ router.get('/', async (req, res) => {
 router.get('/view/:id', async (req, res) => {
   try {
     const pdf = await Pdf.findById(req.params.id);
-    if (!pdf) return res.status(404).send('PDF not found.');
+    // ponytail: stale links from already-sent emails (deleted/re-uploaded PDFs) land on the press release list instead of a dead 404
+    if (!pdf) return res.redirect('/page/press-release');
 
     // Sanitize filename to remove invalid characters
     const sanitizedTitle = pdf.title.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
@@ -672,6 +673,63 @@ router.get('/download/:id', async (req, res) => {
     } else {
       res.status(500).send('Failed to download PDF.');
     }
+  }
+});
+
+// 🔁 Replace PDF file/title/date on an existing record (admin only)
+// Keeps the same _id so links in already-sent emails keep working. Sends NO email.
+router.put('/replace/:id', authenticate, isAdmin, tempUpload.single('pdf'), async (req, res) => {
+  try {
+    const pdf = await Pdf.findById(req.params.id);
+    if (!pdf) return res.status(404).json({ error: 'PDF not found' });
+
+    const { title, date } = req.body;
+    if (title) pdf.title = title;
+    if (date) pdf.date = date;
+
+    if (req.file) {
+      if (!isCloudinaryConfigured) {
+        if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
+        return res.status(400).json({ error: 'Cloudinary is not configured.' });
+      }
+
+      try {
+        const compressed = await compressPdfBuffer(fs.readFileSync(req.file.path));
+        fs.writeFileSync(req.file.path, compressed);
+      } catch (compressionErr) {
+        console.error('❌ Compression error (continuing with original file):', compressionErr.message);
+      }
+
+      const uploaded = await cloudinary.uploader.upload(req.file.path, {
+        resource_type: 'raw',
+        folder: 'pdfs',
+        type: 'upload',
+        access_mode: 'public',
+      });
+      fs.unlinkSync(req.file.path);
+
+      // Remove the old stored file
+      if (pdf.storageType === 'cloudinary' && pdf.public_id) {
+        await cloudinary.uploader.destroy(pdf.public_id, { resource_type: 'raw' }).catch(err =>
+          console.error('❌ Old Cloudinary file cleanup failed:', err.message));
+      } else if (pdf.storageType === 'local' && pdf.filePath) {
+        const path = require('path');
+        const fullPath = path.join(__dirname, '..', pdf.filePath);
+        if (fs.existsSync(fullPath)) fs.unlinkSync(fullPath);
+        pdf.filePath = undefined;
+      }
+
+      pdf.url = uploaded.secure_url;
+      pdf.public_id = uploaded.public_id;
+      pdf.storageType = 'cloudinary';
+    }
+
+    await pdf.save();
+    console.log(`🔁 PDF replaced (id kept): ${pdf._id} — "${pdf.title}"`);
+    res.json({ message: '✅ PDF updated. Existing links (including emailed ones) still work. No email was sent.', pdf });
+  } catch (err) {
+    console.error('❌ Replace error:', err);
+    res.status(500).json({ error: 'Failed to replace PDF' });
   }
 });
 
