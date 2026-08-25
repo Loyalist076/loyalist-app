@@ -111,6 +111,7 @@ const pdfRoutes = require('./routes/pdfRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes'); // ✅ Mailchimp
 const financialRoutes = require('./routes/financialRoutes');
+const technicalReportRoutes = require('./routes/technicalReportRoutes');
 const companyStructureRoutes = require('./routes/companyStructure'); // ✅ New unified MVC
 
 
@@ -129,6 +130,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/test', testRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes);
 app.use('/api/financials', financialRoutes);
+app.use('/api/technical-reports', technicalReportRoutes);
 app.use('/api/company-structure', companyStructureRoutes); // ✅ Unified Capital & Ownership
 app.use('/api/annual-meeting-documents', annualMeetingRoutes); // ✅ Annual Meeting Documents
 app.use('/api/corporate-presentation', corporatePresentationRoutes); // ✅ Corporate Presentation Management

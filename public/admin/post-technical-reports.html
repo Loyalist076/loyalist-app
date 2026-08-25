@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post Technical Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      padding: 10px 16px;
+      background-color: #007bff;
+      color: white;
+      font-size: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .statements {
+      margin-top: 40px;
+    }
+
+    .statement-item {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .statement-details {
+      flex: 1 1 75%;
+    }
+
+    .statement-actions {
+      text-align: right;
+    }
+
+    .statement-actions a,
+    .statement-actions button {
+      margin-left: 10px;
+    }
+
+    a.view-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a.view-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Upload Dialog Styles */
+    .upload-dialog-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .upload-dialog-overlay.active {
+      display: flex;
+    }
+
+    .upload-dialog {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .upload-dialog h3 {
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+
+    .upload-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .upload-file-name {
+      background: #f5f7fa;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #555;
+      word-break: break-all;
+      margin-top: 15px;
+      border-left: 4px solid #007bff;
+    }
+
+    .upload-file-name span {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Post Technical Report</h2>
+
+    <form id="technicalReportForm" enctype="multipart/form-data">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" required placeholder="Enter report title">
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" placeholder="Short description..."></textarea>
+
+      <label for="date">Report Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="project">Project</label>
+      <select id="project" name="project" required>
+        <option value="">-- Select Project --</option>
+        <option value="tully">Tully Project</option>
+        <option value="loveland">Loveland Project</option>
+        <option value="gold-rush">Gold Rush Project</option>
+        <option value="desantis">DeSantis Project</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="pdfFile">Upload PDF File</label>
+      <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" required>
+
+      <button type="submit">Post Report</button>
+      <div id="successMessage" class="message success"></div>
+      <div id="errorMessage" class="message error"></div>
+    </form>
+
+    <div class="statements">
+      <h3>All Technical Reports</h3>
+      <div id="statementList"></div>
+    </div>
+  </div>
+
+  <!-- Upload Dialog -->
+  <div class="upload-dialog-overlay" id="uploadDialog">
+    <div class="upload-dialog">
+      <h3>Uploading Report</h3>
+      <div class="upload-spinner"></div>
+      <p>Please wait while your file is being uploaded...</p>
+      <div class="upload-file-name">
+        <span id="uploadFileName"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('technicalReportForm');
+    const successMsg = document.getElementById('successMessage');
+    const errorMsg = document.getElementById('errorMessage');
+    const statementList = document.getElementById('statementList');
+    const uploadDialog = document.getElementById('uploadDialog');
+    const uploadFileNameEl = document.getElementById('uploadFileName');
+
+    function showUploadDialog(fileName) {
+      uploadFileNameEl.textContent = fileName;
+      uploadDialog.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideUploadDialog() {
+      uploadDialog.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Fetch all statements
+    async function fetchReports() {
+      statementList.innerHTML = '';
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/technical-reports', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const data = await res.json();
+
+        data.forEach(statement => {
+          const item = document.createElement('div');
+          item.className = 'statement-item';
+          // Format date in Canadian Eastern Time
+          const stmtDate = new Date(statement.date);
+          const formattedDate = stmtDate.toLocaleDateString('en-CA', {
+            timeZone: 'America/Toronto',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+
+          item.innerHTML = `
+            <div class="statement-details">
+              <strong>${statement.title}</strong> (${statement.project.toUpperCase()})<br>
+              <small>${formattedDate}</small><br>
+              <p>${statement.description || ''}</p>
+            </div>
+            <div class="statement-actions">
+              <a href="${statement.fileUrl}" class="view-link" target="_blank">View PDF</a>
+              <button onclick="deleteReport('${statement._id}')">Delete</button>
+            </div>
+          `;
+
+          statementList.appendChild(item);
+        });
+
+      } catch (err) {
+        statementList.innerHTML = `<p style="color: red;">Failed to load statements.</p>`;
+      }
+    }
+
+    // Submit form
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Authentication required. Please log in.');
+        window.location.href = '/admin/login.html';
+        return;
+      }
+
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      const fileInput = document.getElementById('pdfFile');
+      const fileName = fileInput.files[0]?.name || 'Unknown file';
+      const formData = new FormData(form);
+
+      showUploadDialog(fileName);
+
+      try {
+        const res = await fetch('/api/technical-reports/upload', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        });
+
+        const result = await res.json();
+
+        hideUploadDialog();
+
+        if (res.ok) {
+          successMsg.textContent = result.message || 'report posted successfully!';
+          successMsg.style.display = 'block';
+          form.reset();
+          fetchReports(); // Refresh list
+        } else {
+          throw new Error(result.error || 'Failed to post technical report.');
+        }
+      } catch (err) {
+        hideUploadDialog();
+        errorMsg.textContent = err.message;
+        errorMsg.style.display = 'block';
+      }
+    });
+
+    // Delete function
+    async function deleteReport(id) {
+      if (confirm('Are you sure you want to delete this report?')) {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          alert('Authentication required. Please log in.');
+          window.location.href = '/admin/login.html';
+          return;
+        }
+
+        try {
+          const res = await fetch(`/api/technical-reports/${id}`, {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+
+          if (res.ok) {
+            fetchReports(); // Refresh list
+          } else {
+            const err = await res.json();
+            alert(err.error || 'Failed to delete.');
+          }
+        } catch (err) {
+          alert('Failed to delete statement.');
+        }
+      }
+    }
+
+    // Initial load
+    fetchReports();
+  </script>
+</body>
+</html>

@@ -13,3 +13,7 @@ cache/
 public/uploads/financials/*
 !public/uploads/financials/.gitkeep
 .DS_Store
+
+# Ignore all uploaded technical reports (PDFs)
+public/uploads/technical-reports/*
+!public/uploads/technical-reports/.gitkeep
