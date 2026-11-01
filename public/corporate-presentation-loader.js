@@ -59,6 +59,54 @@ function initGetInTouchRedirect() {
   });
 }
 
+// Footer newsletter form, for pages that don't define their own subscribe handler
+async function handleSubscribe(event) {
+  event.preventDefault();
+
+  const emailInput = event.target.querySelector('input[type="email"]');
+  const messageDiv = document.getElementById('subscribe-message');
+  const email = emailInput.value.trim();
+
+  const showMessage = (text, color) => {
+    messageDiv.style.display = 'block';
+    messageDiv.style.color = color;
+    messageDiv.textContent = text;
+    setTimeout(() => {
+      messageDiv.style.display = 'none';
+    }, 5000);
+  };
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailPattern.test(email)) {
+    showMessage('Please enter a valid email address.', 'red');
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      showMessage(data.message || 'Subscribed successfully!', 'green');
+      emailInput.value = '';
+    } else {
+      const errorMsg = data?.error || data?.message;
+      if (errorMsg?.includes('looks fake or invalid')) {
+        showMessage('Email saved, but not accepted by Mailchimp. Try a real email.', 'orange');
+      } else {
+        showMessage(errorMsg || 'Something went wrong.', 'red');
+      }
+    }
+  } catch (err) {
+    console.error('❌ Subscription error:', err);
+    showMessage('Server error. Please try again later.', 'red');
+  }
+}
+
 function initializeGlobalEnhancements() {
   loadCorporatePresentationLinks();
   initGetInTouchRedirect();
