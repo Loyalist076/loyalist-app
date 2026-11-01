@@ -162,6 +162,7 @@
     </tbody>
   </table>
 
+  <script src="escape-html.js"></script>
   <script>
     async function fetchUsers() {
       const token = localStorage.getItem('token');
@@ -183,8 +184,8 @@
       users.forEach(user => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td><input type="text" value="${user.name}" data-id="${user._id}" data-field="name"/></td>
-          <td><input type="email" value="${user.email}" data-id="${user._id}" data-field="email"/></td>
+          <td><input type="text" value="${escapeHtml(user.name)}" data-id="${user._id}" data-field="name"/></td>
+          <td><input type="email" value="${escapeHtml(user.email)}" data-id="${user._id}" data-field="email"/></td>
           <td>
             <select data-id="${user._id}" data-field="role">
               <option value="user" ${user.role === 'user' ? 'selected' : ''}>User</option>

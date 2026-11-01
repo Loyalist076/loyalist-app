@@ -165,6 +165,7 @@
     </tbody>
   </table>
 
+  <script src="escape-html.js"></script>
   <script>
     let allMessages = [];
 
@@ -221,11 +222,11 @@
           minute: '2-digit'
         });
         row.innerHTML = `
-          <td data-label="Name">${msg.name}</td>
-          <td data-label="Email">${msg.email}</td>
-          <td data-label="Subject">${msg.subject}</td>
-          <td data-label="Message">${msg.message}</td>
-          <td data-label="Source">${msg.source || 'N/A'}</td>
+          <td data-label="Name">${escapeHtml(msg.name)}</td>
+          <td data-label="Email">${escapeHtml(msg.email)}</td>
+          <td data-label="Subject">${escapeHtml(msg.subject)}</td>
+          <td data-label="Message">${escapeHtml(msg.message)}</td>
+          <td data-label="Source">${escapeHtml(msg.source || 'N/A')}</td>
           <td data-label="Date">${formattedDate}</td>
           <td data-label="Actions">
             <button class="delete-btn" onclick="deleteMessage('${msg._id}', this)">Delete</button>

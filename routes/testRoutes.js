@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const sgMail = require('@sendgrid/mail');
 const cloudinary = require('cloudinary').v2;
+const { authenticate, isAdmin } = require('../middleware/auth');
 
 // Load ENV keys
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -11,6 +12,9 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
+// These endpoints use the real SendGrid and Cloudinary accounts
+router.use(authenticate, isAdmin);
 
 // ✅ Cloudinary test
 router.get('/test-cloudinary', async (req, res) => {

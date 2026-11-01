@@ -46,6 +46,7 @@
     <tbody id="subscribersTableBody"></tbody>
   </table>
 
+  <script src="escape-html.js"></script>
   <script>
     async function fetchSubscribers() {
       const token = localStorage.getItem('token');
@@ -82,8 +83,8 @@
             minute: '2-digit'
           });
           row.innerHTML = `
-            <td>${sub.email}</td>
-            <td>${sub.source || 'popup'}</td>
+            <td>${escapeHtml(sub.email)}</td>
+            <td>${escapeHtml(sub.source || 'popup')}</td>
             <td>${formattedDate}</td>
             <td><button onclick="deleteSubscriber('${sub._id}')">Delete</button></td>
           `;

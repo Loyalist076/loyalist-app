@@ -8,6 +8,8 @@ cache/
 
 # Environment variables
 .env
+.env.*
+!.env.example
 
 # Ignore all uploaded financial statements (PDFs)
 public/uploads/financials/*

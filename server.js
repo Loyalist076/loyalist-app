@@ -69,13 +69,14 @@ app.use('/api/', limiter);
 // Stricter rate limit for auth endpoints
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 1000, // 10 requests per 15 minutes
-  message: 'Too many authentication attempts, please try again later.'
+  max: 10, // 10 failed attempts per 15 minutes
+  skipSuccessfulRequests: true,
+  message: { message: 'Too many authentication attempts, please try again later.' }
 });
 
-// Body Parser Middleware — allow large payloads for big PDF uploads
-app.use(express.json({ limit: '200mb' }));
-app.use(express.urlencoded({ extended: true, limit: '200mb' }));
+// Body Parser Middleware — PDF uploads are multipart and go through multer, not these parsers
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Cache control middleware for static files
 app.use((req, res, next) => {
@@ -121,7 +122,8 @@ const annualMeetingRoutes = require('./routes/annualMeetingRoutes');
 const corporatePresentationRoutes = require('./routes/corporatePresentationRoutes');
 
 // Apply auth rate limiter to auth routes
-app.use('/api', authLimiter, authRoutes);
+app.use(['/api/login', '/api/register'], authLimiter);
+app.use('/api', authRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api', userRoutes);
 app.use('/api/news', newsRoutes);

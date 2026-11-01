@@ -124,6 +124,7 @@
 
   <a href="admin-dashboard.html" class="back-btn">← Back to Dashboard</a>
 
+  <script src="escape-html.js"></script>
   <script>
     async function fetchPendingAdmins() {
       const token = localStorage.getItem('token');
@@ -162,8 +163,8 @@
         data.forEach(admin => {
           html += `
             <tr>
-              <td data-label="Name">${admin.name}</td>
-              <td data-label="Email">${admin.email}</td>
+              <td data-label="Name">${escapeHtml(admin.name)}</td>
+              <td data-label="Email">${escapeHtml(admin.email)}</td>
               <td data-label="Approve"><button onclick="approveAdmin('${admin._id}')">Approve</button></td>
             </tr>
           `;
