@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Loyalist Exploration's acquisition of the Tully Gold Project near Timmins opens a new frontier in mineral exploration in a historic gold-camp" />
+    <meta name="description" content="The Tully Gold Project is a high-grade underground gold project 25 km northeast of Timmins, Ontario, with a 2026 NI 43-101 Mineral Resource Estimate of 164,000 oz Indicated and 62,000 oz Inferred." />
     <title>Tully High-Grade Gold Project – Loyalist Exploration</title>
     <!-- <link rel="stylesheet" href="../style.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
@@ -494,77 +494,759 @@
   }
 }
 
-    .container {
+    /* Tully project page */
+    .section-title {
+      margin-bottom: 0;
+    }
+
+    .tp-page {
+      --gold: #D4B248;
+      --gold-deep: #7A5F14;
+      --gold-pale: #E6D49A;
+      --ink: #141414;
+      --muted: #5f5f5f;
+      --rule: #dedcd4;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    :where(.tp-page) img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    :where(.tp-page) h2,
+    :where(.tp-page) h3,
+    :where(.tp-page) h4 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    :where(.tp-page) h2 {
+      font-size: 32px;
+    }
+
+    :where(.tp-page) h3 {
+      font-size: 22px;
+    }
+
+    :where(.tp-page) p {
+      margin: 0 0 14px;
+    }
+
+    .tp-page a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .tp-wrap {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tp-section {
+      padding: 56px 0;
+      scroll-margin-top: 48px;
+    }
+
+    .tp-section-white {
       background: #fff;
+    }
+
+    #mineable,
+    #expandable,
+    #explorable {
+      scroll-margin-top: 48px;
+    }
+
+    .tp-split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px;
+      align-items: start;
+    }
+
+    .tp-split-wide {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+
+    .tp-note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .tp-subhead {
+      margin-top: 48px;
+    }
+
+    /* Hero */
+    .tp-hero {
+      position: relative;
+      background: #000;
+      color: #fff;
+    }
+
+    .tp-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+    }
+
+    .tp-hero-text {
+      position: relative;
+      padding: clamp(72px, 11vw, 150px) 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 80%);
+    }
+
+    .tp-tagline {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tp-hero-title {
+      max-width: 15em;
+      margin: 0;
+      font-size: clamp(32px, 4.6vw, 56px);
+      font-weight: 700;
+      line-height: 1.14;
+    }
+
+    /* Summary strip */
+    .tp-facts {
+      background: #000;
+      color: #bbb;
+      padding: 28px 0 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tp-facts dl {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px 0;
+      margin: 0 0 20px;
+    }
+
+    .tp-facts dl > div + div {
+      padding-left: 24px;
+      border-left: 1px solid #333;
+    }
+
+    .tp-facts dt {
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tp-facts dd {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .tp-facts strong {
+      display: block;
+      font-size: clamp(20px, 2.1vw, 25px);
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .tp-facts p {
+      font-size: 13px;
+    }
+
+    /* Section links */
+    .tp-nav {
+      position: sticky;
+      top: 0;
+      background: #000;
+      border-top: 1px solid #333;
+    }
+
+    .tp-nav .tp-wrap {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .tp-nav a {
+      padding: 12px 0;
+      font-size: 14px;
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .tp-nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Figures */
+    .tp-figure {
+      margin: 0;
+    }
+
+    .tp-figure-lead {
+      margin-top: 32px;
+    }
+
+    .tp-figure img {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--rule);
+    }
+
+    .tp-figure figcaption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .tp-figure + .tp-note {
+      margin-top: 14px;
+    }
+
+    .tp-key {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-      padding: 30px;
+      gap: 4px 18px;
+      margin-top: 6px;
     }
 
-    .project-image {
-      flex: 1 1 400px;
-      max-width: 100%;
+    .tp-key i {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 6px;
+      border-radius: 2px;
     }
 
-    .project-image img {
+    /* Lists */
+    .tp-ticks {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tp-ticks li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tp-ticks i {
+      margin-top: 5px;
+      color: var(--gold-deep);
+    }
+
+    /* Chapters: Mineable, Expandable, Explorable */
+    .tp-chapter {
+      padding: clamp(40px, 6vw, 76px) 0;
+      background: #0f0f0f url("../image/tully/contours.webp") center / cover;
+      color: #fff;
+    }
+
+    .tp-chapter-inner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px 48px;
+      align-items: end;
+    }
+
+    .tp-chapter h2 {
+      margin: 0;
+      font-size: clamp(38px, 9.4vw, 112px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tp-chapter p {
+      max-width: 26em;
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    /* Tables */
+    .tp-table-scroll {
+      overflow-x: auto;
+    }
+
+    .tp-table {
       width: 100%;
-      height: auto;
-      max-height: 800px;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .project-content {
-      flex: 2 1 500px;
-    }
-
-    .project-title {
-      font-size: 40px;
-      margin-bottom: 16px;
-      color: #111;
-    }
-
-    .project-description p {
+      border-collapse: collapse;
+      background: #fff;
       font-size: 15px;
-      color: #333;
-      margin-bottom: 12px;
-      text-align: justify;
+      font-variant-numeric: tabular-nums;
     }
 
-    /* Responsive layout */
+    .tp-table th,
+    .tp-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--rule);
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .tp-table thead th {
+      background: #000;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      vertical-align: bottom;
+    }
+
+    .tp-table .tp-text {
+      text-align: left;
+    }
+
+    .tp-nowrap {
+      white-space: nowrap;
+    }
+
+    .tp-table + .tp-note,
+    .tp-table-scroll + .tp-note {
+      margin-top: 10px;
+    }
+
+    .tp-table .is-active th,
+    .tp-table .is-active td {
+      background: #f7eecd;
+      font-weight: 700;
+    }
+
+    /* Cut-off explorer */
+    .tp-explorer {
+      margin: 40px 0 24px;
+      padding: 24px;
+      background: #000;
+      color: #fff;
+    }
+
+    .tp-explorer-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .tp-explorer h3 {
+      margin-bottom: 4px;
+      font-size: 26px;
+    }
+
+    .tp-explorer-head p {
+      margin: 0;
+      color: var(--gold-pale);
+    }
+
+    .tp-explorer img {
+      width: 100%;
+      background: #fff;
+    }
+
+    .tp-explorer a:focus-visible {
+      outline-offset: 3px;
+    }
+
+    .tp-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 28px;
+    }
+
+    .tp-chips {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .tp-chips legend {
+      margin-bottom: 6px;
+      padding: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tp-chips div {
+      display: flex;
+      gap: 6px;
+    }
+
+    .tp-chips input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .tp-chips span {
+      display: block;
+      padding: 9px 16px;
+      border: 1px solid #555;
+      border-radius: 999px;
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
+      color: #ddd;
+      cursor: pointer;
+    }
+
+    .tp-chips label:hover span {
+      border-color: var(--gold);
+    }
+
+    .tp-chips input:checked + span {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .tp-chips input:focus-visible + span {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .tp-readout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tp-readout dt {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-pale);
+    }
+
+    .tp-readout dd {
+      margin: 0;
+      font-size: clamp(21px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--gold);
+    }
+
+    .tp-explorer-note {
+      margin: 12px 0 0;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    /* Intercepts */
+    .tp-details {
+      margin-top: 16px;
+      background: #fff;
+      border: 1px solid var(--rule);
+    }
+
+    .tp-details summary {
+      padding: 12px 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tp-details summary:focus-visible {
+      outline: 2px solid var(--gold-deep);
+    }
+
+    .tp-details + .tp-note {
+      margin-top: 10px;
+    }
+
+    /* Road map */
+    .tp-gantt {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .tp-gantt th,
+    .tp-gantt td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+    }
+
+    .tp-gantt thead th {
+      background: #000;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .tp-gantt-when {
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .tp-gantt .tp-gantt-track {
+      width: 56%;
+      padding: 0;
+      background: repeating-linear-gradient(to right, var(--rule) 0 1px, transparent 1px calc(100% / 14));
+    }
+
+    .tp-gantt thead .tp-gantt-track {
+      background: #000;
+    }
+
+    .tp-gantt-years {
+      display: flex;
+    }
+
+    .tp-gantt-years span {
+      width: calc(var(--n) * 100% / 14);
+      padding-left: 6px;
+      border-left: 1px solid #444;
+    }
+
+    .tp-bar {
+      display: block;
+      width: calc(var(--n) * 100% / 14);
+      height: 14px;
+      margin-left: calc(var(--s) * 100% / 14);
+      border-radius: 7px;
+    }
+
+    .tp-bar-study {
+      background: #D4B248;
+    }
+
+    .tp-bar-permit {
+      background: #8E8E88;
+    }
+
+    .tp-bar-access {
+      background: #9C7B22;
+    }
+
+    .tp-bar-dev {
+      background: #2B2B2B;
+    }
+
+    .tp-bar-decision {
+      background: #141414;
+      box-shadow: 0 0 0 2px #D4B248;
+    }
+
+    .tp-milestone {
+      display: block;
+      width: 13px;
+      height: 13px;
+      margin-left: calc(100% / 28 - 6px);
+      background: #9C7B22;
+      transform: rotate(45deg);
+    }
+
+    .tp-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin: 14px 0 10px;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .tp-legend li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tp-legend .tp-bar {
+      width: 30px;
+      margin: 0;
+    }
+
+    .tp-legend .tp-milestone {
+      margin: 0 2px;
+    }
+
+    .tp-ticks-columns {
+      columns: 2;
+      column-gap: 40px;
+    }
+
+    .tp-ticks-columns li {
+      break-inside: avoid;
+    }
+
+    .tp-why-note {
+      margin: 20px 0 0;
+    }
+
+    .tp-why {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 28px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tp-why i {
+      font-size: 22px;
+      color: var(--gold-deep);
+    }
+
+    .tp-why h4 {
+      margin: 10px 0 6px;
+      font-size: 17px;
+    }
+
+    .tp-why p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* Documents */
+    .tp-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tp-links a {
+      padding: 12px 20px;
+      background: var(--gold);
+      border-radius: 4px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .tp-links a:hover {
+      background: var(--gold-pale);
+    }
+
+    .tp-links a:focus-visible {
+      outline-color: var(--ink);
+    }
+
+    /* Notes */
+    .tp-legal {
+      margin-top: 32px;
+    }
+
+    .tp-legal h3 {
+      font-size: 16px;
+    }
+
+    .tp-legal p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
     @media (max-width: 992px) {
-      .container {
-        flex-direction: column;
-        padding: 15px;
+      .tp-facts dl {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .project-title {
-        font-size: 22px;
+      .tp-facts dl > div:nth-child(odd) {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .tp-split,
+      .tp-split-wide {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tp-split-wide .tp-figure {
+        max-width: 480px;
+      }
+
+      .tp-why {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tp-chapter-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .tp-gantt .tp-gantt-track,
+      .tp-legend {
+        display: none;
       }
     }
 
     @media (max-width: 600px) {
-      .project-title {
-        font-size: 20px;
+      .tp-section {
+        padding: 40px 0;
       }
 
-      .project-description p {
-        font-size: 14px;
+      .tp-wrap {
+        padding: 0 16px;
       }
 
-      .project-description table {
+      .tp-explorer {
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 20px 16px;
+      }
+
+      .tp-why {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tp-ticks-columns {
+        columns: 1;
+      }
+
+      .tp-tagline {
         font-size: 11px;
+        letter-spacing: 0.14em;
       }
 
-      .project-description th,
-      .project-description td {
-        padding: 6px !important;
+      .tp-hero-text {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .tp-readout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+      }
+
+      .tp-readout div {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .tp-table {
+        font-size: 13px;
+      }
+
+      .tp-table th,
+      .tp-table td {
+        padding: 8px 6px;
       }
     }
 /* footer */
@@ -846,98 +1528,524 @@
     
   </div>
 
- <div class="container">
-  <div class="project-image">
-    <img src="../image/SPGMI Map - 2025-10-3.png" alt="TULLY Project">
-  </div>
-  
-  <div class="project-content">
-    <h2 class="project-title">TULLY – High grade gold development</h2>
-    <div class="project-description">
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Current Activities</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li>Defining production permitting schedule and cost</li>
-        <li>Planning 43-101 technical report with resource update and preliminary economic assessment</li>
-        <li>Planning 2026 exploration program</li>
-      </ul>
+  <main class="tp-page">
+    <section class="tp-hero">
+      <img src="../image/tully/hero.webp" alt="" width="1920" height="1080" fetchpriority="high" />
+      <div class="tp-hero-text">
+        <div class="tp-wrap">
+          <p class="tp-tagline">Mineable – Expandable – Explorable</p>
+          <p class="tp-hero-title">A high-grade underground gold asset in the heart of the Timmins camp</p>
+        </div>
+      </div>
+    </section>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Tully Property Highlights:</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li>458 hectare mining lease</li>
-        <li>25 km northeast of Timmins</li>
-        <li><strong>Historical resource estimate of:</strong>
-          <ul style="margin-left: 20px; margin-top: 10px;">
-            <li>Indicated: 358,000 tonnes grading 6.56 g/t gold for 76,000 ounces</li>
-            <li>Inferred: 184,000 tonnes 5.17 g/t gold for 31,000 ounces</li>
-            <li>Total: 107,000 ounces (uncapped 144,000 ounces)</li>
+    <section class="tp-facts" aria-label="Project summary">
+      <div class="tp-wrap">
+        <dl>
+          <div>
+            <dt>Indicated</dt>
+            <dd><strong>164,000 oz Au</strong> 1.62 Mt at 3.16 g/t Au</dd>
+          </div>
+          <div>
+            <dt>Inferred</dt>
+            <dd><strong>62,000 oz Au</strong> 0.95 Mt at 2.03 g/t Au</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd><strong>Timmins, Ontario</strong> 25 km northeast of the city</dd>
+          </div>
+          <div>
+            <dt>Next milestone</dt>
+            <dd><strong>PEA, December 2026</strong> Target date</dd>
+          </div>
+        </dl>
+        <p>2026 Mineral Resource Estimate, effective June 15, 2026, at a 1.1 g/t Au cut-off. Mineral Resources are not Mineral Reserves.</p>
+      </div>
+    </section>
+
+    <nav class="tp-nav" aria-label="On this page">
+      <div class="tp-wrap">
+        <a href="#overview">Overview</a>
+        <a href="#geology">Geology</a>
+        <a href="#mineable">Mineable</a>
+        <a href="#expandable">Expandable</a>
+        <a href="#explorable">Explorable</a>
+        <a href="#road-map">Road map</a>
+        <a href="#documents">Documents</a>
+      </div>
+    </nav>
+
+    <section class="tp-section" id="overview">
+      <div class="tp-wrap tp-split">
+        <div>
+          <h2>Overview</h2>
+          <p>
+            Tully is located approximately 25 km northeast of Timmins, within the Timmins-Porcupine Gold Camp, which includes the Dome and Hollinger mines. The project is approximately 2 km southwest of the Bradshaw Gold Project of Gowest Gold Ltd.
+          </p>
+          <p>
+            The 458-hectare property includes one leased mining claim and 11 patented mining claims.
+          </p>
+          <h3>Project status</h3>
+          <ul class="tp-ticks">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Mineral Resource Estimate completed, July 2026</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Preliminary Economic Assessment underway, December 2026 target</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Permitting activities underway</li>
           </ul>
-        </li>
-        <li>Potential for expansion</li>
-      </ul>
+        </div>
+        <figure class="tp-figure">
+          <img src="../image/SPGMI-Map.jpeg" alt="Regional map showing the Tully project northeast of Timmins, Ontario" loading="lazy" />
+          <figcaption>Tully in the Timmins camp.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">Mineral Resource Estimate</h3>
-      <p style="font-size: 14px; margin-bottom: 10px;"><em>2026 Tully Gold Property Mineral Resource Estimate with an Effective Date of June 15, 2026</em></p>
+    <section class="tp-section tp-section-white" id="geology">
+      <div class="tp-wrap">
+        <h2>Geology</h2>
+        <div class="tp-split tp-split-wide">
+          <div>
+            <p>
+              Prospective structures splay off the Porcupine-Destor Fault through the Tully area. Mineralisation at Tully occurs within a 30 m wide mafic volcanic unit with an approximate west-southwest strike and steep northerly dip. The hanging wall consists of sedimentary rocks and the footwall consists of ultramafic rocks.
+            </p>
+            <p>
+              As currently understood, the deposit comprises an array of shallowly inclined quartz-carbonate veins or lenses stacked 'ladder-style' within the volcanic rocks and constrained by its hanging wall and footwall contacts. The higher-grade core of the deposit extends over 600 m along strike and 400 m down dip, and plunges moderately toward the east-northeast. The mineralised veins/lenses host gold primarily within irregular pyrite clusters and also commonly as free visible gold.
+            </p>
+            <p>
+              The Tully property occurs within a swampy area and is covered by a blanket of glacial drift, averaging 30 m thickness, which hid the deposit from early explorers; thus, the geology is entirely derived from drillhole and geophysical data.
+            </p>
+          </div>
+          <figure class="tp-figure">
+            <a href="../image/tully/section-6350.webp" target="_blank">
+              <img src="../image/tully/section-6350.webp" alt="Cross-section 6350 looking west, showing mineralized zones stacked within the mafic tuff, between hanging wall sediments and foot wall ultramafics, with drill holes from surface" width="769" height="831" loading="lazy" />
+            </a>
+            <figcaption>
+              Section 6350, looking west (25 m clip width).
+              <span class="tp-key">
+                <span><i style="background: #FFFF00;"></i>Mineralized zones</span>
+                <span><i style="background: #12F63D;"></i>Mafic tuff</span>
+                <span><i style="background: #E127CF;"></i>Foot wall ultramafics</span>
+                <span><i style="background: #9E9E9E;"></i>Hanging wall sediments</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+        <figure class="tp-figure tp-figure-lead">
+          <a href="../image/tully/geology-map.webp" target="_blank">
+            <img src="../image/tully/geology-map.webp" alt="Property geology map of the Tully project showing clastic sediments, ultramafic and mafic volcanics, a felsic intrusion, pipestone and faults, with the Tully deposit marked on the mafic volcanic unit" width="1600" height="1034" loading="lazy" />
+          </a>
+          <figcaption>Property geology of the Tully Gold Project.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
-        <thead>
-          <tr style="background-color: #D4B248; color: white;">
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Resource Classification</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Au Cut-off (g/t)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Tonnes (k)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Au (g/t)</th>
-            <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Contained Au (koz)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Indicated</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1.1</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1,620</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">3.16</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">164</td>
-          </tr>
-          <tr style="background-color: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Inferred</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">1.1</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">948</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">2.03</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">62</td>
-          </tr>
-        </tbody>
-      </table>
+    <section id="mineable">
+      <header class="tp-chapter">
+        <div class="tp-wrap tp-chapter-inner">
+          <h2>Mineable</h2>
+          <p>The 2026 NI 43-101 Mineral Resource Estimate, and a higher-grade core that remains robust under stope constraints.</p>
+        </div>
+      </header>
+      <div class="tp-section">
+        <div class="tp-wrap">
+          <h3>2026 Mineral Resource Estimate</h3>
+          <p>2026 Tully Gold Property Mineral Resource Estimate with an Effective Date of June 15, 2026.</p>
+          <div class="tp-table-scroll">
+            <table class="tp-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="tp-text">Resource classification</th>
+                  <th scope="col"><span class="tp-nowrap">Au cut-off</span> (g/t)</th>
+                  <th scope="col">Tonnes (k)</th>
+                  <th scope="col">Au (g/t)</th>
+                  <th scope="col">Contained Au (koz)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tp-text">Indicated</td>
+                  <td>1.1</td>
+                  <td>1,620</td>
+                  <td>3.16</td>
+                  <td>164</td>
+                </tr>
+                <tr>
+                  <td class="tp-text">Inferred</td>
+                  <td>1.1</td>
+                  <td>948</td>
+                  <td>2.03</td>
+                  <td>62</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tp-note">Mineral Resources are not Mineral Reserves and do not have demonstrated economic viability.</p>
 
-      <h3 style="color: #D4B248; margin-bottom: 15px;">The Tully Project Overview</h3>
-      <h4 style="margin-top: 15px; margin-bottom: 10px;">The Tully Deposit</h4>
-      <p>
-        Tully is located approximately 25 kms northeast of Timmins and includes an historic indicated and inferred Mineral Resource Estimate (not published). The Project is located within the Timmins-Porcupine Gold Camp and is approximately 2 km southwest of the Bradshaw Gold Project of Gowest Gold Ltd. The Timmins-Porcupine Gold Camp, includes the Dome and Hollinger mines.
-      </p>
-      <p>
-        Prospective structures splay off the Porcupine-Destor Fault through the Tully area. Mineralisation at Tully occurs within a 30 m wide mafic volcanic unit with an approximate west-southwest strike and steep northerly dip. The hanging wall consists of sedimentary rocks and the footwall consists of ultramafic rocks. As currently understood, the deposit comprises an array of shallowly inclined quartz-carbonate veins or lenses stacked 'ladder-style' within the volcanic rocks and constrained by its hanging wall and footwall contacts. The higher-grade core of the deposit extends over 600 m along strike and 400 m down dip, and plunges moderately toward the east-northeast. The mineralised veins/lenses host gold primarily within irregular pyrite clusters and also commonly as free visible gold.
-      </p>
-      <p>
-        The Tully property occurs within a swampy area and is covered by blanket of glacial drift, averaging 30 m thickness which hid the deposit from early explorers; thus, the geology is entirely derived from drillhole and geophysical data. Exploration by a number of companies over several decades has resulted in the drilling of many holes - the historical resource estimate utilised data from an extensive database of 356 holes totalling 91,623 m, with 718 vein intercepts being interpreted and incorporated into the lens wireframes.
-      </p>
-      <p style="font-style: italic; color: #666; font-size: 14px; margin-top: 15px;">
-        A qualified person has not done sufficient work to classify the historical estimate as current mineral resources or mineral reserves. Loyalist is not treating the historical estimate as current mineral resources or mineral reserves.
-      </p>
+          <div class="tp-explorer" id="cutoffExplorer">
+            <div class="tp-explorer-head">
+              <div>
+                <h3>Grade-tonnage sensitivity</h3>
+                <p>Higher-grade core remains robust under stope constraints</p>
+              </div>
+              <div class="tp-controls">
+                <fieldset class="tp-chips">
+                  <legend>Cut-off (g/t Au)</legend>
+                  <div>
+                    <label><input type="radio" name="cutoff" value="1.1" checked /><span>1.1</span></label>
+                    <label><input type="radio" name="cutoff" value="2.0" /><span>2.0</span></label>
+                    <label><input type="radio" name="cutoff" value="3.0" /><span>3.0</span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="tp-chips">
+                  <legend>View</legend>
+                  <div>
+                    <label><input type="radio" name="view" value="long" checked /><span>Looking north</span></label>
+                    <label><input type="radio" name="view" value="plan" /><span>Plan view</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <a id="cutoffLink" href="../image/tully/long-1.1.webp" target="_blank">
+              <img id="cutoffImage" src="../image/tully/long-1.1.webp" alt="Long section looking north of the Tully block model at a 1.1 g/t Au cut-off" width="1600" height="650" loading="lazy" />
+            </a>
+            <dl class="tp-readout" aria-live="polite">
+              <div>
+                <dt>Indicated tonnes</dt>
+                <dd id="readoutTonnes">1,014 kt</dd>
+              </div>
+              <div>
+                <dt>Grade</dt>
+                <dd id="readoutGrade">4.80 g/t Au</dd>
+              </div>
+              <div>
+                <dt>Contained gold</dt>
+                <dd id="readoutGold">156 koz</dd>
+              </div>
+            </dl>
+            <p class="tp-explorer-note">Stope-constrained sensitivity, for illustrative purposes only. Not a new or updated Mineral Resource Estimate.</p>
+          </div>
 
-      <h4 style="margin-top: 20px; margin-bottom: 10px;">Statement Regarding Historical Mineral Resource Estimates</h4>
-      <p style="font-size: 14px; color: #666;">
-        The Tully deposit historical Mineral Resource Estimate ("MRE") is unclassified and does not comply with CIM Definition Standards on Mineral Resources and Mineral Reserves as required by NI 43-101. The MRE was taken from a report titled "Tully Deposit Mineral Resource Estimate" authored by Francis Minerals Ltd. and dated December 15, 2014. Investors are cautioned not to treat the estimate as current or rely on the estimate in making an investment decision. The MRE is being included herein to provide shareholders with background on the rationale for acquiring the asset. A qualified person has not done sufficient work to classify this historical MRE as current mineral resources and the Company is not treating this historical MRE as a current estimate. It is uncertain whether following evaluation and/or further exploration, the historical MRE will ever be able to be reported in accordance with NI 43-101. The Company has no current plans to undertake the work to bring the MRE up to the CIM reporting standards.
-      </p>
+          <div class="tp-split">
+            <div class="tp-table-scroll">
+              <table class="tp-table" id="gradeTonnage">
+                <thead>
+                  <tr>
+                    <th scope="col" class="tp-text"><span class="tp-nowrap">Cut-off</span> grade (g/t Au)</th>
+                    <th scope="col" class="tp-text">Classification</th>
+                    <th scope="col">Tonnes (kt)</th>
+                    <th scope="col">Grade (g/t Au)</th>
+                    <th scope="col">Contained Au (koz)</th>
+                  </tr>
+                </thead>
+                <tbody data-cutoff="3.0">
+                  <tr><th scope="rowgroup" rowspan="2" class="tp-text">3.00</th><td class="tp-text">Indicated</td><td>407</td><td>9.19</td><td>120</td></tr>
+                  <tr><td class="tp-text">Inferred</td><td>150</td><td>6.45</td><td>31</td></tr>
+                </tbody>
+                <tbody data-cutoff="2.5">
+                  <tr><th scope="rowgroup" rowspan="2" class="tp-text">2.50</th><td class="tp-text">Indicated</td><td>500</td><td>7.98</td><td>128</td></tr>
+                  <tr><td class="tp-text">Inferred</td><td>205</td><td>5.43</td><td>36</td></tr>
+                </tbody>
+                <tbody data-cutoff="2.0">
+                  <tr><th scope="rowgroup" rowspan="2" class="tp-text">2.00</th><td class="tp-text">Indicated</td><td>633</td><td>6.78</td><td>138</td></tr>
+                  <tr><td class="tp-text">Inferred</td><td>313</td><td>4.34</td><td>44</td></tr>
+                </tbody>
+                <tbody data-cutoff="1.5">
+                  <tr><th scope="rowgroup" rowspan="2" class="tp-text">1.50</th><td class="tp-text">Indicated</td><td>824</td><td>5.61</td><td>149</td></tr>
+                  <tr><td class="tp-text">Inferred</td><td>436</td><td>3.60</td><td>51</td></tr>
+                </tbody>
+                <tbody data-cutoff="1.1" class="is-active">
+                  <tr><th scope="rowgroup" rowspan="2" class="tp-text">1.10</th><td class="tp-text">Indicated</td><td>1,014</td><td>4.80</td><td>156</td></tr>
+                  <tr><td class="tp-text">Inferred</td><td>604</td><td>2.96</td><td>57</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tp-note">
+              <p>
+                Grade-tonnage sensitivities for the underground Mineral Resource Estimate using a range of reporting cut-off grades from 1.1 to 3.0 g/t Au. The sensitivity analysis is based on the mineralized material within the stope shapes generated using a 1.1 g/t Au cut-off grade and a minimum mining width of 1.25 metres. The results are presented for illustrative purposes only and do not constitute a new or updated Mineral Resource Estimate.
+              </p>
+              <p>
+                The base-case Mineral Resource Estimate reported in the Technical Report, at a 1.1 g/t Au cut-off grade without the additional stope-width constraint shown above, consists of an Indicated Mineral Resource of 1.62 million tonnes grading 3.16 g/t Au containing 164,000 ounces of gold, and an Inferred Mineral Resource of 0.95 million tonnes grading 2.03 g/t Au containing 62,000 ounces of gold.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h4 style="margin-top: 20px; margin-bottom: 10px;">Qualified Person</h4>
-      <p style="font-size: 14px;">
-        Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of this page.
-      </p>
+    <section id="expandable">
+      <header class="tp-chapter">
+        <div class="tp-wrap tp-chapter-inner">
+          <h2>Expandable</h2>
+          <p>Open along strike and at depth, with published intercepts outside the Indicated block.</p>
+        </div>
+      </header>
+      <div class="tp-section">
+        <div class="tp-wrap">
+          <h3>Selected published intercepts outside the Indicated block</h3>
+          <p>Drilling by SGX Resources, 2010 to 2013.</p>
+          <figure class="tp-figure">
+            <a href="../image/tully/intercepts.webp" target="_blank">
+              <img src="../image/tully/intercepts.webp" alt="Long section of the mafic tuff looking north, with selected published SGX intercepts marked outside the Indicated block. The values are listed in the table below." width="1600" height="627" loading="lazy" />
+            </a>
+            <figcaption>Mafic tuff, looking north. Labels show gold grade and drilled width.</figcaption>
+          </figure>
+          <details class="tp-details">
+            <summary>View all 24 selected intercepts</summary>
+            <div class="tp-table-scroll">
+              <table class="tp-table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="tp-text">Hole</th>
+                    <th scope="col">From (m)</th>
+                    <th scope="col">To (m)</th>
+                    <th scope="col">Width (m)</th>
+                    <th scope="col">Au (g/t)</th>
+                    <th scope="col">Published</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="tp-text">SGX-13-15</td><td>247.3</td><td>261.4</td><td>14.1</td><td>20.1</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-38</td><td>223.2</td><td>229.7</td><td>6.3</td><td>36.72</td><td>Sep 26, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-20</td><td>241</td><td>247.7</td><td>6.7</td><td>9.01</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-17</td><td>224</td><td>273.3</td><td>49.3</td><td>1.1</td><td>Aug 28, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-22-A</td><td>634</td><td>640.5</td><td>6.5</td><td>8</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-11-86</td><td>420</td><td>421</td><td>1</td><td>42.7</td><td>Sep 6, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-11-78</td><td>309</td><td>316.2</td><td>7.2</td><td>5.9</td><td>Sep 6, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-13-18</td><td>295</td><td>307.7</td><td>12.7</td><td>2.13</td><td>Aug 28, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-11-87</td><td>517.5</td><td>520</td><td>2.5</td><td>9.1</td><td>Sep 6, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-11-90</td><td>459</td><td>460.1</td><td>1.1</td><td>16.9</td><td>Sep 6, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-13-18</td><td>319</td><td>330.6</td><td>11.6</td><td>1.6</td><td>Aug 28, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-19</td><td>345</td><td>354.5</td><td>9.5</td><td>1.94</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-18</td><td>254.5</td><td>266.5</td><td>12</td><td>1.47</td><td>Aug 28, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-22-B</td><td>644</td><td>647.2</td><td>3.2</td><td>5.5</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-10-03</td><td>365.15</td><td>369.83</td><td>4.68</td><td>3.54</td><td>Dec 17, 2010</td></tr>
+                  <tr><td class="tp-text">SGX-13-36</td><td>65</td><td>71.7</td><td>6.7</td><td>2.39</td><td>Sep 26, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-26</td><td>314.1</td><td>324.6</td><td>10.5</td><td>1.32</td><td>Sep 26, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-11-90</td><td>425.6</td><td>428.5</td><td>2.9</td><td>4.3</td><td>Sep 6, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-13-15</td><td>372</td><td>381</td><td>9</td><td>1.15</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-15</td><td>346.3</td><td>348</td><td>1.7</td><td>4.7</td><td>Mar 18, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-38</td><td>245.2</td><td>249.5</td><td>4.3</td><td>1.43</td><td>Sep 26, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-13-38</td><td>297.6</td><td>298.6</td><td>1</td><td>6.05</td><td>Sep 26, 2013</td></tr>
+                  <tr><td class="tp-text">SGX-11-85</td><td>429</td><td>430</td><td>1</td><td>3.1</td><td>Jul 11, 2011</td></tr>
+                  <tr><td class="tp-text">SGX-10-01</td><td>240.5</td><td>240.9</td><td>0.4</td><td>5.39</td><td>Dec 17, 2010</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <p class="tp-note">Widths are drilled widths as published, not true widths. SGX's 2013 releases interpreted true widths as 65% to 80% of drilled widths and reported assays uncut.</p>
 
-      <h3 style="color: #D4B248; margin-top: 25px; margin-bottom: 15px;">Technical Report</h3>
-      <p>
-        <a href="../image/tully-43-101.pdf" target="_blank" style="color: #D4B248; font-weight: bold;">NI 43-101 Technical Report – Tully Project (PDF)</a>
-      </p>
-    </div>
-  </div>
-</div>
+          <h3 class="tp-subhead">Planned drilling for expansion</h3>
+          <figure class="tp-figure">
+            <a href="../image/tully/planned-drilling.webp" target="_blank">
+              <img src="../image/tully/planned-drilling.webp" alt="Long section of the mafic tuff looking north showing the Indicated block, the block below it to be drilled from underground, and planned drill holes in the Expansion West, Expansion East and Expansion Deep areas" width="1600" height="713" loading="lazy" />
+            </a>
+            <figcaption>Mafic tuff, looking north.</figcaption>
+          </figure>
+
+          <h3 class="tp-subhead">Drill density</h3>
+          <figure class="tp-figure">
+            <a href="../image/tully/drill-density.webp" target="_blank">
+              <img src="../image/tully/drill-density.webp" alt="Plan map of drill line density. Drilling is concentrated around the Tully deposit, beside the magnetic break, and falls away along strike." width="1600" height="694" loading="lazy" />
+            </a>
+            <figcaption>Drill density, looking down.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="explorable">
+      <header class="tp-chapter">
+        <div class="tp-wrap tp-chapter-inner">
+          <h2>Explorable</h2>
+          <p>3.3 km of strike, and a magnetic break that correlates with the mafic tuff.</p>
+        </div>
+      </header>
+      <div class="tp-section">
+        <div class="tp-wrap">
+          <h3>Tully expansion and exploration</h3>
+          <figure class="tp-figure">
+            <a href="../image/tully/expansion-exploration.webp" target="_blank">
+              <img src="../image/tully/expansion-exploration.webp" alt="Satellite map of the Tully property showing the Indicated box, the Expansion West, East and Deep zones, the Exploration West, East and South zones, planned drill traces and a 3.3 km strike" width="1600" height="1035" loading="lazy" />
+            </a>
+            <figcaption>Expansion and exploration zones on the Tully property.</figcaption>
+          </figure>
+
+          <h3 class="tp-subhead">Magnetics</h3>
+          <p>Magnetics show a break that correlates with the mafic tuff.</p>
+          <figure class="tp-figure">
+            <a href="../image/tully/magnetics.webp" target="_blank">
+              <img src="../image/tully/magnetics.webp" alt="Magnetic gradient map of the Tully property showing the magnetic break, faults and the mineralized corridor beside the break" width="1600" height="837" loading="lazy" />
+            </a>
+            <figcaption>Magnetic gradient, looking down.</figcaption>
+          </figure>
+          <p class="tp-note">Some of the potential quantities and grades disclosed are conceptual in nature, there has been insufficient exploration to define a mineral resource on all of the mineralization at the mineral property, and it is uncertain if further exploration will result in certain targets being delineated as a mineral resource.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tp-section tp-section-white" id="road-map">
+      <div class="tp-wrap">
+        <h2>Development road map</h2>
+        <p>Illustrative schedule. Q3 2026 to Q4 2029, October 2026 planning basis.</p>
+        <table class="tp-gantt">
+          <thead>
+            <tr>
+              <th scope="col">Activity</th>
+              <th scope="col">Timing</th>
+              <th class="tp-gantt-track" aria-hidden="true">
+                <div class="tp-gantt-years">
+                  <span style="--n: 2;">2026</span>
+                  <span style="--n: 4;">2027</span>
+                  <span style="--n: 4;">2028</span>
+                  <span style="--n: 4;">2029</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2026 MRE announced</strong></td>
+              <td class="tp-gantt-when">July 2026</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-milestone"></i></td>
+            </tr>
+            <tr>
+              <td>PEA (Dec. 2026 target)</td>
+              <td class="tp-gantt-when">Q3 – Q4 2026</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-study" style="--s: 0; --n: 2;"></i></td>
+            </tr>
+            <tr>
+              <td>Geological interpretation</td>
+              <td class="tp-gantt-when">Q3 2026 – Q2 2027</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-study" style="--s: 0; --n: 4;"></i></td>
+            </tr>
+            <tr>
+              <td>Resource expansion drilling</td>
+              <td class="tp-gantt-when">Q4 2026 – Q2 2028</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-study" style="--s: 1; --n: 7;"></i></td>
+            </tr>
+            <tr>
+              <td>Exploration programs</td>
+              <td class="tp-gantt-when">Q4 2026 – Q4 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-study" style="--s: 1; --n: 13;"></i></td>
+            </tr>
+            <tr>
+              <td>Permitting &amp; baseline studies</td>
+              <td class="tp-gantt-when">Q3 2026 – Q2 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-permit" style="--s: 0; --n: 12;"></i></td>
+            </tr>
+            <tr>
+              <td>Portal development</td>
+              <td class="tp-gantt-when">Q1 – Q4 2028</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-access" style="--s: 6; --n: 4;"></i></td>
+            </tr>
+            <tr>
+              <td>Underground development</td>
+              <td class="tp-gantt-when">Q3 2028 – Q4 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-dev" style="--s: 8; --n: 6;"></i></td>
+            </tr>
+            <tr>
+              <td>Bulk sample</td>
+              <td class="tp-gantt-when">Q1 – Q3 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-dev" style="--s: 10; --n: 3;"></i></td>
+            </tr>
+            <tr>
+              <td>Toll milling (potential)</td>
+              <td class="tp-gantt-when">Q2 – Q4 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-dev" style="--s: 11; --n: 3;"></i></td>
+            </tr>
+            <tr>
+              <td><strong>Production decision window</strong></td>
+              <td class="tp-gantt-when">Q3 – Q4 2029</td>
+              <td class="tp-gantt-track" aria-hidden="true"><i class="tp-bar tp-bar-decision" style="--s: 12; --n: 2;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="tp-legend" aria-hidden="true">
+          <li><i class="tp-milestone"></i>Completed MRE (July 2026)</li>
+          <li><i class="tp-bar tp-bar-study"></i>Study / exploration</li>
+          <li><i class="tp-bar tp-bar-permit"></i>Permitting</li>
+          <li><i class="tp-bar tp-bar-access"></i>Access option</li>
+          <li><i class="tp-bar tp-bar-dev"></i>Development / testing</li>
+        </ul>
+        <p class="tp-note">Conceptual planning scenario only. All future activities depend on studies, financing, permitting, engineering and access agreements. Production decision ≠ first gold.</p>
+
+        <h3 class="tp-subhead">2026-2027 objectives</h3>
+        <ul class="tp-ticks tp-ticks-columns">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Complete the Preliminary Economic Assessment</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Preliminary mine and infrastructure design</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Advance permitting process</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Conclude ore processing options</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Advance financing alternatives to fund production capex</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Commence expansion and exploration drill programs</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i>Continue First Nations consultations</li>
+        </ul>
+
+        <h3 class="tp-subhead">Why operating cash flow from Tully matters</h3>
+        <p>The foundation for executing the Buy Timmins, Mine Timmins strategy and delivering sustainable returns to shareholders.</p>
+        <ul class="tp-why">
+          <li>
+            <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+            <h4>Self-funded growth</h4>
+            <p>Tully production cash flow funds organic expansion without continuous equity raises</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <h4>Reduced dilution</h4>
+            <p>Internal cash generation protects existing shareholders and improves capital structure</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-coins" aria-hidden="true"></i>
+            <h4>Shareholder returns</h4>
+            <p>Positive free cash flow enables potential dividends and direct returns of capital to shareholders</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            <h4>Balance sheet strength</h4>
+            <p>Strengthens liquidity, reduces reliance on debt, and supports a sustainable capital return policy</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-unlock" aria-hidden="true"></i>
+            <h4>Portfolio unlock</h4>
+            <p>Supports advancement of DeSantis and other Timmins assets under the Buy Timmins, Mine Timmins strategy</p>
+          </li>
+        </ul>
+        <p class="tp-note tp-why-note">Tully is not in production. Any future cash flow depends on studies, financing, permitting, engineering and access agreements.</p>
+      </div>
+    </section>
+
+    <section class="tp-section" id="documents">
+      <div class="tp-wrap">
+        <h2>Documents</h2>
+        <div class="tp-links">
+          <a href="technical-reports.html">Technical reports</a>
+          <a href="../image/loyalist.pdf" target="_blank" class="corporate-presentation-link">Corporate presentation (PDF)</a>
+          <a href="press-release.html">Press releases</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tp-section tp-section-white">
+      <div class="tp-wrap">
+        <h2>Qualified Person</h2>
+        <p>
+          Curtis Ferron, P.Geo. (ON), independent consultant for Loyalist, who is a "Qualified Person" as defined by NI 43-101, has reviewed and approved the technical content of this page.
+        </p>
+        <div class="tp-split tp-legal">
+          <div>
+            <h3>Forward-looking statements</h3>
+            <p>
+              This page contains "forward-looking information" (within the meaning of applicable Canadian securities laws) and "forward-looking statements" (within the meaning of the U.S. Private Securities Litigation Reform Act of 1995). Such statements or information are identified with words such as "anticipate," "believe," "expect," "plan," "intend," "potential," "estimate," "propose," "project," "outlook," "foresee," or similar words suggesting future outcomes or statements regarding an outlook, and include statements regarding the planned preparation of a NI 43-101 Preliminary Economic Assessment (the "Technical Report") on the Company's Tully Property and the proposed work on the projects. Factors that could cause actual results to differ materially from such forward-looking information include, but are not limited to, the Company's inability to complete the financings necessary to complete proposed work and preparation of the Technical Report, failure to identify mineral resources, failure to convert estimated mineral resources to reserves, the inability to complete a feasibility study which recommends a production decision, the preliminary nature of metallurgical test results, delays in obtaining or failures to obtain required governmental, environmental, or other project approvals, political risks, inability to fulfill the duty to accommodate First Nations and other Indigenous peoples, uncertainties relating to the availability and costs of financing needed in the future, changes in equity markets, inflation, changes in exchange rates, fluctuations in commodity prices, delays in the development of projects, capital and operating costs varying significantly from estimates, and other risks involved in the mineral exploration and development industry, capital market conditions, restrictions on labour and international travel, and supply chain issues, as well as those risks set out in the Company's public documents filed on SEDAR+. Although the Company believes that the expectations reflected in the forward-looking information or statements are reasonable, prospective investors in the Company's securities should not place undue reliance on forward-looking statements because the Company can provide no assurance that such expectations will prove to be correct. Forward-looking information and statements contained on this page are as of the date of the Company's October 2026 corporate presentation, and the Company assumes no obligation to update or revise this forward-looking information and statements except as required by law.
+            </p>
+          </div>
+          <div>
+            <h3>Cautionary note to U.S. investors</h3>
+            <p>
+              In the event that we use certain terms on this page, such as "resource", "measured resource", "indicated resource" and "inferred resource", U.S. investors are cautioned that, while such terms are recognized and required by Canadian securities laws, the United States Securities and Exchange Commission does not recognize them. Under U.S. standards, mineralization may not be classified as a "reserve" unless the determination has been made that the mineralization could be economically and legally produced or extracted at the time the reserve determination has been made. U.S. investors should not assume that all or any part of measured or indicated resources will ever be converted into reserves. In addition, "inferred resources" have a great amount of uncertainty as to their existence and as to whether they can be mined legally or economically. Accordingly, information concerning descriptions of mineralization on this page may not be comparable to information made public by companies that are subject to the SEC's Industry Guide 7.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
     <!-- footer -->
  <footer class="site-footer">
@@ -1035,6 +2143,38 @@ function closeModal() {
 function closePopup() {
   document.getElementById("welcomePopup").style.display = "none";
 }
+
+// Tully cut-off explorer: swaps the deposit image and reads the numbers from the grade-tonnage table
+(function () {
+  const explorer = document.getElementById('cutoffExplorer');
+  const image = document.getElementById('cutoffImage');
+  const link = document.getElementById('cutoffLink');
+  const views = { long: 'Long section looking north', plan: 'Plan view' };
+
+  function updateExplorer() {
+    const cutoff = explorer.querySelector('input[name="cutoff"]:checked').value;
+    const view = explorer.querySelector('input[name="view"]:checked').value;
+    const src = `../image/tully/${view}-${cutoff}.webp`;
+
+    image.src = src;
+    image.alt = `${views[view]} of the Tully block model at a ${cutoff} g/t Au cut-off`;
+    link.href = src;
+
+    document.querySelectorAll('#gradeTonnage tbody').forEach(group => {
+      const active = group.dataset.cutoff === cutoff;
+      group.classList.toggle('is-active', active);
+      if (active) {
+        const cells = group.rows[0].cells;
+        document.getElementById('readoutTonnes').textContent = `${cells[2].textContent} kt`;
+        document.getElementById('readoutGrade').textContent = `${cells[3].textContent} g/t Au`;
+        document.getElementById('readoutGold').textContent = `${cells[4].textContent} koz`;
+      }
+    });
+  }
+
+  explorer.addEventListener('change', updateExplorer);
+  updateExplorer();
+})();
 </script>
 <script src="../corporate-presentation-loader.js"></script>
 </body>
